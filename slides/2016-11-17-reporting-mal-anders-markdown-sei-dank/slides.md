@@ -119,7 +119,7 @@ Population Development,New York,Rio,Tokio
 
 ### APEX Demo
 
-![APEX Demo](./assets/apex-demo.png?nolink&800)
+![APEX Demo](./assets/apex-demo.png?nolink&800) <!-- .element: width="800px" -->
 
 [Der Demo Report im PDF Format](./assets/demo-report.pdf)
 

@@ -394,7 +394,7 @@ Später habe ich dann bei der Anwendung von dem Pandoc Python Filter wieder eine
 
 ### Markdown Reporter - Demo Chart
 
-``````sql
+~~~sql
 SELECT markdown_reporter.convert_document(
            p_format   => 'pdf' -- html, pdf, docx (with png's only)
          , p_markdown => markdown_reporter.preprocess_data(p_markdown => q'[
@@ -411,7 +411,7 @@ SELECT 2010,8175133,6320446,8980768 FROM dual;
 ```
 ]'))
   FROM dual;
-``````
+~~~
 
 [Das Ergebnis dieser Query](./assets/demo-chart.pdf)
 
@@ -424,7 +424,7 @@ SELECT markdown_reporter.preprocess_data(p_markdown => '...')
   FROM dual;
 ```
 
-``````markdown
+~~~markdown
 ``` { .sql .chart .line caption="Demo Chart"}
 "Population Development","New York","Rio","Tokio"
 "1940","7454995","1759277","6778804"
@@ -436,7 +436,7 @@ SELECT markdown_reporter.preprocess_data(p_markdown => '...')
 "2000","8008278","5857904","8134688"
 "2010","8175133","6320446","8980768"
 ```
-``````
+~~~
 <!--slide-->
 
 ### Pandoc Filter

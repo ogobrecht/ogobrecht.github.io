@@ -22,7 +22,7 @@ The API is also handling the case, when no data is found and everything without 
 
 The next thing for APEX was "For tabular forms you can't use APIs". We came up with the idea to generate a view for each table with an instead of trigger for inserts, updates and deletions. The trigger is simply calling the API. Now you can use APEX own "automatic row processing" and the generic logging together.
 
-In my holiday this spring I stumbled over a tweed from Phillip Salvisberg about his [oddgen project][1], a SQL Developer extension to invoke dictionary-driven code generators. I was thrilled, we can have a SQL Developer integration by writing a small PL/SQL wrapper for oddgen. I finished the integration in my holiday, I could not not wait.
+In my holiday this spring I stumbled over a tweed from Phillip Salvisberg about his [oddgen project][1], a SQL Developer extension to invoke dictionary-driven code generators. I was thrilled, we can have a SQL Developer integration by writing a small PL/SQL wrapper for oddgen. I finished the integration in my holiday, I could not wait.
 
 Over the time we found out, that the generation of the thin API wrappers for our tables saves us time and makes our code more stable and readable because of the saved boilerplate code.  
 Business logic packages becomes invalid after table changes and API regeneration. This is good, because you can see, which API calls are now invalid. If you have simple insert or update statements you might oversee some places, where the statement is still valid for example with an added table column, but in fact does the wrong insert or update.

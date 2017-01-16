@@ -22,8 +22,8 @@ description: > # "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 permalink: /posts/:year-:month-:day-:title
-twitter_username: ogobrecht
 github_username:  ogobrecht
+twitter_username: ogobrecht
 xing_username: Ottmar_Gobrecht
 
 # Build settings

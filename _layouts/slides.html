@@ -27,7 +27,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <section data-markdown="slides.md"
          data-separator="<!--slide-container-->"
          data-separator-vertical="<!--slide-->"
-         data-separator-notes="<!--notes-->"
+         data-separator-notes="{% if page.lang == "de" %}^Anmerkung:{% else %}^Note:{% endif %}"
          data-charset="utf-8">
 </section>
 </div>

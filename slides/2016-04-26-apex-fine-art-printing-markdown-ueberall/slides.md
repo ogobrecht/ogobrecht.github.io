@@ -64,40 +64,40 @@ HTML-Erstellung
 
 ### Syntax & Weiterentwicklungen
 
-- John Gruber: [Markdown Basics (en)][1]
-- John Gruber: [Markdown Syntax (en)][2]
-- [Deutsche Übersetzung][3] von Grubers Original
-- Wikipedia: [Auszeichnungsbeispiele][4]
-- Wikipedia: [Weiterentwicklungen][5]
+- John Gruber: [Markdown Basics (en)][2]
+- John Gruber: [Markdown Syntax (en)][3]
+- [Deutsche Übersetzung][4] von Grubers Original
+- Wikipedia: [Auszeichnungsbeispiele][5]
+- Wikipedia: [Weiterentwicklungen][6]
 
-[1]: https://daringfireball.net/projects/markdown/basics
-[2]: https://daringfireball.net/projects/markdown/syntax
-[3]: http://markdown.de/syntax/index.html
-[4]: https://de.wikipedia.org/wiki/Markdown#Auszeichnungsbeispiele
-[5]: https://de.wikipedia.org/wiki/Markdown#Weiterentwicklungen
+[2]: https://daringfireball.net/projects/markdown/basics
+[3]: https://daringfireball.net/projects/markdown/syntax
+[4]: http://markdown.de/syntax/index.html
+[5]: https://de.wikipedia.org/wiki/Markdown#Auszeichnungsbeispiele
+[6]: https://de.wikipedia.org/wiki/Markdown#Weiterentwicklungen
 
 <!--slide-->
 
 ### Weitere vereinfachte Auszeichnungssprachen
 
-- Wikis: [MediaWiki][1], [DokuWiki][2], [Creole][3]
-- Foren: Quasistandard [BBCode][4]
-- [Emacs][5] Erweiterung [Org-mode][6]
-- Quellcode-Doku mit [POD][7] oder [Javadoc][8]
-- [Textile][9], [AsciiDoc][10], [reStructuredText][11]
+- Wikis: [MediaWiki][7], [DokuWiki][8], [Creole][9]
+- Foren: Quasistandard [BBCode][10]
+- [Emacs][11] Erweiterung [Org-mode][12]
+- Quellcode-Doku mit [POD][13] oder [Javadoc][14]
+- [Textile][15], [AsciiDoc][16], [reStructuredText][17]
 - ...
 
-[1]: https://de.wikipedia.org/wiki/MediaWiki
-[2]: https://www.dokuwiki.org/
-[3]: https://de.wikipedia.org/wiki/Creole_(Markup)
-[4]: https://de.wikipedia.org/wiki/BBCode
-[5]: https://de.wikipedia.org/wiki/Emacs
-[6]: https://de.wikipedia.org/wiki/Org-mode
-[7]: https://de.wikipedia.org/wiki/Plain_Old_Documentation
-[8]: https://de.wikipedia.org/wiki/Javadoc
-[9]: https://de.wikipedia.org/wiki/Textile
-[10]: https://de.wikipedia.org/wiki/AsciiDoc
-[11]: https://de.wikipedia.org/wiki/ReStructuredText
+[7]: https://de.wikipedia.org/wiki/MediaWiki
+[8]: https://www.dokuwiki.org/
+[9]: https://de.wikipedia.org/wiki/Creole_(Markup)
+[10]: https://de.wikipedia.org/wiki/BBCode
+[11]: https://de.wikipedia.org/wiki/Emacs
+[12]: https://de.wikipedia.org/wiki/Org-mode
+[13]: https://de.wikipedia.org/wiki/Plain_Old_Documentation
+[14]: https://de.wikipedia.org/wiki/Javadoc
+[15]: https://de.wikipedia.org/wiki/Textile
+[16]: https://de.wikipedia.org/wiki/AsciiDoc
+[17]: https://de.wikipedia.org/wiki/ReStructuredText
 
 <!--slide-->
 
@@ -126,16 +126,16 @@ HTML-Erstellung
 Ein paar interessante Blog-Einträge zum Thema:
 
 - Michael Kofler:
-  - [Sackgasse LaTeX?][1]
-  - [Kindle-eBooks mit Pandoc erstellen][2]
+  - [Sackgasse LaTeX?][18]
+  - [Kindle-eBooks mit Pandoc erstellen][19]
 - Open Source Press:
-  - [Bye-bye LaTeX!][3]
-  - [AsciiDoc, Markdown & Co.][4]
+  - [Bye-bye LaTeX!][20]
+  - [AsciiDoc, Markdown & Co.][21]
 
-[1]: https://kofler.info/sackgasse-latex/
-[2]: https://kofler.info/kindle-ebooks-mit-pandoc-erstellen/
-[3]: http://www.opensourcepress.de/de/blog/2013/05/bye_bye_latex.php
-[4]: http://www.opensourcepress.de/de/blog/2013/05/asciidoc_markdown.php
+[18]: https://kofler.info/sackgasse-latex/
+[19]: https://kofler.info/kindle-ebooks-mit-pandoc-erstellen/
+[20]: http://www.opensourcepress.de/de/blog/2013/05/bye_bye_latex.php
+[21]: http://www.opensourcepress.de/de/blog/2013/05/asciidoc_markdown.php
 
 <!--slide-->
 
@@ -155,11 +155,11 @@ Ein paar interessante Blog-Einträge zum Thema:
 
 <!--slide-->
 
-### Plugins für jedes wichtige CMS, Wiki oder Forum - auch für APEX [:-)][1]
+### Plugins für jedes wichtige CMS, Wiki oder Forum - auch für APEX [:-)][22]
 
 ![APEX plugin](./assets/apex-plugin.png) <!-- .element: width="800px" -->
 
-[1]: https://apex.oracle.com/pls/apex/f?p=66154:1
+[22]: https://apex.oracle.com/pls/apex/f?p=66154:1
 
 <!--slide-->
 
@@ -197,7 +197,7 @@ Ein paar interessante Blog-Einträge zum Thema:
 
 ### Ein Quelltext, viele Ausgabeformate
 
-Beispiel Formatkonverter [Pandoc][1]:
+Beispiel Formatkonverter [Pandoc][23]:
 
 - HTML
 - Word(docx), OpenOffice (odt)
@@ -206,23 +206,23 @@ Beispiel Formatkonverter [Pandoc][1]:
 - Slideshows (HTML5 oder LaTeX)
 - ...
 
-[1]: http://pandoc.org/
+[23]: http://pandoc.org/
 
 <!--slide-->
 
-### Übrigens, dieser Vortrag wurde in Markdown verfasst [:-)][1]
+### Übrigens, dieser Vortrag wurde in Markdown verfasst [:-)][24]
 
 ![Vortrag in Markdown](./assets/vortrag.png)
 
-[1]: http://pandoc.org/README.html#producing-slide-shows-with-pandoc
+[24]: http://pandoc.org/README.html#producing-slide-shows-with-pandoc
 
 <!--slide-->
 
 ### APEX Markdown Plugin in Action
 
-[Demo...][1]
+[Demo...][25]
 
-[1]: https://apex.oracle.com/pls/apex/f?p=66154:1
+[25]: https://apex.oracle.com/pls/apex/f?p=66154:1
 
 <!--slide-container-->
 
@@ -233,25 +233,25 @@ Beispiel Formatkonverter [Pandoc][1]:
 ### Die Idee
 
 - Markdown als Eingabeformat
-- [Pandoc][1] als Konverter nach HTML, DOCX, PDF, ...
-- [Node.js][2] als Web-Schnittstelle zu Pandoc
-- Mehr zu [Pandocs Markdown][3]
+- [Pandoc][26] als Konverter nach HTML, DOCX, PDF, ...
+- [Node.js][27] als Web-Schnittstelle zu Pandoc
+- Mehr zu [Pandocs Markdown][28]
 
-[1]: http://pandoc.org/
-[2]: https://nodejs.org/
-[3]: http://pandoc.org/README.html#pandocs-markdown
+[26]: http://pandoc.org/
+[27]: https://nodejs.org/
+[28]: http://pandoc.org/README.html#pandocs-markdown
 
 <!--slide-->
 
 ### Fine art printing?
 
-- Pandoc nutzt [LaTeX][1] zur PDF-Erstellung:
+- Pandoc nutzt [LaTeX][29] zur PDF-Erstellung:
   - Textsatzsystem
   - Sauberes Schriftbild
   - Guter Formelsatz
   - Standard im Publikationsumfeld (Verlage, wissenschaftliche Arbeiten)
 
-[1]: https://de.wikipedia.org/wiki/LaTeX
+[29]: https://de.wikipedia.org/wiki/LaTeX
 
 <!--slide-->
 
@@ -278,13 +278,13 @@ Demo und Diskussion...
 
 - SQL-Code-Blöcke werden speziell markiert
 - Hilfsfunktion ersetzt Blöcke durch Daten
-- Ein [Pandoc-Filter][1] wandelt Daten in Charts
-- Chart-Engine: Python [matplotlib][2], [pandas][3]
+- Ein [Pandoc-Filter][30] wandelt Daten in Charts
+- Chart-Engine: Python [matplotlib][31], [pandas][32]
 - Alles vektorbasiert und Open Source
 
-[1]: http://pandoc.org/scripting.html
-[2]: http://matplotlib.org/
-[3]: http://pandas.pydata.org/index.html
+[30]: http://pandoc.org/scripting.html
+[31]: http://matplotlib.org/
+[32]: http://pandas.pydata.org/index.html
 
 <!--slide-->
 
@@ -306,6 +306,6 @@ Demo und Diskussion...
 
 ### Fragen?
 
-[ogobrecht.github.io][1]
+[ogobrecht.github.io][33]
 
-[1]: https://ogobrecht.github.io
+[33]: https://ogobrecht.github.io

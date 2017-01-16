@@ -30,8 +30,11 @@ DOAG APEX connect 2015, Düsseldorf
 
 ### Zum selber schauen:
 
-[d3js.org](http://d3js.org/)  
-[github.com/mbostock/d3/wiki/Gallery](https://github.com/mbostock/d3/wiki/Gallery)
+[d3js.org][1]  
+[github.com/mbostock/d3/wiki/Gallery][2]
+
+[1]: http://d3js.org/
+[2]: https://github.com/mbostock/d3/wiki/Gallery
 
 <!--slide-->
 
@@ -116,7 +119,9 @@ Das könnte immer so weiter gehen ...
 - Externe Rastergrafiken
 - Style Attribute für das Aussehen
 - Transformationen für Position, Orientierung, Form (Parallelverschiebung, Rotation, Skalierung, Scherung)
-- Eines der vielen Tutorials im Internet: [tutorials.jenkov.com/svg/index.html](http://tutorials.jenkov.com/svg/index.html)
+- Eines der vielen Tutorials im Internet: [tutorials.jenkov.com/svg/index.html][3]
+
+[3]: http://tutorials.jenkov.com/svg/index.html
 
 <!--slide-->
 
@@ -154,7 +159,8 @@ JavaScript: Bitte in Konsole ausführen
     .style('fill-opacity',0.5);
 ```
 
-<!--notes-->
+Anmerkung:
+
 - Füllfarbe: `fill`
 - Konturfarbe: `stroke`
 - Bezugspunkt Position:
@@ -175,7 +181,9 @@ JavaScript: Bitte in Konsole ausführen
 - D3 spricht von Selections
 - Jede Selection ist ein Array, auch ohne Elemente
 - Automatische Iteration bei Methodenaufruf des Arrays
-- Guter Einstieg ins Thema: [bost.ocks.org/mike/bar/](http://bost.ocks.org/mike/bar/)
+- Guter Einstieg ins Thema: [bost.ocks.org/mike/bar/][4]
+
+[4]: http://bost.ocks.org/mike/bar/
 
 <!--slide-->
 
@@ -197,9 +205,11 @@ Schleife über alle Elemente: D3
 d3.selectAll('p').style('color','red');
 ```
 
-[bost.ocks.org/mike/selection/](http://bost.ocks.org/mike/selection/)
+[bost.ocks.org/mike/selection/][5]
 
-<!--notes-->
+[5]: http://bost.ocks.org/mike/selection/
+
+Anmerkung:
 
 - jQuery und andere Libraries iterieren auch automatisch
 
@@ -230,7 +240,9 @@ Wie man Daten an das DOM bindet
 - Enter: fehlende DOM-Elemente
 - Exit: überflüssige DOM-Elemente
 
-![Der D3 Data Join - [bost.ocks.org/mike/join/](http://bost.ocks.org/mike/join/)](./assets/data-join.png)
+![Der D3 Data Join - [bost.ocks.org/mike/join/][6]](./assets/data-join.png)
+
+[6]: http://bost.ocks.org/mike/join/
 
 <!--slide-->
 
@@ -256,7 +268,10 @@ Bitte Code in der Browser-Konsole ausführen:
     .style('color', 'green');
   p.exit().remove();
 ```
-[bost.ocks.org/mike/circles/](http://bost.ocks.org/mike/circles/)
+
+[bost.ocks.org/mike/circles/][7]
+
+[7]: http://bost.ocks.org/mike/circles/
 
 <!--slide-->
 
@@ -276,9 +291,9 @@ Bitte Code in der Browser-Konsole ausführen:
 
 <!--slide-->
 
-Key Function [Beispiel][1]: <svg id="Beispiel_3" width="200" height="30"></svg>
+Key Function [Beispiel][8]: <svg id="Beispiel_3" width="200" height="30"></svg>
 
-[1]: http://bost.ocks.org/mike/selection/#key
+[8]: http://bost.ocks.org/mike/selection/#key
 
 ```html
 <svg id="Beispiel_3" width="200" height="30"></svg>
@@ -312,12 +327,13 @@ circle = svg.selectAll('circle')
 
 ### Hilfsfunktionen
 
-- Überblick gibt die API-Referenz
-  [github.com/mbostock/d3/wiki/API-Reference](https://github.com/mbostock/d3/wiki/API-Reference)
+- Überblick gibt die [API-Referenz][9]
 - Drei Anwendungsbeispiele:
   - `d3.scale.linear()` Eingabewerte skalieren zu Ausgabebereich
   - `d3.scale.sqrt()` Radius von SVG Circle Elementen
   - `d3.scale.category20()` liefert zwanzig verschiedene Farben
+
+[9]: https://github.com/mbostock/d3/wiki/API-Reference
 
 <!--slide-->
 
@@ -325,23 +341,29 @@ circle = svg.selectAll('circle')
 
 Layouts sind Chart Algorithmen
 
-[github.com/mbostock/d3/wiki/Layouts](https://github.com/mbostock/d3/wiki/Layouts)
+[github.com/mbostock/d3/wiki/Layouts][10]
+
+[10]: https://github.com/mbostock/d3/wiki/Layouts
 
 <!--slide-->
 
 ### Beispiel Pack Layout
 
-![Beispiel Pack Layout](./assets/layout-Pack.png)
+![Beispiel Pack Layout](./assets/layout-pack.png)
 
-[github.com/mbostock/d3/wiki/Pack-Layout](https://github.com/mbostock/d3/wiki/Pack-Layout)
+[github.com/mbostock/d3/wiki/Pack-Layout][11]
+
+[11]: https://github.com/mbostock/d3/wiki/Pack-Layout
 
 <!--slide-->
 
 ### Beispiel Bundle Layout
 
-![Beispiel Bundle Layout](./assets/layout-Bundle.png)
+![Beispiel Bundle Layout](./assets/layout-bundle.png)
 
-[github.com/mbostock/d3/wiki/Bundle-Layout](https://github.com/mbostock/d3/wiki/Bundle-Layout)
+[github.com/mbostock/d3/wiki/Bundle-Layout][12]
+
+[12]: https://github.com/mbostock/d3/wiki/Bundle-Layout
 
 <!--slide-->
 
@@ -350,7 +372,8 @@ Layouts sind Chart Algorithmen
 - D3 erspart dem Browser unnötige Arbeit
 - Es bleiben Resourcen für größere Datenmengen
 
-<!--notes-->
+Anmerkung:
+
 - Kein Löschen-Neuanlage-Eventregistrierung-Etcetera-Zyklus bei Aktualisierungen notwendig
 - Die Selection hält Referenzen auf die DOM-Elemente - dadurch keine weitere Suche notwendig
 
@@ -366,7 +389,9 @@ Layouts sind Chart Algorithmen
 - D3 berechnet fortwährend die Positionen
 - Das Positionieren der Knoten übernimmt D3.js NICHT
 - Dafür gibt es das Tick Event
-- [Details zum Force Layout](https://github.com/d3/d3-3.x-api-reference/blob/master/Force-Layout.md)
+- [Details zum Force Layout][13]
+
+[13]: https://github.com/d3/d3-3.x-api-reference/blob/master/Force-Layout.md
 
 <!--slide-->
 
@@ -468,7 +493,10 @@ svg.net_gobrechts_d3_force {
 </style>
 <div id="demo_emp"></div>
 
-Mit Customize Wizard: [Standalone](http://ogobrecht.github.io/d3-force-apex-plugin/), [APEX Plugin](https://apex.oracle.com/pls/apex/f?p=18290:1)
+Mit Customize Wizard: [Standalone][14], [APEX Plugin][15]
+
+[14]: http://ogobrecht.github.io/d3-force-apex-plugin/
+[15]: https://apex.oracle.com/pls/apex/f?p=18290:1
 
 <!--slide-->
 
@@ -476,19 +504,26 @@ Mit Customize Wizard: [Standalone](http://ogobrecht.github.io/d3-force-apex-plug
 
 - In einem Vortrag kann man nur an der Oberfläche kratzen
 - Wer Lust auf mehr bekommen hat:
-  - [d3js.org](http://d3js.org)
-  - [github.com/ogobrecht/d3-force-apex-plugin](https://github.com/ogobrecht/d3-force-apex-plugin)
-  - [D3 Tip in der deutschen APEX Community](https://apex.oracle.com/pls/apex/GERMAN_COMMUNITIES.SHOW_TIPP?P_ID=3481)
-  - [www.apex-plugin.com](http://www.apex-plugin.com/search-plugin-directory/) (nach D3 suchen)
-- Wer keine Lust auf selber machen hat: [nvd3.org](http://nvd3.org/), [c3js.org](http://c3js.org/) (Abstraktionsprojekte)
+  - [d3js.org][16]
+  - [github.com/ogobrecht/d3-force-apex-plugin][17]
+  - [D3 Tip in der deutschen APEX Community][18]
+  - [www.apex-plugin.com][19] (nach D3 suchen)
+- Wer keine Lust auf selber machen hat: [nvd3.org][20], [c3js.org][21] (Abstraktionsprojekte)
+
+[16]: http://d3js.org
+[17]: https://github.com/ogobrecht/d3-force-apex-plugin
+[18]: https://apex.oracle.com/pls/apex/GERMAN_COMMUNITIES.SHOW_TIPP?P_ID=3481
+[19]: http://www.apex-plugin.com/search-plugin-directory/
+[20]: http://nvd3.org/
+[21]: http://c3js.org/
 
 <!--slide-->
 
 ### Fragen?
 
-[ogobrecht.github.io][1]
+[ogobrecht.github.io][22]
 
-[1]: https://ogobrecht.github.io
+[22]: https://ogobrecht.github.io
 
 <!--slide-container-->
 
@@ -514,7 +549,8 @@ Mit Customize Wizard: [Standalone](http://ogobrecht.github.io/d3-force-apex-plug
 - Für private Variablen kann man Get- und Set-Funktionen definieren
 
 
-<!--notes-->
+Anmerkung:
+
 - Vorheriger Kontext: Closure kann auf die vor der Rückgabe vorhandenen Variablen innerhalb ihrer Ursprungsfunktion zugreifen
 - Private Variablen sind von außen nicht einsehbar
 
@@ -562,6 +598,6 @@ test.width(300).render().width(); //Was passiert jetzt?
 
 ### Fragen?
 
-[ogobrecht.github.io][1]
+[ogobrecht.github.io][23]
 
-[1]: https://ogobrecht.github.io
+[23]: https://ogobrecht.github.io

@@ -75,13 +75,13 @@ Keine versteckten DML Statements in APEX
 
 ### Open Source Projekt
 
-[github.com/OraMUC/table-api-generator][1]
+[github.com/OraMUC/table-api-generator][2]
 
-[1]: https://github.com/OraMUC/table-api-generator
+[2]: https://github.com/OraMUC/table-api-generator
 
 <!--slide-->
 
-PL/SQL & SQL Developer Integration ([oddgen][1])
+PL/SQL & SQL Developer Integration ([oddgen][3])
 
 ```sql
 begin
@@ -91,7 +91,7 @@ end;
 
 ![](./assets/sql-developer.png)
 
-[1]: https://www.oddgen.org/
+[3]: https://www.oddgen.org/
 
 <!--slide-->
 
@@ -113,11 +113,11 @@ end;
 
 Der API-Generator setzt aktuell voraus, dass ...
 
-- ... es einen einspaltigen, numerischen Primärschlüssel gibt ([Surrogatschlüssel][1], kein [sprechender Schlüssel][2])
+- ... es einen einspaltigen, numerischen Primärschlüssel gibt ([Surrogatschlüssel][4], kein [sprechender Schlüssel][5])
 - ... fachliche Schlüssel als eindeutige Schlüssel definiert werden (optional, dann wird pro Unique Key eine `get_pk_by_unique_cols` Funktion erstellt)
 
-[1]: https://de.wikipedia.org/wiki/Surrogatschl%C3%BCssel
-[2]: https://de.wikipedia.org/wiki/Sprechender_Schl%C3%BCssel
+[4]: https://de.wikipedia.org/wiki/Surrogatschl%C3%BCssel
+[5]: https://de.wikipedia.org/wiki/Sprechender_Schl%C3%BCssel
 
 <!--slide-container-->
 
@@ -138,11 +138,11 @@ Der API-Generator setzt aktuell voraus, dass ...
 - ~~Generierungsoptionen in API-Packages hinterlegen~~
 - Dokumentation
 - Logger-Integration
-- Historisierung über Parameter aufnehmen? [Slowly Changing Dimensions (Typ 2)][1]
+- Historisierung über Parameter aufnehmen? [Slowly Changing Dimensions (Typ 2)][6]
 - Eure Wünsche und Ideen?
 - ...
 
-[1]: https://de.wikipedia.org/wiki/Slowly_Changing_Dimensions
+[6]: https://de.wikipedia.org/wiki/Slowly_Changing_Dimensions
 
 <!--slide-->
 
@@ -150,7 +150,7 @@ Der API-Generator setzt aktuell voraus, dass ...
 
 ### Fragen?
 
-Euer [OraMUC-Team][1]  
+Euer [OraMUC-Team][7]  
 André & Ottmar
 
-[1]: https://github.com/OraMUC
+[7]: https://github.com/OraMUC

@@ -178,17 +178,3 @@ pre {
   display: table;
   clear: both;
 }
-
-
-
-/**
- * Icons
- */
-.icon > svg {
-  display: inline-block;
-  vertical-align: middle;
-
-  path {
-    fill: $brand-color;
-  }
-}

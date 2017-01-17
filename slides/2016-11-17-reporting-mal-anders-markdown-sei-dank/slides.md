@@ -63,49 +63,49 @@ Population Development,New York,Rio,Tokio
 ```
 <!--slide-->
 
-<h3>Line Chart (<a href="javascript:to_svg()" title="Show SVG's for all eight sample charts">SVG</a>/<a href="javascript:to_png()" title="Show PNG's for all eight sample charts">PNG</a>)</h3>
+<h3>Line Chart (<a href="javascript:to_svg()" title="Show SVG's for all eight example charts">SVG</a>/<a href="javascript:to_png()" title="Show PNG's for all eight example charts">PNG</a>)</h3>
 
 ![Line Chart](./assets/line.svg.png) <!-- .element: width="810px" -->
 
 <!--slide-->
 
-<h3>Area Chart (<a href="javascript:to_svg()" title="Show SVG's for all eight sample charts">SVG</a>/<a href="javascript:to_png()" title="Show PNG's for all eight sample charts">PNG</a>)</h3>
+<h3>Area Chart (<a href="javascript:to_svg()" title="Show SVG's for all eight example charts">SVG</a>/<a href="javascript:to_png()" title="Show PNG's for all eight example charts">PNG</a>)</h3>
 
 ![Area Chart](./assets/area.svg.png) <!-- .element: width="810px" -->
 
 <!--slide-->
 
-<h3>Area Chart Stacked (<a href="javascript:to_svg()" title="Show SVG's for all eight sample charts">SVG</a>/<a href="javascript:to_png()" title="Show PNG's for all eight sample charts">PNG</a>)</h3>
+<h3>Area Chart Stacked (<a href="javascript:to_svg()" title="Show SVG's for all eight example charts">SVG</a>/<a href="javascript:to_png()" title="Show PNG's for all eight example charts">PNG</a>)</h3>
 
 ![Area Chart Stacked](./assets/area-stacked.svg.png) <!-- .element: width="810px" -->
 
 <!--slide-->
 
-<h3>Bar Chart (<a href="javascript:to_svg()" title="Show SVG's for all eight sample charts">SVG</a>/<a href="javascript:to_png()" title="Show PNG's for all eight sample charts">PNG</a>)</h3>
+<h3>Bar Chart (<a href="javascript:to_svg()" title="Show SVG's for all eight example charts">SVG</a>/<a href="javascript:to_png()" title="Show PNG's for all eight example charts">PNG</a>)</h3>
 
 ![Bar Chart](./assets/bar.svg.png) <!-- .element: width="810px" -->
 
 <!--slide-->
 
-<h3>Bar Chart Stacked (<a href="javascript:to_svg()" title="Show SVG's for all eight sample charts">SVG</a>/<a href="javascript:to_png()" title="Show PNG's for all eight sample charts">PNG</a>)</h3>
+<h3>Bar Chart Stacked (<a href="javascript:to_svg()" title="Show SVG's for all eight example charts">SVG</a>/<a href="javascript:to_png()" title="Show PNG's for all eight example charts">PNG</a>)</h3>
 
 ![Bar Chart Stacked](./assets/bar-stacked.svg.png) <!-- .element: width="810px" -->
 
 <!--slide-->
 
-<h3>Bar Chart Horizontal (<a href="javascript:to_svg()" title="Show SVG's for all eight sample charts">SVG</a>/<a href="javascript:to_png()" title="Show PNG's for all eight sample charts">PNG</a>)</h3>
+<h3>Bar Chart Horizontal (<a href="javascript:to_svg()" title="Show SVG's for all eight example charts">SVG</a>/<a href="javascript:to_png()" title="Show PNG's for all eight example charts">PNG</a>)</h3>
 
 ![Bar Chart Horizontal](./assets/barh.svg.png) <!-- .element: width="810px" -->
 
 <!--slide-->
 
-<h3>Bar Chart Horizontal Stacked (<a href="javascript:to_svg()" title="Show SVG's for all eight sample charts">SVG</a>/<a href="javascript:to_png()" title="Show PNG's for all eight sample charts">PNG</a>)</h3>
+<h3>Bar Chart Horizontal Stacked (<a href="javascript:to_svg()" title="Show SVG's for all eight example charts">SVG</a>/<a href="javascript:to_png()" title="Show PNG's for all eight example charts">PNG</a>)</h3>
 
 ![Bar Chart Horizontal Stacked](./assets/barh-stacked.svg.png) <!-- .element: width="810px" -->
 
 <!--slide-->
 
-<h3>Pie Chart (<a href="javascript:to_svg()" title="Show SVG's for all eight sample charts">SVG</a>/<a href="javascript:to_png()" title="Show PNG's for all eight sample charts">PNG</a>)</h3>
+<h3>Pie Chart (<a href="javascript:to_svg()" title="Show SVG's for all eight example charts">SVG</a>/<a href="javascript:to_png()" title="Show PNG's for all eight example charts">PNG</a>)</h3>
 
 ![Pie Chart](./assets/pie.svg.png) <!-- .element: width="550px" -->
 

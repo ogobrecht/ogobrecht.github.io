@@ -5,6 +5,7 @@ tags: [project, oracle, apex, plugin, d3js, chart]
 lang: en
 layout: post
 ---
+<div id="example-graph"></div><!--the graph container-->
 
 _My first Oracle APEX plugin and open source project :-)_
 
@@ -31,9 +32,15 @@ window.onload = function (){
 
 I found myself often fiddling around with the parameters of the physical simulation - change config, reload page, not amused, change config...
 
-Really annoying - even I know the implementation behind. So, the question was: What can I do for an easy configuration. My answer was after a while of thinking and trying out: A customization wizard with a live preview of the changes. The link to enter the wizard is shown when the debug mode is switched on or in APEX when the developer bar is shown - try it out in the example graph below:
+Really annoying - even I know the implementation behind. So, the question was: What can I do for an easy configuration. My answer was after a while of thinking and trying out: A customization wizard with a live preview of the changes. The link to enter the wizard is shown when the debug mode is switched on or in APEX when the developer bar is shown - try it out in the example graph above.
 
-<div id="example-graph"></div><!--the graph container-->
+You can find the sources and more informations on [GitHub][2] and a demo app on [apex.oracle.com][3].
+
+
+[1]: https://bl.ocks.org/mbostock/4062045
+[2]: https://github.com/ogobrecht/d3-force-apex-plugin
+[3]: https://apex.oracle.com/pls/apex/f?p=18290:1
+
 <link  href="/assets/d3-force-2.0.2.css" rel="stylesheet" type="text/css">
 <script src="/assets/d3-3.5.6.min.js"></script>
 <script src="/assets/d3-force-2.0.2.min.js"></script>
@@ -47,10 +54,3 @@ window.onload = function (){
     .start(); //sample data is provided, when called without data
 }
 </script>
-
-You can find the sources and more informations on [GitHub][2] and a demo app on [apex.oracle.com][3].
-
-
-[1]: https://bl.ocks.org/mbostock/4062045
-[2]: https://github.com/ogobrecht/d3-force-apex-plugin
-[3]: https://apex.oracle.com/pls/apex/f?p=18290:1

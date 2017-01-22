@@ -1,0 +1,446 @@
+---
+title: D3.js Grundlagen
+subtitle: DOAG/SOUG News 02-2015
+tags: [oracle, apex, doag, d3js]
+lang: de
+layout: post
+---
+
+Dieser Artikel erschien in der DOAG/SOUG News 02-2015 und steht auch im [Original][1] zur Verfügung. Im Gegensatz zu der Papierversion der DOAG haben wir natürlich auf einer Webseite alle Möglichkeiten, D3 live zu zeigen - also los, wir starten mit einer Netzwerkvisualisierung live im Browser (JavaScript muß aktiv sein, damit die Beispiele auf dieser Seite funktionieren):
+
+[1]: https://mydoag.doag.org/formes/pubfiles/6900184/docs/Publikationen/DOAGNews/2015/02-2015/2015-02-News-Ottmar-Gobrecht-D3-Data-Driven-Documents.pdf
+
+<div id="example1"></div><!--the graph container-->
+
+*D3 ist eine JavaScript Bibliothek zum Manipulieren von HTML Dokumenten auf der Basis von Daten und setzt dabei auf die Webstandards HTML, SVG und CSS. Dieser Artikel soll die Grundlagen von D3 beleuchten und das Interesse am Thema Datenvisualisierung mit Webstandards wecken. Für Datenbankentwickler vorab nur soviel: Auch D3 kennt den Begriff des Joins.*
+
+## Beispiele von der D3 Homepage
+
+![github.com/mbostock/d3/wiki/Gallery](/slides/2015-06-09-d3js-data-driven-documents/assets/beispiel-9.png)
+
+![github.com/mbostock/d3/wiki/Gallery](/slides/2015-06-09-d3js-data-driven-documents/assets/beispiel-10.png)
+
+## D3: Was ist das?
+
+D3 steht für DDD = Data Driven Documents. Neben den oben gezeigten Beispielen kennt D3 alle üblichen Charts und beim Anblick der Startseite unter [d3js.org][2] wird einem klar, daß es wohl keine Grenzen bei der Umsetzung zu geben scheint. Hier der unvollständige Versuch, D3 etwas genauer zu definieren:
+
+[2]: http://d3js.org
+
+1. D3 ist eine JavaScript-Entwicklerbibliothek, welche es erlaubt, Daten mit grafischen Elementen (SVG) im Browser zu kombinieren und diese so auf vielfältige Art und Weise zu visualisieren
+2. Durch seinen Data Join Ansatz (Aufklärung folgt später) ist D3 im Verhältnis zu anderen Bibliotheken auch bei großen Datenmengen sehr schnell
+3. Aufgrund der Unterstützung von Webstandards ist D3 zukunftssicher und auch auf mobilen Geräten lauffähig
+5. D3 basiert auf HTML5 und CSS3, es benötigt also einen modernen Browser (Firefox, Chrome, Safari, IE9 aufwärts)
+4. D3 ist KEINE Chart-Engine, bei der man fertige Layouts auswählt und konfiguriert
+
+
+## Das Fundament: SVG
+
+SVG steht für Scalable Vector Graphics und basiert auf XML. Die zweidimensionalen SVG Zeichnungselemente haben gegenüber Raster-Grafiken den Vorteil, verlustfrei skaliert werden zu können. Ihnen fehlt also der berühmte Treppenstufeneffekt, der bei extremer Vergrößerung bei Rasterformaten auftritt. SVG im Browser wurde im Rahmen von HTML5 standardisiert.
+
+Im Gegensatz zu HTML-Elementen, die im Grunde nur die Rechteckform kennen, gibt es bei SVG-Elementen Pfade und zur einfacheren Handhabung alle grafischen Grundformen wie Kreis, Ellipse, Rechteck, Linie und Polygon. Zusätzlich kann man noch Text und externe Rastergrafiken verwenden. Alle genannten Elemente können durch das Gruppenelement zusammengefasst werden.
+
+Elemente und Gruppen von Elementen können über Style Attribute in Ihrer Erscheinung angepasst und über Transformationen in Position, Orientierung und Form verändert werden. An Transformationen stehen Parallelverschiebung, Rotation, Skalierung und Scherung zur Verfügung, die über CSS3 Transitions auch über einen vorgegebenen Zeitraum hinweg verändert werden können. Daneben gibt es noch Animationen sowie grafische Effekte und Filter. Wer sich tiefergehender dafür interessiert, findet im Web eine Menge Informationen und Beispiele.
+
+Man kann SVG Grafiken auf mehreren Wegen in HTML einbinden: Als externe Grafik oder direkt im HTML mit dem Tag `<svg>`. Bei einer externen Grafik muß wie bei XML der Namespace definiert werden. Bei direkter Einbindung in HTML braucht man das nicht; was im Zusammenhang mit D3 den Standardfall darstellt. Bis auf die ungewohnten Tag- und Attributnamen wird einem also nicht viel auffallen, wenn man sich eine HTML-Seite mit eingebettetem SVG im DOM Inspector eines modernen Browsers anschaut. Insofern ist SVG recht pflegeleicht und man kann die gewohnten Werkzeuge des Browsers nutzen.
+
+Wer jQuery kennt, wird sich schnell in D3 zurechtfinden. D3 unterstützt auch die Methodenverkettung und die Basismethoden wie `append` und `attr` haben die gleichen Namen oder zumindest ähnliche wie z.B. `style` bei D3 und `css` bei jQuery. Listing 1 zeigt ein Beispiel, drei SVG Elemente direkt in HTML und ein Element prozedural mit D3.
+
+```html
+<!DOCTYPE html><html><head><title>SVG Beispiel</title></head><body>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+
+<svg id="example2" viewBox="0 0 450 120" style="width:600px; max-width:100%;">
+  <rect x="0" y="0" height="120" width="160" fill="#ff6600"/>
+  <ellipse cx="240" cy="60" rx="120" ry="40" fill="green"/>
+  <line x1="20" y1="20" x2="450" y2="100" stroke="blue"/>
+</svg>
+
+<script>
+  d3.select('svg#example2').append('circle')
+    .attr('cx','380')
+    .attr('cy','60')
+    .attr('r','55')
+    .style('stroke','red')
+    .style('fill','lightsteelblue')
+    .style('fill-opacity',0.5);
+</script>
+
+</script></body></html>
+```
+
+Listing 1: Ein einfaches SVG Beispiel
+
+<svg id="example2" viewBox="0 0 450 120" style="width:600px; max-width:100%;">
+  <rect x="0" y="0" height="120" width="160" fill="#ff6600"/>
+  <ellipse cx="240" cy="60" rx="120" ry="40" fill="green"/>
+  <line x1="20" y1="20" x2="450" y2="100" stroke="blue"/>
+</svg>
+
+Das Ergebnis aus Listing 1
+
+Wie man in Listing 1 erkennen kann, heißt bei SVG das Attribut für die Füllfarbe `fill` und das für die Konturfarbe `stroke`. Der Bezugspunkt für das Positionieren von Elementen ist die linke obere Ecke des SVG Elementes. Das gilt auch beim Rechteck-Element. Beim Kreis und der Ellipse ist der Bezugspunkt hingegen die Mitte. Da wir hier live im Browser arbeiten: Einfach mal die Konsole öffnen und mit einer veränderten Version des Skriptes herumprobieren ;-)
+
+
+## Der Unterschied: Selectors versus Selections
+
+In JavaScript kann mit den aus CSS bekannten Selektoren Elemente im DOM auswählen. Möchte man dann Änderungen an den Elementen vornehmen, muß man mit einer Schleife über alle Elemente iterieren. D3 verfolgt einen anderen Ansatz, wie man schon an der Bezeichnung erkennen kann - hier wird von [Selections][3] gesprochen. Jede Selection ist ein Array, auch wenn es nur ein oder gar kein Element enthält. Wenn man das Array dann mit einer Methode aufruft, iteriert D3, wie übrigens jQuery auch, automatisch über alle Elemente. Listing 2 zeigt den Vergleich:
+
+[3]: http://bost.ocks.org/mike/selection/
+
+```javascript
+// Schleife über alle Elemente: JavaScript
+var p = document.getElementsByTagName('p');
+for (var i = 0; i < p.length; i++) {
+  var pi = p.item(i);
+  pi.style.setProperty('color','red', null);
+}
+
+// Schleife über alle Elemente: D3
+d3.selectAll('p').style('color','red');
+```
+
+Listing 2: JavaScript versus D3
+
+
+## Die D3 Mengenlehre: Wie man Daten an das DOM bindet
+
+Bevor man Daten an das DOM binden kann, müssen diese erst einmal zur Verfügung stehen. D3 stellt für das Lesen von Daten XHR (XMLHttpRequest) Methoden zur Verfügung. Damit können Daten per JavaScript nachgeladen werden. Der Vorteil dieses Vorgehens ist, dass sich das Laden der eigentlichen Webseite bei großen Datenmengen nicht verzögert. Zur einfacheren Handhabung gibt es darauf aufbauend vier Wrappermethoden, die für das Laden von CSV, TSV, XML und JSON Daten genutzt werden können. Häufig kommt es aber auch vor, daß man diese auch AJAX Calls genannten Aufrufe mit den Methoden des jeweils benutzten Entwicklungs-Frameworks macht, wobei sich das Datenformat JSON durchgesetzt hat. Bei APEX gibt es zum Beispiel fertige Methoden in den mitgelieferten JavaScript Bibliotheken und bei kleineren Datenmengen mag es auch ok sein, diese direkt in die Seite zu rendern. Wege gibt es viele. Am Ende benötigt man JavaScript Arrays, die die Daten enthalten und über die D3 iterieren kann. Wie die "Zeilen" bzw. Objekte des Arrays aussehen, hängt stark vom Anwendungsfall ab.
+
+
+<svg viewBox="0 0 380 160" style="width:500px; max-width:100%; text-anchor: middle;">
+  <ellipse cx="130" cy="90" rx="120" ry="60" fill="orange" fill-opacity="0.5"/>
+  <ellipse cx="250" cy="90" rx="120" ry="60" fill="steelblue" fill-opacity="0.5"/>
+  <text x="130" y="25">Data</text>
+  <text x="250" y="25">Elements</text>
+  <text x="75" y="98">Enter</text>
+  <text x="190" y="98">Update</text>
+  <text x="305" y="98">Exit</text>
+</svg>
+
+Abbildung 2: Der D3 Data Join (weiteres Beispiel auf d3js.org: [Thinking with Joins][4])
+
+[4]: http://bost.ocks.org/mike/join/
+
+Nun zur eigentlichen Frage: D3 bindet Daten an das DOM, in dem man einer Selection über den Data Operator die Daten in Form eines Arrays übergibt. Hier kommt der Eingangs erwähnte Data Join zum Einsatz. Zurückgeliefert werden drei neue Selections, die D3 Update, Enter und Exit nennt. Abbildung 2 zeigt schematisch die Zusammenhänge. In der Update Selection sind die Elemente des DOM mit den Elementen des Data Arrays in der Reihenfolge ihres jeweiligen Erscheinens verknüpft. Wie man unschwer errät, kann aber eine unterschiedliche Anzahl an Elementen im DOM und in den Daten vorhanden sein. Wenn im DOM mehr Elemente vorhanden sind als Daten, dann liegen diese Elemente in der Exit Selection, mit der man die Elemente aus dem DOM entfernen kann. Gibt es mehr Daten als DOM Elemente, dann befinden sich diese Daten in der Enter Selection, mit der die fehlenden Elemente im DOM erstellt werden können. Listing 3 zeigt ein Beispiel und darauf folgt das Live-Ergebnis - wer möchte, kann in der Browserkonsole damit ein wenig herumspielen.
+
+```html
+<!DOCTYPE html><html><head><title>Data Join</title></head><body>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+
+<div id="example3" style="border:1px solid silver; border-radius:5px; padding:10px; display:inline-block;">
+  <p style="color:green;">Ein bereits existierendes Element</p>
+</div>
+
+<script>
+
+  var example3_div = d3.select('div#example3');
+
+  var example3_p = example3_div.selectAll('p').data([1,2,3])
+    .style('color', 'red');
+
+  example3_p.enter().append('p')
+    .text( function(d){return 'Neues Element aus Daten ' + d;} );
+
+  example3_p.exit().remove();
+
+</script></body></html>
+```
+
+Listing 3: Data Join (weiteres Beispiel auf d3js.org: [Three Little Circles][5])
+
+[5]: http://bost.ocks.org/mike/circles/
+
+<div id="example3" style="border:1px solid silver; border-radius:5px; padding:10px; display:inline-block;">
+  <p style="color:green;">Ein bereits existierendes Element</p>
+</div>
+
+Das Ergebnis aus Listing 3
+
+Wie man in Listing 3 sieht, steht einem die Update Selection sofort in der Methodenverkettung zur Verfügung und sie hat keinen eigenen Namen. Es wäre aber auch möglich, die Enter oder Exit Selection zuerst aufzurufen. Wichtig ist, zu wissen, dass nach Abarbeitung der ersten Selection die anderen Selections gesondert aufgerufen werden müssen - eine weitere Verkettung ist nicht möglich. Außerdem stehen einem die Elemente der Enter Selection nach Ausführung in der Update Selection zur Verfügung. Man könnte also z.B. erst die neuen Elemente anlegen ohne weitere Attribute oder Styles zu definieren und dann mit einem Aufruf der Update-Selection alle Elemente auf einmal aktualisieren.
+
+Für den Fall, das der einfache Data Join über die Reihenfolge der Elemente in DOM und Array nicht genügt, gibt es eine sogenannte Key Function, anhand derer die Elemente im DOM identifiziert werden. Die anonyme Funktion wird bei Bedarf als zweiter Parameter dem Data Operator übergeben. Listing 4 zeigt ein Beispiel einer Data Key Funktion - hier wird zur Identifikation die ID verwendet. Wer wissen möchte, wie das alles ganz genau funktioniert, der findet das [hier][6] durch den Autor von D3 sehr ausführlich erklärt.
+
+[6]: http://bost.ocks.org/mike/selection/
+
+```html
+<!DOCTYPE html><html><head><title>Data Key Function</title></head><body>
+<script src="http://d3js.org/d3.v3.min.js"></script><script>
+
+  var data = [
+    {"id":1, "x":40,  "y":40},
+    {"id":2, "x":120, "y":40},
+    {"id":3, "x":200, "y":40}];
+
+  var svg = d3.select('body').append('svg');
+
+  var circle = svg.selectAll('circle')
+    //hier wird die key function verwendet
+    .data(data, function(d){return d.id;});
+
+  circle.exit().remove();
+
+  circle.enter().append('circle')
+    .attr('id', function(d) { return d.id; })
+    .attr('r', 10);
+
+  circle
+    .attr('cx', function(d) { return d.x; })
+    .attr('cy', function(d) { return d.y; });
+
+</script></body></html>
+```
+
+Listing 4: Data Key Function
+
+
+## Das Geheimnis der Geschwindigkeit
+
+Die Konsequenz aus dem Vorgehen von D3 ist, dass man immer erst eine Selection erstellt, auch wenn man weiß, das im DOM keine Elemente vorhanden sind. An die Selection werden die Daten gebunden und im Falle einer statischen Visualisierung reicht es dann aus, über die Enter Selection die DOM Elemente zu erstellen. Im Falle von dynamischen Visualisierungen spielt dieses Vorgehen sein Stärken aus. Ändern sich nicht alle Daten, muß D3 nur die neuen Elemente im DOM anlegen, alte entfernen, und vorhandene können aktualisiert werden. Dies spart Resourcen im Browser, da nur die nötigste Arbeit zu tun ist, anstatt alle Elemente aus dem DOM zu entfernen, um sie dann wieder neu anzulegen. Außerdem speichert sich D3 in den Selections die Referenzen auf die DOM-Elemente, dadurch muß für weitere Updates des DOM keine weitere Elementsuche auf dem DOM ausgeführt werden. Nun ist es gelüftet, das Geheimnis hinter der Geschwindigkeit - D3 verhindert ganz einfach unnötige Arbeit für den Browser, womit Rechenkapazität für das Bearbeiten größerer Datenmengen frei wird.
+
+
+## Wiederverwendung von Chart Code
+
+Der Schwerpunkt von D3 liegt nicht auf dem Ausliefern von fertigen Chartfunktionen, in die man einfach seine Daten kippt. D3 konzentriert sich auf grundlegende, immer wieder benötigte Dinge und bietet dafür generisch verwendbare Hilfsfunktionen an. Man muss zwar Arbeit in seine Charts stecken, hat aber durch den generischen Ansatz der Basisfunktionen praktisch keine Einschränkungen bei der Umsetzung, wie man an den vielen Beispielen im Internet sehen kann.
+
+Man kommt am Anfang mit diesen Beispielen schnell zu ansehnlichen Ergebnissen. Spätestens wenn man mit dem gleichen Code einen zweiten Chart auf der selben HTML-Seite einbauen möchte, sieht man jedoch die Grenzen: Globale Variablen und Funktionen sind schnell redeklariert und ein zweiter Chart stört die Funktion des ersten. Hier ist es dann an der Zeit, über Kapselung und Wiederverwendung von Chart-Code zu sprechen. Dazu muß man wissen, wie JavaScript mit Variablen und Funktionen umgeht. Das Stichwort hier sind Closures.
+
+
+## Exkurs: Closures in JavaScript
+
+In JavaScript ist alles ein Objekt und Funktionen können Objekte, also auch Funktionen, zurückgeben.
+
+Eine Closure ist am Ende nichts anderes als ein Funktionsaufruf, bei dem eine Funktion zurückgegeben wird. Die zurückgegebene Funktion behält Ihren vorherigen Kontext, kann also auf die vor der Rückgabe vorhandenen Variablen innerhalb ihrer Ursprungsfunktion zugreifen. Sie kapselt quasi Ihre Umhebung, daher der Name. Die Folge eines solchen Vorgehens ist, dass man dadurch private Variablen erhält, die von außen nicht einsehbar sind. Um trotzdem an diese Variablen zu kommen, muß man dann entsprechende Get- und Set-Funktionen definieren.
+
+Listing 5 zeigt die Prinzipien. Abbildung 4 zeigt das Ergebnis aus Listing 5 und kann einfach in der JavaScript Console des Browsers nachvollzogen werden.
+
+```html
+<!DOCTYPE html><html><head><title>Prinzip Closure</title></head><body>
+<script>
+
+  function my_chart() {
+
+    var conf = { "width": 600, "height": 400 };
+
+    function chart(){/*create chart with conf*/}
+
+    chart.render = function(){
+      chart();
+      return chart;
+    };
+
+    chart.width = function(value) {
+      if (!arguments.length) return conf.width;
+      conf.width = value;
+      return chart;
+    };
+
+    return chart;
+  }
+
+</script></body></html>
+```
+
+Listing 5: Prinzip Closure
+
+![Test der Closure](/slides/2015-06-09-d3js-data-driven-documents/assets/test-closure.png)
+
+Abbildung 4: Test Closure in Browser Konsole
+
+Wenn man nun noch wie in Listing 5 bei diesen Get- und Set-Funktionen wiederum die Funktion selbst zurückliefert, dann hat man die Basis für eine Methodenverkettung geschaffen. Wie man sieht, lohnt es sich, ein wenig Arbeit in eine kleine API zu stecken - als Gegenleistung bekommt man universell einsatzbare Charts, die je nach Gegebenheit initialisiert und zur Laufzeit angepasst werden können, um z.B. auf Userinteraktionen zu reagieren.
+
+
+## Die Königsklasse: Physik-Simulationen
+
+D3 bietet für verschiedene Anwendungsfälle sogenannte Layouts an. Das sind im Grunde schon die eben angesprochenen wiederverwendbaren Charts, aber auf einem generischem Level. Wir gehen das an dem Beispiel eines Force Layouts durch, einer beliebten, kräftebasierenden Darstellung von Netzwerken.
+
+Die Besonderheit einer kräftebasierenden, selbstorganisierenden Netzwerkvisualisierung ist die dahinterliegende physikalische Simulation. D3 berechnet fortwährend die Positionen der Netzwerkknoten. Damit der Eindruck einer Animation entsteht, muß man natürlich die Knoten seines Graphen irgendwann einmal neu positionieren. Diese Arbeit nimmt einem D3 nicht ab. D3 bietet aber ein sogenanntes Tick Event an, welches ungefähr alle 20 Millisekunden feuert. Wenn man dann bei jedem Tickevent alle Knoten und Verbindungen des Netzwerks an die jeweils aktuelle Position der physikalischen Simulation verschiebt, bekommt man den Eindruck einer Animation. Die Animation des Netzwerk hört dann auf, wenn sich die Simulation in einem kräftemäßig ausgewogenen Zustand befindet.
+
+Listing 6 zeigt ein minimales, vollständig lauffähiges Script für ein Force Layout. Zuerst die Daten - diese dürften den meisten bekannt sein. Als Knoten nehmen wir die Mitarbeiter der EMP-Tabelle, als Links die Beziehung zum Vorgesetzten. Die Links beziehen sich auf die Knoten in der Reihenfolge ihres Erscheinens, es wird also keine Key Function eingesetzt, um die Knoten zu identifizieren. Dies ist ok, solange keine Updates auf den Graph erfolgen sollen, ansonsten wird es einem schwer fallen, die Knoten im DOM zu identifizieren.
+
+```html
+<!DOCTYPE html><html><head><title>Force Layout</title></head><body>
+<div id="example4"></div><!--graph container-->
+<script src="http://d3js.org/d3.v3.min.js"></script><script>
+
+  var nodesData = [
+    {"name":"King","dept":10},{"name":"Blake","dept":30},
+    {"name":"Clark","dept":10},{"name":"Jones","dept":20},
+    {"name":"Scott","dept":20},{"name":"Ford","dept":20},
+    {"name":"Smith","dept":20},{"name":"Allen","dept":30},
+    {"name":"Ward","dept":30},{"name":"Martin","dept":30},
+    {"name":"Turner","dept":30},{"name":"Adams","dept":20},
+    {"name":"James","dept":30},{"name":"Miller","dept":10}
+  ];
+
+  var linksData = [
+    {"source":1,"target":0},{"source":2,"target":0},
+    {"source":3,"target":0},{"source":7,"target":1},
+    {"source":8,"target":1},{"source":9,"target":1},
+    {"source":10,"target":1},{"source":12,"target":1},
+    {"source":13,"target":2},{"source":4,"target":3},
+    {"source":5,"target":3},{"source":6,"target":5},
+    {"source":11,"target":4}
+  ];
+
+  var width = 500, height = 300;
+
+  var svg = d3.select("div#example4").append("svg")
+    .attr("width",width)
+    .attr("height", height)
+    .style("border","1px solid silver")
+    .style("border-radius","5px")
+    .style("background-color","white");
+
+  var color = d3.scale.category10();
+
+  var force = d3.layout.force().size([width,height]);
+
+  var links = svg.selectAll("line").data(linksData)
+    .enter().append("line").style('stroke','#999');
+
+  var nodes = svg.selectAll("circle").data(nodesData)
+    .enter().append("circle")
+      .attr("r", 5)
+      .style("fill", function(d){ return color(d.dept); })
+      .call(force.drag);
+
+  force.on("tick", function(){
+    links.attr("x1", function(d){ return d.source.x; })
+         .attr("y1", function(d){ return d.source.y; })
+         .attr("x2", function(d){ return d.target.x; })
+         .attr("y2", function(d){ return d.target.y; });
+
+    nodes.attr("cx", function(d){ return d.x; })
+         .attr("cy", function(d){ return d.y; });
+  });
+
+  force.nodes(nodesData).links(linksData).start();
+
+</script></body></html>
+```
+
+Listing 6: Force Layout
+
+Will man z.B. die Knoten in Farbe und Größe passend zu den Daten gestalten, kann man auf die vielen Hilfsfunktionen von D3 zurückgreifen. Als Beispiel sei hier die Farbe der Knoten genannt. In Listing 6 kann man erkennen, wie die Variable `color` mit der Funktion `d3.scale.category10()` belegt wird. Diese Funktion liefert eine aus 10 verschiedenen Farben für den übergebenen Wert zurück. Wir benutzen dies dafür, um über die Abteilungsnummer eines Mitarbeiters eine Farbe zurückzubekommen - somit haben alle Mitarbeiter einer Abteilung die gleiche Knotenfarbe, ohne dass wir dafür etwas programmieren müssen.
+
+Nach der `color` Variablen wird dann eine Variable `force` mit dem entsprechenden Layout belegt. Dann folgt schon die Variable `link`. Hier werden alle Linien im SVG Element selektiert - in unserem Fall ergibt das ein leeres Array, weil wir ja wissen, dass wir zum ersten Mal den Graph erstellen.
+
+Dann folgt in der selben Zeile der Data Join mit unseren Links und gleich darauf wird in der Enter Selection für jeden Eintrag in unserem `link` Array eine Linie im SVG Element gezeichnet. Das Ganze wiederholen wir jetzt für die Knoten.
+
+Daraufhin definieren wir noch für das Tick Event die bereits erwähnte Funktion, die dann jeweils unsere Knoten und Links innerhalb des SVG Elementes positionieren. Man kann hier schön erkennen, wie D3 jeweils implizit über das `link` und `node` Array iteriert und für jeden Eintrag in der darauf definierten anonymen Funktion als ersten Parameter die Daten des Eintrags übergibt, die einem dann für die weitere Verarbeitung zur Verfügung stehen. In unserem Fall geben wir einfach nur die jeweilige Position für den Link oder den Knoten zurück.
+
+Als letzter Schritt wird noch die eigentliche physikalische Berechnung gestartet, die natürlich unsere beiden Knoten und Link Arrays benötigt, um vernünftig arbeiten zu können. Als Ergebnis erhalten wir den Graph aus Abbildung 5, der schon ein wenig an den ersten Graphen unter dem Artikelbild erinnert.
+
+<div id="example4"></div><!--graph container-->
+
+Das Ergebnis aus Listing 6 - Knoten dürfen bewegt werden ;-)
+
+Wie man sieht, muß man oft nur minimal Code erstellen, um Charts an seine eigenen Bedürfnisse anzupassen. Und sollte man doch mal etwas komplizierteres benötigen, so kann man davon ausgehen, im Internet viele Beispiele für die gleiche oder eine ähnliche Problemstellung zu finden.
+
+
+## Netzwerken: Ein Plugin (nicht nur) für APEX
+
+Wer sich dafür interessiert, was man noch so alles machen muss, um vom eben gezeigten Minimalbeispiel zu der großen Lösung aus dem Artikelanfang zu kommen, findet eine vollständige Implementierung eines Netzwerkcharts als [APEX-Plugin auf GitHub][7]. Dazu gibt es auch eine [Demo-App auf apex.oracle.com][8]. Allen Nicht-APEX-Entwicklern sei gesagt, dass trotz seines Namens nicht zwingend APEX benötigt wird. Wie im Artikel empfohlen existiert eine vollständige JavaScript API. Darüberhinaus gibt es einen interaktiven Customization Wizard und die Chartfunktion stellt bei nicht vorhandenen Daten selbstständig Beispieldaten zur Verfügung. Mit diesen Voraussetzungen kann man nach dem Einbinden der benötigten Source-Dateien sofort loslegen, Parameter verändern und live die Auswirkungen testen.
+
+[7]: https://github.com/ogobrecht/d3-force-apex-plugin
+[8]: https://apex.oracle.com/pls/apex/f?p=18290:1
+
+## Fazit
+
+Mit D3 stehen einem eine Menge Möglichkeiten offen, eigene Charts zu erstellen. Man muß zwar zuerst ein wenig Arbeit investieren, bekommt aber bei überlegter Umsetzung wiederverwendbaren Code und hat praktisch keine Einschränkungen in der Umsetzung. Natürlich kann man in einem Artikel wie diesem nur an der Oberfläche kratzen. Nichtsdestotrotz besteht die Hoffnung, Lust auf mehr gemacht zu haben. Folgend ein paar Links als Einstieg für die eigene Recherche:
+
+- [d3js.org][9]
+- [D3 Tip in der deutschen APEX Community][10]
+- [www.apex-plugin.com][11] (nach D3 suchen)
+- [SVG Tutorial][12]
+
+Wer keine Lust auf selber machen hat: [nvd3.org][13], [c3js.org][14] (Abstraktionsprojekte)
+
+[9]: http://d3js.org
+[10]: https://apex.oracle.com/pls/apex/germancommunities/apexcommunity/tipp/3481/index.html
+[11]: http://www.apex-plugin.com/search-plugin-directory/
+[12]: http://tutorials.jenkov.com/svg/index.html
+[13]: http://nvd3.org/
+[14]: http://c3js.org/
+
+<link  href="/assets/d3.js/d3-force-2.0.2.css" rel="stylesheet" type="text/css">
+<script src="/assets/d3.js/d3-3.5.6.min.js"></script>
+<script src="/assets/d3.js/d3-force-2.0.2.min.js"></script>
+<script>
+window.onload = function (){
+
+  //example 1
+  window.example1 = netGobrechtsD3Force('example1')
+    .debug(true) //to enable the customization wizard
+    .lassoMode(true)
+    //.zoomMode(true)
+    .useDomParentWidth(true) //for responsive layout
+    .start(); //sample data is provided, when called without data
+
+  //example 2
+  d3.select('svg#example2').append('circle')
+    .attr('cx','380')
+    .attr('cy','60')
+    .attr('r','55')
+    .style('stroke','red')
+    .style('fill','lightsteelblue')
+    .style('fill-opacity',0.5);
+
+  //example 3
+  window.example3_div = d3.select('div#example3');
+  window.example3_p = example3_div.selectAll('p').data([1,2,3])
+    .style('color', 'red');
+  example3_p.enter().append('p')
+    .text( function(d){return 'Neues Element aus Daten ' + d;} );
+  example3_p.exit().remove();
+
+  //example 4
+  window.nodesData = [
+    {"name":"King","dept":10},{"name":"Blake","dept":30},
+    {"name":"Clark","dept":10},{"name":"Jones","dept":20},
+    {"name":"Scott","dept":20},{"name":"Ford","dept":20},
+    {"name":"Smith","dept":20},{"name":"Allen","dept":30},
+    {"name":"Ward","dept":30},{"name":"Martin","dept":30},
+    {"name":"Turner","dept":30},{"name":"Adams","dept":20},
+    {"name":"James","dept":30},{"name":"Miller","dept":10}
+  ];
+  window.linksData = [
+    {"source":1,"target":0},{"source":2,"target":0},
+    {"source":3,"target":0},{"source":7,"target":1},
+    {"source":8,"target":1},{"source":9,"target":1},
+    {"source":10,"target":1},{"source":12,"target":1},
+    {"source":13,"target":2},{"source":4,"target":3},
+    {"source":5,"target":3},{"source":6,"target":5},
+    {"source":11,"target":4}
+  ];
+  window.width = 500, height = 300;
+  window.svg = d3.select("div#example4").append("svg")
+    .attr("viewBox","0 0 500 300")
+    .attr("width",width)
+    .style("max-width","100%")
+    .style("border","1px solid silver")
+    .style("border-radius","5px")
+    .style("background-color","white");
+  window.color = d3.scale.category10();
+  window.force = d3.layout.force().size([width,height]);
+  window.links = svg.selectAll("line").data(linksData)
+    .enter().append("line").style('stroke','#999');
+  window.nodes = svg.selectAll("circle").data(nodesData)
+    .enter().append("circle")
+      .attr("r", 5)
+      .style("fill", function(d){ return color(d.dept); })
+      .call(force.drag);
+  force.on("tick", function(){
+    links.attr("x1", function(d){ return d.source.x; })
+         .attr("y1", function(d){ return d.source.y; })
+         .attr("x2", function(d){ return d.target.x; })
+         .attr("y2", function(d){ return d.target.y; });
+
+    nodes.attr("cx", function(d){ return d.x; })
+         .attr("cy", function(d){ return d.y; });
+  });
+  force.nodes(nodesData).links(linksData).start();
+
+}
+
+</script>

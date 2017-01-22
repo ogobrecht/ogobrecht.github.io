@@ -5,7 +5,7 @@ tags: [oracle, apex, doag, folien, markdown, chart]
 lang: de
 layout: post
 ---
-Die Folien zu meinem Vortrag auf der DOAG Konferenz 2016 in Nürnberg:
+Die Folien zu meinem Vortrag:
 
 {% include slides-de.html dir_name="2016-11-17-reporting-mal-anders-markdown-sei-dank" %}
 

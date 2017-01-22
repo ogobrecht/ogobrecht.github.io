@@ -5,9 +5,9 @@ tags: [project, oracle, apex, plugin, d3js, chart]
 lang: en
 layout: post
 ---
-<div id="example-graph"></div><!--the graph container-->
-
 _My first Oracle APEX plugin and open source project :-)_
+
+<div id="example-graph"></div><!--the graph container-->
 
 Everything started some months ago when I stumbled over this fascinating [force-directed graph][1]. I immediately had the idea to use this technology to visualize data models in APEX. My experience is, that direct after I documented a data model, this documentation is out of date. I wanted to have a live visualization of the data models. After the first implementation it turned out, that the resulting graph is also useful for other purposes and I decided to build up an APEX plugin for easier integration.
 
@@ -15,9 +15,9 @@ If you use the bare JavaScript files you can run it on every HTML page:
 
 ```html
 <div id="example"></div><!--the graph container-->
-<link  href="/assets/d3-force-2.0.2.css" rel="stylesheet" type="text/css">
-<script src="/assets/d3-3.5.6.min.js"></script>
-<script src="/assets/d3-force-2.0.2.min.js"></script>
+<link  href="/assets/d3.js/d3-force-2.0.2.css" rel="stylesheet" type="text/css">
+<script src="/assets/d3.js/d3-3.5.6.min.js"></script>
+<script src="/assets/d3.js/d3-force-2.0.2.min.js"></script>
 <script>
 window.onload = function (){
   window.example = netGobrechtsD3Force('example')
@@ -41,9 +41,9 @@ You can find the sources and more informations on [GitHub][2] and a demo app on 
 [2]: https://github.com/ogobrecht/d3-force-apex-plugin
 [3]: https://apex.oracle.com/pls/apex/f?p=18290:1
 
-<link  href="/assets/d3-force-2.0.2.css" rel="stylesheet" type="text/css">
-<script src="/assets/d3-3.5.6.min.js"></script>
-<script src="/assets/d3-force-2.0.2.min.js"></script>
+<link  href="/assets/d3.js/d3-force-2.0.2.css" rel="stylesheet" type="text/css">
+<script src="/assets/d3.js/d3-3.5.6.min.js"></script>
+<script src="/assets/d3.js/d3-force-2.0.2.min.js"></script>
 <script>
 window.onload = function (){
   window.example = netGobrechtsD3Force('example-graph')

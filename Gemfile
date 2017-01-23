@@ -12,7 +12,7 @@ ruby RUBY_VERSION
 # gem "jekyll", "3.3.1"
 
 # This is the default theme for new Jekyll sites. You may change this to anything you like.
-gem "minima", "~> 2.0"
+# gem "minima", "~> 2.0"
 
 # Test the HTML output, more under https://github.com/gjtorikian/html-proofer
 gem "html-proofer"

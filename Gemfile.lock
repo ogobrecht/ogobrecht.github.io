@@ -210,7 +210,6 @@ DEPENDENCIES
   github-pages
   html-proofer
   jekyll-feed (~> 0.6)
-  minima (~> 2.0)
 
 RUBY VERSION
    ruby 2.4.0p0

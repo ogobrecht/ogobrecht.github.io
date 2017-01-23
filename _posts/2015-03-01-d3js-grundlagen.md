@@ -10,7 +10,7 @@ Dieser Artikel erschien in der DOAG/SOUG News 02-2015 und steht auch im [Origina
 
 [1]: https://mydoag.doag.org/formes/pubfiles/6900184/docs/Publikationen/DOAGNews/2015/02-2015/2015-02-News-Ottmar-Gobrecht-D3-Data-Driven-Documents.pdf
 
-<div id="example1"></div><!--the graph container-->
+<div id="v0"></div><!--the graph container-->
 
 *D3 ist eine JavaScript Bibliothek zum Manipulieren von HTML Dokumenten auf der Basis von Daten und setzt dabei auf die Webstandards HTML, SVG und CSS. Dieser Artikel soll die Grundlagen von D3 beleuchten und das Interesse am Thema Datenvisualisierung mit Webstandards wecken. Für Datenbankentwickler vorab nur soviel: Auch D3 kennt den Begriff des Joins.*
 
@@ -49,14 +49,14 @@ Wer jQuery kennt, wird sich schnell in D3 zurechtfinden. D3 unterstützt auch di
 <!DOCTYPE html><html><head><title>SVG Beispiel</title></head><body>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 
-<svg id="example2" viewBox="0 0 450 120" style="width:600px; max-width:100%;">
+<svg id="v1" viewBox="0 0 450 120" style="width:600px; max-width:100%;">
   <rect x="0" y="0" height="120" width="160" fill="#ff6600"/>
   <ellipse cx="240" cy="60" rx="120" ry="40" fill="green"/>
   <line x1="20" y1="20" x2="450" y2="100" stroke="blue"/>
 </svg>
 
 <script>
-  d3.select('svg#example2').append('circle')
+  d3.select('svg#v1').append('circle')
     .attr('cx','380')
     .attr('cy','60')
     .attr('r','55')
@@ -68,15 +68,15 @@ Wer jQuery kennt, wird sich schnell in D3 zurechtfinden. D3 unterstützt auch di
 </script></body></html>
 ```
 
-Listing 1: Ein einfaches SVG Beispiel
+*Listing 1: Ein einfaches SVG Beispiel*
 
-<svg id="example2" viewBox="0 0 450 120" style="width:600px; max-width:100%;">
+<svg id="v1" viewBox="0 0 450 120" style="width:600px; max-width:100%;">
   <rect x="0" y="0" height="120" width="160" fill="#ff6600"/>
   <ellipse cx="240" cy="60" rx="120" ry="40" fill="green"/>
   <line x1="20" y1="20" x2="450" y2="100" stroke="blue"/>
 </svg>
 
-Das Ergebnis aus Listing 1
+*Abbildung 1: Das Ergebnis aus Listing 1*
 
 Wie man in Listing 1 erkennen kann, heißt bei SVG das Attribut für die Füllfarbe `fill` und das für die Konturfarbe `stroke`. Der Bezugspunkt für das Positionieren von Elementen ist die linke obere Ecke des SVG Elementes. Das gilt auch beim Rechteck-Element. Beim Kreis und der Ellipse ist der Bezugspunkt hingegen die Mitte. Da wir hier live im Browser arbeiten: Einfach mal die Konsole öffnen und mit einer veränderten Version des Skriptes herumprobieren ;-)
 
@@ -99,7 +99,7 @@ for (var i = 0; i < p.length; i++) {
 d3.selectAll('p').style('color','red');
 ```
 
-Listing 2: JavaScript versus D3
+*Listing 2: JavaScript versus D3*
 
 
 ## Die D3 Mengenlehre: Wie man Daten an das DOM bindet
@@ -117,7 +117,7 @@ Bevor man Daten an das DOM binden kann, müssen diese erst einmal zur Verfügung
   <text x="305" y="98">Exit</text>
 </svg>
 
-Abbildung 2: Der D3 Data Join (weiteres Beispiel auf d3js.org: [Thinking with Joins][4])
+*Abbildung 2: Der D3 Data Join (weiteres Beispiel auf d3js.org: [Thinking with Joins][4])*
 
 [4]: http://bost.ocks.org/mike/join/
 
@@ -127,36 +127,40 @@ Nun zur eigentlichen Frage: D3 bindet Daten an das DOM, in dem man einer Selecti
 <!DOCTYPE html><html><head><title>Data Join</title></head><body>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 
-<div id="example3" style="border:1px solid silver; border-radius:5px; padding:10px; display:inline-block;">
+<div id="v3" style="border:1px solid silver; border-radius:5px; padding:10px; display:inline-block;">
   <p style="color:green;">Ein bereits existierendes Element</p>
 </div>
 
 <script>
 
-  var example3_div = d3.select('div#example3');
+  var v3 = {};
+  v3.div = d3.select('div#v3');
 
-  var example3_p = example3_div.selectAll('p').data([1,2,3])
+  //Die Update-Selection: Der vorhandene Paragraph wird aktualisiert
+  v3.p = v3.div.selectAll('p').data([1,2,3])
     .style('color', 'red');
 
-  example3_p.enter().append('p')
+  //Die Enter-Selection: Hier kommen zwei neue Paragraphen hinzu
+  v3.p.enter().append('p')
     .text( function(d){return 'Neues Element aus Daten ' + d;} );
 
-  example3_p.exit().remove();
+  //Die Exit-Selection ist in unserem Beispiel leer
+  v3.p.exit().remove();
 
 </script></body></html>
 ```
 
-Listing 3: Data Join (weiteres Beispiel auf d3js.org: [Three Little Circles][5])
+*Listing 3: Data Join (weiteres Beispiel auf d3js.org: [Three Little Circles][5])*
 
 [5]: http://bost.ocks.org/mike/circles/
 
-<div id="example3" style="border:1px solid silver; border-radius:5px; padding:10px; display:inline-block;">
+<div id="v3" style="border:1px solid silver; border-radius:5px; padding:10px; display:inline-block;">
   <p style="color:green;">Ein bereits existierendes Element</p>
 </div>
 
-Das Ergebnis aus Listing 3
+*Abbildung 3: Das Ergebnis aus Listing 3*
 
-Wie man in Listing 3 sieht, steht einem die Update Selection sofort in der Methodenverkettung zur Verfügung und sie hat keinen eigenen Namen. Es wäre aber auch möglich, die Enter oder Exit Selection zuerst aufzurufen. Wichtig ist, zu wissen, dass nach Abarbeitung der ersten Selection die anderen Selections gesondert aufgerufen werden müssen - eine weitere Verkettung ist nicht möglich. Außerdem stehen einem die Elemente der Enter Selection nach Ausführung in der Update Selection zur Verfügung. Man könnte also z.B. erst die neuen Elemente anlegen ohne weitere Attribute oder Styles zu definieren und dann mit einem Aufruf der Update-Selection alle Elemente auf einmal aktualisieren.
+Wie man in Listing 3 sieht, steht einem die Update Selection sofort in der Methodenverkettung zur Verfügung und sie hat keinen eigenen Namen. Es wäre aber auch möglich, die Enter oder Exit Selection zuerst aufzurufen. Wichtig ist, zu wissen, dass nach Abarbeitung der ersten Selection die anderen Selections gesondert aufgerufen werden müssen - eine weitere Verkettung ist nicht möglich. Außerdem stehen einem die Elemente der Enter Selection nach Ausführung in der Update Selection zur Verfügung. Man könnte also z.B. erst die neuen Elemente anlegen ohne weitere Attribute oder Styles zu definieren und dann mit einem Aufruf der Update-Selection alle Elemente auf einmal aktualisieren (in Listing 4 passiert das so in dieser Reihenfolge).
 
 Für den Fall, das der einfache Data Join über die Reihenfolge der Elemente in DOM und Array nicht genügt, gibt es eine sogenannte Key Function, anhand derer die Elemente im DOM identifiziert werden. Die anonyme Funktion wird bei Bedarf als zweiter Parameter dem Data Operator übergeben. Listing 4 zeigt ein Beispiel einer Data Key Funktion - hier wird zur Identifikation die ID verwendet. Wer wissen möchte, wie das alles ganz genau funktioniert, der findet das [hier][6] durch den Autor von D3 sehr ausführlich erklärt.
 
@@ -164,34 +168,64 @@ Für den Fall, das der einfache Data Join über die Reihenfolge der Elemente in 
 
 ```html
 <!DOCTYPE html><html><head><title>Data Key Function</title></head><body>
+<svg id="v4" viewBox="0 0 200 30" style="width:500px; max-width:100%;"></svg>
 <script src="http://d3js.org/d3.v3.min.js"></script><script>
 
-  var data = [
-    {"id":1, "x":40,  "y":40},
-    {"id":2, "x":120, "y":40},
-    {"id":3, "x":200, "y":40}];
+  var v4 = {};
+  v4.data = [
+    {"id":1, "r":14, "x":50,  "y":15, "color":"red"},
+    {"id":2, "r":14, "x":70, "y":15, "color":"green"},
+    {"id":3, "r":14, "x":90, "y":15, "color":"blue"}
+  ];
 
-  var svg = d3.select('body').append('svg');
+  v4.svg = d3.select('svg#v4');
 
-  var circle = svg.selectAll('circle')
+  v4.circles = v4.svg.selectAll('circle')
     //hier wird die key function verwendet
-    .data(data, function(d){return d.id;});
+    .data(v4.data, function(d){return d.id;});
 
-  circle.exit().remove();
+  //Wir rufen zuerst die Exit-Selection auf
+  v4.circles.exit().remove();
 
-  circle.enter().append('circle')
-    .attr('id', function(d) { return d.id; })
-    .attr('r', 10);
+  //Dann fügen wir über die Enter-Selection die neuen Elemente ein
+  v4.circles.enter().append('circle');
 
-  circle
-    .attr('cx', function(d) { return d.x; })
-    .attr('cy', function(d) { return d.y; });
+  //Zuletzt aktualisieren wir alle Elemente mit der Update-Selection
+  v4.circles
+    .attr('r',    function(d) { return d.r; })
+    .attr('cx',   function(d) { return d.x; })
+    .attr('cy',   function(d) { return d.y; })
+    .attr('fill', function(d) { return d.color; });
 
 </script></body></html>
 ```
 
-Listing 4: Data Key Function
+*Listing 4: Data Key Function*
 
+<svg id="v4" viewBox="0 0 200 30" style="width:500px; max-width:100%;"></svg>
+
+*Abbildung 4: Das Ergebnis aus Listing 4*
+
+Was wird eigentlich passieren, wenn man folgenden Code ausführt? Wer mag, kann das einfach mal in der Browserkonsole ausprobieren (Mehr zu [Transitions][7]):
+
+[7]: https://bost.ocks.org/mike/transition/
+
+```javascript
+v4.data = [
+  {"id":1, "r":7,  "x":30,  "y":15, "color":"blue"},
+  {"id":3, "r":14, "x":120, "y":15, "color":"red"},
+  {"id":4, "r":10, "x":75, "y":15, "color":"orange"}
+];
+v4.circles = v4.svg.selectAll('circle')
+  .data(v4.data, function(d){return d.id;});
+v4.circles.exit().remove();
+v4.circles.enter().append('circle');
+v4.circles.transition()
+  .attr('r',    function(d) { return d.r; })
+  .attr('cx',   function(d) { return d.x; })
+  .attr('cy',   function(d) { return d.y; })
+  .attr('fill', function(d) { return d.color; });
+```
 
 ## Das Geheimnis der Geschwindigkeit
 
@@ -211,7 +245,7 @@ In JavaScript ist alles ein Objekt und Funktionen können Objekte, also auch Fun
 
 Eine Closure ist am Ende nichts anderes als ein Funktionsaufruf, bei dem eine Funktion zurückgegeben wird. Die zurückgegebene Funktion behält Ihren vorherigen Kontext, kann also auf die vor der Rückgabe vorhandenen Variablen innerhalb ihrer Ursprungsfunktion zugreifen. Sie kapselt quasi Ihre Umhebung, daher der Name. Die Folge eines solchen Vorgehens ist, dass man dadurch private Variablen erhält, die von außen nicht einsehbar sind. Um trotzdem an diese Variablen zu kommen, muß man dann entsprechende Get- und Set-Funktionen definieren.
 
-Listing 5 zeigt die Prinzipien. Abbildung 4 zeigt das Ergebnis aus Listing 5 und kann einfach in der JavaScript Console des Browsers nachvollzogen werden.
+Listing 5 zeigt die Prinzipien. Abbildung 5 zeigt das Ergebnis aus Listing 5 und kann einfach in der JavaScript Console des Browsers nachvollzogen werden.
 
 ```html
 <!DOCTYPE html><html><head><title>Prinzip Closure</title></head><body>
@@ -240,11 +274,11 @@ Listing 5 zeigt die Prinzipien. Abbildung 4 zeigt das Ergebnis aus Listing 5 und
 </script></body></html>
 ```
 
-Listing 5: Prinzip Closure
+*Listing 5: Prinzip Closure*
 
 ![Test der Closure](/slides/2015-06-09-d3js-data-driven-documents/assets/test-closure.png)
 
-Abbildung 4: Test Closure in Browser Konsole
+*Abbildung 5: Test Closure in Browser Konsole*
 
 Wenn man nun noch wie in Listing 5 bei diesen Get- und Set-Funktionen wiederum die Funktion selbst zurückliefert, dann hat man die Basis für eine Methodenverkettung geschaffen. Wie man sieht, lohnt es sich, ein wenig Arbeit in eine kleine API zu stecken - als Gegenleistung bekommt man universell einsatzbare Charts, die je nach Gegebenheit initialisiert und zur Laufzeit angepasst werden können, um z.B. auf Userinteraktionen zu reagieren.
 
@@ -259,10 +293,12 @@ Listing 6 zeigt ein minimales, vollständig lauffähiges Script für ein Force L
 
 ```html
 <!DOCTYPE html><html><head><title>Force Layout</title></head><body>
-<div id="example4"></div><!--graph container-->
+<div id="v6"></div><!--graph container-->
 <script src="http://d3js.org/d3.v3.min.js"></script><script>
 
-  var nodesData = [
+  var v6 = {}; v6.data = {};
+
+  v6.data.nodes = [
     {"name":"King","dept":10},{"name":"Blake","dept":30},
     {"name":"Clark","dept":10},{"name":"Jones","dept":20},
     {"name":"Scott","dept":20},{"name":"Ford","dept":20},
@@ -272,7 +308,7 @@ Listing 6 zeigt ein minimales, vollständig lauffähiges Script für ein Force L
     {"name":"James","dept":30},{"name":"Miller","dept":10}
   ];
 
-  var linksData = [
+  v6.data.links = [
     {"source":1,"target":0},{"source":2,"target":0},
     {"source":3,"target":0},{"source":7,"target":1},
     {"source":8,"target":1},{"source":9,"target":1},
@@ -282,86 +318,95 @@ Listing 6 zeigt ein minimales, vollständig lauffähiges Script für ein Force L
     {"source":11,"target":4}
   ];
 
-  var width = 500, height = 300;
+  v6.width = 300; v6.height = 225;
 
-  var svg = d3.select("div#example4").append("svg")
-    .attr("width",width)
-    .attr("height", height)
+  v6.svg = d3.select("div#v6").append("svg")
+    .attr("viewBox","0 0 " + v6.width + " " + v6.height)
+    .attr("width","500px")
+    .style("max-width","100%")
     .style("border","1px solid silver")
     .style("border-radius","5px")
     .style("background-color","white");
 
-  var color = d3.scale.category10();
+  v6.color = d3.scale.category10();
 
-  var force = d3.layout.force().size([width,height]);
+  v6.force = d3.layout.force().size([v6.width,v6.height]);
 
-  var links = svg.selectAll("line").data(linksData)
+  v6.links = v6.svg.selectAll("line").data(v6.data.links)
     .enter().append("line").style('stroke','#999');
 
-  var nodes = svg.selectAll("circle").data(nodesData)
+  v6.nodes = v6.svg.selectAll("circle").data(v6.data.nodes)
     .enter().append("circle")
       .attr("r", 5)
-      .style("fill", function(d){ return color(d.dept); })
-      .call(force.drag);
+      .style("fill", function(d){ return v6.color(d.dept); })
+      .call(v6.force.drag);
 
-  force.on("tick", function(){
-    links.attr("x1", function(d){ return d.source.x; })
-         .attr("y1", function(d){ return d.source.y; })
-         .attr("x2", function(d){ return d.target.x; })
-         .attr("y2", function(d){ return d.target.y; });
+  v6.force.on("tick", function(){
+    v6.links
+      .attr("x1", function(d){ return d.source.x; })
+      .attr("y1", function(d){ return d.source.y; })
+      .attr("x2", function(d){ return d.target.x; })
+      .attr("y2", function(d){ return d.target.y; });
 
-    nodes.attr("cx", function(d){ return d.x; })
-         .attr("cy", function(d){ return d.y; });
+    v6.nodes
+      .attr("cx", function(d){ return d.x; })
+      .attr("cy", function(d){ return d.y; });
   });
 
-  force.nodes(nodesData).links(linksData).start();
+  v6.force
+    .nodes(v6.data.nodes)
+    .links(v6.data.links)
+    .start();
 
 </script></body></html>
 ```
 
-Listing 6: Force Layout
+*Listing 6: Force Layout*
 
-Will man z.B. die Knoten in Farbe und Größe passend zu den Daten gestalten, kann man auf die vielen Hilfsfunktionen von D3 zurückgreifen. Als Beispiel sei hier die Farbe der Knoten genannt. In Listing 6 kann man erkennen, wie die Variable `color` mit der Funktion `d3.scale.category10()` belegt wird. Diese Funktion liefert eine aus 10 verschiedenen Farben für den übergebenen Wert zurück. Wir benutzen dies dafür, um über die Abteilungsnummer eines Mitarbeiters eine Farbe zurückzubekommen - somit haben alle Mitarbeiter einer Abteilung die gleiche Knotenfarbe, ohne dass wir dafür etwas programmieren müssen.
+Will man z.B. die Knoten in Farbe und Größe passend zu den Daten gestalten, kann man auf die vielen Hilfsfunktionen von D3 zurückgreifen. Als Beispiel sei hier die Farbe der Knoten genannt. In Listing 6 kann man erkennen, wie die Variable `v6.color` mit der Funktion `d3.scale.category10()` belegt wird. Diese Funktion liefert eine aus 10 verschiedenen Farben für den übergebenen Wert zurück. Wir benutzen dies dafür, um über die Abteilungsnummer eines Mitarbeiters eine Farbe zurückzubekommen - somit haben alle Mitarbeiter einer Abteilung die gleiche Knotenfarbe, ohne dass wir dafür etwas programmieren müssen.
 
-Nach der `color` Variablen wird dann eine Variable `force` mit dem entsprechenden Layout belegt. Dann folgt schon die Variable `link`. Hier werden alle Linien im SVG Element selektiert - in unserem Fall ergibt das ein leeres Array, weil wir ja wissen, dass wir zum ersten Mal den Graph erstellen.
+Nach der `v6.color` Variablen wird dann eine Variable `v6.force` mit dem entsprechenden Layout belegt. Dann folgt schon die Variable `v6.links`. Hier werden alle Linien im SVG Element selektiert - in unserem Fall ergibt das ein leeres Array, weil wir ja wissen, dass wir zum ersten Mal den Graph erstellen.
 
-Dann folgt in der selben Zeile der Data Join mit unseren Links und gleich darauf wird in der Enter Selection für jeden Eintrag in unserem `link` Array eine Linie im SVG Element gezeichnet. Das Ganze wiederholen wir jetzt für die Knoten.
+Dann folgt in der selben Zeile der Data Join mit unseren Links und gleich darauf wird in der Enter Selection für jeden Eintrag in unserem `v6.links` Array eine Linie im SVG Element gezeichnet. Das Ganze wiederholen wir jetzt für die Knoten.
 
-Daraufhin definieren wir noch für das Tick Event die bereits erwähnte Funktion, die dann jeweils unsere Knoten und Links innerhalb des SVG Elementes positionieren. Man kann hier schön erkennen, wie D3 jeweils implizit über das `link` und `node` Array iteriert und für jeden Eintrag in der darauf definierten anonymen Funktion als ersten Parameter die Daten des Eintrags übergibt, die einem dann für die weitere Verarbeitung zur Verfügung stehen. In unserem Fall geben wir einfach nur die jeweilige Position für den Link oder den Knoten zurück.
+Daraufhin definieren wir noch für das Tick Event die bereits erwähnte Funktion, die dann jeweils unsere Knoten und Links innerhalb des SVG Elementes positionieren. Man kann hier schön erkennen, wie D3 jeweils implizit über das `v6.links` und `v6.nodes` Array iteriert und für jeden Eintrag in der darauf definierten anonymen Funktion als ersten Parameter die Daten des Eintrags übergibt, die einem dann für die weitere Verarbeitung zur Verfügung stehen. In unserem Fall geben wir einfach nur die jeweilige Position für den Link oder den Knoten zurück.
 
-Als letzter Schritt wird noch die eigentliche physikalische Berechnung gestartet, die natürlich unsere beiden Knoten und Link Arrays benötigt, um vernünftig arbeiten zu können. Als Ergebnis erhalten wir den Graph aus Abbildung 5, der schon ein wenig an den ersten Graphen unter dem Artikelbild erinnert.
+Als letzter Schritt wird noch die eigentliche physikalische Berechnung gestartet, die natürlich unsere beiden Knoten und Link Arrays benötigt, um vernünftig arbeiten zu können. Als Ergebnis erhalten wir den Graph aus Abbildung 6, der schon ein wenig an den ersten Graphen am Anfang des Artikels erinnert.
 
-<div id="example4"></div><!--graph container-->
+<div id="v6"></div><!--graph container-->
 
-Das Ergebnis aus Listing 6 - Knoten dürfen bewegt werden ;-)
+*Abbildung 6: Das Ergebnis aus Listing 6 - Knoten dürfen bewegt werden ;-)*
 
 Wie man sieht, muß man oft nur minimal Code erstellen, um Charts an seine eigenen Bedürfnisse anzupassen. Und sollte man doch mal etwas komplizierteres benötigen, so kann man davon ausgehen, im Internet viele Beispiele für die gleiche oder eine ähnliche Problemstellung zu finden.
 
 
 ## Netzwerken: Ein Plugin (nicht nur) für APEX
 
-Wer sich dafür interessiert, was man noch so alles machen muss, um vom eben gezeigten Minimalbeispiel zu der großen Lösung aus dem Artikelanfang zu kommen, findet eine vollständige Implementierung eines Netzwerkcharts als [APEX-Plugin auf GitHub][7]. Dazu gibt es auch eine [Demo-App auf apex.oracle.com][8]. Allen Nicht-APEX-Entwicklern sei gesagt, dass trotz seines Namens nicht zwingend APEX benötigt wird. Wie im Artikel empfohlen existiert eine vollständige JavaScript API. Darüberhinaus gibt es einen interaktiven Customization Wizard und die Chartfunktion stellt bei nicht vorhandenen Daten selbstständig Beispieldaten zur Verfügung. Mit diesen Voraussetzungen kann man nach dem Einbinden der benötigten Source-Dateien sofort loslegen, Parameter verändern und live die Auswirkungen testen.
+Wer sich dafür interessiert, was man noch so alles machen muss, um vom eben gezeigten Minimalbeispiel zu der großen Lösung aus dem Artikelanfang zu kommen, findet eine vollständige Implementierung eines Netzwerkcharts als [APEX-Plugin auf GitHub][8]. Dazu gibt es auch eine [Demo-App auf apex.oracle.com][9]. Allen Nicht-APEX-Entwicklern sei gesagt, dass trotz seines Namens nicht zwingend APEX benötigt wird. Wie im Artikel empfohlen existiert eine vollständige JavaScript API. Darüberhinaus gibt es einen interaktiven Customization Wizard und die Chartfunktion stellt bei nicht vorhandenen Daten selbstständig Beispieldaten zur Verfügung. Mit diesen Voraussetzungen kann man nach dem Einbinden der benötigten Source-Dateien sofort loslegen, Parameter verändern und live die Auswirkungen testen.
 
-[7]: https://github.com/ogobrecht/d3-force-apex-plugin
-[8]: https://apex.oracle.com/pls/apex/f?p=18290:1
+[8]: https://github.com/ogobrecht/d3-force-apex-plugin
+[9]: https://apex.oracle.com/pls/apex/f?p=18290:1
 
 ## Fazit
 
 Mit D3 stehen einem eine Menge Möglichkeiten offen, eigene Charts zu erstellen. Man muß zwar zuerst ein wenig Arbeit investieren, bekommt aber bei überlegter Umsetzung wiederverwendbaren Code und hat praktisch keine Einschränkungen in der Umsetzung. Natürlich kann man in einem Artikel wie diesem nur an der Oberfläche kratzen. Nichtsdestotrotz besteht die Hoffnung, Lust auf mehr gemacht zu haben. Folgend ein paar Links als Einstieg für die eigene Recherche:
 
-- [d3js.org][9]
-- [D3 Tip in der deutschen APEX Community][10]
-- [www.apex-plugin.com][11] (nach D3 suchen)
-- [SVG Tutorial][12]
+- [d3js.org][10]
+- [D3 Tip in der deutschen APEX Community][11]
+- [www.apex-plugin.com][12] (nach D3 suchen)
+- [SVG Tutorial][13]
 
-Wer keine Lust auf selber machen hat: [nvd3.org][13], [c3js.org][14] (Abstraktionsprojekte)
+Wer keine Lust auf selber machen hat: [nvd3.org][14], [c3js.org][15] (Abstraktionsprojekte)
 
-[9]: http://d3js.org
-[10]: https://apex.oracle.com/pls/apex/germancommunities/apexcommunity/tipp/3481/index.html
-[11]: http://www.apex-plugin.com/search-plugin-directory/
-[12]: http://tutorials.jenkov.com/svg/index.html
-[13]: http://nvd3.org/
-[14]: http://c3js.org/
+[10]: http://d3js.org
+[11]: https://apex.oracle.com/pls/apex/germancommunities/apexcommunity/tipp/3481/index.html
+[12]: http://www.apex-plugin.com/search-plugin-directory/
+[13]: http://tutorials.jenkov.com/svg/index.html
+[14]: http://nvd3.org/
+[15]: http://c3js.org/
+
+Happy coding :-)  
+Ottmar
 
 <link  href="/assets/d3.js/d3-force-2.0.2.css" rel="stylesheet" type="text/css">
 <script src="/assets/d3.js/d3-3.5.6.min.js"></script>
@@ -369,16 +414,16 @@ Wer keine Lust auf selber machen hat: [nvd3.org][13], [c3js.org][14] (Abstraktio
 <script>
 window.onload = function (){
 
-  //example 1
-  window.example1 = netGobrechtsD3Force('example1')
+  //v0
+  window.v0 = netGobrechtsD3Force('v0')
     .debug(true) //to enable the customization wizard
     .lassoMode(true)
     //.zoomMode(true)
     .useDomParentWidth(true) //for responsive layout
     .start(); //sample data is provided, when called without data
 
-  //example 2
-  d3.select('svg#example2').append('circle')
+  //v1
+  d3.select('svg#v1').append('circle')
     .attr('cx','380')
     .attr('cy','60')
     .attr('r','55')
@@ -386,16 +431,36 @@ window.onload = function (){
     .style('fill','lightsteelblue')
     .style('fill-opacity',0.5);
 
-  //example 3
-  window.example3_div = d3.select('div#example3');
-  window.example3_p = example3_div.selectAll('p').data([1,2,3])
+  //v3
+  window.v3 = {};
+  v3.div = d3.select('div#v3');
+  v3.p = v3.div.selectAll('p').data([1,2,3])
     .style('color', 'red');
-  example3_p.enter().append('p')
+  v3.p.enter().append('p')
     .text( function(d){return 'Neues Element aus Daten ' + d;} );
-  example3_p.exit().remove();
+  v3.p.exit().remove();
 
-  //example 4
-  window.nodesData = [
+  //v4
+  window.v4 = {};
+  v4.data = [
+    {"id":1, "r":14, "x":50,  "y":15, "color":"red"},
+    {"id":2, "r":14, "x":70, "y":15, "color":"green"},
+    {"id":3, "r":14, "x":90, "y":15, "color":"blue"}
+  ];
+  v4.svg = d3.select('svg#v4');
+  v4.circles = v4.svg.selectAll('circle')
+    .data(v4.data, function(d){return d.id;});
+  v4.circles.exit().remove();
+  v4.circles.enter().append('circle');
+  v4.circles
+    .attr('r',    function(d) { return d.r; })
+    .attr('cx',   function(d) { return d.x; })
+    .attr('cy',   function(d) { return d.y; })
+    .attr('fill', function(d) { return d.color; });
+
+  //v 6
+  window.v6 = {}; v6.data = {};
+  v6.data.nodes = [
     {"name":"King","dept":10},{"name":"Blake","dept":30},
     {"name":"Clark","dept":10},{"name":"Jones","dept":20},
     {"name":"Scott","dept":20},{"name":"Ford","dept":20},
@@ -404,7 +469,7 @@ window.onload = function (){
     {"name":"Turner","dept":30},{"name":"Adams","dept":20},
     {"name":"James","dept":30},{"name":"Miller","dept":10}
   ];
-  window.linksData = [
+  v6.data.links = [
     {"source":1,"target":0},{"source":2,"target":0},
     {"source":3,"target":0},{"source":7,"target":1},
     {"source":8,"target":1},{"source":9,"target":1},
@@ -413,33 +478,37 @@ window.onload = function (){
     {"source":5,"target":3},{"source":6,"target":5},
     {"source":11,"target":4}
   ];
-  window.width = 500, height = 300;
-  window.svg = d3.select("div#example4").append("svg")
-    .attr("viewBox","0 0 500 300")
-    .attr("width",width)
+  v6.width = 300; v6.height = 225;
+  v6.svg = d3.select("div#v6").append("svg")
+    .attr("viewBox","0 0 " + v6.width + " " + v6.height)
+    .attr("width","500px")
     .style("max-width","100%")
     .style("border","1px solid silver")
     .style("border-radius","5px")
     .style("background-color","white");
-  window.color = d3.scale.category10();
-  window.force = d3.layout.force().size([width,height]);
-  window.links = svg.selectAll("line").data(linksData)
+  v6.color = d3.scale.category10();
+  v6.force = d3.layout.force().size([v6.width,v6.height]);
+  v6.links = v6.svg.selectAll("line").data(v6.data.links)
     .enter().append("line").style('stroke','#999');
-  window.nodes = svg.selectAll("circle").data(nodesData)
+  v6.nodes = v6.svg.selectAll("circle").data(v6.data.nodes)
     .enter().append("circle")
       .attr("r", 5)
-      .style("fill", function(d){ return color(d.dept); })
-      .call(force.drag);
-  force.on("tick", function(){
-    links.attr("x1", function(d){ return d.source.x; })
-         .attr("y1", function(d){ return d.source.y; })
-         .attr("x2", function(d){ return d.target.x; })
-         .attr("y2", function(d){ return d.target.y; });
-
-    nodes.attr("cx", function(d){ return d.x; })
-         .attr("cy", function(d){ return d.y; });
+      .style("fill", function(d){ return v6.color(d.dept); })
+      .call(v6.force.drag);
+  v6.force.on("tick", function(){
+    v6.links
+      .attr("x1", function(d){ return d.source.x; })
+      .attr("y1", function(d){ return d.source.y; })
+      .attr("x2", function(d){ return d.target.x; })
+      .attr("y2", function(d){ return d.target.y; });
+    v6.nodes
+      .attr("cx", function(d){ return d.x; })
+      .attr("cy", function(d){ return d.y; });
   });
-  force.nodes(nodesData).links(linksData).start();
+  v6.force
+    .nodes(v6.data.nodes)
+    .links(v6.data.links)
+    .start();
 
 }
 

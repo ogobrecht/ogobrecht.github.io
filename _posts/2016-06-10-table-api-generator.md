@@ -27,11 +27,14 @@ In my holiday this spring I stumbled over a tweed from Phillip Salvisberg about 
 Over the time we found out, that the generation of the thin API wrappers for our tables saves us time and makes our code more stable and readable because of the saved boilerplate code.  
 Business logic packages becomes invalid after table changes and API regeneration. This is good, because you can see, which API calls are now invalid. If you have simple insert or update statements you might oversee some places, where the statement is still valid for example with an added table column, but in fact does the wrong insert or update.
 
-And the last thing, what is now possible: Security - separate the data from the user interface. Simply grant execute rights on the API and business logic packages to the UI schema and disable the deletion of rows in you API packages when you don't need it. No user will be able to drop or truncate your tables, because there are no tables in the UI schema :-)
+And the last thing, what is now possible: Security - separate the data from the user interface. Simply grant execute rights on the API and business logic packages to the UI schema and disable the deletion of rows in your API packages when you don't need it. No user will be able to drop or truncate your tables, because there are no tables in the UI schema.
 
 The generated API packages are really thin - nothing special at all. Nevertheless they are powerful time savers.
 
 You can find the sources and more informations on [GitHub][2].
+
+Happy coding :-)  
+Ottmar
 
 
 [1]: https://www.oddgen.org

@@ -3,7 +3,6 @@ title: Double click on APEX report row opens first link target
 subtitle: A small jQuery report helper
 tags: [oracle, apex, jquery]
 lang: en
-layout: post
 ---
 
 _Do you like scanning a report for certain information and then moving the mouse to the first column to click the small link for details or a edit form?

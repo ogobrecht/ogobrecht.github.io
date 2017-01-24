@@ -3,7 +3,6 @@ title: Reporting mal anders, Markdown sei Dank
 subtitle: DOAG Konferenz 2016, Nürnberg
 tags: [oracle, apex, doag, folien, markdown, chart]
 lang: de
-layout: post
 ---
 Die Folien zu meinem Vortrag:
 

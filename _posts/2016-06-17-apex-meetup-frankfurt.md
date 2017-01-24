@@ -3,7 +3,6 @@ title: APEX Meetup 17.06.2016, Frankfurt
 subtitle: Markdown und Table API Generator
 tags: [oracle, apex, folien, markdown, generator]
 lang: de
-layout: post
 ---
 Heute bin ich früh morgens mit dem Zug nach Frankfurt gefahren. Ich bin von Moritz Klein und Sabine Heimsath eingeladen worden - das Motto: "Ein ganz generisches APEX Meetup". Passend zum Motto hatte ich einen Vortrag zum [Table API Generator][1] dabei, meinem neuesten Open Source Projekt zusammen mit André Borngräber. Daneben habe ich noch einmal meinen APEX connect Vortrag zum Thema [APEX Fine Art Printing, Markdown Überall][2] gezeigt.
 

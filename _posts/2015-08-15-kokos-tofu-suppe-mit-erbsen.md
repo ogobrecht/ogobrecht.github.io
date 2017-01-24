@@ -2,7 +2,6 @@
 title: Kokos-Tofu-Suppe mit Erbsen
 tags: [rezept, suppe]
 lang: de
-layout: post
 ---
 - 400 ml Gemüsebrühe
 - 200 ml Kokosmilch

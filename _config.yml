@@ -25,6 +25,34 @@ permalink: /posts/:year-:month-:day-:title
 github_username:  ogobrecht
 twitter_username: ogobrecht
 xing_username: Ottmar_Gobrecht
+disqus:
+  shortname: ottmars-notes
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      comments: true
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+      comments: true
+  -
+    scope:
+      path: "slides"
+    values:
+      layout: "slides"
+  -
+    scope:
+      path: "tags"
+    values:
+      layout: "tag"
 
 # Build settings
 markdown: kramdown

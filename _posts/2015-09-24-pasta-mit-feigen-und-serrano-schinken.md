@@ -2,7 +2,6 @@
 title: Pasta mit Feigen und Serrano-Schinken
 tags: [rezept, nudeln]
 lang: de
-layout: post
 ---
 - 160 g Vollkornpenne
 - 3-4 frische Feigen, in kleine Stücke geschnitten

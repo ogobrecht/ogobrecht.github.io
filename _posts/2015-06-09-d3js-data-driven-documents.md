@@ -3,7 +3,6 @@ title: D3.js - Data Driven Documents
 subtitle: DOAG APEX connect 2015, Düsseldorf
 tags: [oracle, apex, doag, folien, d3js]
 lang: de
-layout: post
 ---
 Die Folien zu meinem Vortrag:
 

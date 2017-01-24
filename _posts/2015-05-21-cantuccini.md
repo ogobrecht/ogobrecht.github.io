@@ -2,7 +2,6 @@
 title: Cantuccini
 tags: [rezept, kekse]
 lang: de
-layout: post
 ---
 - 250 g Mehl
 - 150 g Mandeln

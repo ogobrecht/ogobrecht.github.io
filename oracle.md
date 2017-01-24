@@ -1,7 +1,6 @@
 ---
 title: Oracle
 lang: en
-layout: page
 nav: 1
 maintopic: 1
 ---

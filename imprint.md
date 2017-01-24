@@ -1,7 +1,6 @@
 ---
 title: Imprint
 lang: en
-layout: page
 nav: 4
 ---
 

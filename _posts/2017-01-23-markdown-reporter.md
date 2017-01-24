@@ -3,7 +3,6 @@ title: Markdown Reporter
 subtitle: Write your reports with Markdown, get HTML or LaTeX PDF's
 tags: [project, oracle, plsql, nodejs, pandoc, python, matplotlib]
 lang: en
-layout: post
 ---
 On the APEX connect 2016 in Berlin I talked about my APEX Markdown plugin and fine art printing with the help of Pandoc and LaTeX. When I was preparing my slides and documenting a SQL query in a Markdown code block I asked myself:
 

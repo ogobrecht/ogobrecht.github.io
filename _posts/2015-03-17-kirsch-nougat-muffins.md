@@ -2,7 +2,6 @@
 title: Kirsch Nougat Muffins
 tags: [rezept, muffins]
 lang: de
-layout: post
 ---
 Die Teigmenge reicht für 12 Muffins.
 

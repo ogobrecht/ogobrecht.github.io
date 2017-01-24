@@ -3,7 +3,6 @@ title: D3.js Grundlagen
 subtitle: DOAG/SOUG News 02-2015
 tags: [oracle, apex, doag, d3js]
 lang: de
-layout: post
 ---
 
 Dieser Artikel erschien in der DOAG/SOUG News 02-2015 und steht auch im [Original][1] zur Verfügung. Im Gegensatz zu der Papierversion der DOAG haben wir natürlich auf einer Webseite alle Möglichkeiten, D3 live zu zeigen - also los, wir starten mit einer Netzwerkvisualisierung live im Browser (JavaScript muß aktiv sein, damit die Beispiele auf dieser Seite funktionieren):
@@ -12,7 +11,7 @@ Dieser Artikel erschien in der DOAG/SOUG News 02-2015 und steht auch im [Origina
 
 <div id="v0"></div><!--the graph container-->
 
-*D3 ist eine JavaScript Bibliothek zum Manipulieren von HTML Dokumenten auf der Basis von Daten und setzt dabei auf die Webstandards HTML, SVG und CSS. Dieser Artikel soll die Grundlagen von D3 beleuchten und das Interesse am Thema Datenvisualisierung mit Webstandards wecken. Für Datenbankentwickler vorab nur soviel: Auch D3 kennt den Begriff des Joins.*
+*D3 ist eine JavaScript Bibliothek zum Manipulieren von HTML Dokumenten auf der Basis von Daten und setzt dabei auf die Webstandards HTML, SVG und CSS. Dieser Artikel zeigt die Grundlagen von D3 und weckt das Interesse am Thema "Datenvisualisierung mit Webstandards". Vorab nur soviel: Auch D3 kennt den Begriff des Joins.*
 
 ## Beispiele von der D3 Homepage
 

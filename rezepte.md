@@ -1,7 +1,6 @@
 ---
 title: Rezepte
 lang: de
-layout: page
 maintopic: 3
 ---
 

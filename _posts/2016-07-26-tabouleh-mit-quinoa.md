@@ -2,7 +2,6 @@
 title: Tabouleh mit Quinoa
 tags: [rezept, salat, eintopf]
 lang: de
-layout: post
 ---
 Reicht für zwei bis drei Personen als Hauptspeise oder für vier bis sechs Personen als Vorspeise.
 

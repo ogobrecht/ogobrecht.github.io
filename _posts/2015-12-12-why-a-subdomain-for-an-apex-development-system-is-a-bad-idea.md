@@ -3,7 +3,6 @@ title: Why a subdomain for an APEX development system is a bad idea
 subtitle: The Internet Explorer cookie desaster
 tags: [oracle, apex]
 lang: en
-layout: post
 ---
 
 _Do you find dev.apex.mycompany.tld a nice, rememberable address? Unfortunately this will not work - at least when you use Internet Explorer (which is the standard browser in most companies) and you use the same cookie name in some or all applications to share the session across multiple applications._

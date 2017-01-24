@@ -2,7 +2,6 @@
 title: Blumenkohlcremesuppe
 tags: [rezept, suppe]
 lang: de
-layout: post
 ---
 Reicht für zwei hungrige Suppenkasper als Hauptmahlzeit oder für vier als sättigende Vorspeise.
 

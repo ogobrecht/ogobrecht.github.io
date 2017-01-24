@@ -2,7 +2,6 @@
 title: Grüne Bandnudeln mit Zucchini und Sahne-Zitronen-Sauce
 tags: [rezept, nudeln]
 lang: de
-layout: post
 ---
 Dieses Gericht ist ein wenig empfindlich bei den Verarbeitungsschritten - man kommt schnell in Hektik, wenn man drei Töpfe beaufsichtigt und zwischendurch noch die Petersilie putzt. Besser, man bereitet alle Zutaten vor und konzentriert sich auf die Verarbeitung.  
 

@@ -3,7 +3,6 @@ title: D3.js Force-Directed Network Chart
 subtitle: A JavaScript standalone implementation and Oracle APEX region type plugin
 tags: [project, oracle, apex, plugin, d3js, chart]
 lang: en
-layout: post
 ---
 _My first Oracle APEX plugin and open source project :-)_
 

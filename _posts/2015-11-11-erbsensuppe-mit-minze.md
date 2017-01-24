@@ -2,7 +2,6 @@
 title: Erbsensuppe mit Minze
 tags: [rezept, suppe]
 lang: de
-layout: post
 ---
 - 500 ml Gemüsebrühe
 - 450 g TK-Erbsen, aufgetaut

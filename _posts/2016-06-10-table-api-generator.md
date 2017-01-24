@@ -3,7 +3,6 @@ title: Table API Generator
 subtitle: An Oracle PL/SQL package with SQL Developer integration
 tags: [project, oracle, plsql, generator, oddgen]
 lang: en
-layout: post
 ---
 Last year I needed for a project a simple table API, which is able to generate a generic change log - something like "show me for table xyz which column was changed when and what was the old value and what is the new one". Only changed values should be stored and all tables should log into the same generic logging table. Sounds like we need a generator for this.
 

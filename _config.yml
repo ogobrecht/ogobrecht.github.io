@@ -25,8 +25,8 @@ permalink: /posts/:year-:month-:day-:title
 github_username:  ogobrecht
 twitter_username: ogobrecht
 xing_username: Ottmar_Gobrecht
-disqus:
-  shortname: ottmars-notes
+# disqus: not working further analysis needed
+  # shortname: ottmars-notes
 
 defaults:
   -

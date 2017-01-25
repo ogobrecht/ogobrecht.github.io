@@ -20,13 +20,13 @@ email: ottmar.gobrecht [at] gmail.com
 description: > # "baseurl:"
   Ottmar's public notes <a href="/about">about</a> coding, cooking and 42 ;-)
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://ogobrecht.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 permalink: /posts/:year-:month-:day-:title
 github_username:  ogobrecht
 twitter_username: ogobrecht
 xing_username: Ottmar_Gobrecht
-# disqus: not working further analysis needed
-  # shortname: ottmars-notes
+disqus:
+  shortname: ottmars-notes
 
 defaults:
   -

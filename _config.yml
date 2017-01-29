@@ -16,7 +16,7 @@
 title: Ottmar's Notes
 author: Ottmar Gobrecht
 author_url: https://github.com/ogobrecht
-email: ottmar.gobrecht [at] gmail.com
+email: ottmar.gobrecht@gmail.com
 description: > # "baseurl:"
   Ottmar's public notes <a href="/about">about</a> coding, cooking and 42 ;-)
 baseurl: "" # the subpath of your site, e.g. /blog
@@ -25,8 +25,6 @@ permalink: /posts/:year-:month-:day-:title
 github_username:  ogobrecht
 twitter_username: ogobrecht
 xing_username: Ottmar_Gobrecht
-disqus:
-  shortname: ottmars-notes
 
 defaults:
   -
@@ -35,14 +33,12 @@ defaults:
       type: "posts"
     values:
       layout: "post"
-      comments: true
   -
     scope:
       path: ""
       type: "pages"
     values:
       layout: "page"
-      comments: true
   -
     scope:
       path: "slides"

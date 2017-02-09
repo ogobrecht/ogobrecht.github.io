@@ -22,7 +22,7 @@ This site is built with [Jekyll][5], a static site generator, and a slightly mod
 
 On each post you will find an email link for commenting. I will never publish your email address. I prefer this way for comments because I have to moderate the comments regardless of the used system.
 
-Another good system for commenting is a postcard - If love postcards. If you enjoyed some content here on this site and you want to give me a treat - send a postcard to:
+Another good system for commenting is a postcard - I love postcards. If you enjoyed some content here on this site and you want to give me a treat - send a postcard to:
 
 Ottmar Gobrecht  
 Knappertsbuschstraße 19  

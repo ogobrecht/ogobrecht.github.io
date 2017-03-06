@@ -1,6 +1,6 @@
 <item>
 <title>{{ post.title | xml_escape }}</title>
-<description>{% if post.subtitle %}&lt;h2&gt;{{ post.subtitle | xml_escape }}&lt;/h2&gt;{% endif %}
+<description>{% if post.subtitle %}&lt;strong&gt;{{ post.subtitle | xml_escape }}&lt;/strong&gt;.{% endif %}
 
 {{ post.content | xml_escape }}</description>
 <pubDate>{{ post.date | date_to_xmlschema }}</pubDate>

@@ -1,6 +1,0 @@
----
-layout: none
----
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-{% for page in site.pages %}{% if page.nav > 0 or page.sitemap > 0 %}{% include sitemap.xml url=page.url %}{% endif %}{% endfor %}{% for post in site.posts %}{% include sitemap.xml url=post.url %}{% endfor %}</urlset>

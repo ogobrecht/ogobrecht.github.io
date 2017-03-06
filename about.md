@@ -6,6 +6,8 @@ sitemap: 1
 
 ## Me
 
+![Avatar](/assets/avatar.jpeg){:.avatar}
+
 Hi, my name is Ottmar Gobrecht. I am a database developer working with Oracle PL/SQL & APEX and this is my private homepage.
 
 I live in Munich, Germany and I am a little bit active in open source development - you can find my projects on [GitHub][1] and of course [here on this site][2].

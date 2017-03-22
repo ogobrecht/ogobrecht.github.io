@@ -3,7 +3,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ page.title | default: site.title | escape }}</title>
-<meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+<meta name="description" content="{{ page.subtitle | default: page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
 <link rel="author" href="{{ site.author_url | default: site.author }}">
 <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
 <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">{% if page.feedname %}

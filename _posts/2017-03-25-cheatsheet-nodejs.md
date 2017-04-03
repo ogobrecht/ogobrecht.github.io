@@ -10,16 +10,18 @@ This is my first cheatsheet. I wanted to write a small post about Node.js as a l
 
 ## A Basic Webserver & APEX Proxy
 
-1. Install [Node.js](https://nodejs.org)
-2. Create a new directory and place the package.json and server.js in this directory
-3. Run `npm install` to install the dependencies
-4. Run `npm start` or alternative `node server.js` to start the server
-5. Done :-)
+- Install [Node.js](https://nodejs.org)
+- Create a new directory and place the package.json and server.js in this directory
+- Run `npm install` to install the dependencies
+- Run `npm start` or alternative `node server.js` to start the server
+- Done :-)
+
+File package.json:
 
 ```js
 {
     "name": "nodejs-dev-server",
-    "version": "0.0.0",
+    "version": "0.0.0-ignored",
     "private": true,
     "dependencies": {
         "express": "^4.15.0",
@@ -27,6 +29,8 @@ This is my first cheatsheet. I wanted to write a small post about Node.js as a l
     }
 }
 ```
+
+File server.js
 
 ```js
 var path = require('path');
@@ -40,13 +44,13 @@ app.use('/', express.static(path.resolve(__dirname, '..', 'ogobrecht.github.io',
     extensions: ['html'] // nicer URL's: html files need no extension
 }));
 
-// APEX image directory: unzip the APEX archive here
-app.use('/i', express.static(path.join(__dirname, 'apex510en', 'images')));
-
 // markdown-it test site
 app.use('/md', express.static(path.resolve(__dirname, '..', 'markdown-it-test'), {
     extensions: ['html']
 }));
+
+// APEX image directory: unzip the APEX archive here
+app.use('/i', express.static(path.join(__dirname, 'apex510en', 'images')));
 
 // APEX proxy
 app.use('/apex', proxy({
@@ -58,17 +62,24 @@ http.createServer(app).listen(3000);
 ```
 
 
-## How to upgrade package.json
+## Install packages
 
-1. Install command line helper: `npm install -g npm-check-updates`
-2. Show any new dependencies: `ncu`
-3. Upgrade package.json: `ncu -u`
-4. [More Infos](https://www.npmjs.com/package/npm-check-updates)
+- A global package: `npm install -g grunt-cli` [more about grunt-cli...](https://www.npmjs.com/package/grunt-cli)
+- Save dependency in package.json: `npm install -S express`
+- Save dev dependency: `npm install -D grunt-contrib-uglify`
 
 
-## How to run ad hoc webserver on any directory
+## Upgrade package.json
 
-1. `npm install -g http-server`
-2. Run: `http-server` or `http-server [path] [options]`
-3. HTML files without extension: `http-server -e`
-3. [More Infos](https://www.npmjs.com/package/http-server)
+- Install command line helper: `npm install -g npm-check-updates`
+- Show any new dependencies: `ncu`
+- Upgrade package.json: `ncu -u`
+- [More infos...](https://www.npmjs.com/package/npm-check-updates)
+
+
+## Run ad hoc webserver on any directory
+
+- `npm install -g http-server`
+- Run: `http-server` or `http-server [path] [options]`
+- HTML files without extension: `http-server -e`
+- [More infos...](https://www.npmjs.com/package/http-server)

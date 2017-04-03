@@ -1,7 +1,7 @@
 ---
 title: D3.js Grundlagen
 subtitle: DOAG/SOUG News 02-2015
-tags: [oracle, apex, doag, d3js]
+tags: [oracle, apex, doag, d3js, svg]
 lang: de
 ---
 

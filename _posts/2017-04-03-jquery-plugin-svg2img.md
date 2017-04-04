@@ -1,6 +1,6 @@
 ---
 title: jQuery Plugin svg2img
-subtitle: Convert inline SVG's to standalone image files without loosing styles
+subtitle: Convert inline SVGs to standalone image files without loosing styles
 tags: [project, jquery, plugin, svg]
 lang: en
 ---

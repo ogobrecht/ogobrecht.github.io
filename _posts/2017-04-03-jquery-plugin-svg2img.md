@@ -5,9 +5,9 @@ tags: [project, jquery, plugin, svg]
 lang: en
 ---
 
-SVG based charts and visualizations are often used these days. But what, if you want to use your browser inline SVG's, generated with some sort of JavaScript and fancy styled with CSS, offline - maybe in a presentation, send by email or printed out large scaled?
+SVG based charts and visualizations are often used these days. But what if you want to use your browser inline SVGs, generated with some sort of JavaScript and fancy styled with CSS, offline - maybe in a presentation, send by email or printed out large scaled?
 
-You can create a screenshot, of course. But does this looking nice when it comes to scaling? You can try to copy the HTML code of the SVG and wrap it into a correct SVG container, but then you will loose in the most cases the stylings, as normally not all CSS definitions are directly attached to the SVG elements. You can also use a browser extension like [this one for Google Chrome][1], but then you depend on the browser and the extension.
+You can create a screenshot, of course. But does this look nice when it comes to scaling? You can try to copy the HTML code of the SVG and wrap it into a correct SVG container, but then you will loose in the most cases the stylings, as normally not all CSS definitions are directly attached to the SVG elements. You can also use a browser extension like [this one for Google Chrome][1], but then you depend on the browser and the extension.
 
 There is now a declarative way with the help of a jQuery plugin, which is 100% client based:
 
@@ -28,14 +28,14 @@ jQuery.fn.svg2img.defaults = {
 You can also set the options at runtime - try it out in your browser console directly here on the page:
 
 ```js
-$('#example-graph').svg2img({format: "svg,png", debug:true})
+$('#example-graph').svg2img({format:"svg,png", debug:true})
 ```
 
 Alternative you can use the links under the network chart.
 
-The plugin checks, if your selector is a SVG element. If this is not the case, it searches under each selector element for all SVG's and exports it. The name of the file(s) are automatically derived from the element ID (or parent element ID) or set to `export`. The current date and time is appended to the file name. For our example graph on this page the name will be something like `example-graph-20170403-154653.svg`.
+The plugin checks if your selector is a SVG element. If this is not the case, it searches under each selector element for all SVGs and exports it. The name(s) of the file(s) are automatically derived from the element ID (or parent element ID) or set to `export`. The current date and time is appended to the file name. For our example graph on this page the name will be something like `example-graph-20170403-154653.svg`.
 
-You can download all SVG's from one page by setting the selector to the document, body or svg - as you like it. There is no need for a `each()` call, `svg2img` works on the whole selection and is chainable:
+You can download all SVGs from one page by setting the selector to the document, body or svg - as you like it. There is no need for a `each()` call, `svg2img` works on the whole selection and is chainable:
 
 ```js
 $("svg").svg2img().css("border","1px solid red");

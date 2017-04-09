@@ -1,7 +1,6 @@
 ---
 title: Imprint
 lang: en
-nav: 4
 ---
 
 Legal information as required by german law:

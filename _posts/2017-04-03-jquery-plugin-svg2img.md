@@ -28,7 +28,7 @@ jQuery.fn.svg2img.defaults = {
 You can also set the options at runtime - try it out in your browser console directly here on the page:
 
 ```js
-$('#example-graph').svg2img({format:"svg,png", debug:true})
+$('#example-graph').svg2img({format:"svg,png", debug:true});
 ```
 
 Alternative you can use the links under the network chart.
@@ -54,11 +54,11 @@ Ottmar
 
 <div id="example-graph"></div><!--the graph container-->
 Download
-<a href="javascript:$('#example-graph').svg2img()">SVG</a> |
-<a href="javascript:$('#example-graph').svg2img({format:'png'})">PNG</a> |
-<a href="javascript:$('#example-graph').svg2img({format:'gif'})">GIF</a> |
-<a href="javascript:$('#example-graph').svg2img({format:'jpeg'})">JPEG</a> |
-<a href="javascript:$('#example-graph').svg2img({format:'bmp'})">BMP</a>
+<a href="" onclick="event.preventDefault(); $('#example-graph').svg2img();">SVG</a> |
+<a href="" onclick="event.preventDefault(); $('#example-graph').svg2img({format:'png'});">PNG</a> |
+<a href="" onclick="event.preventDefault(); $('#example-graph').svg2img({format:'gif'});">GIF</a> |
+<a href="" onclick="event.preventDefault(); $('#example-graph').svg2img({format:'jpeg'});">JPEG</a> |
+<a href="" onclick="event.preventDefault(); $('#example-graph').svg2img({format:'bmp'});">BMP</a>
 
 <link  href="/assets/d3.js/d3-force-2.0.2.css" rel="stylesheet" type="text/css">
 <script src="/assets/d3.js/d3-3.5.6.min.js"></script>

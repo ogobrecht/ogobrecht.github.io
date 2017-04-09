@@ -22,6 +22,7 @@ description: > # "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://ogobrecht.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 permalink: /posts/:year-:month-:day-:title
+feed_limit: 20
 github_username:  ogobrecht
 twitter_username: ogobrecht
 xing_username: Ottmar_Gobrecht
@@ -52,8 +53,6 @@ defaults:
 
 # Build settings
 markdown: kramdown
-gems:
-#  - jekyll-feed
 exclude:
   - Gemfile
   - Gemfile.lock

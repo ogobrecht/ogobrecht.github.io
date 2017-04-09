@@ -15,6 +15,11 @@ I live in Munich, Germany and I am a little bit active in open source developmen
 As declared in the [privacy statement][3] I use no user tracking at all. I am enjoying my own private times without distractions and therefore I have no direct discussion possibility here on this site. The preferred way to get in contact with me is to send me an email (<a href="mailto:{{ site.email }}">{{ site.email }}</a>) or in urgent cases a postcard - for the address see section [comments][4] below.
 
 
+## My Motivation
+
+In the last years I was often happy to find solutions, informations and open source code provided by other people in their blogs and community sites. To write down my own experiences and share my code as open source projects is my way to give back what I received before.
+
+
 ## This Site
 
 This site is built with [Jekyll][5], a static site generator, and a slightly modified version of the default theme minima. The sources are [available at GitHub][6].

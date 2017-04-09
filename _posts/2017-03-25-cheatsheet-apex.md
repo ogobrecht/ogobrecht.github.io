@@ -7,7 +7,7 @@ lang: en
 
 This is a living document with my personal notes around APEX.
 
-## Base links
+## Base Links
 
 - [apex.oracle.com](https://apex.oracle.com/)
 - [Statement of direction](http://www.oracle.com/technetwork/testcontent/apex-sod-087560.html)
@@ -49,3 +49,59 @@ alter user apex_public_user account unlock;
 
 -- login into internal workspace and change security settings & passwords
 ```
+
+## APEX Link Syntax
+
+```html
+<a href="f?p=1_app_id:
+             2_app_page_id:
+             3_session:
+             4_request:
+             5_debug:
+             6_clear_cache:
+             7_item_names:
+             8_item_values:
+             9_printer_friendly">
+```
+
+A common example:
+
+```html
+<a href="f?p=&APP_ID.:123:&SESSION.:::123:item1,item2:value1,value2">
+```
+
+## Predifined Variables
+
+-  APP_USER
+-  APP_ID
+-  APP_PAGE_ID
+-  APP_UNIQUE_PAGE_ID
+-  APP_SESSION or SESSION
+-  APP_VERSION
+-  APP_IMAGES
+-  WORKSPACE_IMAGES
+-  IMAGE_PREFIX
+
+-  REQUEST
+-  DEBUG
+-  PRINTER_FRIENDLY
+
+-  BROWSER_LANGUAGE
+-  PUBLIC_URL_PREFIX
+-  AUTHENTICATED_URL_PREFIX
+-  HOME_LINK
+-  LOGIN_URL
+-  LOGOUT_URL
+-  CURRENT_PARENT_TAB_TEXT
+-  PROXY_SERVER
+-  SQLERRM
+-  SYSDATE_YYYYMMDD
+
+-  #SQLERRM# (error message page process)
+-  #TIME# (timing information report footer)
+
+Usage examples:
+
+- In a region: `Hello &APP_USER. - Welcome to Application Express`
+- In PL/SQL: `htp.p('You are logged in as: ' || V('APP_USER'));`
+- As bind variable: `SELECT * FROM tab WHERE user_id = :APP_USER`

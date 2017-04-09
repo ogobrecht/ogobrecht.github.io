@@ -1,8 +1,5 @@
 ---
 title: Oracle
 layout: feed
+feedtag: oracle
 ---
-{% assign posts = site.tags.oracle | where_exp: "post", "post.draft != true" %}
-{% for post in posts limit: 20 %}
-{% include feed-item.xml post=post %}
-{% endfor %}

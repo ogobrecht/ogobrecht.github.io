@@ -1,6 +1,6 @@
 ---
 title: Markdown Reporter
-subtitle: Write your reports with Markdown, get HTML or LaTeX PDF's
+subtitle: Write your reports with Markdown, get HTML or LaTeX PDFs
 tags: [project, oracle, plsql, nodejs, pandoc, python, matplotlib]
 lang: en
 ---

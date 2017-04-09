@@ -1,8 +1,5 @@
 ---
 title: Rezepte
 layout: feed
+feedtag: rezept
 ---
-{% assign posts = site.tags.rezept | where_exp: "post", "post.draft != true" %}
-{% for post in posts %}
-{% include feed-item.xml post=post %}
-{% endfor %}

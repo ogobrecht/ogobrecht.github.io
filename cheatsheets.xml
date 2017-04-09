@@ -1,8 +1,0 @@
----
-title: Cheatsheets
-layout: feed
----
-{% assign posts = site.tags.cheatsheet | where_exp: "post", "post.draft != true" %}
-{% for post in posts %}
-{% include feed-item.xml post=post %}
-{% endfor %}

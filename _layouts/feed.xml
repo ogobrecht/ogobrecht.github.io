@@ -4,6 +4,16 @@
 <title>{{ site.title | smartify | xml_escape }}{% if page.title %} - {{ page.title  | smartify | xml_escape }}{% endif %}</title>
 <description>{{ site.description | smartify | xml_escape }}</description>
 <link>{{ site.url }}{% if page.title %}{{ page.url }}{% endif %}</link>
-{{ content }}
+{% if page.feedtag %}
+{% assign posts = site.tags[page.feedtag] | where_exp: "post", "post.draft != true" %}
+{% for post in posts limit: site.feed_limit %}
+{% include feed-item.xml post=post %}
+{% endfor %}
+{% else %}
+{% assign posts = site.posts | where_exp: "post", "post.draft != true" %}
+{% for post in posts limit: site.feed_limit %}
+{% include feed-item.xml post=post %}
+{% endfor %}
+{% endif %}
 </channel>
 </rss>

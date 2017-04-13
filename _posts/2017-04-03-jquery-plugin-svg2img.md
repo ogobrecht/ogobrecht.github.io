@@ -41,7 +41,13 @@ You can download all SVGs from one page by setting the selector to the document,
 $("svg").svg2img().css("border","1px solid red");
 ```
 
-One last thing: Safari has currently (as of this writing) problems with the underlaying `savAs()` implementation and tries to open the images in a new tab with or without success. See also this [issue on GitHub][2].
+If you want to use anchors to provide export links then it is recommended to prevent the default action like so:
+
+```html
+<a href="" onclick="event.preventDefault(); $('#example-graph').svg2img();">SVG</a>
+```
+
+Otherwise Firefox and IE failing to save. Like often, Chrome works without any extra attention and for the IE I had to implement some "special features". One last thing: Safari has currently (as of this writing) problems with the underlaying `savAs()` implementation and tries to open the images in a new tab with or without success. See also this [issue on GitHub][2].
 
 The project is hosted on [GitHub][3] and MIT licensed.
 

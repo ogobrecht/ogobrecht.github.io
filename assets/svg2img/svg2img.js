@@ -1,5 +1,5 @@
 /**
- * jQuery plugin svg2img - v1.0.0 - 2017-04-03
+ * jQuery plugin svg2img - v1.0.1 - 2017-04-13
  * https://github.com/ogobrecht/jquery-plugin-svg2img
  * Copyright (c) 2017 Ottmar Gobrecht - MIT license
  */
@@ -88,7 +88,7 @@
                     log('export already running - queue additional ' + format + ' export');
                 }
             } else {
-                var original, copy, svgContainer, blob, fileName, canvas, ctx, img, dataUri, job;
+                var original, copy, copyContainer, html, blob, fileName, canvas, ctx, img, dataUri, job;
                 exportWorkInProgress = true;
                 if (settings.debug) {
                     timing.startExport = new Date().getTime();
@@ -96,23 +96,32 @@
                 }
 
                 // create a "standalone" SVG copy in the DOM (with XML namespace definiton)
-                body.append('<div id="tempSvgContainerForExport" style="display:none;"></div>');
-                svgContainer = $('#tempSvgContainerForExport');
+                body.append('<div id="tempContainerForExport" style="display:none;"></div>');
+                copyContainer = $('#tempContainerForExport');
                 original = $(element);
-                original.clone(false).appendTo(svgContainer);
+                original.clone(false).appendTo(copyContainer);
                 if (settings.debug) {
                     timing.endClone = new Date().getTime();
                     log('2 - clone of original SVG done (' + (timing.endClone - timing.startExport) + 'ms)');
                 }
 
                 // modifiy attributes for standalone SVG
-                copy = svgContainer.find('svg');
+                copy = copyContainer.find('svg');
                 copy.prepend('<style type="text/css">' + getUsedStyles(original.parent()[0]).join(' ') + '</style>')
                     .attr('xmlns', 'http://www.w3.org/2000/svg')
                     .attr('version', '1.1')
                     .attr('xmlns:xlink', 'http://www.w3.org/1999/xlink')
                     .css('border', 'none');
                 fileName = (original.attr('id') || original.parent().attr('id') || 'export') + '-' + formatLocalDate() + '.' + format;
+                // create string and correct IE problems as always :-(
+                // https://github.com/canvg/canvg/issues/189
+                // user agent matching works not always, so we do the corrections here in general, but needed only for IE
+                html = copyContainer.html()
+                    // ensure single attribute
+                    .replace(/xmlns="http:\/\/www.w3.org\/2000\/svg"/g, 'xmlns="http://www.w3.org/2000/svg"')
+                    // remove IE added namspace attributes
+                    .replace(/xmlns:NS1=""/g, '')
+                    .replace(/NS1:xmlns:xlink="http:\/\/www.w3.org\/1999\/xlink"/g, 'xmlns:xlink="http://www.w3.org/1999/xlink"');
                 if (settings.debug) {
                     timing.endStylesAttributes = new Date().getTime();
                     log('3 - collect styles and modify attributes done (' + (timing.endStylesAttributes - timing.endClone) + 'ms)');
@@ -121,13 +130,13 @@
                 // save to SVG
                 if (format === 'svg') {
 
-                    blob = new Blob([svgContainer.html()], {
+                    blob = new Blob([html], {
                         type: "image/svg+xml;charset=utf-8"
                     });
                     saveAs(blob, fileName);
 
                     // remove temporary DOM object
-                    svgContainer.remove();
+                    copyContainer.remove();
                     exportWorkInProgress = false;
                     if (settings.debug) {
                         timing.endSvgExport = new Date().getTime();
@@ -157,7 +166,7 @@
                     }
 
                     // create a data URI to render our svg to canvas
-                    dataUri = 'data:image/svg+xml;base64,' + window.btoa(svgContainer.html());
+                    dataUri = 'data:image/svg+xml;base64,' + window.btoa(html);
                     if (settings.debug) {
                         timing.endCreateDataUri = new Date().getTime();
                         log('5 - create data URI done (' + (timing.endCreateDataUri - timing.endCanvasInit) + 'ms)');
@@ -203,7 +212,7 @@
                         );
 
                         // remove temporary DOM objects
-                        svgContainer.remove();
+                        copyContainer.remove();
                         canvas.remove();
                         exportWorkInProgress = false;
                         if (settings.debug) {

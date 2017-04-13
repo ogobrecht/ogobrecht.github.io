@@ -88,7 +88,7 @@
                     log('export already running - queue additional ' + format + ' export');
                 }
             } else {
-                var original, copy, copyContainer, html, blob, fileName, canvas, ctx, img, dataUri, job;
+                var original, copy, copyContainer, html, replaceCount, blob, fileName, canvas, ctx, img, dataUri, job;
                 exportWorkInProgress = true;
                 if (settings.debug) {
                     timing.startExport = new Date().getTime();
@@ -116,9 +116,14 @@
                 // create string and correct IE problems as always :-(
                 // https://github.com/canvg/canvg/issues/189
                 // user agent matching works not always, so we do the corrections here in general, but needed only for IE
+                replaceCount = 0;
                 html = copyContainer.html()
                     // ensure single attribute
-                    .replace(/xmlns="http:\/\/www.w3.org\/2000\/svg"/g, 'xmlns="http://www.w3.org/2000/svg"')
+                    .replace(/xmlns="http:\/\/www.w3.org\/2000\/svg"/g, function(match, offset) {
+                        replaceCount++;
+                        if (replaceCount > 1) return '';
+                        return match;
+                    })
                     // remove IE added namspace attributes
                     .replace(/xmlns:NS1=""/g, '')
                     .replace(/NS1:xmlns:xlink="http:\/\/www.w3.org\/1999\/xlink"/g, 'xmlns:xlink="http://www.w3.org/1999/xlink"');

@@ -1,5 +1,5 @@
 /**
- * jQuery plugin svg2img - v1.0.1 - 2017-04-13
+ * jQuery plugin svg2img - v1.0.1 - 2017-04-14
  * https://github.com/ogobrecht/jquery-plugin-svg2img
  * Copyright (c) 2017 Ottmar Gobrecht - MIT license
  */
@@ -158,6 +158,10 @@
 
                 // save to png, gif, jpeg, bmp
                 else if (['png', 'gif', 'jpg', 'jpeg', 'bmp'].indexOf(format) > -1) {
+
+                    // Hello IE, only for you: wrap the svg into another svg container for error "XML5632":
+                    // https://github.com/canvg/canvg/issues/386
+                    html = '<svg>' + html + '</svg>';
 
                     // https://developer.mozilla.org/de/docs/Web/API/Canvas_API/Drawing_DOM_objects_into_a_canvas
                     body.append('<canvas id="tempCanvasForExport" style="display:none;"></canvas>');

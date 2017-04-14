@@ -15,23 +15,21 @@ There is now a declarative way with the help of a jQuery plugin, which is 100% c
 jQuery('#example-graph').svg2img();
 ```
 
-There are default options - you can redeclare it:
+There is one default option - you can redeclare it:
 
 ```js
 jQuery.fn.svg2img.defaults = {
-    format: "svg", // svg, png, gif, jpeg or bmp - multiple formats possible: "svg,png"
-    jpegQuality: 1, // between 0 and 1 (0% and 100% JPEG quality)
     debug: false // write debug information to console
 };
 ```
 
-You can also set the options at runtime - try it out in your browser console directly here on the page:
+You can also set the debug option at runtime - try it out in your browser console directly here on the page:
 
 ```js
-$('#example-graph').svg2img({format:"svg,png", debug:true});
+$('#example-graph').svg2img({debug:true});
 ```
 
-Alternative you can use the links under the network chart.
+Alternative you can use the link under the network chart.
 
 The plugin checks if your selector is a SVG element. If this is not the case, it searches under each selector element for all SVGs and exports it. The name(s) of the file(s) are automatically derived from the element ID (or parent element ID) or set to `export`. The current date and time is appended to the file name. For our example graph on this page the name will be something like `example-graph-20170403-154653.svg`.
 
@@ -47,7 +45,10 @@ If you want to use anchors to provide export links then it is recommended to pre
 <a href="" onclick="event.preventDefault(); $('#example-graph').svg2img();">SVG</a>
 ```
 
-Otherwise Firefox and IE failing to save. Like often, Chrome works without any extra attention and for the IE I had to implement some "special features". One last thing: Safari has currently (as of this writing) problems with the underlaying `savAs()` implementation and tries to open the images in a new tab with or without success. See also this [issue on GitHub][2].
+Otherwise Firefox and IE failing to save. One last thing: Safari has currently (as of this writing) problems with the underlaying `savAs()` implementation and tries to open the images in a new tab with or without success. See also this [issue on GitHub][2].
+
+UPDATE 2017-04-14: After update to macOS Sierra 10.12.4 Safari 10.1 works also - but is as slow as before - collecting CSS styles runs on my MacBook 2800ms in Safari, 20ms in Google Chrome :-(  
+I stopped to support other image formats then SVG since the canvas export behind the scenes was not really working in too many browsers and the core feature was and is to convert inline SVGs to standalone SVG images.
 
 The project is hosted on [GitHub][3] and MIT licensed.
 
@@ -60,11 +61,7 @@ Ottmar
 
 <div id="example-graph"></div><!--the graph container-->
 Download
-<a href="" onclick="event.preventDefault(); $('#example-graph').svg2img();">SVG</a> |
-<a href="" onclick="event.preventDefault(); $('#example-graph').svg2img({format:'png'});">PNG</a> |
-<a href="" onclick="event.preventDefault(); $('#example-graph').svg2img({format:'gif'});">GIF</a> |
-<a href="" onclick="event.preventDefault(); $('#example-graph').svg2img({format:'jpeg'});">JPEG</a> |
-<a href="" onclick="event.preventDefault(); $('#example-graph').svg2img({format:'bmp'});">BMP</a>
+<a href="" onclick="event.preventDefault(); $('#example-graph').svg2img();">SVG image</a>
 
 <link  href="/assets/d3.js/d3-force-2.0.2.css" rel="stylesheet" type="text/css">
 <script src="/assets/d3.js/d3-3.5.6.min.js"></script>

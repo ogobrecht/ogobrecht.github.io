@@ -205,7 +205,14 @@
                         }
 
                         // draw image
-                        ctx.drawImage(img, 0, 0);
+                        // Hello again IE: http://stackoverflow.com/questions/24346090/drawimage-raises-script65535-on-ie11
+                        try {
+                            ctx.drawImage(img, 0, 0);
+                        } catch (err) {
+                            setTimeout(function() {
+                                ctx.drawImage(img, 0, 0);
+                            }, 0);
+                        }
                         if (settings.debug) {
                             timing.endDrawImage = new Date().getTime();
                             log('7 - draw image on canvas done (' + (timing.endDrawImage - timing.endLoadImage) + 'ms)');

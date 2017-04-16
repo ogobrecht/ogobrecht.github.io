@@ -14,9 +14,9 @@ If you use the bare JavaScript files you can run it on every HTML page:
 
 ```html
 <div id="example"></div><!--the graph container-->
-<link  href="/assets/d3.js/d3-force-2.0.2.css" rel="stylesheet" type="text/css">
+<link  href="/assets/d3.js/d3-force-2.1.0beta1.css" rel="stylesheet" type="text/css">
 <script src="/assets/d3.js/d3-3.5.6.min.js"></script>
-<script src="/assets/d3.js/d3-force-2.0.2.min.js"></script>
+<script src="/assets/d3.js/d3-force-2.1.0beta1.min.js"></script>
 <script>
 window.onload = function (){
   window.example = netGobrechtsD3Force('example')
@@ -24,6 +24,9 @@ window.onload = function (){
     .lassoMode(true)
     //.zoomMode(true)
     .useDomParentWidth(true) //for responsive layout
+    .wrapLabels(true)
+    .preventLabelOverlappingOnForceEnd(true)
+    .labelPlacementIterations(1000)
     .start(); //sample data is provided, when called without data
 }
 </script>
@@ -40,9 +43,9 @@ You can find the sources and more informations on [GitHub][2] and a demo app on 
 [2]: https://github.com/ogobrecht/d3-force-apex-plugin
 [3]: https://apex.oracle.com/pls/apex/f?p=18290:1
 
-<link  href="/assets/d3.js/d3-force-2.0.2.css" rel="stylesheet" type="text/css">
+<link  href="/assets/d3.js/d3-force-2.1.0beta1.css" rel="stylesheet" type="text/css">
 <script src="/assets/d3.js/d3-3.5.6.min.js"></script>
-<script src="/assets/d3.js/d3-force-2.0.2.min.js"></script>
+<script src="/assets/d3.js/d3-force-2.1.0beta1.min.js"></script>
 <script>
 window.onload = function (){
   window.example = netGobrechtsD3Force('example-graph')
@@ -50,6 +53,9 @@ window.onload = function (){
     .lassoMode(true)
     //.zoomMode(true)
     .useDomParentWidth(true) //for responsive layout
+    .wrapLabels(true)
+    .preventLabelOverlappingOnForceEnd(true)
+    .labelPlacementIterations(1000)
     .start(); //sample data is provided, when called without data
 }
 </script>

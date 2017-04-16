@@ -63,9 +63,9 @@ Ottmar
 Download
 <a href="" onclick="event.preventDefault(); $('#example-graph').svg2img();">SVG image</a>
 
-<link  href="/assets/d3.js/d3-force-2.0.2.css" rel="stylesheet" type="text/css">
+<link  href="/assets/d3.js/d3-force-2.1.0beta1.css" rel="stylesheet" type="text/css">
 <script src="/assets/d3.js/d3-3.5.6.min.js"></script>
-<script src="/assets/d3.js/d3-force-2.0.2.min.js"></script>
+<script src="/assets/d3.js/d3-force-2.1.0beta1.min.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script src="/assets/svg2img/svg2img.min.js"></script>
 <script>
@@ -75,6 +75,9 @@ window.onload = function (){
     //.lassoMode(true)
     .zoomMode(true)
     .useDomParentWidth(true) //for responsive layout
+    .wrapLabels(true)
+    .preventLabelOverlappingOnForceEnd(true)
+    .labelPlacementIterations(1000)
     .start(); //sample data is provided, when called without data
 }
 </script>

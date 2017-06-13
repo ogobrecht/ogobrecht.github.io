@@ -8,7 +8,7 @@ Many people have problems to install Oracle 11XE in a Docker environment because
 
 We have to disable the swap space check in the installation file. I wrote another [blog post about this][3]. The problem is here, that you need a Linux based system to do the necessary steps. Under Windows you have no chance and you have to do it by yourself because for license reasons everyone has to download his/her own copy of the install file from [Oracle OTN][4].
 
-I came up with the idea to do simply all the steps in a Docker container under the same Linux (oraclelinux:7-slim) which is later on needed with the [official Oracle Docker file][5] for an XE instance. With this solution you are also able to prepare the install file under Windows. For more Details see the [project on GitHub][6].
+I came up with the idea to do simply all the steps in a Docker container under the same Linux (oraclelinux:7-slim) which is later on needed with the [official Oracle Docker file][5] for an XE instance. With this solution you are able to prepare the install file more or less automatically under every operating system, which can run Docker - also under Windows. For more Details see the [project on GitHub][6].
 
 Happy installing :-)  
 Ottmar

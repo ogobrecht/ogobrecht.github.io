@@ -15,7 +15,7 @@ It comes to a nightmare if you configured your systems for automatic login with 
 
 Not to mention that Chrome and Firefox are working well...
 
-More details about IE's cookie desaster can be found on [blogs.msdn.com][2] - the relevant question for this wiki entry is number three.
+More details about IE's cookie desaster can be found on [blogs.msdn.com][2] - the relevant question for this blog entry is number three.
 
 [1]: http://de.slideshare.net/nielsdb/mt-ag-howtosingle-signonfuerapexanwendungen-mitkerberos
 [2]: http://blogs.msdn.com/b/ieinternals/archive/2009/08/20/wininet-ie-cookie-internals-faq.aspx

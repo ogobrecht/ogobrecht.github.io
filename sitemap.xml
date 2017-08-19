@@ -3,4 +3,12 @@ layout: null
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-{% for page in site.pages %}{% if page.nav > 0 or page.maintopic > 0  or page.sitemap > 0 %}{% include sitemap-item.xml url=page.url %}{% endif %}{% endfor %}{% for post in site.posts %}{% include sitemap-item.xml url=post.url %}{% endfor %}</urlset>
+{%- for page in site.pages %}
+{%- if page.nav > 0 or page.sitemap > 0 %}
+<url><loc>{{ site.url }}{{ page.url }}</loc></url>
+{%- endif %}
+{%- endfor %}
+{%- for post in site.posts %}
+<url><loc>{{ site.url }}{{ post.url }}</loc></url>
+{%- endfor %}
+</urlset>

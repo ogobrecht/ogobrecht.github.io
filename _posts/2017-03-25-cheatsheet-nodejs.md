@@ -3,6 +3,7 @@ title: "Cheat Sheet: Node.js"
 subtitle: My personal notes around Node.js
 tags: [cheatsheet, nodejs]
 lang: en
+last_modified_at: 2017-08-12
 ---
 
 This is my first cheatsheet. I wanted to write a small post about Node.js as a local webserver and proxy to a Oracle APEX development instance. Now it is the starting point for all my Node.js related personal notes. This will be a living document with as less boilerplate text as possible - I should delete this paragraph ;-)

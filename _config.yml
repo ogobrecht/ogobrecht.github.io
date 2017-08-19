@@ -14,18 +14,19 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Ottmar's Notes
-author: Ottmar Gobrecht
-author_url: https://github.com/ogobrecht
-email: ottmar.gobrecht@gmail.com
-description: > # "baseurl:"
-  Ottmar's public notes <a href="/about">about</a> coding, cooking and 42 ;-)
+description: Ottmar's public notes on coding - mainly about Oracle APEX & PL/SQL
+author:
+  name: Ottmar Gobrecht
+  url: https://github.com/ogobrecht
+  email: ottmar.gobrecht@gmail.com
+  github: ogobrecht
+  twitter: ogobrecht
+  xing: Ottmar_Gobrecht
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://ogobrecht.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 permalink: /posts/:year-:month-:day-:title
+lang: en
 feed_limit: 20
-github_username:  ogobrecht
-twitter_username: ogobrecht
-xing_username: Ottmar_Gobrecht
 
 defaults:
   -

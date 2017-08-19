@@ -1,0 +1,76 @@
+/**
+ * Sidebar
+ */
+
+.sidebar {
+    float: left;
+    display: block;
+    position: fixed;
+    background: $brand-color;
+    color: #fff;
+    font-size: 0.9em;
+    line-height: 1.8em;
+    width: $sidebar-width;
+    height: 100%;
+    -webkit-overflow-scrolling: touch;
+    li {
+        list-style: none;
+    }
+    a {
+        color: #fff;
+        text-decoration: none;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
+
+
+/**
+ * Site header
+ */
+
+.site-header {
+    text-align: center;
+    margin-bottom: 0;
+    border-bottom: 1px solid $brand-color-light;
+    font-size: 26px;
+    font-weight: $base-font-weight;
+    line-height: $logo-height;
+    a:hover {
+        text-decoration: underline;
+    }
+}
+
+
+/**
+ * Site navigation
+ */
+
+.site-nav {
+    padding: $spacing-unit $spacing-unit ($spacing-unit + $logo-height) $spacing-unit;
+    max-height: 100%;
+    overflow-y: scroll;
+}
+
+.section-header {
+    margin-top: 0;
+    margin-bottom: $spacing-unit / 4;
+    font-size: 1.1em;
+}
+
+.section-links {
+    margin-left: $spacing-unit / 2;
+    margin-bottom: $spacing-unit;
+    a {
+        display: inline-block;
+        opacity: 0.75;
+        &:hover {
+            opacity: 1;
+        }
+        &.active {
+            font-weight: bold;
+            opacity: 1;
+        }
+    }
+}

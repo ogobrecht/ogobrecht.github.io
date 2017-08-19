@@ -1,9 +1,0 @@
-<item>
-<title>{{ post.title | xml_escape }}</title>
-<description>{% if post.subtitle %}&lt;strong&gt;{{ post.subtitle | xml_escape }}&lt;/strong&gt;.{% endif %}
-
-{{ post.content | xml_escape }}</description>
-<pubDate>{{ post.date | date_to_xmlschema }}</pubDate>
-<link>{{ post.url | prepend: site.url }}</link>
-<guid isPermaLink="true">{{ post.url | prepend: site.url }}</guid>
-</item>

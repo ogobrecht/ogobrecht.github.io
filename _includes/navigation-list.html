@@ -1,2 +1,6 @@
-{% assign pages = site.pages | sort: "nav" %}{% for page in pages %}{% if page.nav and page.title %}<a class="page-link" href="{{ page.url | relative_url }}">{{ page.title | escape }}</a>
-{% endif %}{% endfor %}
+{%- assign pages = site.pages | sort: "nav" -%}
+{%- for item in pages -%}
+{%- if item.nav and item.title %}
+      <li><a{% if item.url contains page.url and page.url != '/' %} class="active"{% endif %} href="{{ item.url | relative_url }}">{{ item.title | escape }}</a></li>
+{%- endif %}
+{%- endfor -%}

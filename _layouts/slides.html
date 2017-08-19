@@ -1,50 +1,60 @@
 <!doctype html>
 <html>
+
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>{{ page.title | escape }}</title>
-<meta name="description" content="{{ page.subtitle | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
-<link rel="author" href="{{ site.author_url | default: site.author }}">
-<link rel="stylesheet" href="../../assets/reveal.js/css/reveal.css">
-<link rel="stylesheet" href="../../assets/reveal.js/css/theme/solarized.css">
-<link rel="stylesheet" href="../../assets/reveal.js/lib/css/zenburn.css">
-<base target="_blank">
-<script>
-var link = document.createElement( 'link' );
-link.rel = 'stylesheet';
-link.type = 'text/css';
-link.href = window.location.search.match( /print-pdf/gi ) ? '../../assets/reveal.js/css/print/pdf.css' : '../../assets/reveal.js/css/print/paper.css';
-document.getElementsByTagName( 'head' )[0].appendChild( link );
-</script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>{{ page.title | escape }}</title>
+  <meta name="description" content="{{ page.subtitle | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+  <link rel="author" href="{{ site.author.url | default: site.author.name }}">
+  <link rel="stylesheet" href="../../assets/reveal.js/css/reveal.css">
+  <link rel="stylesheet" href="../../assets/reveal.js/css/theme/solarized.css">
+  <link rel="stylesheet" href="../../assets/reveal.js/lib/css/zenburn.css">
+  <base target="_blank">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <script>
+  var link = document.createElement( 'link' );
+  link.rel = 'stylesheet';
+  link.type = 'text/css';
+  link.href = window.location.search.match( /print-pdf/gi ) ? '../../assets/reveal.js/css/print/pdf.css' : '../../assets/reveal.js/css/print/paper.css';
+  document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
 </head>
+
 <body>
+
 <div class="reveal">
-<div class="slides">
-<section data-markdown="slides.md"
-         data-separator="<!--slide-container-->"
-         data-separator-vertical="<!--slide-->"
-         data-separator-notes="{% if page.lang == "de" %}^Anmerkung:{% else %}^Note:{% endif %}"
-         data-charset="utf-8">
-</section>
-</div>
+  <div class="slides">
+    <section data-markdown="slides.md"
+             data-separator="<!--slide-container-->"
+             data-separator-vertical="<!--slide-->"
+             data-separator-notes="{% if page.lang == "de" %}^Anmerkung:{% else %}^Note:{% endif %}"
+             data-charset="utf-8">
+    </section>
+  </div>
 </div>
 <script src="../../assets/reveal.js/lib/js/head.min.js"></script>
 <script src="../../assets/reveal.js/js/reveal.js"></script>
 <script>
 Reveal.initialize({
-	controls: true,
-	fragments: true,
-	history: true,
-	dependencies: [
-		{ src: '../../assets/reveal.js/plugin/markdown/marked.js' },
-		{ src: '../../assets/reveal.js/plugin/markdown/markdown.js' },
-		{ src: '../../assets/reveal.js/plugin/notes/notes.js', async: true },
-		{ src: '../../assets/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-	]
+  controls: true,
+  fragments: true,
+  history: true,
+  dependencies: [
+    { src: '../../assets/reveal.js/plugin/markdown/marked.js' },
+    { src: '../../assets/reveal.js/plugin/markdown/markdown.js' },
+    { src: '../../assets/reveal.js/plugin/notes/notes.js', async: true },
+    { src: '../../assets/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+  ]
 });
 </script>
+
+<!--content-begin-->
 {{ content }}
+<!--content-end-->
+
 </body>
 </html>

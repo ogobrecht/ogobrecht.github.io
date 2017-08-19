@@ -3,6 +3,7 @@ title: jQuery Plugin svg2img
 subtitle: Convert inline SVGs to standalone image files without loosing styles
 tags: [project, jquery, plugin, svg]
 lang: en
+last_modified_at: 2017-08-12
 ---
 
 SVG based charts and visualizations are often used these days. But what if you want to use your browser inline SVGs, generated with some sort of JavaScript and fancy styled with CSS, offline - maybe in a presentation, send by email or printed out large scaled?

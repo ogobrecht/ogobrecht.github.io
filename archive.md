@@ -1,6 +1,6 @@
 ---
 title: Archive
 lang: en
-layout: archive
 nav: 4
 ---
+{% include post-list-by-year.html %}

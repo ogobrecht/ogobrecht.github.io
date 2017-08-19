@@ -1,3 +1,0 @@
-{% assign pages = site.pages | sort: "maintopic" %}
-{% for page in pages %}{% if page.maintopic and page.title %}<a class="page-link" href="{{ page.url | relative_url }}">{{ page.title | escape }}</a>{% unless forloop.last %}, {% endunless %}
-{% endif %}{% endfor %}

@@ -1,0 +1,150 @@
+/**
+* Navigation icon
+*/
+
+.navicon-button {
+    display: none;
+    position: relative;
+    padding: 2.0625em 1.5em;
+    cursor: pointer;
+    user-select: none;
+    opacity: .8;
+    &:before,
+    &:after {
+        transition: 0.25s;
+    }
+    &:hover {
+        transition: 0.5s;
+        opacity: 1;
+    }
+    &:hover .navicon:before,
+    &:hover .navicon:after {
+        transition: 0.25s;
+    }
+    &:hover .navicon:before {
+        top: .825em;
+    }
+    &:hover .navicon:after {
+        top: -.825em;
+    }
+}
+
+
+/*
+* Navicon
+*/
+
+.navicon {
+    position: relative;
+    width: 2.5em;
+    height: .3125em;
+    background: hsla(0, 0%, 0%, 0.5);
+    transition: 0.3s;
+    border-radius: 2.5em;
+    &:before,
+    &:after {
+        display: block;
+        content: "";
+        height: .3125em;
+        width: 2.5em;
+        background: hsla(0, 0%, 0%, 0.5);
+        position: absolute;
+        z-index: -1;
+        transition: 0.3s 0.25s;
+        border-radius: 1em;
+    }
+    &:before {
+        top: .625em;
+    }
+    &:after {
+        top: -.625em;
+    }
+}
+
+.nav-trigger {
+    position: fixed;
+    top: 0;
+    clip: rect(0, 0, 0, 0);
+    &:checked+label:not(.steps) .navicon:before,
+    &:checked+label:not(.steps) .navicon:after {
+        top: 0 !important;
+    }
+    &:checked+label .navicon:before,
+    &:checked+label .navicon:after {
+        transition: 0.5s;
+    }
+    &:checked+label {
+        transform: scale(0.75);
+    }
+    &:checked+label.plus .navicon,
+    &:checked+label.x .navicon {
+        background: transparent;
+    }
+    &:checked+label.plus .navicon:before,
+    &:checked+label.x .navicon:before {
+        transform: rotate(-45deg);
+        background: #FFF;
+    }
+    &:checked+label.plus .navicon:after,
+    &:checked+label.x .navicon:after {
+        transform: rotate(45deg);
+        background: #FFF;
+    }
+    &:checked+label.plus {
+        transform: scale(0.75) rotate(45deg);
+    }
+    &:checked~.sidebar {
+        left: 0 !important;
+    }
+    &:checked~.overlay {
+        display: block;
+    }
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: hsla(0, 0%, 0%, 0.5);
+    z-index: 1;
+}
+
+@media only screen and (min-width: 320px) and (max-width: $nav-button-max-width) {
+    body {
+        overflow-x: hidden;
+    }
+    .sidebar {
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: -250px;
+        z-index: 3;
+        transition: left 0.2s;
+    }
+    .navicon-button {
+        display: inline-block;
+        position: fixed;
+        top: 1.5em;
+        right: 0;
+        z-index: 2;
+    }
+    .page-content {
+        width: 100%;
+        min-width: 360px;
+    }
+}
+
+@media only print {
+    .sidebar {
+        display: none;
+    }
+    .page-content {
+        float: none;
+        width: 100%;
+    }
+}

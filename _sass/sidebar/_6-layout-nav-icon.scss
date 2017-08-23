@@ -1,57 +1,56 @@
 /**
-* Navigation icon
-*/
+ * Navigation icon
+ */
 
-.navicon-button {
+.nav-button {
     display: none;
     position: relative;
     padding: 2.0625em 1.5em;
     cursor: pointer;
     user-select: none;
-    opacity: .8;
-    &:before,
+    opacity: 0.8;
+    /*  &:before,
     &:after {
         transition: 0.25s;
-    }
+    }*/
     &:hover {
-        transition: 0.5s;
+        /*  transition: 0.5s;*/
         opacity: 1;
     }
-    &:hover .navicon:before,
-    &:hover .navicon:after {
+    /*    &:hover .nav-icon:before,
+    &:hover .nav-icon:after {
         transition: 0.25s;
     }
-    &:hover .navicon:before {
+    &:hover .nav-icon:before {
         top: .825em;
     }
-    &:hover .navicon:after {
+    &:hover .nav-icon:after {
         top: -.825em;
-    }
+    }*/
 }
 
 
-/*
-* Navicon
-*/
+/**
+ * Navicon
+ */
 
-.navicon {
+.nav-icon {
     position: relative;
-    width: 2.5em;
     height: .3125em;
+    width: 2.5em;
+    border-radius: 1em;
     background: hsla(0, 0%, 0%, 0.5);
-    transition: 0.3s;
-    border-radius: 2.5em;
+    transition: 0.5s;
     &:before,
     &:after {
-        display: block;
-        content: "";
+        position: absolute;
         height: .3125em;
         width: 2.5em;
-        background: hsla(0, 0%, 0%, 0.5);
-        position: absolute;
-        z-index: -1;
-        transition: 0.3s 0.25s;
         border-radius: 1em;
+        background: hsla(0, 0%, 0%, 0.5);
+        transition: 0.5s;
+        content: "";
+        z-index: -1;
     }
     &:before {
         top: .625em;
@@ -61,37 +60,27 @@
     }
 }
 
+// https://stackoverflow.com/questions/10782054/what-does-the-tilde-squiggle-twiddle-css-selector-mean
 .nav-trigger {
     position: fixed;
     top: 0;
     clip: rect(0, 0, 0, 0);
-    &:checked+label:not(.steps) .navicon:before,
-    &:checked+label:not(.steps) .navicon:after {
-        top: 0 !important;
-    }
-    &:checked+label .navicon:before,
-    &:checked+label .navicon:after {
-        transition: 0.5s;
-    }
-    &:checked+label {
+    &:checked+label.nav-button {
         transform: scale(0.75);
     }
-    &:checked+label.plus .navicon,
-    &:checked+label.x .navicon {
+    &:checked+label.nav-button .nav-icon {
         background: transparent;
     }
-    &:checked+label.plus .navicon:before,
-    &:checked+label.x .navicon:before {
+    &:checked+label.nav-button>.nav-icon:before,
+    &:checked+label.nav-button>.nav-icon:after {
+        background: #FFF;
+        top: 0 !important;
+    }
+    &:checked+label.nav-button .nav-icon:before {
         transform: rotate(-45deg);
-        background: #FFF;
     }
-    &:checked+label.plus .navicon:after,
-    &:checked+label.x .navicon:after {
+    &:checked+label.nav-button .nav-icon:after {
         transform: rotate(45deg);
-        background: #FFF;
-    }
-    &:checked+label.plus {
-        transform: scale(0.75) rotate(45deg);
     }
     &:checked~.sidebar {
         left: 0 !important;
@@ -118,6 +107,13 @@
     body {
         overflow-x: hidden;
     }
+    .nav-button {
+        display: inline-block;
+        position: fixed;
+        top: 1.5em;
+        right: 0;
+        z-index: 2;
+    }
     .sidebar {
         top: 0;
         right: 0;
@@ -126,16 +122,31 @@
         z-index: 3;
         transition: left 0.2s;
     }
-    .navicon-button {
-        display: inline-block;
-        position: fixed;
-        top: 1.5em;
-        right: 0;
-        z-index: 2;
-    }
     .page-content {
         width: 100%;
-        min-width: 360px;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    body {
+        overflow-x: hidden;
+    }
+    .nav-button {
+        display: none;
+    }
+    .sidebar {
+        position: inherit;
+        width: 100%;
+        height: auto;
+        float: none;
+    }
+    .site-nav {
+        padding: $spacing-unit/2;
+    }
+    .page-content {
+        float: none;
+        width: 100%;
+        padding: $spacing-unit/3;
     }
 }
 

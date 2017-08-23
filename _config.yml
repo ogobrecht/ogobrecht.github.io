@@ -14,7 +14,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Ottmar's Notes
-description: Ottmar's public notes on coding - mainly about Oracle APEX & PL/SQL
+description: Ottmar's public notes on coding - mainly about Oracle APEX and PL/SQL
 author:
   name: Ottmar Gobrecht
   url: https://github.com/ogobrecht

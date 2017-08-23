@@ -71,7 +71,7 @@ img {
     vertical-align: middle;
     border: none;
     border-radius: 3px;
-    /*box-shadow: 0 0 3px $grey-color;*/
+    box-shadow: 0 0 3px $grey-color;
 }
 
 img.avatar {
@@ -79,7 +79,7 @@ img.avatar {
     float: left;
     width: 33%;
     min-width: 100px;
-    max-width: 230px;
+    max-width: 200px;
     margin: 0.3em 1em 0.3em 0;
 }
 
@@ -185,8 +185,8 @@ pre {
 
 
 /**
-* Misc
-*/
+ * Misc
+ */
 
 hr {
     display: block;

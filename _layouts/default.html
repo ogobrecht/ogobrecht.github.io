@@ -19,41 +19,42 @@
 <body>
 
 <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-<label for="nav-trigger" class="navicon-button x"><div class="navicon"></div></label>
+<label for="nav-trigger" class="nav-button"><div class="nav-icon"></div></label>
 <label for="nav-trigger" class="overlay"></label>
-
-<div class="sidebar">
-  <header class="site-header" role="banner">
-    <a class="site-title" href="{{ "/" | relative_url }}">{{ site.title | smartify }}</a>
-  </header>
-  <nav class="site-nav">
-    <ul class="section-links">
-      {%- include navigation-list.html %}
-    </ul>
-    <h3 class="section-header">Tags</h3>
-    <ul class="section-links">
-      {%- include tag-list-by-label.html %}
-    </ul>
-    <h3 class="section-header">Contact</h3>
-    <ul class="section-links">
-      <li><a href="mailto:{{ site.author.email }}">Email</a></li>
-      {% if site.author.github %}<li><a href="https://github.com/{{ site.author.github }}">GitHub</a></li>{% endif %}
-      {% if site.author.twitter %}<li><a href="https://twitter.com/{{ site.author.twitter }}">Twitter</a></li>{% endif %}
-      {% if site.author.xing %}<li><a href="https://xing.com/profile/{{ site.author.xing }}">XING</a></li>{% endif %}
-    </ul>
-    <h3 class="section-header">Legal Things</h3>
-    <ul class="section-links">
-      <li><a{% if page.url == '/imprint' %} class="active"{% endif %} href="/imprint">Imprint</a></li>
-      <li><a{% if page.url == '/privacy-statement' %} class="active"{% endif %} href="/privacy-statement">Privacy Statement</a></li>
-    </ul>
-  </nav>
-</div>
 
 <main class="page-content" aria-label="Content" role="main"><div class="wrapper">
 <!--content-begin-->
 {{ content }}
 <!--content-end-->
 </div></main>
+
+<div class="sidebar">
+  <header class="site-header" role="banner">
+    <a class="site-title" href="{{ "/" | relative_url }}">{{ site.title | smartify }}</a>
+  </header>
+  <nav class="site-nav">
+    <h3>Topics</h3>
+    <ul>
+      {%- include navigation-list.html %}
+    </ul>
+    <h3>Tags</h3>
+    <ul>
+      {%- include tag-list-by-label.html %}
+    </ul>
+    <h3>Contact</h3>
+    <ul>
+      <li><a href="mailto:{{ site.author.email }}">Email</a></li>
+      {% if site.author.github %}<li><a href="https://github.com/{{ site.author.github }}">GitHub</a></li>{% endif %}
+      {% if site.author.twitter %}<li><a href="https://twitter.com/{{ site.author.twitter }}">Twitter</a></li>{% endif %}
+      {% if site.author.xing %}<li><a href="https://xing.com/profile/{{ site.author.xing }}">XING</a></li>{% endif %}
+    </ul>
+    <h3>Legal Things</h3>
+    <ul>
+      <li><a{% if page.url == '/imprint' %} class="active"{% endif %} href="/imprint">Imprint</a></li>
+      <li><a{% if page.url == '/privacy-statement' %} class="active"{% endif %} href="/privacy-statement">Privacy Statement</a></li>
+    </ul>
+  </nav>
+</div>
 
 </body>
 </html>

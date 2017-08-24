@@ -71,7 +71,7 @@ img {
     vertical-align: middle;
     border: none;
     border-radius: 3px;
-    box-shadow: 0 0 3px $grey-color;
+    box-shadow: $box-shadow-images;
 }
 
 img.avatar {

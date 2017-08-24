@@ -10,6 +10,7 @@
     height: 100%;
     -webkit-overflow-scrolling: touch;
     background: $brand-color;
+    box-shadow: $box-shadow-sidebar;
     line-height: 1.4em;
     color: #fff;
     a {
@@ -42,7 +43,7 @@
 .site-nav {
     padding: $spacing-unit; // $spacing-unit ($spacing-unit + $logo-height) $spacing-unit;
     height: calc(100% - #{$logo-height});
-    overflow-y: scroll;
+    overflow-y: auto;
     h3 {
         margin-top: 0;
         margin-bottom: $spacing-unit / 4;

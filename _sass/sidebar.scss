@@ -1,6 +1,6 @@
 // Define defaults for each variable.
 
-$base-font-family:     -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$base-font-family:     "-apple-system", BlinkMacSystemFont, "San Francisco", "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif !default;
 $base-font-size:       18px !default;
 $base-font-weight:     400 !default;
 $small-font-size:      $base-font-size * 0.875 !default;
@@ -23,6 +23,9 @@ $grey-color-dark:      darken($grey-color, 25%) !default;
 $content-max-width:    750px !default;
 $nav-button-max-width: 799px !default;
 $logo-height:          80px !default;
+$box-shadow-sidebar:   0 0 3px $grey-color-dark !default;
+$box-shadow-images:    0 0 3px $grey-color-dark !default;
+
 
 // Import partials
 @import

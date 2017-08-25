@@ -3,33 +3,32 @@
 ---
 @charset "utf-8";
 
-// Our variables
+// Font settings
 $base-font-family:     "-apple-system", BlinkMacSystemFont, "San Francisco", "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
 $base-font-size:       18px;
 $base-font-weight:     400;
-$small-font-size:      $base-font-size * 0.875;
 $base-line-height:     1.5;
-
-$spacing-unit:         30px;
-
+$small-font-size:      15px;
 $text-color:           #333;
 $background-color:     #fdfdfd;
 
-//Liquid docs blue: #3399CC, GitHub blue: #2b7bb9, Reveal.js theme solarized blue: #268bd2
+// Color settings - GitHub blue: #2b7bb9, Reveal.js theme solarized blue: #268bd2
 //Ochre: #D87D15, Mandarin: #EF7B45
 $brand-color:          #268bd2;
 $brand-color-light:    lighten($brand-color, 40%);
 $brand-color-dark:     darken($brand-color, 25%);
-
 $grey-color:           #828282;
 $grey-color-light:     lighten($grey-color, 40%);
 $grey-color-dark:      darken($grey-color, 25%);
 
+// Layout settings
+$spacing-unit:         30px;
 $content-max-width:    750px;
 $nav-button-max-width: 799px;
 $logo-height:          80px;
-$box-shadow-sidebar:   0 0 3px $grey-color-dark;
 $box-shadow-images:    0 0 3px $grey-color-dark;
+$base-border-radius:   3px;
+
 
 // Import partials from the `_sass` folder
 @import "sidebar";

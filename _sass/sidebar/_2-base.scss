@@ -70,12 +70,12 @@ img {
     max-width: 100%;
     vertical-align: middle;
     border: none;
-    border-radius: 3px;
+    border-radius: $base-border-radius;
     box-shadow: $box-shadow-images;
 }
 
 img.avatar {
-    border-radius: 6px;
+    border-radius: $base-border-radius * 2;
     float: left;
     width: 33%;
     min-width: 100px;
@@ -149,7 +149,6 @@ blockquote {
     color: $grey-color;
     border-left: 4px solid $grey-color-light;
     padding-left: $spacing-unit / 2;
-    font-size: 18px;
     letter-spacing: -1px;
     font-style: italic;
     > :last-child {
@@ -164,9 +163,9 @@ blockquote {
 
 pre,
 code {
-    font-size: 15px;
-    border-radius: 3px;
+    font-size: $small-font-size;
     background-color: $grey-color-light;
+    border-radius: $base-border-radius;
 }
 
 code {

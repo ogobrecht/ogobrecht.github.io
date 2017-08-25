@@ -3,7 +3,7 @@ title: "Cheat Sheet: Oracle APEX"
 subtitle: My personal notes around APEX
 tags: [cheatsheet, oracle, apex]
 lang: en
-last_modified_at: 2017-08-12
+last_modified_at: 2017-08-24
 ---
 
 This is a living document with my personal notes around APEX.
@@ -103,6 +103,13 @@ A common example:
 
 Usage examples:
 
-- In a region: `Hello &APP_USER. - Welcome to Application Express`
-- In PL/SQL: `htp.p('You are logged in as: ' || V('APP_USER'));`
-- As bind variable: `SELECT * FROM tab WHERE user_id = :APP_USER`
+```sql
+-- in a region:
+Hello &APP_USER. - Welcome to Application Express
+
+-- in PL/SQL:
+htp.p('You are logged in as: ' || V('APP_USER'));
+
+-- as bind variable:
+SELECT * FROM tab WHERE user_id = :APP_USER;
+```

@@ -8,25 +8,6 @@
     padding: 2.0625em 1.5em;
     cursor: pointer;
     user-select: none;
-    opacity: 0.8;
-    /*  &:before,
-    &:after {
-        transition: 0.25s;
-    }*/
-    &:hover {
-        /*  transition: 0.5s;*/
-        opacity: 1;
-    }
-    /*    &:hover .nav-icon:before,
-    &:hover .nav-icon:after {
-        transition: 0.25s;
-    }
-    &:hover .nav-icon:before {
-        top: .825em;
-    }
-    &:hover .nav-icon:after {
-        top: -.825em;
-    }*/
 }
 
 
@@ -39,7 +20,7 @@
     height: .3125em;
     width: 2.5em;
     border-radius: 1em;
-    background: hsla(0, 0%, 0%, 0.5);
+    background: hsla(0, 0%, 0%, 0.3);
     transition: 0.5s;
     &:before,
     &:after {
@@ -47,7 +28,7 @@
         height: .3125em;
         width: 2.5em;
         border-radius: 1em;
-        background: hsla(0, 0%, 0%, 0.5);
+        background: hsla(0, 0%, 0%, 0.3);
         transition: 0.5s;
         content: "";
         z-index: -1;
@@ -64,6 +45,7 @@
 .nav-trigger {
     position: fixed;
     top: 0;
+    right: 0;
     clip: rect(0, 0, 0, 0);
     &:checked+label.nav-button {
         transform: scale(0.75);
@@ -141,7 +123,7 @@
         float: none;
     }
     .site-nav {
-        padding: $spacing-unit/2;
+        padding: $spacing-unit $spacing-unit/2;
     }
     .page-content {
         float: none;

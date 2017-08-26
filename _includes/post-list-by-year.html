@@ -4,8 +4,8 @@
     {%- unless forloop.first %}
 </ul>
     {%- endunless %}
-<h1 id="y{{post.date | date: "%Y"}}">{{ currentdate }}</h1>
-<ul>
+<h2 id="y{{post.date | date: "%Y"}}">{{ currentdate }}</h2>
+<ul class="post-list-archive">
     {%- assign date = currentdate -%}
   {%- endif %}
 <li><a href="{{ post.url }}">{{ post.title }}</a> <span class="post-meta">({{post.lang}})</span>{% if post.subtitle %}<br><span class="post-meta">{{ post.subtitle }}</span>{% endif %}</li>

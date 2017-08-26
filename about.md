@@ -12,7 +12,7 @@ Hi, you are currently visiting "*{{ site.description | smartify }}*" and I am Ot
 
 I am a little bit active in open source development - you can find my projects on [GitHub][1] and of course [here on this site][2].
 
-As declared in the [privacy statement][3] I use no user tracking at all. I am enjoying my own private times without distractions and therefore I have no direct discussion possibility here on this site. The preferred way to get in contact with me is to send me an email (<a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a>) or in urgent cases a postcard - for the address see section [comments][4] below.
+As declared in the [privacy statement][3] I use no user tracking at all. I am enjoying my own private times without distractions and therefore I have no direct discussion possibility here on this site. The preferred way to get in contact with me is to send me an [email][4] or in urgent cases a postcard - for the address see section [comments][5] below.
 
 
 ## My Motivation
@@ -22,7 +22,7 @@ In the last years I was often happy to find solutions, informations and open sou
 
 ## This Site
 
-This site is built with [Jekyll][5], a static site generator, and a heavily modified version of the default theme minima with a sidebar. The sources are [available at GitHub][6].
+This site is built with [Jekyll][6], a static site generator, and a heavily modified version of the default theme minima with a sidebar. The sources are [available at GitHub][7].
 
 
 ## Comments
@@ -40,6 +40,7 @@ Knappertsbuschstraße 19
 [1]: https://github.com/ogobrecht
 [2]: /projects
 [3]: /privacy-statement
-[4]: #comments
-[5]: https://jekyllrb.com
-[6]: https://github.com/ogobrecht/ogobrecht.github.io
+[5]: #comments
+[4]: mailto:{{site.author.email}}
+[6]: https://jekyllrb.com
+[7]: https://github.com/ogobrecht/ogobrecht.github.io

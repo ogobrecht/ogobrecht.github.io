@@ -57,6 +57,7 @@ ul,
 ol,
 dl,
 figure,
+.figure,
 %vertical-rhythm {
     margin-bottom: $spacing-unit / 2;
 }
@@ -66,7 +67,8 @@ figure,
  * Images
  */
 
-img {
+img,
+.figure {
     max-width: 100%;
     vertical-align: middle;
     border: none;
@@ -92,8 +94,20 @@ figure>img {
     display: block;
 }
 
-figcaption {
+figcaption,
+.figcaption {
     font-size: $small-font-size;
+    color: $grey-color;
+    line-height: 1.2;
+}
+
+// Workaround because Jekyll currently not delivers figure & figcaption for images and code blocks.
+// We set a negative top margin here to get closer to the previous element.
+// Use it so in a regular paragraph (separated by a blank line):
+// {:.figcaption}
+// *Code example: JavaScript and D3.js loops*
+.figcaption {
+    margin-top: -$spacing-unit/3;
 }
 
 
@@ -175,6 +189,7 @@ code {
 pre {
     padding: 8px 12px;
     overflow-x: auto;
+    box-shadow: $box-shadow-images;
     >code {
         border: 0;
         padding-right: 0;

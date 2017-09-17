@@ -10,7 +10,7 @@ Dieser Artikel erschien in der DOAG/SOUG News 02-2015 und steht auch im [Origina
 
 [1]: https://mydoag.doag.org/formes/pubfiles/6900184/docs/Publikationen/DOAGNews/2015/02-2015/2015-02-News-Ottmar-Gobrecht-D3-Data-Driven-Documents.pdf
 
-<div id="v0"></div><!--the graph container-->
+<div id="v0" class="figure"></div><!--the graph container-->
 
 *D3 ist eine JavaScript Bibliothek zum Manipulieren von HTML Dokumenten auf der Basis von Daten und setzt dabei auf die Webstandards HTML, SVG und CSS. Dieser Artikel zeigt die Grundlagen von D3 und weckt das Interesse am Thema "Datenvisualisierung mit Webstandards". Vorab nur soviel: Auch D3 kennt den Begriff des Joins.*
 
@@ -130,7 +130,7 @@ Nun zur eigentlichen Frage: D3 bindet Daten an das DOM, in dem man einer Selecti
 <!DOCTYPE html><html><head><title>Data Join</title></head><body>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 
-<div id="v3" class="figure" style="border:1px solid silver; border-radius:5px; padding:10px; display:inline-block;">
+<div id="v3" class="figure" style="padding:10px; display:inline-block;">
   <p style="color:green;">Ein bereits existierendes Element</p>
 </div>
 
@@ -296,13 +296,13 @@ Wenn man nun noch wie in Listing 5 bei diesen Get- und Set-Funktionen wiederum d
 
 D3 bietet für verschiedene Anwendungsfälle sogenannte Layouts an. Das sind im Grunde schon die eben angesprochenen wiederverwendbaren Charts, aber auf einem generischem Level. Wir gehen das an dem Beispiel eines Force Layouts durch, einer beliebten, kräftebasierenden Darstellung von Netzwerken.
 
-Die Besonderheit einer kräftebasierenden, selbstorganisierenden Netzwerkvisualisierung ist die dahinterliegende physikalische Simulation. D3 berechnet fortwährend die Positionen der Netzwerkknoten. Damit der Eindruck einer Animation entsteht, muß man natürlich die Knoten seines Graphen irgendwann einmal neu positionieren. Diese Arbeit nimmt einem D3 nicht ab. D3 bietet aber ein sogenanntes Tick Event an, welches ungefähr alle 20 Millisekunden feuert. Wenn man dann bei jedem Tickevent alle Knoten und Verbindungen des Netzwerks an die jeweils aktuelle Position der physikalischen Simulation verschiebt, bekommt man den Eindruck einer Animation. Die Animation des Netzwerk hört dann auf, wenn sich die Simulation in einem kräftemäßig ausgewogenen Zustand befindet.
+Die Besonderheit einer kräftebasierenden, selbstorganisierenden Netzwerkvisualisierung ist die dahinterliegende physikalische Simulation. D3 berechnet fortwährend die Positionen der Netzwerkknoten. Damit der Eindruck einer Animation entsteht, muß man natürlich die Knoten seines Graphen irgendwann einmal neu positionieren. Diese Arbeit nimmt einem D3 nicht ab. D3 bietet aber ein sogenanntes Tick Event an, welches ungefähr alle 20 Millisekunden feuert. Wenn man dann bei jedem Tickevent alle Knoten und Verbindungen des Netzwerks an die jeweils aktuelle Position der physikalischen Simulation verschiebt, bekommt man den Eindruck einer Animation. Die Animation des Netzwerkes hört dann auf, wenn sich die Simulation in einem kräftemäßig ausgewogenen Zustand befindet.
 
 Listing 6 zeigt ein minimales, vollständig lauffähiges Script für ein Force Layout. Zuerst die Daten - diese dürften den meisten bekannt sein. Als Knoten nehmen wir die Mitarbeiter der EMP-Tabelle, als Links die Beziehung zum Vorgesetzten. Die Links beziehen sich auf die Knoten in der Reihenfolge ihres Erscheinens, es wird also keine Key Function eingesetzt, um die Knoten zu identifizieren. Dies ist ok, solange keine Updates auf den Graph erfolgen sollen, ansonsten wird es einem schwer fallen, die Knoten im DOM zu identifizieren.
 
 ```html
 <!DOCTYPE html><html><head><title>Force Layout</title></head><body>
-<div id="v6"></div><!--graph container-->
+<div id="v6" class="figure"></div><!--graph container-->
 <script src="http://d3js.org/d3.v3.min.js"></script><script>
 
   var v6 = {}; v6.data = {};
@@ -332,9 +332,9 @@ Listing 6 zeigt ein minimales, vollständig lauffähiges Script für ein Force L
   v6.svg = d3.select("div#v6").append("svg")
     .attr("viewBox","0 0 " + v6.width + " " + v6.height)
     .attr("width","500px")
-    .classed("figure", true)
     .style("max-width","100%")
-    .style("background-color","white");
+    .style("background-color","white")
+    .style("border-radius","3px");
 
   v6.color = d3.scale.category10();
 
@@ -382,7 +382,7 @@ Daraufhin definieren wir noch für das Tick Event die bereits erwähnte Funktion
 
 Als letzter Schritt wird noch die eigentliche physikalische Berechnung gestartet, die natürlich unsere beiden Knoten und Link Arrays benötigt, um vernünftig arbeiten zu können. Als Ergebnis erhalten wir den Graph aus Abbildung 6, der schon ein wenig an den ersten Graphen am Anfang des Artikels erinnert.
 
-<div id="v6"></div><!--graph container-->
+<div id="v6" class="figure" style="display:inline-block;"></div><!--graph container-->
 
 {:.figcaption}
 *Abbildung 6: Das Ergebnis aus Listing 6 - Knoten dürfen bewegt werden ;-)*
@@ -404,6 +404,7 @@ Mit D3 stehen einem eine Menge Möglichkeiten offen, eigene Charts zu erstellen.
 - [d3js.org][10]
 - [D3 Tip in der deutschen APEX Community][11]
 - [www.apex-plugin.com][12] (nach D3 suchen)
+- [apex.world][16] (Plugins, nach D3 suchen)
 - [SVG Tutorial][13]
 
 Wer keine Lust auf selber machen hat: [nvd3.org][14], [c3js.org][15] (Abstraktionsprojekte)
@@ -414,6 +415,7 @@ Wer keine Lust auf selber machen hat: [nvd3.org][14], [c3js.org][15] (Abstraktio
 [13]: http://tutorials.jenkov.com/svg/index.html
 [14]: http://nvd3.org/
 [15]: http://c3js.org/
+[16]: https://apex.world/ords/f?p=100:700
 
 Happy coding :-)  
 Ottmar
@@ -432,7 +434,7 @@ window.onload = function (){
     .useDomParentWidth(true) //for responsive layout
     .showBorder(false)
     .start(); //sample data is provided, when called without data
-  d3.select('#v0').select('svg').classed("figure", true);
+  d3.select('#v0').select('svg').style("border-radius", "3px");
 
   //v1
   d3.select('svg#v1').append('circle')
@@ -494,9 +496,9 @@ window.onload = function (){
   v6.svg = d3.select("div#v6").append("svg")
     .attr("viewBox","0 0 " + v6.width + " " + v6.height)
     .attr("width","500px")
-    .classed("figure", true)
     .style("max-width","100%")
-    .style("background-color","white");
+    .style("background-color","white")
+    .style("border-radius","3px");
   v6.color = d3.scale.category10();
   v6.force = d3.layout.force().size([v6.width,v6.height]);
   v6.links = v6.svg.selectAll("line").data(v6.data.links)

@@ -10,7 +10,7 @@
 
 # Site settings
 # These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# you will see them accessed via {{ site.title }}, {{ site.author.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Ottmar's Notes
@@ -22,11 +22,15 @@ author:
   github: ogobrecht
   twitter: ogobrecht
   xing: Ottmar_Gobrecht
-baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://ogobrecht.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "" # the subpath of your site, e.g. /blog
 permalink: /posts/:year-:month-:day-:title
-lang: en
+lang: en # the base language of your site, can be overwritten on a page or post
 feed_limit: 20
+
+disqus:
+  shortname:
+google_analytics:
 
 defaults:
   -

@@ -67,13 +67,12 @@ figure,
  * Images
  */
 
-img,
-.figure {
+img {
     max-width: 100%;
     vertical-align: middle;
     border: none;
     border-radius: $base-border-radius;
-    box-shadow: $box-shadow-images;
+    box-shadow: $box-shadow-figures;
 }
 
 img.avatar {
@@ -90,15 +89,23 @@ img.avatar {
  * Figures
  */
 
-figure>img {
-    display: block;
+figure,
+.figure {
+    border: none;
+    border-radius: $base-border-radius;
+    box-shadow: $box-shadow-figures;
+    &>img {
+        display: block;
+    }
 }
 
+// https://stackoverflow.com/questions/38324326/sass-multiplication-with-units
 figcaption,
 .figcaption {
     font-size: $small-font-size;
     color: $grey-color;
-    line-height: 1.2;
+    line-height: $small-line-height;
+    margin-bottom: ($large-line-height - $small-line-height) * $base-font-size/2 + $spacing-unit/2;
 }
 
 // Workaround because Jekyll currently not delivers figure & figcaption for images and code blocks.
@@ -189,12 +196,27 @@ code {
 pre {
     padding: 8px 12px;
     overflow-x: auto;
-    box-shadow: $box-shadow-images;
+    box-shadow: $box-shadow-figures;
     >code {
         border: 0;
         padding-right: 0;
         padding-left: 0;
     }
+}
+
+// mark text as keyboard key: `SHIFT`{:.keyboard} + `CTRL`{:.keyboard}
+.keyboard {
+    background-color: #eee;
+    border-radius: 3px;
+    border: 1px solid #b4b4b4;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .2), 0 2px 0 0 rgba(255, 255, 255, .7) inset;
+    display: inline-block;
+    font-family: consolas, "Liberation Mono", courier, monospace;
+    font-size: $small-font-size;
+    font-weight: 700;
+    line-height: 1;
+    padding: 2px 4px;
+    white-space: nowrap;
 }
 
 
@@ -211,5 +233,5 @@ hr {
 }
 
 p {
-    line-height: 1.8;
+    line-height: $large-line-height;
 }

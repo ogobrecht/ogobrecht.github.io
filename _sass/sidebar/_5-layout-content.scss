@@ -69,7 +69,7 @@
 .post-list {
     margin-left: 0;
     list-style: none;
-    line-height: 1.2;
+    line-height: $small-line-height;
     h2 {
         margin-bottom: 0;
     }
@@ -81,7 +81,7 @@
 .post-list-archive {
     margin-left: 0;
     list-style: none;
-    line-height: 1.2;
+    line-height: $small-line-height;
     >li {
         margin-bottom: $spacing-unit/2;
     }
@@ -113,7 +113,7 @@
 }
 
 .post-subtitle {
-    line-height: 1.2;
+    line-height: $small-line-height;
 }
 
 .post-content {

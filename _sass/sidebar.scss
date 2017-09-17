@@ -2,10 +2,12 @@
 
 // Font settings
 $base-font-family:     "-apple-system", BlinkMacSystemFont, "San Francisco", "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif !default;
-$base-font-size:       18px !default;
 $base-font-weight:     400 !default;
-$base-line-height:     1.5 !default;
+$base-font-size:       18px !default;
 $small-font-size:      15px !default;
+$large-line-height:    1.8 !default;
+$base-line-height:     1.5 !default;
+$small-line-height:    1.2 !default;
 $text-color:           #333 !default;
 $background-color:     #fdfdfd !default;
 
@@ -22,7 +24,7 @@ $spacing-unit:         30px !default;
 $content-max-width:    750px !default;
 $nav-button-max-width: 799px !default;
 $logo-height:          80px !default;
-$box-shadow-images:    0 0 3px $grey-color !default;
+$box-shadow-figures:   0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08) !default; //img, pre, figure, .figure
 $base-border-radius:   3px !default;
 
 // Import partials

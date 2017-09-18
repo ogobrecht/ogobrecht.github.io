@@ -1,16 +1,20 @@
 ---
 layout: default
 ---
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-<header class="post-header">
-<h1 class="post-title" itemprop="name headline">{{ page.title | escape }}</h1>
-{% if page.subtitle %}<p class="post-subtitle">{{ page.subtitle }}</p>{% endif %}
-<p class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time> / by {{ page.author | default: site.author.name }} / {% for tag in page.tags %}<a href="/tags/{{tag}}">{{tag}}</a>{% unless forloop.last %}, {% endunless %}{% endfor %}</p>
-</header>
-<div class="post-content" itemprop="articleBody">
+      <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+          <h1 class="post-title" itemprop="name headline">{{ page.title | escape }}</h1>
+          {% if page.subtitle %}<p class="post-subtitle">{{ page.subtitle }}</p>{% endif %}
+          <p class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time> / by {{ page.author | default: site.author.name }} / {% for tag in page.tags %}<a href="/tags/{{tag}}">{{ site.data.taglabels[tag] | default: tag }}</a>{% unless forloop.last %}, {% endunless %}{% endfor %}</p>
+        </header>
+        <div class="post-content" itemprop="articleBody">
+
+<!--content-begin-->
 {{ content }}
-</div>
-<footer class="post-meta">{% if page.last_modified %}Last modified {{ page.last_modified | date: "%b %-d, %Y" }} / {% endif %}You can comment via <a href="mailto:{{ site.author.email }}?subject=Comment%20on%20{{ site.url }}{{ site.baseurl }}{{ page.url }}">email</a> or <a href="/about#comments">postcard</a>
-</footer>
-{%- if site.disqus.shortname %}{% include disqus_comments.html %}{% endif %}
-</article>
+<!--content-end-->
+
+        </div>
+        <footer class="post-meta">{% if page.last_modified %}Last modified {{ page.last_modified | date: "%b %-d, %Y" }} / {% endif %}You can comment via <a href="mailto:{{ site.author.email }}?subject=Comment%20on%20{{ site.url }}{{ site.baseurl }}{{ page.url }}">email</a> or <a href="/about#comments">postcard</a>
+        </footer>
+      {%- if site.disqus.shortname %}{% include disqus_comments.html %}{% endif %}
+      </article>

@@ -1,7 +1,7 @@
 ---
 title: Privacy Statement
 lang: en
-sitemap: 1
+legal: 2
 ---
 I don't use any user tracking. This site is hosted on GitHub's infrastructure. I can't access their web server log files for this site and if I could, I would not be interested on it.
 

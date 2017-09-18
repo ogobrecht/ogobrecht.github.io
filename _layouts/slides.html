@@ -26,31 +26,31 @@
 
 <body>
 
-<div class="reveal">
-  <div class="slides">
-    <section data-markdown="slides.md"
-             data-separator="<!--slide-container-->"
-             data-separator-vertical="<!--slide-->"
-             data-separator-notes="{% if page.lang == "de" %}^Anmerkung:{% else %}^Note:{% endif %}"
-             data-charset="utf-8">
-    </section>
+  <div class="reveal">
+    <div class="slides">
+      <section data-markdown="slides.md"
+               data-separator="<!--slide-container-->"
+               data-separator-vertical="<!--slide-->"
+               data-separator-notes="{% if page.lang == "de" %}^Anmerkung:{% else %}^Note:{% endif %}"
+               data-charset="utf-8">
+      </section>
+    </div>
   </div>
-</div>
-<script src="../../assets/reveal.js/lib/js/head.min.js"></script>
-<script src="../../assets/reveal.js/js/reveal.js"></script>
-<script>
-Reveal.initialize({
-  controls: true,
-  fragments: true,
-  history: true,
-  dependencies: [
-    { src: '../../assets/reveal.js/plugin/markdown/marked.js' },
-    { src: '../../assets/reveal.js/plugin/markdown/markdown.js' },
-    { src: '../../assets/reveal.js/plugin/notes/notes.js', async: true },
-    { src: '../../assets/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-  ]
-});
-</script>
+  <script src="../../assets/reveal.js/lib/js/head.min.js"></script>
+  <script src="../../assets/reveal.js/js/reveal.js"></script>
+  <script>
+  Reveal.initialize({
+    controls: true,
+    fragments: true,
+    history: true,
+    dependencies: [
+      { src: '../../assets/reveal.js/plugin/markdown/marked.js' },
+      { src: '../../assets/reveal.js/plugin/markdown/markdown.js' },
+      { src: '../../assets/reveal.js/plugin/notes/notes.js', async: true },
+      { src: '../../assets/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+    ]
+  });
+  </script>
 
 <!--content-begin-->
 {{ content }}

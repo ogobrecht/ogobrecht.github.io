@@ -1,7 +1,7 @@
 ---
 title: About
 lang: en
-nav: 5
+topic: 5
 ---
 
 ## Me

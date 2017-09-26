@@ -26,6 +26,7 @@ url: "https://ogobrecht.github.io" # the base hostname & protocol for your site,
 baseurl: "" # the subpath of your site, e.g. /blog
 permalink: /posts/:year-:month-:day-:title
 lang: en # the base language of your site, can be overwritten on a page or post
+date_format: "%b %-d, %Y" # german example: "%d. %b %Y"
 feed_limit: 20
 
 disqus:

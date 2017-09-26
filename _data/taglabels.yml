@@ -5,6 +5,7 @@ doag: DOAG
 docker: Docker
 dokuwiki: DokuWiki
 generator: Generator
+html: HTML
 jquery: jQuery
 mac: Mac
 markdown: Markdown

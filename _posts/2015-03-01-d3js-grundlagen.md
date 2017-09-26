@@ -3,7 +3,7 @@ title: D3.js Grundlagen
 subtitle: DOAG/SOUG News 02-2015
 tags: [oracle, apex, doag, d3js, svg]
 lang: de
-last_modified: 2017-08-29
+last_modified_at: 2017-08-29
 ---
 
 Dieser Artikel erschien in der DOAG/SOUG News 02-2015 und steht auch im [Original][1] zur Verfügung. Im Gegensatz zu der Papierversion der DOAG haben wir natürlich auf einer Webseite alle Möglichkeiten, D3 live zu zeigen - also los, wir starten mit einer Netzwerkvisualisierung live im Browser (JavaScript muß aktiv sein, damit die Beispiele auf dieser Seite funktionieren):

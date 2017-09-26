@@ -3,7 +3,7 @@ title: Pitfalls with Oracle 11g XE and Docker on Mac OS
 subtitle: The swap space problem and how to fix it
 tags: [docker, oracle, mac]
 lang: en
-last_modified: 2017-08-12
+last_modified_at: 2017-08-12
 ---
 
 Recently I tried to install Oracle XE into a docker container on Mac OS Sierra using the [official docker file][1] from Oracle. I had no luck, because the installation failed with this error message:

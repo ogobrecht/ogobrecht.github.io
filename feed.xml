@@ -20,6 +20,7 @@ layout: null
 {% for post in posts limit: site.feed_limit %}
 <entry{% if post.lang %}{{" "}}xml:lang="{{ post.lang }}"{% endif %}>
 <title type="html">{{ post.title | smartify | strip_html | normalize_whitespace | xml_escape }}</title>
+<summary>{{ post.subtitle | smartify | strip_html | normalize_whitespace | xml_escape }}</summary>
 <link href="{{ post.url | absolute_url }}" rel="alternate" type="text/html" title="{{ post.title | xml_escape }}" />
 <published>{{ post.date | date_to_xmlschema }}</published>
 <updated>{{ post.last_modified_at | default: post.date | date_to_xmlschema }}</updated>
@@ -33,9 +34,6 @@ layout: null
 <category term="{{ tag | xml_escape }}" />
 {%- endfor %}
 <content type="html" xml:base="{{ post.url | absolute_url | xml_escape }}">
-{%- if post.subtitle -%}
-&lt;p&gt;{{ post.subtitle | smartify | xml_escape }}.&lt;/p&gt;
-{%- endif %}
 {{ post.content | strip | xml_escape }}
 </content>
 </entry>

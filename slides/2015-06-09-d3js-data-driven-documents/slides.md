@@ -1,90 +1,90 @@
 ## D3.js - Data Driven Documents
-Ottmar Gobrecht  
+Ottmar Gobrecht
 DOAG APEX connect 2015, Düsseldorf
 
-<!--slide-container-->
+-----
 
 ## Aufwärmrunde
 
-<!--slide-->
+---
 
 ![Force Directed Graph](./assets/beispiel-1.png)
 
-<!--slide-->
+---
 
 ![Bubble Chart](./assets/beispiel-2.png)
 
-<!--slide-->
+---
 
 ![Sunburst Chart](./assets/beispiel-3.png)
 
-<!--slide-->
+---
 
 ![Treemap Chart](./assets/beispiel-4.png)
 
-<!--slide-->
+---
 
 ![Collapsible Tree Chart](./assets/beispiel-5.png)
 
-<!--slide-->
+---
 
 ### Zum selber schauen:
 
-[d3js.org][1]  
+[d3js.org][1]
 [github.com/mbostock/d3/wiki/Gallery][2]
 
 [1]: http://d3js.org/
 [2]: https://github.com/mbostock/d3/wiki/Gallery
 
-<!--slide-->
+---
 
 ![d3js.org](./assets/beispiel-6.png)
 
-<!--slide-->
+---
 
 ![github.com/mbostock/d3/wiki/Gallery](./assets/beispiel-7.png)
 
-<!--slide-->
+---
 
 ![github.com/mbostock/d3/wiki/Gallery](./assets/beispiel-8.png)
 
-<!--slide-->
+---
 
 ![github.com/mbostock/d3/wiki/Gallery](./assets/beispiel-9.png)
 
-<!--slide-->
+---
 
 ![github.com/mbostock/d3/wiki/Gallery](./assets/beispiel-10.png)
 
-<!--slide-->
+---
 
 ![github.com/mbostock/d3/wiki/Gallery](./assets/beispiel-11.png)
 
-<!--slide-->
+---
 
 ![github.com/mbostock/d3/wiki/Gallery](./assets/beispiel-12.png)
 
-<!--slide-->
+---
 
 ![github.com/mbostock/d3/wiki/Gallery](./assets/beispiel-13.png)
 
-<!--slide-->
+---
 
 ![github.com/mbostock/d3/wiki/Gallery](./assets/beispiel-14.png)
 
-<!--slide-->
+---
 
 ![github.com/mbostock/d3/wiki/Gallery](./assets/beispiel-15.png)
 
-<!--slide-->
+---
 
 Das könnte immer so weiter gehen ...
 
-<!--slide-container-->
+-----
 
 ## Der Versuch einer Definition
 
-<!--slide-->
+---
 
 ### D3.js - Was ist das?
 
@@ -95,11 +95,11 @@ Das könnte immer so weiter gehen ...
 - KEINE Chart-Engine mit fertigen Layouts
 
 
-<!--slide-container-->
+-----
 
 ## Die Basis - SVG
 
-<!--slide-->
+---
 
 ### Scalable Vector Graphics
 
@@ -109,7 +109,7 @@ Das könnte immer so weiter gehen ...
 - Im Rahmen von HTML5 standardisiert
 - Einbindbar als externe Grafik oder inline
 
-<!--slide-->
+---
 
 ### SVG Zeichnungselemente
 
@@ -123,13 +123,13 @@ Das könnte immer so weiter gehen ...
 
 [3]: http://tutorials.jenkov.com/svg/index.html
 
-<!--slide-->
+---
 
 ### Ein erstes Beispiel
 
 Live im Browser…
 
-<!--slide-->
+---
 
 <svg id="Beispiel_1" width="490" height="140">
   <rect x="10" y="10" height="120" width="160" fill="#ff6600"/>
@@ -169,11 +169,11 @@ Anmerkung:
 - Kreis und Ellipse die Mitte
 - Man erkennt die Methodenverkettung
 
-<!--slide-container-->
+-----
 
 ## JavaScript
 
-<!--slide-->
+---
 
 ### Selectors versus Selections
 
@@ -185,7 +185,7 @@ Anmerkung:
 
 [4]: http://bost.ocks.org/mike/bar/
 
-<!--slide-->
+---
 
 ### Selectors versus Selections
 
@@ -213,7 +213,7 @@ Anmerkung:
 
 - jQuery und andere Libraries iterieren auch automatisch
 
-<!--slide-->
+---
 
 ### Ohne Daten nichts los
 
@@ -225,13 +225,13 @@ Anmerkung:
 - Kleine Datenmengen kann man direkt in die Seite rendern
 - Schlussendlich benötigt man JavaScript-Arrays
 
-<!--slide-->
+---
 
 ### Die D3 Mengenlehre
 
 Wie man Daten an das DOM bindet
 
-<!--slide-->
+---
 
 - Daten werden einer D3 Selection übergeben
 - D3 verbindet die Daten und DOM-Elemente in vorliegender Reihenfolge
@@ -244,9 +244,9 @@ Wie man Daten an das DOM bindet
 
 [6]: http://bost.ocks.org/mike/join/
 
-<!--slide-->
+---
 
-Eine Data Join Live Übertragung direkt aus ...  
+Eine Data Join Live Übertragung direkt aus ...
 ... dem Browser:
 
 <div id="Beispiel_2"><p style="color:green;">Ein bereits existierendes Element</p></div>
@@ -273,7 +273,7 @@ Bitte Code in der Browser-Konsole ausführen:
 
 [7]: http://bost.ocks.org/mike/circles/
 
-<!--slide-->
+---
 
 ### Anmerkungen
 
@@ -281,7 +281,7 @@ Bitte Code in der Browser-Konsole ausführen:
 - Enter oder Exit können zuerst aufgerufen werden
 - Nach Aufruf der Enter Selection enthält Update Selection auch die neuen Elemente
 
-<!--slide-->
+---
 
 ### Die Key Function
 
@@ -289,7 +289,7 @@ Bitte Code in der Browser-Konsole ausführen:
 - Dafür gibt es die Key Function
 - Sie wird als zweiter Parameter dem Data Join übergeben
 
-<!--slide-->
+---
 
 Key Function [Beispiel][8]: <svg id="Beispiel_3" width="200" height="30"></svg>
 
@@ -323,7 +323,7 @@ circle = svg.selectAll('circle')
   .data(data, function(d){return d.id;}); // Was kommt danach? ;-)
 ```
 
-<!--slide-->
+---
 
 ### Hilfsfunktionen
 
@@ -335,7 +335,7 @@ circle = svg.selectAll('circle')
 
 [9]: https://github.com/mbostock/d3/wiki/API-Reference
 
-<!--slide-->
+---
 
 ### Layouts
 
@@ -345,7 +345,7 @@ Layouts sind Chart Algorithmen
 
 [10]: https://github.com/mbostock/d3/wiki/Layouts
 
-<!--slide-->
+---
 
 ### Beispiel Pack Layout
 
@@ -355,7 +355,7 @@ Layouts sind Chart Algorithmen
 
 [11]: https://github.com/mbostock/d3/wiki/Pack-Layout
 
-<!--slide-->
+---
 
 ### Beispiel Bundle Layout
 
@@ -365,7 +365,7 @@ Layouts sind Chart Algorithmen
 
 [12]: https://github.com/mbostock/d3/wiki/Bundle-Layout
 
-<!--slide-->
+---
 
 ### Das Geheimnis der Geschwindigkeit
 
@@ -377,11 +377,11 @@ Anmerkung:
 - Kein Löschen-Neuanlage-Eventregistrierung-Etcetera-Zyklus bei Aktualisierungen notwendig
 - Die Selection hält Referenzen auf die DOM-Elemente - dadurch keine weitere Suche notwendig
 
-<!--slide-container-->
+-----
 
 ## Force Layout Beispiel
 
-<!--slide-->
+---
 
 ### Überblick Force Layout
 
@@ -393,7 +393,7 @@ Anmerkung:
 
 [13]: https://github.com/d3/d3-3.x-api-reference/blob/master/Force-Layout.md
 
-<!--slide-->
+---
 
 Die Knoten: Mitarbeiter der EMP-Tabelle
 
@@ -423,7 +423,7 @@ Die Links: Mitarbeiter / Vorgesetzter
   ];
 ```
 
-<!--slide-->
+---
 
 Vorbereitung, Helper und Layout
 
@@ -451,7 +451,7 @@ var node = svg.selectAll("circle").data(nodes)
     .call(force.drag);
 ```
 
-<!--slide-->
+---
 
 Tick Event
 
@@ -474,7 +474,7 @@ Ausführung
 force.nodes(nodes).links(links).start();
 ```
 
-<!--slide-->
+---
 
 Das Ergebnis...
 
@@ -482,7 +482,7 @@ Das Ergebnis...
 
 Knoten dürfen bewegt werden ;-)
 
-<!--slide-->
+---
 
 ...ein wenig aufgebrezelt
 
@@ -498,7 +498,7 @@ Mit Customize Wizard: [Standalone][14], [APEX Plugin][15]
 [14]: http://ogobrecht.github.io/d3-force-apex-plugin/
 [15]: https://apex.oracle.com/pls/apex/f?p=18290:1
 
-<!--slide-->
+---
 
 ### The End
 
@@ -517,7 +517,7 @@ Mit Customize Wizard: [Standalone][14], [APEX Plugin][15]
 [20]: http://nvd3.org/
 [21]: http://c3js.org/
 
-<!--slide-->
+---
 
 ### Fragen?
 
@@ -525,11 +525,11 @@ Mit Customize Wizard: [Standalone][14], [APEX Plugin][15]
 
 [22]: https://ogobrecht.github.io
 
-<!--slide-container-->
+-----
 
 ## Anhang: Kapselung von Chart Code
 
-<!--slide-->
+---
 
 ### Warum eigentlich?
 
@@ -537,7 +537,7 @@ Mit Customize Wizard: [Standalone][14], [APEX Plugin][15]
 - Globale Variablen und Funktionen sind schnell redeklariert
 - Ein zweiter Chart stört die Funktion des Ersten
 
-<!--slide-->
+---
 
 ### Kleiner Exkurs
 
@@ -554,7 +554,7 @@ Anmerkung:
 - Vorheriger Kontext: Closure kann auf die vor der Rückgabe vorhandenen Variablen innerhalb ihrer Ursprungsfunktion zugreifen
 - Private Variablen sind von außen nicht einsehbar
 
-<!--slide-->
+---
 
 Beispiel Closure:
 
@@ -584,7 +584,7 @@ test.render();         //Chart Funktion über Render-Methode
 test.width(300).render().width(); //Was passiert jetzt?
 ```
 
-<!--slide-->
+---
 
 ### Anmerkungen
 
@@ -592,7 +592,7 @@ test.width(300).render().width(); //Was passiert jetzt?
 - Es lohnt sich, ein wenig Arbeit in eine kleine API zu stecken
 - Man bekommt universell einsatzbare Charts, die zur Laufzeit angepasst werden können
 
-<!--slide-->
+---
 
 ## Nun aber wirklich: The End
 

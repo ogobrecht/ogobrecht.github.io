@@ -11,12 +11,13 @@ $small-font-size:      15px;
 $large-line-height:    1.8;
 $base-line-height:     1.5;
 $small-line-height:    1.2;
+
+// Color settings
 $text-color:           #333;
 $background-color:     #fdfdfd;
-
-// Color settings - GitHub blue: #2b7bb9, Reveal.js theme solarized blue: #268bd2
-//Ochre: #D87D15, Mandarin: #EF7B45
-$brand-color:          #268bd2;
+{% if site.brand_color %}
+$brand-color:          {{ site.brand_color }};
+{% endif %}
 $brand-color-light:    lighten($brand-color, 40%);
 $brand-color-dark:     darken($brand-color, 25%);
 $grey-color:           #828282;

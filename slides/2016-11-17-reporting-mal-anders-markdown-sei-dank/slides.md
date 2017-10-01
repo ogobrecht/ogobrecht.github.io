@@ -1,11 +1,9 @@
-<!--slide-conainer-->
-
 ##  Reporting mal anders, Markdown sei Dank
 **Ein Open Source Kochrezept**  
 Ottmar Gobrecht  
 DOAG Konferenz 2016, Nürnberg
 
-<!--slide-->
+---
 
 ### Motivation
 
@@ -15,7 +13,7 @@ DOAG Konferenz 2016, Nürnberg
   - SQL-Code-Blöcke: Was tue ich da eigentlich?
   - Idee: **Markdown Reporter**
 
-<!--slide-->
+---
 
 ### Die Idee
 
@@ -27,7 +25,7 @@ DOAG Konferenz 2016, Nürnberg
   - Daten in Charts wandeln
   - Fertig, jedenfalls theoretisch ...
 
-<!--slide-->
+---
 
 ### Warum Ein Kochrezept?
 
@@ -37,13 +35,13 @@ DOAG Konferenz 2016, Nürnberg
 - Reporting ist ein hochgradig individuelles Thema
 - Klingt wie kochen nach Rezept und anpassen an eigenen Geschmack, oder?
 
-<!--slide-container-->
+-----
 
 ## Ein Gruß aus der Küche
 
 **Appetithäppchen**
 
-<!--slide-->
+---
 
 ### Beispieldaten
 
@@ -61,61 +59,62 @@ Population Development,New York,Rio,Tokio
 2000,8008278,5857904,8134688
 2010,8175133,6320446,8980768
 ```
-<!--slide-->
+
+---
 
 <h3>Line Chart (<a href="javascript:to_svg()" title="Show SVG's for all eight example charts">SVG</a>/<a href="javascript:to_png()" title="Show PNG's for all eight example charts">PNG</a>)</h3>
 
 ![Line Chart](./assets/line.svg.png) <!-- .element: width="810px" -->
 
-<!--slide-->
+---
 
 <h3>Area Chart (<a href="javascript:to_svg()" title="Show SVG's for all eight example charts">SVG</a>/<a href="javascript:to_png()" title="Show PNG's for all eight example charts">PNG</a>)</h3>
 
 ![Area Chart](./assets/area.svg.png) <!-- .element: width="810px" -->
 
-<!--slide-->
+---
 
 <h3>Area Chart Stacked (<a href="javascript:to_svg()" title="Show SVG's for all eight example charts">SVG</a>/<a href="javascript:to_png()" title="Show PNG's for all eight example charts">PNG</a>)</h3>
 
 ![Area Chart Stacked](./assets/area-stacked.svg.png) <!-- .element: width="810px" -->
 
-<!--slide-->
+---
 
 <h3>Bar Chart (<a href="javascript:to_svg()" title="Show SVG's for all eight example charts">SVG</a>/<a href="javascript:to_png()" title="Show PNG's for all eight example charts">PNG</a>)</h3>
 
 ![Bar Chart](./assets/bar.svg.png) <!-- .element: width="810px" -->
 
-<!--slide-->
+---
 
 <h3>Bar Chart Stacked (<a href="javascript:to_svg()" title="Show SVG's for all eight example charts">SVG</a>/<a href="javascript:to_png()" title="Show PNG's for all eight example charts">PNG</a>)</h3>
 
 ![Bar Chart Stacked](./assets/bar-stacked.svg.png) <!-- .element: width="810px" -->
 
-<!--slide-->
+---
 
 <h3>Bar Chart Horizontal (<a href="javascript:to_svg()" title="Show SVG's for all eight example charts">SVG</a>/<a href="javascript:to_png()" title="Show PNG's for all eight example charts">PNG</a>)</h3>
 
 ![Bar Chart Horizontal](./assets/barh.svg.png) <!-- .element: width="810px" -->
 
-<!--slide-->
+---
 
 <h3>Bar Chart Horizontal Stacked (<a href="javascript:to_svg()" title="Show SVG's for all eight example charts">SVG</a>/<a href="javascript:to_png()" title="Show PNG's for all eight example charts">PNG</a>)</h3>
 
 ![Bar Chart Horizontal Stacked](./assets/barh-stacked.svg.png) <!-- .element: width="810px" -->
 
-<!--slide-->
+---
 
 <h3>Pie Chart (<a href="javascript:to_svg()" title="Show SVG's for all eight example charts">SVG</a>/<a href="javascript:to_png()" title="Show PNG's for all eight example charts">PNG</a>)</h3>
 
 ![Pie Chart](./assets/pie.svg.png) <!-- .element: width="550px" -->
 
-<!--slide-->
+---
 
 ### System Overview
 
 ![Markdown Reporter System Overview](./assets/system-overview.png?nolink)
 
-<!--slide-->
+---
 
 ### APEX Demo
 
@@ -123,13 +122,13 @@ Population Development,New York,Rio,Tokio
 
 [Der Demo Report im PDF Format](./assets/demo-report.pdf)
 
-<!--slide-container-->
+-----
 
 ## Zutatenliste
 
 **Selber Kochen**
 
-<!--slide-->
+---
 
 ### Überblick
 
@@ -142,7 +141,7 @@ Population Development,New York,Rio,Tokio
 - **Markdown Reporter** (PL/SQL Datenlieferant)
 - APEX (Reporterstellung/-verwaltung)
 
-<!--slide-->
+---
 
 ### Markdown
 
@@ -159,7 +158,7 @@ Ein kurzer Absatz.
 * Noch einer mit *kursivem* und **fettem** Text
 ```
 
-<!--slide-->
+---
 
 ### Markdown - Eine Abgrenzung
 
@@ -172,7 +171,7 @@ Komplette **ursprüngliche** [Syntax][1], [Weiterentwicklungen][2], das [APEX Pl
 [2]: https://de.wikipedia.org/wiki/Markdown#Weiterentwicklungen
 [3]: https://apex.oracle.com/pls/apex/f?p=66154:1
 
-<!--slide-->
+---
 
 ### Pandoc
 
@@ -186,7 +185,7 @@ Komplette **ursprüngliche** [Syntax][1], [Weiterentwicklungen][2], das [APEX Pl
 [4]: http://pandoc.org/
 [5]: http://pandoc.org/MANUAL.html#pandocs-markdown
 
-<!--slide-->
+---
 
 ### LaTeX
 
@@ -203,7 +202,7 @@ Komplette **ursprüngliche** [Syntax][1], [Weiterentwicklungen][2], das [APEX Pl
 [9]: http://miktex.org/
 [10]: http://www.tug.org/texlive/
 
-<!--slide-->
+---
 
 ### Python Matplotlib
 
@@ -217,7 +216,7 @@ Komplette **ursprüngliche** [Syntax][1], [Weiterentwicklungen][2], das [APEX Pl
 [12]: https://en.wikipedia.org/wiki/Matplotlib
 [13]: https://de.wikipedia.org/wiki/Matplotlib
 
-<!--slide-->
+---
 
 ### Python Pandas
 
@@ -230,7 +229,7 @@ Komplette **ursprüngliche** [Syntax][1], [Weiterentwicklungen][2], das [APEX Pl
 [14]: http://pandas.pydata.org/
 [15]: https://en.wikipedia.org/wiki/Pandas_(software)
 
-<!--slide-->
+---
 
 ### Python Seaborn
 
@@ -241,7 +240,7 @@ Komplette **ursprüngliche** [Syntax][1], [Weiterentwicklungen][2], das [APEX Pl
 
 [16]: https://stanford.edu/~mwaskom/software/seaborn/
 
-<!--slide-->
+---
 
 ### IPython/Jupyter
 
@@ -256,7 +255,7 @@ Komplette **ursprüngliche** [Syntax][1], [Weiterentwicklungen][2], das [APEX Pl
 [19]: https://de.wikipedia.org/wiki/IPython
 [20]: http://jupyter.org/
 
-<!--slide-->
+---
 
 ### Node.js
 
@@ -272,7 +271,7 @@ Komplette **ursprüngliche** [Syntax][1], [Weiterentwicklungen][2], das [APEX Pl
 [23]: https://de.wikipedia.org/wiki/Node.js
 [24]: https://www.npmjs.com/
 
-<!--slide-->
+---
 
 ### Markdown Reporter
 
@@ -295,7 +294,7 @@ Da die PDF-Erstellung in LaTeX recht aufwendig ist, sollte man überlegen, seite
 
 Natürlich steht es jedem frei, alles nach seinen Wünschen anzupassen. Dies ist ja nur eine Beispielimplementierung, welche die Einstiegshürde in das Thema senken soll.
 
-<!--slide-->
+---
 
 ### APEX
 
@@ -305,15 +304,15 @@ Muss dazu noch etwas gesagt werden?
 
 [26]: https://apex.oracle.com/
 
-<!--slide-->
+---
 
 ### Fragen?
 
-<!--slide-container-->
+-----
 
 ## Vorbereitung
 
-<!--slide-->
+---
 
 ### Installation Basiskomponenten
 
@@ -349,7 +348,7 @@ Später habe ich dann bei der Anwendung von dem Pandoc Python Filter wieder eine
 [31]: http://www.lfd.uci.edu/~gohlke/pythonlibs/#scipy
 [32]: http://www.lfd.uci.edu/~gohlke/pythonlibs/#numpy
 
-<!--slide-->
+---
 
 ### Installation Pandoc Fernsteuerung
 
@@ -364,7 +363,7 @@ Später habe ich dann bei der Anwendung von dem Pandoc Python Filter wieder eine
 [34]: http://localhost:3000
 [35]: http://localhost:3000/pandoc/example-form
 
-<!--slide-->
+---
 
 ### Installation PL/SQL Helper Package
 
@@ -373,11 +372,11 @@ Später habe ich dann bei der Anwendung von dem Pandoc Python Filter wieder eine
 - Eventuell Anlage von Jobtabellen
 - Reportverwaltung könnte in APEX stattfinden
 
-<!--slide-container-->
+-----
 
 ## Zubereitung
 
-<!--slide-->
+---
 
 ### Markdown Reporter - Demo Chart
 
@@ -400,7 +399,7 @@ Später habe ich dann bei der Anwendung von dem Pandoc Python Filter wieder eine
 
 [Das Ergebnis dieser Query](./assets/demo-chart.pdf)
 
-<!--slide-->
+---
 
 ### Eingangsdaten Pandoc
 
@@ -421,7 +420,7 @@ SELECT markdown_reporter.preprocess_data(p_markdown => '...')
     "2010","8175133","6320446","8980768"
     ```
 
-<!--slide-->
+---
 
 ### Pandoc Filter
 
@@ -434,7 +433,7 @@ Die ganze Magie findet in einem [Pandoc Filter][36] statt
 
 [36]: http://pandoc.org/scripting.html
 
-<!--slide-->
+---
 
 ### Pandoc Filter - Beispiel Line Chart
 
@@ -460,7 +459,7 @@ plt.savefig(filename)
 
 [37]: https://github.com/ogobrecht/markdown-reporter/blob/master/pandoc_filter/pandocFilterMarkdownReporter.py
 
-<!--slide-->
+---
 
 ### Chartentwicklung mit Jupyter
 
@@ -477,7 +476,7 @@ jupyter notebook
 [38]: http://jupyter.readthedocs.io/en/latest/running.html
 [39]: https://github.com/ogobrecht/markdown-reporter/blob/master/docs/markdown-reporter.ipynb
 
-<!--slide-->
+---
 
 ### Jupyter Notebook
 
@@ -485,19 +484,19 @@ Notebook Schritt für Schritt ausführen
 
 ![Jupyter Notebook](./assets/ipython-notebook-2.png) <!-- .element: width="600px" -->
 
-<!--slide-->
+---
 
 ### Jupyter Demo
 
-<!--slide-->
+---
 
 ### Fragen?
 
-<!--slide-container-->
+-----
 
 ## Geheimrezept für Windows
 
-<!--slide-->
+---
 
 ### Alles ohne Installation
 
@@ -558,7 +557,7 @@ if %format%==pdf  %pandoc% document.filtered.json --from=json --to=latex --outpu
 :end
 ```
 
-<!--slide-->
+---
 
 ### Portable Stolperfallen - MikTeX
 
@@ -568,7 +567,7 @@ if %format%==pdf  %pandoc% document.filtered.json --from=json --to=latex --outpu
   - Repository einstellen
 - Genutzte Features immer lokal testen
 
-<!--slide-->
+---
 
 ## The End
 

@@ -2,18 +2,18 @@
 **André Borngräber, Ottmar Gobrecht**  
 APEX Meetup 17.06.2016, Frankfurt
 
-<!--slide-container-->
+-----
 
 ## Warum?
 
-<!--slide-->
+---
 
 ### Schnelligkeit
 
 - Standardcalls für CRUD-Operationen
 - Hilfsmethoden für eindeutige Schlüssel
 
-<!--slide-->
+---
 
 ### Lesbarkeit
 
@@ -21,7 +21,7 @@ APEX Meetup 17.06.2016, Frankfurt
 - Einheitliche Methodennamen
 - Wiedererkennungseffekte
 
-<!--slide-->
+---
 
 ### Wartbarkeit
 
@@ -29,21 +29,21 @@ APEX Meetup 17.06.2016, Frankfurt
 - Strukturänderungen einfacher durchführbar
 - Invalide API-Calls in Businesslogik schnell behebbar
 
-<!--slide-->
+---
 
 ### Sicherheit
 
 - Trennung zwischen Daten- und UI-Schema einfach
 - Löschen von Datensätzen abschaltbar
 
-<!--slide-->
+---
 
 ### Historisierung, Logging
 
 - API feuert nur bei Änderungen
 - Keine unnötigen Zeilen bei Updates
 
-<!--slide-->
+---
 
 ### Kompatibilität
 
@@ -52,7 +52,7 @@ APEX Meetup 17.06.2016, Frankfurt
     - Trigger ruft API auf
 	- APEX Prüfung auf veränderte Zeilen bleibt erhalten
 
-<!--slide-->
+---
 
 ### One Last Thing: Avoid Hard-Coding SQL
 
@@ -67,11 +67,11 @@ Keine versteckten DML Statements in APEX
 
 [1]: https://www.toadworld.com/cfs-file/__key/communityserver-wikis-components-files/00-00-00-00-03/Say-Goodbye-to-Hard_2D00_Coding.pdf
 
-<!--slide-container-->
+-----
 
 ## Wie?
 
-<!--slide-->
+---
 
 ### Open Source Projekt
 
@@ -79,7 +79,7 @@ Keine versteckten DML Statements in APEX
 
 [2]: https://github.com/OraMUC/table-api-generator
 
-<!--slide-->
+---
 
 PL/SQL & SQL Developer Integration ([oddgen][3])
 
@@ -93,7 +93,7 @@ end;
 
 [3]: https://www.oddgen.org/
 
-<!--slide-->
+---
 
 ### Features
 
@@ -107,7 +107,7 @@ end;
   - `row_exists`
   - `get_pk_by_unique_cols`
 
-<!--slide-->
+---
 
 ### Konventionen
 
@@ -119,19 +119,19 @@ Der API-Generator setzt aktuell voraus, dass ...
 [4]: https://de.wikipedia.org/wiki/Surrogatschl%C3%BCssel
 [5]: https://de.wikipedia.org/wiki/Sprechender_Schl%C3%BCssel
 
-<!--slide-container-->
+-----
 
 ## Beispiele
 
-<!--slide-->
+---
 
 ### Demozeit ...
 
-<!--slide-container-->
+-----
 
 ## Nächste Schritte
 
-<!--slide-->
+---
 
 ### In Planung
 
@@ -144,7 +144,7 @@ Der API-Generator setzt aktuell voraus, dass ...
 
 [6]: https://de.wikipedia.org/wiki/Slowly_Changing_Dimensions
 
-<!--slide-->
+---
 
 ## The End
 

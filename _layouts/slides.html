@@ -9,7 +9,7 @@
   <meta name="description" content="{{ page.subtitle | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
   <link rel="author" href="{{ site.author.url | default: site.author.name }}">
   <link rel="stylesheet" href="../../assets/reveal.js/css/reveal.css">
-  <link rel="stylesheet" href="../../assets/reveal.js/css/theme/solarized.css">
+  <link rel="stylesheet" href="../../assets/reveal.js/css/theme/{{ page.theme | default: site.slides.theme | default: 'solarized' }}.css">
   <link rel="stylesheet" href="../../assets/reveal.js/lib/css/zenburn.css">
   <base target="_blank">
   <!--[if lt IE 9]>
@@ -29,9 +29,9 @@
   <div class="reveal">
     <div class="slides">
       <section data-markdown="slides.md"
-               data-separator="<!--slide-container-->"
-               data-separator-vertical="<!--slide-->"
-               data-separator-notes="{% if page.lang == "de" %}^Anmerkung:{% else %}^Note:{% endif %}"
+               data-separator="{{ page.data-separator | default: site.slides.data-separator | default: '^\r?\n-----\r?\n$' }}"
+               data-separator-vertical="{{ page.data-separator-vertical | default: site.slides.data-separator-vertical | default: '^\r?\n---\r?\n$' }}"
+               data-separator-notes="{{ page.data-separator-notes | default: site.slides.data-separator-notes | default: '^Note:' }}"
                data-charset="utf-8">
       </section>
     </div>

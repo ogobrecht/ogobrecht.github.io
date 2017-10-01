@@ -6,7 +6,7 @@ topic: 5
 
 ## Me
 
-![Avatar](/assets/avatar.jpeg){:.avatar}
+![Avatar](/assets/avatar.jpeg){:.left.avatar}
 
 Hi, you are currently visiting "*{{ site.description | smartify }}*" and I am Ottmar (Gobrecht), a database developer living in Munich, Germany.
 

@@ -73,17 +73,65 @@ img {
     border: none;
     border-radius: $base-border-radius;
     box-shadow: $box-shadow-figures;
+    &.left {
+      float: left;
+      margin: 0.3em 1em 0.3em 0;
+    }
+    &.right {
+      float: right;
+      margin: 0.3em 0 0.3em 1em;
+    }
+    &.w30 {
+      width: 30%;
+    }
+    &.w35 {
+      width: 35%;
+    }
+    &.w40 {
+      width: 40%;
+    }
+    &.w45 {
+      width: 45%;
+    }
+    &.w50 {
+      width: 50%;
+    }
+    &.w55 {
+      width: 55%;
+    }
+    &.w60 {
+      width: 60%;
+    }
+    &.w65 {
+      width: 65%;
+    }
+    &.w70 {
+      width: 70%;
+    }
+    &.w75 {
+      width: 75%;
+    }
+    &.w80 {
+      width: 80%;
+    }
+    &.w85 {
+      width: 85%;
+    }
+    &.w90 {
+      width: 90%;
+    }
+    &.w95 {
+      width: 95%;
+    }
+    &.avatar {
+        border-radius: $base-border-radius * 2;
+        width: 33%;
+        min-width: 100px;
+        max-width: 200px;
+    }
 }
 
-img.avatar {
-    border-radius: $base-border-radius * 2;
-    float: left;
-    width: 33%;
-    min-width: 100px;
-    max-width: 200px;
-    margin: 0.3em 1em 0.3em 0;
-}
-
+img
 
 /**
  * Figures

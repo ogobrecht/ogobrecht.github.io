@@ -2,52 +2,52 @@
 Ottmar Gobrecht  
 DOAG APEX Connect 2016, Berlin
 
-<!--slide-container-->
+-----
 
 ## Motivation
 
-<!--slide-->
+---
 
 ### Wiki-Fan, Projektanforderungen
 
 - Editor mit Read-Only-Mode
 - Harte Zeichenbegrenzung
 
-<!--slide-container-->
+-----
 
 ## Was ist Markdown?
 
-<!--slide-->
+---
 
 ### Vereinfachte Auszeichnungssprache
 
 HTML-Erstellung
 
-<!--slide-->
+---
 
 ### Ziel: Ohne Konvertierung leicht les- und schreibbar
 
 ![Editor Atom mit Live-Vorschau](./assets/editor-atom.png)
 
-<!--slide-->
+---
 
 ### HTML = Publikations-Format
 
 ### Markdown = Schreib-Format
 
-<!--slide-->
+---
 
 ### Einflüsse: Text-Emails, Text-zu-HTML-Konverter
 
 ![Beispielmail](./assets/beispielmail.png)
 
-<!--slide-->
+---
 
 ### Referenzimplementierung: 2004, John Gruber, Perl
 
 ![John Gruber - homepage](./assets/john-gruber.png)
 
-<!--slide-->
+---
 
 ### Weitere Implementierungen
 
@@ -60,7 +60,7 @@ HTML-Erstellung
 
 [1]: https://de.wikipedia.org/wiki/Markdown
 
-<!--slide-->
+---
 
 ### Syntax & Weiterentwicklungen
 
@@ -76,7 +76,7 @@ HTML-Erstellung
 [5]: https://de.wikipedia.org/wiki/Markdown#Auszeichnungsbeispiele
 [6]: https://de.wikipedia.org/wiki/Markdown#Weiterentwicklungen
 
-<!--slide-->
+---
 
 ### Weitere vereinfachte Auszeichnungssprachen
 
@@ -99,27 +99,27 @@ HTML-Erstellung
 [16]: https://de.wikipedia.org/wiki/AsciiDoc
 [17]: https://de.wikipedia.org/wiki/ReStructuredText
 
-<!--slide-->
+---
 
 ### Fragen?
 
-<!--slide-container-->
+-----
 
 ## Wer nutzt Markdown?
 
-<!--slide-->
+---
 
 ### Github: README.md Dateien werden direkt als HTML ausgeliefert
 
 ![GitHub README Dateien](./assets/github-readme.png) <!-- .element: width="800px" -->
 
-<!--slide-->
+---
 
 ### Stackoverflow: Alle Einträge/Kommentare sind in Markdown verfasst
 
 ![Stackoverflow](./assets/stackoverflow.png)
 
-<!--slide-->
+---
 
 ### Verlage & Autoren, die sowohl eBooks als auch klassischen Druck benötigen
 
@@ -137,23 +137,23 @@ Ein paar interessante Blog-Einträge zum Thema:
 [20]: http://www.opensourcepress.de/de/blog/2013/05/bye_bye_latex.php
 [21]: http://www.opensourcepress.de/de/blog/2013/05/asciidoc_markdown.php
 
-<!--slide-->
+---
 
 ### Die DPA veröffentlicht ihre Pressemitteilungen seit 2010 in Markdown
 
-<!--slide-->
+---
 
 ### Der Listmanager Trello nutzt Markdown auf Kartendetails
 
 ![Trello](./assets/trello.png) <!-- .element: width="800px" -->
 
-<!--slide-->
+---
 
 ### Die Blogging Plattform Ghost setzt zu 100% auf Markdown
 
 ![Ghost](./assets/ghost.png) <!-- .element: width="800px" -->
 
-<!--slide-->
+---
 
 ### Plugins für jedes wichtige CMS, Wiki oder Forum - auch für APEX [:-)][22]
 
@@ -161,39 +161,39 @@ Ein paar interessante Blog-Einträge zum Thema:
 
 [22]: https://apex.oracle.com/pls/apex/f?p=66154:1
 
-<!--slide-->
+---
 
 ### Jeder intuitiv, der einfachen Text strukturiert
 
-<!--slide-->
+---
 
 ### Fragen?
 
-<!--slide-container-->
+-----
 
 ## Gründe für Markdown im APEX-Umfeld
 
-<!--slide-->
+---
 
 ### Rohtext gut lesbar in Datenbank und Userinterface
 
-<!--slide-->
+---
 
 ### Einfach prozedural erstellbar
 
-<!--slide-->
+---
 
 ### Textmengenvorgaben gut einhaltbar
 
 ![Textmenge](./assets/textmenge.png)
 
-<!--slide-->
+---
 
 ### Geringere Datenmenge zum Browser
 
 ![Textmenge 2](./assets/textmenge2.png)
 
-<!--slide-->
+---
 
 ### Ein Quelltext, viele Ausgabeformate
 
@@ -208,7 +208,7 @@ Beispiel Formatkonverter [Pandoc][23]:
 
 [23]: http://pandoc.org/
 
-<!--slide-->
+---
 
 ### Übrigens, dieser Vortrag wurde in Markdown verfasst [:-)][24]
 
@@ -216,7 +216,7 @@ Beispiel Formatkonverter [Pandoc][23]:
 
 [24]: http://pandoc.org/README.html#producing-slide-shows-with-pandoc
 
-<!--slide-->
+---
 
 ### APEX Markdown Plugin in Action
 
@@ -224,11 +224,11 @@ Beispiel Formatkonverter [Pandoc][23]:
 
 [25]: https://apex.oracle.com/pls/apex/f?p=66154:1
 
-<!--slide-container-->
+-----
 
 ## APEX fine art printing
 
-<!--slide-->
+---
 
 ### Die Idee
 
@@ -241,7 +241,7 @@ Beispiel Formatkonverter [Pandoc][23]:
 [27]: https://nodejs.org/
 [28]: http://pandoc.org/README.html#pandocs-markdown
 
-<!--slide-->
+---
 
 ### Fine art printing?
 
@@ -253,17 +253,17 @@ Beispiel Formatkonverter [Pandoc][23]:
 
 [29]: https://de.wikipedia.org/wiki/LaTeX
 
-<!--slide-->
+---
 
 ### Fine art printing in Action
 
 Demo und Diskussion...
 
-<!--slide-container-->
+-----
 
 ## Bonustrack
 
-<!--slide-->
+---
 
 ### Die Idee
 
@@ -272,7 +272,7 @@ Demo und Diskussion...
 - SQL Statements kann eine Datenbank ausführen
 - Wer ahnt es schon?
 
-<!--slide-->
+---
 
 ### Eine Reporting-Engine basierend auf Markdown
 
@@ -286,7 +286,7 @@ Demo und Diskussion...
 [31]: http://matplotlib.org/
 [32]: http://pandas.pydata.org/index.html
 
-<!--slide-->
+---
 
 ### Was jetzt noch fehlt
 
@@ -294,13 +294,13 @@ Demo und Diskussion...
 - ~~Ein Pandoc-Filter~~
 - ~~Eventuell eine Oberfläche zur Erstellung der Reports~~
 
-<!--slide-->
+---
 
 ### Markdown Reporter in Action (Prototyp)
 
 Demo und Diskussion...
 
-<!--slide-->
+---
 
 ## The End
 

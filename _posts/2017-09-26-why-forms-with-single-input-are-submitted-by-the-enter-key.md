@@ -1,18 +1,19 @@
 ---
 title: Form Behaviour - Bug or Feature?
-subtitle: Why forms with single input are submitted by the enter key
+subtitle: Why forms with a single input field are submitted by the enter key
 tags: [apex, html]
 lang: en
+last_modified_at: 2017-10-01
 ---
-Today I stumbled over this strange behaviour of an APEX page: The page was always submitted, when I pressed the enter key in a search field to force an AJAX refresh on a report.
+Today I stumbled over this strange behaviour of an APEX page: The page was always submitted when I pressed the enter key in a search field to force an AJAX refresh on a report.
 
-The item property to submit the page on press enter was switched off. I asked my collegue Markus, who had this error also some time ago (I could not remember the solution, although he told me about this issue). The reason was, that the search field was the only input item on that page.
+The item property to submit the page on pressing enter was switched off. I asked my collegue Markus, who had this error also some time ago (I could not remember the solution, although he told me about this issue). The reason was that the search field was the only input item on that page.
 
 After a short Google search I found the "root cause" for this "bug", or should I say "feature"? This behaviour is described in the [HTML 2.0 specification (section 8.2)][2].
 
-To workaround this you can simply create a second input item and hide it by setting the "HTML Form Element Attributes" to `style="display:none;"`. This was also posted from [Denes Kubicek][3] back in 2008.
+To workaround this you can simply create a second input item and hide it by setting the "HTML Form Element Attributes" to `style="display:none;"`. This was also posted by [Denes Kubicek][3] back in 2008.
 
-I like the idea from one of the [Stack Overflow comments][1] to put anywhere in the form (in APEX in fact the whole page, e.g. the header or footer of a region) this HTML snippet and not to create an "useless" page item:
+I like the idea of one of the [Stack Overflow comments][1] to put anywhere into the form (in APEX in fact the whole page, e.g. the header or footer of a region) this HTML snippet and not to create an "useless" page item:
 
 ```html
 <input type="text" name="StackOverflow1370021" style="display:none;" />

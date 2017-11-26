@@ -1,19 +1,15 @@
 ---
 title: About
-lang: en
-topic: 5
+sidebar: 5
 ---
 
 ## Me
 
-![Avatar](/assets/avatar.jpeg){:.left.avatar}
+![Avatar]({{ site.data.authors[site.author].avatar }}){:.left.avatar}
 
-Hi, you are currently visiting "*{{ site.description | smartify }}*" and I am Ottmar (Gobrecht), a database developer living in Munich, Germany.
+Hi, I am Ottmar Gobrecht, a database developer living in Munich, Germany and this is my development blog - mainly about Oracle APEX and PL/SQL.
 
 I am a little bit active in open source development - you can find my projects on [GitHub][1] and of course [here on this site][2].
-
-As declared in the [privacy statement][3] I use no user tracking at all. I am enjoying my own private times without distractions and therefore I have no direct discussion possibility here on this site. The preferred way to get in contact with me is to send me an [email][4] or in urgent cases a postcard - for the address see section [comments][5] below.
-
 
 ## My Motivation
 
@@ -22,12 +18,14 @@ In the last years I was often happy to find solutions, informations and open sou
 
 ## This Site
 
-This site is built with [Jekyll][6], a static site generator, and a heavily modified version of the default theme minima with a sidebar. The sources are [available at GitHub][7].
+This site is built with [Jekyll][3] (a static site generator) and [HydeBar][4] (my own Jekyll template). If you want to have it for your own blog - no problem - you can be [online in five minutes :-)][5].
+
+The sources of this site are [available at GitHub][6].
 
 
 ## Comments
 
-On each post you will find an email link for commenting. I will never publish your email address. I prefer this way for comments because I have to moderate the comments regardless of the used system.
+On the bottom of each post you will find an email link for commenting. I will never publish your email address. I prefer this way for comments because I have to moderate the comments regardless of the used system.
 
 Another good system for commenting is a postcard - I love postcards. If you enjoyed some content here on this site and you want to give me a treat - send a postcard to:
 
@@ -39,8 +37,7 @@ Knappertsbuschstraße 19
 
 [1]: https://github.com/ogobrecht
 [2]: /projects
-[3]: /privacy-statement
-[5]: #comments
-[4]: mailto:{{site.author.email}}
-[6]: https://jekyllrb.com
-[7]: https://github.com/ogobrecht/ogobrecht.github.io
+[3]: https://jekyllrb.com
+[4]: https://ogobrecht.github.io/hydebar
+[5]: https://ogobrecht.github.io/hydebar/features#quickstart-online-in-5-minutes
+[6]: https://github.com/ogobrecht/ogobrecht.github.io

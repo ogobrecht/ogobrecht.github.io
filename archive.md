@@ -1,6 +1,5 @@
 ---
 title: Archive
-lang: en
-topic: 4
+sidebar: 4
 ---
 {% include post-list-by-year.html %}

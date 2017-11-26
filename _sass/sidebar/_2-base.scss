@@ -58,8 +58,24 @@ ol,
 dl,
 figure,
 .figure,
+table,
+hr,
 %vertical-rhythm {
-    margin-bottom: $spacing-unit / 2;
+    margin-bottom: $spacing-unit/2;
+}
+
+
+/**
+ * Headings
+ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: $base-font-weight;
 }
 
 
@@ -67,71 +83,15 @@ figure,
  * Images
  */
 
-img {
+img,
+.image {
     max-width: 100%;
     vertical-align: middle;
     border: none;
     border-radius: $base-border-radius;
-    box-shadow: $box-shadow-figures;
-    &.left {
-      float: left;
-      margin: 0.3em 1em 0.3em 0;
-    }
-    &.right {
-      float: right;
-      margin: 0.3em 0 0.3em 1em;
-    }
-    &.w30 {
-      width: 30%;
-    }
-    &.w35 {
-      width: 35%;
-    }
-    &.w40 {
-      width: 40%;
-    }
-    &.w45 {
-      width: 45%;
-    }
-    &.w50 {
-      width: 50%;
-    }
-    &.w55 {
-      width: 55%;
-    }
-    &.w60 {
-      width: 60%;
-    }
-    &.w65 {
-      width: 65%;
-    }
-    &.w70 {
-      width: 70%;
-    }
-    &.w75 {
-      width: 75%;
-    }
-    &.w80 {
-      width: 80%;
-    }
-    &.w85 {
-      width: 85%;
-    }
-    &.w90 {
-      width: 90%;
-    }
-    &.w95 {
-      width: 95%;
-    }
-    &.avatar {
-        border-radius: $base-border-radius * 2;
-        width: 33%;
-        min-width: 100px;
-        max-width: 200px;
-    }
+    box-shadow: $box-shadow-img-pre;
 }
 
-img
 
 /**
  * Figures
@@ -140,19 +100,24 @@ img
 figure,
 .figure {
     border: none;
-    border-radius: $base-border-radius;
-    box-shadow: $box-shadow-figures;
     &>img {
         display: block;
+    }
+    & pre,
+    & .highlight {
+        margin-bottom: 0 !important;
     }
 }
 
 // https://stackoverflow.com/questions/38324326/sass-multiplication-with-units
 figcaption,
-.figcaption {
+.figcaption,
+.caption {
+    font-style: italic;
     font-size: $small-font-size;
     color: $grey-color;
     line-height: $small-line-height;
+    margin-top: 3px;
     margin-bottom: ($large-line-height - $small-line-height) * $base-font-size/2 + $spacing-unit/2;
 }
 
@@ -161,7 +126,8 @@ figcaption,
 // Use it so in a regular paragraph (separated by a blank line):
 // {:.figcaption}
 // *Code example: JavaScript and D3.js loops*
-.figcaption {
+.figcaption,
+.caption {
     margin-top: -$spacing-unit/3;
 }
 
@@ -182,18 +148,13 @@ li {
     }
 }
 
+dt {
+    font-style: italic;
+    font-weight: 600;
+}
 
-/**
- * Headings
- */
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-weight: $base-font-weight;
+dd {
+    padding: 0 $spacing-unit/2;
 }
 
 
@@ -203,7 +164,7 @@ h6 {
 
 a {
     color: $brand-color;
-    text-decoration: none;
+    text-decoration: $link-text-decoration;
     &:hover {
         text-decoration: underline;
     }
@@ -244,7 +205,7 @@ code {
 pre {
     padding: 8px 12px;
     overflow-x: auto;
-    box-shadow: $box-shadow-figures;
+    box-shadow: $box-shadow-img-pre;
     >code {
         border: 0;
         padding-right: 0;
@@ -274,12 +235,47 @@ pre {
 
 hr {
     display: block;
-    height: 1px;
-    border: 0;
-    background-color: $grey-color-light;
-    margin-bottom: $spacing-unit/2;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 4px solid $grey-color-light;
 }
 
 p {
     line-height: $large-line-height;
+}
+
+
+/**
+ * Tables
+ */
+
+table {
+    width: 100%;
+    font-size: $small-font-size;
+    text-align: $table-text-align;
+    color: lighten($text-color, 18%);
+    border-collapse: collapse;
+    border: 1px solid $grey-color-light;
+    tr {
+        &:nth-child(even) {
+            background-color: lighten($grey-color-light, 6%);
+        }
+    }
+    th,
+    td {
+        padding: ($spacing-unit / 3) ($spacing-unit / 2);
+    }
+    th {
+        background-color: lighten($grey-color-light, 3%);
+        border: 1px solid darken($grey-color-light, 4%);
+        border-bottom-color: darken($grey-color-light, 12%);
+    }
+    td {
+        border: 1px solid $grey-color-light;
+    }
+    /* Don't use a margin on code samples within tables */
+    pre {
+        margin-bottom: 0;
+    }
 }

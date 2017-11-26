@@ -512,7 +512,7 @@ Mit Customize Wizard: [Standalone][14], [APEX Plugin][15]
 
 [16]: http://d3js.org
 [17]: https://github.com/ogobrecht/d3-force-apex-plugin
-[18]: https://apex.oracle.com/pls/apex/GERMAN_COMMUNITIES.SHOW_TIPP?P_ID=3481
+[18]: https://apex.oracle.com/pls/apex/germancommunities/apexcommunity/tipp/3481/index.html
 [19]: http://www.apex-plugin.com/search-plugin-directory/
 [20]: http://nvd3.org/
 [21]: http://c3js.org/

@@ -2,6 +2,7 @@
 title: D3.js - Data Driven Documents
 subtitle: Folien für DOAG APEX connect 2015, Düsseldorf
 lang: de
+layout: slides
 data-separator-notes: "^Anmerkung:"
 ---
 <link  href="/assets/d3.js/d3-force-2.0.2.css" rel="stylesheet" type="text/css">

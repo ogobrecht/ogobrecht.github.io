@@ -7,7 +7,7 @@ last_modified_at: 2017-08-12
 ---
 Die Folien zu meinem Vortrag:
 
-{% include slides-de.html dir_name="2016-11-17-reporting-mal-anders-markdown-sei-dank" %}
+{% include slides.html path="/slides/2016-11-17-reporting-mal-anders-markdown-sei-dank" %}
 
 Kurzdarstellung:
 

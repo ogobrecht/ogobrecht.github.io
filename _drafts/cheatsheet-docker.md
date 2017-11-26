@@ -5,6 +5,11 @@ tags: [cheatsheet, docker]
 lang: en
 ---
 
+post-footer:s
+
+You can comment via <a href="mailto:{{ site.author.email }}?subject=Comment%20on%20{{ page.url | absolute_url }}">email</a> or postcard (more <a href="{{ site.baseurl }}/about#comments">about this</a>...)
+
+
 - Install [Docker](https://www.docker.com)
 - Commandline help: `docker --help`
 

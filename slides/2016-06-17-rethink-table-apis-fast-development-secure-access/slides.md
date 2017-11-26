@@ -89,7 +89,7 @@ begin
 end;
 ```
 
-![](./assets/sql-developer.png)
+![SQL Developer](./assets/sql-developer.png)
 
 [3]: https://www.oddgen.org/
 

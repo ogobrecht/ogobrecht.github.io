@@ -1,0 +1,2 @@
+- htmlproofer: http://phansch.net/2017/09/10/testing-jekyll-websites-with-html-proofer/
+- `bundle exec htmlproofer ./_site --assume-extension --file-ignore /.*\/assets\/reveal\.js\/.*/ --url-ignore=/localhost/`

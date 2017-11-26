@@ -17,7 +17,7 @@ Es war ein schöner Tag - Danke Sabine, Moritz und alle Frankfurter APEX Enthusi
 
 Der Vollständigkeit hier noch die Folien - ist zwar nicht viel drauf, aber für die, die dabei waren wird es hoffentlich ok sein:
 
-{% include slides-de.html dir_name="2016-06-17-rethink-table-apis-fast-development-secure-access" %}
+{% include slides.html path="/slides/2016-06-17-rethink-table-apis-fast-development-secure-access" %}
 
 Weitere Infos zu dem im Vortrag vorgestellten Projekt Table API Generator in diesem [Blog Eintrag][1] und auf [GitHub][3].
 

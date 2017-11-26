@@ -7,4 +7,4 @@ last_modified_at: 2017-08-12
 ---
 Die Folien zu meinem Vortrag:
 
-{% include slides-de.html dir_name="2016-04-26-apex-fine-art-printing-markdown-ueberall" %}
+{% include slides.html path="/slides/2016-04-26-apex-fine-art-printing-markdown-ueberall" %}

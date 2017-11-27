@@ -12,6 +12,6 @@ layout: default
 {{ content }}
 
   </div>
-  <footer class="post-meta">{% if page.last_modified_at %}{% include translation text='last_modified' %} {% include translated-date date=page.last_modified_at %}{% endif %} / You can comment via <a href="mailto:{{ site.data.authors.ogobrecht.email }}?subject=Comment%20on%20{{ page.url | absolute_url }}">email</a> or postcard (more <a href="{{ site.baseurl }}/about#comments">about this</a>...)</footer>
+  <footer class="post-meta">{% if page.last_modified_at %}{% include translation text='last_modified' %} {% include translated-date date=page.last_modified_at %} / {% endif %}You can comment via <a href="mailto:{{ site.data.authors.ogobrecht.email }}?subject=Comment%20on%20{{ page.url | absolute_url }}">email</a> or postcard (more <a href="{{ site.baseurl }}/about#comments">about this</a>...)</footer>
 {%- if site.disqus.shortname %}{% include disqus-comments.html %}{% endif %}
 </article>

@@ -20,7 +20,8 @@
     height: 6px;
     width: 45px;
     border-radius: 3px;
-    background: hsla(0, 0%, 0%, 0.3);
+    background: $nav-icon-background;
+    box-shadow: $nav-icon-box-shadow;
     transition: 0.5s;
     &:before,
     &:after {
@@ -28,7 +29,8 @@
         height: 6px;
         width: 45px;
         border-radius: 3px;
-        background: hsla(0, 0%, 0%, 0.3);
+        background: $nav-icon-background;
+        box-shadow: $nav-icon-box-shadow;
         transition: 0.5s;
         content: "";
         z-index: -1;
@@ -52,10 +54,12 @@
     }
     &:checked+label.nav-button .nav-icon {
         background: transparent;
+        box-shadow: none;
     }
     &:checked+label.nav-button>.nav-icon:before,
     &:checked+label.nav-button>.nav-icon:after {
-        background: #FFF;
+        background: white;
+        box-shadow: none;
         top: 0 !important;
     }
     &:checked+label.nav-button .nav-icon:before {

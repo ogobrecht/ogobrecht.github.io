@@ -1,6 +1,6 @@
 ---
 title: Postcard Comment
-subtitle: Finally it happend - Oliver Gorwits has sent me the first comment via postcard
+subtitle: Finally it happend - Oliver Gorwits has sent me the first postcard comment
 tags: [postcard, d3js]
 ---
 Maybe you already saw my footer and were wondering about the postcard comments. I love postcards and thought it would be nice to get postcards from people who enjoyed some of my posts or open source projects.

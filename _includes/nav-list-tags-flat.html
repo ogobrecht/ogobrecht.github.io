@@ -9,5 +9,5 @@
   {%- assign tag = tag_array[0] %}
   {%- assign count = tag_array[1] %}
   {%- assign label = site.data.labels.tags[tag] | default: tag %}
-{%- unless forloop.first %}, {% endunless %}<span class="nowrap"><a href="{{ site.baseurl }}/tags/{{ tag }}">{{ label }}</a> <span class="post-meta">({{ count }})</span></span>{% if forloop.last %}.{% endif %}
+<span class="nowrap"><a href="{{ site.baseurl }}/tags/{{ tag }}">{{ label }}</a><sub class="grey"> {{ count }}</sub></span>{% unless forloop.last %}&nbsp;&nbsp;{% endunless %}
 {%- endfor %}

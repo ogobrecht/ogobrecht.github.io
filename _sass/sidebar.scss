@@ -17,7 +17,7 @@ $link-text-decoration:   none !default;
 // Color settings - Git Hub blue: #2b7bb9, Reveal.js theme solarized blue: #268bd2
 $text-color:             #333 !default;
 $background-color:       rgb(253, 253, 253) !default; // should match $nav-icon-box-shadow
-$nav-icon-box-shadow:    0px 0px 3px 3px rgba(253, 253, 253, 0.25) !default; // should match background-color
+$nav-icon-box-shadow:    0px 0px 3px 3px rgba(253, 253, 253, 0.3) !default; // should match background-color
 $nav-icon-background:    rgba(0, 0, 0, 0.3) !default;
 $brand-color:            #268bd2 !default;
 $brand-color-light:      lighten($brand-color, 40%) !default;

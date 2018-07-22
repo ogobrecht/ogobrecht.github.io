@@ -60,6 +60,14 @@
     text-decoration: $link-text-decoration;
 }
 
+.nowrap {
+    white-space: nowrap;
+}
+
+.grey {
+    color: $grey-color;
+}
+
 
 /**
  * Posts

@@ -238,7 +238,7 @@ echo exit | sqlplus -S %schema%/%password%@%connection% ^
 pause
 ```
 
-There are better ways then to ask for a password at runtime, but that is not the focus of this post. Also, you may not want to keep the command line open until the user presses a key in a fully automated setup. This is here only to be able to see any errors before the shell window closes when opened via double click on the file.
+There are better ways then to ask for a password at runtime - but that is not the focus of this post. Also, you may not want to keep the command line open until the user presses a key in a fully automated setup. This is only to be able to see any errors before the shell window closes when opened via double click on the file.
 
 Hope this helps someone.
 

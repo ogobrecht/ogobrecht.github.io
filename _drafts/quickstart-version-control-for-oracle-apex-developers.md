@@ -7,11 +7,19 @@ tags: [project, oracle, apex, plsql, version-control]
 Introduction
 -------------
 
-At the APEX connect 2018 in Düsseldorf, Germany, I had an interesting discussion with André Borngräber and Martin D'Souza about our table API generator projects. André and me built a PL/SQL package to generate our API's - that means code first. Although our generator is capable to produce only the code without generating the API at runtime, the latter is the normal case for me. Martin has also built a table API generator - but he does this with Node.js to create only the code in his code repository and run then a script to compile the API's in the database - this is the files first approach. The advantage of the files first approach is clear - you can't forget to put the code into your version control system and it is overwrite save when more than one developer is working on the same schema or app. And by the way: for the rest of my daily coding I also use the files first approach - except for the API generation.
+At the APEX connect 2018 in Düsseldorf, Germany, I had an interesting discussion with André Borngräber and Martin D'Souza about our table API generator projects. André and me built a PL/SQL package to generate our API's - that means code first. Although our generator is capable to produce only the code without generating the API at runtime, the latter is the normal case for me. Martin has also built a table API generator - but he does this with Node.js to create only the code in his repository and run then a script to compile the API's in the database - this is the files first approach. The advantage of the files first approach is clear - you can't forget to put the code into your version control system and it is overwrite save when more than one developer is working on the same schema or app. And by the way: for the rest of my daily coding I also use the files first approach - except for the API generation.
 
-It can be discussed if generated code should be version controlled or not - at least the generator code itself should. Maybe you want to put the generated code into a specific directory to separate the hand crafted from the generated one. But this discussion is not the focus of this post.
+It can be discussed if generated code should be version controlled or not - at least the generator itself should. Maybe you want to put the generated code into a specific directory to separate the hand crafted from the generated one. But this discussion is not the focus of this post.
 
-Lets have a look at the low code examples [Quick SQL][1] and [Blueprint][2] - both are usable in the APEX Application Builder. Quick SQL follows the files first approach and Blueprint normally is a code first approach. Not using code first approaches is no solution - they are ok and can save you a lot of time. The question here is how can we bridge the gap when using code first techniques? 
+Lets have a look at the low code examples [Quick SQL][1] and [Blueprint][2] - both are usable in the APEX Application Builder. 
+
+Quick SQL allows you to generate data models with a markdown like syntax - you can save the scripts (also in your version control system, if you like) and run it directly in the Application Builder to create your data model. I would say this is mainly a code first approach, specifically if you have no access with a SQL command line tool to the system to run the resulting scripts in a different way.
+
+Blueprint is integrated in the App Creation Wizard and you can inspect and edit the configuration and therefore you can save it as a file in your VCS. But you need to use the Application Builder to generate your app. As a result you have probably new objects in your database schema without the DDL scripts for this objects - this is clearly a code first approach.
+
+WIth both tools you have additionally the problem, that you don't have the generator code - you can't check-in the generator into your version control system.
+
+Not using code first approaches is no solution - they are ok and can save you a lot of time. The question here is how can we bridge the gap when using code first techniques? 
 
 [1]: https://apex.oracle.com/en/quicksql/
 [2]: https://docs.oracle.com/database/apex-18.1/HTMDB/using-blueprints.htm
@@ -27,7 +35,9 @@ The Idea
 
 I came up with the idea to have a tool, which is capable to export in one go an APEX app defifnition and all schema objects in a nice directory structure ready for use with version control. The tool generates also basic script templates to be able to automate the export of an app from your DEV system and to install it into your TEST or PROD system.
 
-The export format can be either a zip file or an file collection for further prozessing before unloading the files into your version control repository. For the latter case see also my [previous post on how to handle the apex_t_export_files type returned by the APEX_EXPORT package with SQL*Plus][3]. The name of the tool is PLEX - it stands for PL/SQL Export Utilities and is available under the MIT license at [GitHub][4].
+The export format is a file collection of type `apex_t_export_files`. You can do your own processing on this file collection - for example change directory names to align it to your local repository structure - before you unload the files into your version control repository. See also my [previous post on how to handle the apex_t_export_files type returned by the APEX_EXPORT package with SQL*Plus][3]. Alternative you can convert the file collection to a zip file with a helper function - see code examples in the next section.
+
+I called the tool PLEX - a short name for PL/SQL Export Utilities. It is available under the MIT license at [GitHub][4].
 
 [3]: https://ogobrecht.github.io/posts/2018-07-25-apex-export-and-version-control
 [4]: https://github.com/ogobrecht/plex
@@ -47,7 +57,7 @@ For the initial app export you need first to install the package - you can downl
 Then startup your favorite SQL Tool, connect to your app schema and fire up this query:
 
 ```sql
-select plex.backapp_to_zip(p_app_id => yourAppId) from dual;
+select plex.to_zip(plex.backapp(p_app_id => yourAppId)) from dual;
 ```
 
 Save the resulting BLOB file under a name with the extension `.zip` and extract it to a local directory of your choice. You will find this directory structure and files:
@@ -79,7 +89,7 @@ If you like, you could fully configure your first export into the zip file. The 
 with
   function backapp return blob is 
   begin
-    return plex.backapp_to_zip(
+    return plex.to_zip(plex.backapp(
       p_app_id                    => 100,  -- If null, we simply skip the APEX app export.
       p_app_date                  => true,  -- If true, include export date and time in the result.
       p_app_public_reports        => true,  -- If true, include public reports that a user saved.
@@ -104,14 +114,13 @@ with
 
       p_include_templates         => true,  -- If true, include templates for README.md, export and install scripts.
       p_include_runtime_log       => true   -- If true, generate file plex_backapp_log.md with runtime statistics.
-    );
+    ));
   end backapp;
 select backapp from dual;
-/
 ```
 
-ATTENTION: Exporting all database objects can take some time. I have seen huge runtime differences from 6 Seconds for a small app up to several hundred seconds for big apps and/or slow databases. This is normally not the problem of PLEX. If you interested in runtime statistics of plex you can inspect the delivered plex_runtime_log.md in the root of the zip file.\\
-Also, the possibility to export the data of your tables into CSV files does not mean, that you should do this without thinking about it. The main reason for me to implement this feature was to track changes on catalog tables by regular calling this export feature with a sensitive table filter and max rows parameter.
+ATTENTION: Exporting all database objects can take some time. I have seen huge runtime differences from 6 Seconds for a small app up to several hundred seconds for big apps and/or slow databases. This is normally not the problem of PLEX. If you interested in runtime statistics of plex you can inspect the delivered plex_backapp_log.md in the root of the zip file.\\
+Also, the possibility to export the data of your tables into CSV files does not mean, that you should do this without think about it. The main reason for me to implement this feature was to track changes on catalog tables by regular calling this export feature with a sensitive table filter and max rows parameter.
 
 I you have organized your app like described in [The Pink Database Paradigm][9] you may need to export database objects from more then one schema. This is no problem for PLEX.BackApp - all parameters are optional and you can simply logon to your second or third schema and extract only the DDL for these schemas by omitting the `p_app_id` parameter and setting `p_include_object_ddl` to `true`. Then copy the DDL files into a different directory - app_backend_schemaName?
 
@@ -119,7 +128,7 @@ It is up to you how you organize your version control repository and how often y
 
 A last word: you should inspect all the exported files and scripts and check, if this solution can work for you. If not, please let me know, what is missing, what should be done in a different way...
 
-Feedback is highly appreciated - simply create a new [issue][6] at the [GitHub project page][7]: This is only the first (hopefully helpful) public version.
+Feedback is highly appreciated - simply create a new [issue][6] at the [GitHub project page][7]
 
 [6]: https://github.com/ogobrecht/plex/issues/new
 [7]: https://github.com/ogobrecht/plex

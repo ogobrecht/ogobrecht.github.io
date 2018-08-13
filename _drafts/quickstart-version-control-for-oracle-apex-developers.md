@@ -1,5 +1,5 @@
 ---
-title: Quickstart Version Control for Oracle APEX Developers with PLEX.BackApp
+title: PLEX.BackApp - Quickstart Version Control for Oracle APEX Developers
 subtitle: Bridging the gap between the code first and the files first approach
 tags: [project, oracle, apex, plsql, version-control]
 ---

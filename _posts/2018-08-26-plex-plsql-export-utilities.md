@@ -4,21 +4,19 @@ subtitle: Export Oracle APEX app, all schema objects and table data in one go
 tags: [project, oracle, apex, plsql, version-control]
 ---
 
-FIXME: CREATE PLEX VERSION 1.0.0 AND CORRECT DOWNLOAD LINK
-
-PLEX is a standalone PL/SQL package with export utilities. It was created to be able to quickstart version control for existing (APEX) apps and depends on APEX 5.1.4 or later for APEX_EXPORT and APEX_ZIP. It has currently two main functions called __BackApp__ and __Queries_to_CSV__. Queries_to_CSV is used by BackApp as a helper function, but its functionality is also useful standalone. This post is all about BackApp, which has the following features:
+PLEX is a standalone PL/SQL package with export utilities. It was created to be able to quickstart version control for existing (APEX) apps and depends on APEX 5.1.4 or later for APEX_EXPORT and APEX_ZIP. It currently has two main functions called __BackApp__ and __Queries_to_CSV__. Queries_to_CSV is used by BackApp as a helper function, but its functionality is also useful as a standalone. This post is all about BackApp, which has the following features:
 
 - Export the app definition of an APEX app (splitted files and optional single SQL file)
 - Export all object DDL from the current schema
 - Export table data into CSV files
 - Provide basic script templates for export/import of whole app for DEV, TEST and PROD 
-- Everything in a (hopefully) nice directory structure ready for use with version control
+- Everything in a (hopefully) nice directory structure ready to use with version control
 - Return value is a file collection of type apex_t_export_files for further processing
   - Each file in the collection is represented by a record with two columns
-    - `name` of type VARCHAR2(255) which is in fact the file path
+    - `name` of type VARCHAR2(255), which is in fact the file path
     - `contents` of type CLOB
   - You can optionally zip the file collection with the helper function `to_zip`
-  - See also the [APEX_EXPORT][apex_export] package and my previous post on [how to handle the apex_t_export_files type returned by the APEX_EXPORT package with SQL*Plus][prev_post]
+  - Also see the [APEX_EXPORT][apex_export] package and my previous post on [how to handle the apex_t_export_files type returned by the APEX_EXPORT package with SQL*Plus][prev_post]
 
 
 
@@ -26,18 +24,16 @@ Getting Started
 ----------------
 
 1. [Download the latest code][plex_download] - depends on APEX 5.1.4 or later because we use APEX_EXPORT and APEX_ZIP
-1. Compile these two files in your desired schema - could also be a central tools schema, don't forget then  `grant execute on plex to xxx`
+1. Compile these two files in your desired schema - could also be a central tools schema, don't forget `grant execute on plex to xxx`
   - `PLEX.pks`
   - `PLEX.pkb`
-1. Startup your favorite SQL Tool, connect to your app schema and fire up the following query
+1. Startup your favorite SQL Tool, connect to your app schema and fire up the following query:
 
 ```sql
 select plex.to_zip(plex.backapp(p_app_id => yourAppId)) from dual;
 ```
 
 Save the resulting BLOB file under a name with the extension `.zip` and extract it to a local directory of your choice. You will find this directory structure and files:
-
-FIXME: PROVIDE SCREENSHOT HERE INSTEAD OF LIST
 
 ```
 - app_backend (only, when p_include_object_ddl is set to true, see next example)
@@ -66,7 +62,7 @@ FIXME: PROVIDE SCREENSHOT HERE INSTEAD OF LIST
 - plex_backapp_log.md
 ```
 
-If you like, you can fully configure your first export into the zip file. The `PLEX.BackApp` method has boolean parameters, so you need to use an inline function in a pure SQL context. You can also use an anonymous PL/SQL block or you create a small SQL wrapper for the method like the inline function of the example. All parameters are optional and listet here with their default values:
+If you like, you can fully configure your first export into the zip file. The `PLEX.BackApp` method has boolean parameters, so you need to use an inline function in a pure SQL context. You can also use an anonymous PL/SQL block or you create a small SQL wrapper for the method like the inline function of the example. All parameters are optional and listed here with their default values:
 
 ```sql
 -- Inline function (needs Oracle 12c or higher)
@@ -103,12 +99,12 @@ with
 select backapp from dual;
 ```
 
-ATTENTION: Exporting all database objects can take some time. I have seen huge runtime differences from 6 seconds for a small app up to several hundred seconds for big apps and/or slow databases. This is normally not the problem of PLEX. If you are interested in runtime statistics of PLEX, you can inspect the delivered `plex_backapp_log.md` in the root of the zip file.<br>
+ATTENTION: Exporting all database objects can take some time. I have seen huge runtime differences from 6 seconds for a small app up to several hundred seconds for big apps and/or slow databases. This is normally not the problem of PLEX. If you are interested in runtime statistics of PLEX, you can inspect the delivered `plex_backapp_log.md` in the directory root.<br>
 Also, the possibility to export the data of your tables into CSV files does not mean that you should do this without thinking about it. The main reason for me to implement this feature was to track changes on catalog tables by regularly calling this export feature with a sensitive table filter and max rows parameter as catalog data is often relevant in business logic.
 
-If you have organized your app into multiple schemas like described in [The Pink Database Paradigm][pinkdb] you may need to export database objects from more then one schema. This is no problem for PLEX.BackApp as all parameters are optional - you can simply logon to your second or third schema and extract only the DDL for these schemas by omitting the `p_app_id` parameter and setting `p_include_object_ddl` to `true`. Then unload the DDL files into a different directory - for example app_backend_schemaName.
+If you have organized your app into multiple schemas as described in [The Pink Database Paradigm][pinkdb], you may need to export database objects from more then one schema. This is no problem for PLEX.BackApp as all parameters are optional - you can simply logon to your second or third schema and extract only the DDL for these schemas by omitting the `p_app_id` parameter and setting `p_include_object_ddl` to `true`. Then unload the DDL files into a different directory - for example `app_backend_schemaName`.
 
-A last word: you should inspect all the exported files and scripts and check if this solution can work for you. If not, please let me know what is missing or what should be done in a different way...
+A last word: you should inspect all the exported files and scripts and check if this solution can work for you. If not, please let me know what is missing or what should be done in a different way ...
 
 Feedback is welcome - simply create a [new issue][plex_issue] at the [GitHub project page][plex_project]
 
@@ -117,11 +113,11 @@ Feedback is welcome - simply create a [new issue][plex_issue] at the [GitHub pro
 Next Steps
 -----------
 
-It is up to the developer/team how the version control repository is organized and how often you export your APEX app or object DDL. I personally would follow the files first approach and extract the object DDL only ones to have a starting point. The APEX application needs regular exports - if you like you can automate this.
+It is up to the developer how he organizes the version control repository and how often you export your APEX app or object DDL. I would follow the files first approach and extract the object DDL only ones to have a starting point. The APEX application needs regular exports - if you like, you can automate this.
 
-Following the files first approach is sometimes not easy when you are using low code tools like [Quick SQL][quick_sql] and [Blueprint][blueprint] in APEX or code generators like [OraMUC's Table API Generator][om_tapigen]. There could be a need to extract regularly (maybe unknown) objects (not created by yourself) into version control to understand and document what you got from others (people or generators)...
+Following the files first approach is sometimes not easy when you are using low code tools like [Quick SQL][quick_sql] and [Blueprint][blueprint] in APEX or code generators like [OraMUC's Table API Generator][om_tapigen]. There could be a need to regularly extract (maybe unknown) objects (not created by yourself) into version control to understand and document what you got from others (people or generators)...
 
-If the directory structure provided by PLEX does not match your needs - no problem - you can align it. Simply loop over the returned file collection and do your necessary work - here an example:
+If the directory structure provided by PLEX does not match your needs - no problem - you can align it. Simply loop over the returned file collection and do your necessary work - here comes an example:
 
 ```sql
 DECLARE
@@ -143,18 +139,18 @@ BEGIN
 END;
 ```
 
-For unloading the resulting file collection with SQL*Plus please have a look in the `scripts/templates` folder of your export - there are examples to do this. See also my previous post on [how to handle the apex_t_export_files type returned by the APEX_EXPORT package with SQL*Plus][prev_post].
+For unloading the resulting file collection with SQL*Plus, please have a look in the `scripts/templates` folder of your export - there are examples to do this. See also my previous post on [how to handle the apex_t_export_files type returned by the APEX_EXPORT package with SQL*Plus][prev_post].
 
-Some people prefer to devide their DDL scripts into the two categories __restartable__ (like packages) and __run once__ (like tables). Others like to have their scripts in a way that they are always restartable an the DDL script itself takes care about doing the work only once when needed. The advantage of the second way is that your backend install/deployment script is always the same and it calls simply all objects DDL scripts.
+Some people prefer to devide their DDL scripts into the two categories __restartable__ (like packages) and __run once__ (like tables). Others like to have their scripts in a way that they are always restartable and the DDL script itself takes care about doing the work only once when needed. The advantage of the second way is that your backend install/deployment script is always the same and it simply calls all objects DDL scripts.
 
 There is no right or wrong in doing it this or that way - each project/team has its specific requirements and history. The important thing is, that you start to use a version control system to be able to log your changes and document your code.
 
-By the way - PLEX provides script templates and object DDL that follows the second approach: You can have always the same install/deployment script and the DDL scripts are restartable - check it out by looking in one of your exported table DDL scripts.
+By the way - PLEX provides script templates and object DDL that follows the second approach: You can always have the same install/deployment script and the DDL scripts are restartable - check it out by looking in one of your exported table DDL scripts.
 
-You are now at the point, where PLEX can't do anything more for you. If you like to export your object DDL scripts more often, you have to find a way to be able to protect some of your scripts against overwriting. Imagine you had to add two columns to a table and you provided for this a restartable alter statement in the existing DDL script. If you export this table script the next time with PLEX (or with dbms_metadata.get_ddl, which is used in the background) your alter statements are gone and the new columns are simply listed in the create table statement. With this script you are not be able to deploy your changes to TEST or PROD.<br>
+You are now at the point where PLEX can't do anything more for you. If you like to export your object DDL scripts more often, you have to find a way to be able to protect some of your scripts against overwriting. Imagine you had to add two columns to a table and you provided a restartable alter statement for this in the existing DDL script. If you export this table script the next time with PLEX (or with dbms_metadata.get_ddl, which is used in the background), your alter statements are gone and the new columns are simply listed in the create table statement. With this script you are not be able to deploy your changes to TEST or PROD.<br>
 One solution is to copy the original table script and name it e.g. `EMPLOYEES.dev.sql`. In this script you maintain the restartable alter statements. If you run PLEX.BackApp again you are overwrite save. The script `EMPLOYEES.sql` reflects your current table definition and can still be executed - it does nothing because the table is already existing. The script `EMPLOYEES.dev.sql` reflects your development history and need to be added to your custom install/deployment script.
 
-As you can see, PLEX can do only the basics for you. It is up to the developers how they manage their version control repository and how they do their deployments - there are thousends of ways to do it...
+As you can see, PLEX can do only the basics for you. It is up to the developers how they manage their version control repository and how they do their deployments - there are thousends of ways to do it ...
 
 
 
@@ -167,7 +163,7 @@ Thanks are going to:
 - Blain Carter for his thoughts on [CI/CD for Database Developers – Export Database Objects into Version Control][post-blain]
 - Markus Dötsch for the first BackApp tests and cross-reading the first version of this post
 - Martin D'Souza for his time and the interesting discussion about code generation and version control at the APEX Connect 2018 in Düsseldorf, Germany and his blog post [Exporting APEX Application in SQLcl with Build Status Override][post_martin] - PLEX.BackApp has now a parameter for this ;-)
-- Philipp Salvisbergnfor his thoughts on [The Pink Database Paradigm][pinkdb]
+- Philipp Salvisberg for his thoughts on [The Pink Database Paradigm][pinkdb]
 - Samual Nitsche for his thoughts on [There is no clean (database) development without Version Control][post-samuel]
 - Tim Hall for his article about [Generating CSV Files][article_tim]
 
@@ -188,13 +184,11 @@ Ottmar
 [blueprint]: https://docs.oracle.com/database/apex-18.1/HTMDB/using-blueprints.htm
 [om_tapigen]: https://github.com/OraMUC/table-api-generator
 [pinkdb]: https://www.salvis.com/blog/2018/07/18/the-pink-database-paradigm-pinkdb/
-[plex_download]: https://github.com/ogobrecht/plex/archive/master.zip
+[plex_download]: https://github.com/ogobrecht/plex/releases/latest
 [plex_issue]: https://github.com/ogobrecht/plex/issues/new
-[plex_issue]: https://github.com/ogobrecht/plex/issues/new
-[plex_project]: https://github.com/ogobrecht/plex
 [plex_project]: https://github.com/ogobrecht/plex
 [post_martin]: https://www.talkapex.com/2018/07/exporting-apex-application-in-sqlcl-with-build-status-override/
 [post-blain]: https://learncodeshare.net/2018/07/16/ci-cd-for-database-developers-export-database-objects-into-version-control/
 [post-samuel]: https://cleandatabase.wordpress.com/2017/09/22/there-is-no-clean-database-development-without-version-control/
 [prev_post]: https://ogobrecht.github.io/posts/2018-07-25-apex-export-and-version-control
-[quick_sql]: https://apex.oracle.com/en/quick_sql/
+[quick_sql]: https://apex.oracle.com/quicksql/

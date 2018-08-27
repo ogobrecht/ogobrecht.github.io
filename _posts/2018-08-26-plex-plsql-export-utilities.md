@@ -164,7 +164,7 @@ Thanks are going to:
 - Markus Dötsch for the first BackApp tests and cross-reading the first version of this post
 - Martin D'Souza for his time and the interesting discussion about code generation and version control at the APEX Connect 2018 in Düsseldorf, Germany and his blog post [Exporting APEX Application in SQLcl with Build Status Override][post_martin] - PLEX.BackApp has now a parameter for this ;-)
 - Philipp Salvisberg for his thoughts on [The Pink Database Paradigm][pinkdb]
-- Samual Nitsche for his thoughts on [There is no clean (database) development without Version Control][post-samuel]
+- Samuel Nitsche for his thoughts on [There is no clean (database) development without Version Control][post-samuel]
 - Tim Hall for his article about [Generating CSV Files][article_tim]
 
 

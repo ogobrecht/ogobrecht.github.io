@@ -113,7 +113,7 @@ Feedback is welcome - simply create a [new issue][plex_issue] at the [GitHub pro
 Next Steps
 -----------
 
-It is up to the developer how he organizes the version control repository and how often you export your APEX app or object DDL. I would follow the files first approach and extract the object DDL only ones to have a starting point. The APEX application needs regular exports - if you like, you can automate this.
+It is up to you how you organize the version control repository and how often you export your APEX app or object DDL. I would follow the files first approach and extract the object DDL only ones to have a starting point. The APEX application needs regular exports - if you like, you can automate this.
 
 Following the files first approach is sometimes not easy when you are using low code tools like [Quick SQL][quick_sql] and [Blueprint][blueprint] in APEX or code generators like [OraMUC's Table API Generator][om_tapigen]. There could be a need to regularly extract (maybe unknown) objects (not created by yourself) into version control to understand and document what you got from others (people or generators)...
 

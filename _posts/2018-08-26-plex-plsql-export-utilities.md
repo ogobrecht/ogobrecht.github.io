@@ -64,6 +64,8 @@ Save the resulting BLOB file under a name with the extension `.zip` and extract 
 
 If you like, you can fully configure your first export into the zip file. The `PLEX.BackApp` method has boolean parameters, so you need to use an inline function in a pure SQL context. You can also use an anonymous PL/SQL block or you create a small SQL wrapper for the method like the inline function of the example. All parameters are optional and listed here with their default values:
 
+UPDATE 2018-09-24 regarding PLEX v1.1.0: `p_object_filter_regex` is replaced by `p_object_name_like` and `p_object_name_not_like`; `p_data_table_filter_regex` is replaced by `p_data_table_name_like` and `p_data_table_name_not_like`. All new parameters except a comma separated list of (not) like expressions. Please see examples in parameter comments below:
+
 ```sql
 -- Inline function (needs Oracle 12c or higher)
 with
@@ -85,12 +87,14 @@ with
       p_app_build_status_run_only => false, -- If true, the build status of the app will be overwritten to RUN_ONLY.
       -----
       p_include_object_ddl        => false, -- If true, include DDL of current user/schema and all its objects.
-      p_object_filter_regex       => null,  -- Filter the schema objects with the provided object prefix.
+      p_object_name_like          => null,  -- A comma separated list of like expressions to filter the objects - example: `EMP%,DEPT%` will be translated to: `where ... and (object_name like 'EMP%' or object_name like 'DEPT%')`.
+      p_object_name_not_like      => null,  -- A comma separated list of not like expressions to filter the objects - example: `EMP%,DEPT%` will be translated to: `where ... and (object_name not like 'EMP%' and object_name not like 'DEPT%')`.
       -----
       p_include_data              => false, -- If true, include CSV data of each table.
       p_data_as_of_minutes_ago    => 0,     -- Read consistent data with the resulting timestamp(SCN).
       p_data_max_rows             => 1000,  -- Maximum number of rows per table.
-      p_data_table_filter_regex   => null,  -- Filter user_tables with the given regular expression.
+      p_data_table_name_like      => null,  -- A comma separated list of like expressions to filter the tables - example: `EMP%,DEPT%` will be translated to: `where ... and (table_name like 'EMP%' or table_name like 'DEPT%')`.
+      p_data_table_name_not_like  => null,  -- A comma separated list of not like expressions to filter the tables - example: `EMP%,DEPT%` will be translated to: `where ... and (table_name not like 'EMP%' and table_name not like 'DEPT%')`.
       -----
       p_include_templates         => true,  -- If true, include templates for README.md, export and install scripts.
       p_include_runtime_log       => true   -- If true, generate file plex_backapp_log.md with runtime statistics.

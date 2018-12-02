@@ -3,7 +3,7 @@ title: jQuery Plugin svg2img
 subtitle: Convert inline SVGs to standalone image files without loosing styles
 tags: [project, jquery, plugin, svg]
 lang: en
-last_modified_at: 2017-08-26
+last_modified_at: 2018-12-02
 ---
 
 SVG based charts and visualizations are often used these days. But what if you want to use your browser inline SVGs, generated with some sort of JavaScript and fancy styled with CSS, offline - maybe in a presentation, send by email or printed out large scaled?
@@ -64,21 +64,23 @@ Ottmar
 Download
 <a href="" onclick="event.preventDefault(); $('#example-graph').svg2img();">SVG image</a>
 
-<link  href="/assets/d3.js/d3-force-2.1.0beta1.css" rel="stylesheet" type="text/css">
+<link  href="/assets/d3.js/d3-force-3.0.0.css" rel="stylesheet" type="text/css">
+<script src="/assets/d3.js/ResizeObserver-1.5.0.min.js"></script>
 <script src="/assets/d3.js/d3-3.5.6.min.js"></script>
-<script src="/assets/d3.js/d3-force-2.1.0beta1.min.js"></script>
+<script src="/assets/d3.js/d3-force-3.0.0.min.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script src="/assets/svg2img/svg2img.min.js"></script>
 <script>
-window.onload = function (){
-  window.example = netGobrechtsD3Force('example-graph')
-    .debug(true) //to enable the customization wizard
-    //.lassoMode(true)
-    .zoomMode(true)
-    .useDomParentWidth(true) //for responsive layout
-    .wrapLabels(true)
-    .preventLabelOverlappingOnForceEnd(true)
-    .labelPlacementIterations(1000)
-    .start(); //sample data is provided, when called without data
+window.onload = function() {
+    window.example = netGobrechtsD3Force('example-graph')
+        .width(600)
+        .height(400)
+        .useDomParentWidth(true) //for responsive layout
+        //.zoomMode(true)
+        .lassoMode(true)
+        .wrapLabels(true)
+        .debug(true) //to enable the customization wizard
+        .render(); //sample data is provided when called without data
+        //see also https://ogobrecht.github.io/d3-force-apex-plugin/tutorial-1-getting-started.html
 }
 </script>

@@ -2,6 +2,7 @@
 title: New Major Version of D3 Force Network Chart Available
 subtitle: Better responsibility by implementing a resize observer
 tags: [oracle, apex, plugin, d3js, chart, svg]
+last_modified_at: 2018-12-04
 ---
 
 <div id="example"></div><!--the graph container-->
@@ -24,7 +25,7 @@ When setting the option `useDomParentWidth` to true together with the previous m
 
 For the full change log see the project on [GitHub][3] and for a demo the app on [apex.oracle.com][4] (which currently does not use the universal theme, new demo app is work in progress...).
 
-Happy coding :-)<br>
+Happy networking :-)<br>
 Ottmar
 
 

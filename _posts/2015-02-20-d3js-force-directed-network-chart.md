@@ -3,7 +3,7 @@ title: D3.js Force-Directed Network Chart
 subtitle: A JavaScript standalone implementation and Oracle APEX region type plugin
 tags: [project, oracle, apex, plugin, d3js, chart, svg]
 lang: en
-last_modified_at: 2018-12-02
+last_modified_at: 2018-12-04
 ---
 _My first Oracle APEX plugin and open source project :-)_
 
@@ -41,7 +41,7 @@ Really annoying - even I know the implementation behind. So, the question was: W
 
 You can find the sources and more informations on [GitHub][2] and a demo app on [apex.oracle.com][3].
 
-Happy coding :-)<br>
+Happy networking :-)<br>
 Ottmar
 
 

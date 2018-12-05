@@ -1,13 +1,13 @@
 ---
 title: New Major Version of D3 Force Network Chart Available
-subtitle: Better responsibility by implementing a resize observer
+subtitle: Better responsiveness by implementing a resize observer
 tags: [oracle, apex, plugin, d3js, chart, svg]
-last_modified_at: 2018-12-04
+last_modified_at: 2018-12-05
 ---
 
 <div id="example"></div><!--the graph container-->
 
-Since APEX version 5 was published with the Universal Theme, I was thinking that I needed something for better responsibility of the graph. Although it was possible to configure the graph to use the DOM parent width, the responsibility was not so good because of situations where the window size does not change (we use the window resize event to trigger the change of the width) but the available space for the graph changes. How can the graph react to this?
+Since APEX version 5 was published with the Universal Theme, I was thinking that I needed something for better responsiveness of the graph. Although it was possible to configure the graph to use the DOM parent width, the responsiveness was not so good because of situations where the window size does not change (we use the window resize event to trigger the change of the width) but the available space for the graph changes. How can the graph react to this?
 
 The problem is that a network chart is not a simple image which can be resized according to the available space. The graph is an SVG with multiple layers to handle the zoom and pan, the lasso, a legend that needs to be in a fixed size...   As you can see, there must be a procedural solution. And for this we need a trigger, which always fires when the (possible) size of the graphs parent DOM element changes.
 
@@ -21,7 +21,7 @@ I made the API zoom methods independent of the option `zoomMode` and set the def
 - `zoomToFitOnResize` (new option)
 - `keepAspectRatioOnResize` (new option)
 
-When setting the option `useDomParentWidth` to true together with the previous mentioned defaults, you can achieve a responsibility like with images set to width 100%. Try it out by resizing your browser window.
+When setting the option `useDomParentWidth` to true together with the previous mentioned defaults, you can achieve a responsiveness like with images set to width 100%. Try it out by resizing your browser window.
 
 For the full change log see the project on [GitHub][3] and for a demo the app on [apex.oracle.com][4] (which currently does not use the universal theme, new demo app is work in progress...).
 

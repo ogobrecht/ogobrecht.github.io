@@ -15,7 +15,7 @@ I don't want to discuss the reasons for this here - you all know several ones. A
   - No single functions and procedures - packages with meaningful names are the way to go
 - As I have the source code under version control in local files on my computer I need a command line tool for the doc generation - there is no need for a database connection
   - The CLI should be able to process multiple files (packages)
-  - For my small PLEX project I have only one package and I want to define a document name different then the package name, so I need a CLI parameter for that
+  - For my small open source project I have only one package and I want to define a document name different then the package name, so I need a CLI parameter for that
 - Comments should be written directly after the package/function/procedure signature (in the package spec, optionally it should also work for triggers and types)
   - I want to use Markdown for the comments - this allows me to write also bigger text parts and code examples
 - I don't want to describe all parameters in a JavaDoc manner
@@ -39,7 +39,7 @@ There are already several open source projects available for PL/SQL code documen
 
 Only the last one is able to generate Markdown docs, but the input has to be in JavaDoc. All the others can produce HTML output and often some other formats like RTF, Word or PDF. Natural Docs has a Markdown like simple text syntax, but also no Markdown output. Some of the tools can automatically document a whole schema - that is not the focus of PLOC. Most comparable is the intention of PL/SQL to Markdown  Documenter.
 
-So I had to do it by myself. I called it PLOC (PLDoc was already used, so I skipped the D...) and it is implemented in JavaScript as a npm package and currently used by me for the following two projects: [Oracle Table API Generator][tapigen] and [PLEX][plex]. It is very lightweight - the main code without the CLI has currently less characters as the Markdown source of this blog post. Maybe it is also useful for you. If not, have a look at the other mentioned projects.
+So I had to do it by myself. I called it PLOC (PLDoc was already used, so I skipped the D...) and it is implemented in JavaScript as a npm package and currently used by me for the following two projects: [PL/SQL Export Utilities][plex] and [Oracle Table API Generator][tapigen]. It is very lightweight - the main code without the CLI has currently less characters as the Markdown source of this blog post. Maybe it is also useful for you. If not, have a look at the other mentioned projects.
 
 More infos about [PLOC][ploc] itself can be found on the [project page][ploc].
 

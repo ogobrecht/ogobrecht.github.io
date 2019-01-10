@@ -1,6 +1,6 @@
-- `bundle update`
-- `bundle exec jekyll serve`
-- `bundle exec jekyll serve --incremental --drafts`
+- `/usr/local/Cellar/ruby/2.6.0/bin/bundle update`
+- `/usr/local/Cellar/ruby/2.6.0/bin/bundle exec jekyll serve`
+- `/usr/local/Cellar/ruby/2.6.0/bin/bundle exec jekyll serve --incremental --drafts`
 - htmlproofer: http://phansch.net/2017/09/10/testing-jekyll-websites-with-html-proofer/
-- `bundle exec htmlproofer ./_site --assume-extension --file-ignore /.*\/assets\/reveal\.js\/.*/ --url-ignore=/localhost/`
+- `/usr/local/Cellar/ruby/2.6.0/bin/ bundle exec htmlproofer ./_site --assume-extension --file-ignore /.*\/assets\/reveal\.js\/.*/ --url-ignore=/localhost/`
 - ...

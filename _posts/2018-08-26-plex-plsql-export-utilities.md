@@ -2,6 +2,7 @@
 title: PLEX - PL/SQL Export Utilities
 subtitle: Export Oracle APEX app, all schema objects and table data in one go
 tags: [project, oracle, apex, plsql, version-control]
+last_modified_at: 2019-01-11
 ---
 
 PLEX is a standalone PL/SQL package with export utilities. It was created to be able to quickstart version control for existing (APEX) apps and depends on APEX 5.1.4 or later for APEX_EXPORT and APEX_ZIP. It currently has two main functions called __BackApp__ and __Queries_to_CSV__. Queries_to_CSV is used by BackApp as a helper function, but its functionality is also useful as a standalone. This post is all about BackApp, which has the following features:
@@ -64,7 +65,7 @@ Save the resulting BLOB file under a name with the extension `.zip` and extract 
 
 If you like, you can fully configure your first export into the zip file. The `PLEX.BackApp` method has boolean parameters, so you need to use an inline function in a pure SQL context. You can also use an anonymous PL/SQL block or you create a small SQL wrapper for the method like the inline function of the example. All parameters are optional and listed here with their default values:
 
-UPDATE 2018-09-24 regarding PLEX v1.1.0: `p_object_filter_regex` is replaced by `p_object_name_like` and `p_object_name_not_like`; `p_data_table_filter_regex` is replaced by `p_data_table_name_like` and `p_data_table_name_not_like`. All new parameters except a comma separated list of (not) like expressions. Please see examples in parameter comments below:
+UPDATE 2018-09-24 regarding PLEX v1.1.0: `p_object_filter_regex` is replaced by `p_object_name_like` and `p_object_name_not_like`; `p_data_table_filter_regex` is replaced by `p_data_table_name_like` and `p_data_table_name_not_like`. All new parameters expect a comma separated list of (not) like expressions. Please see examples in parameter comments below:
 
 ```sql
 -- Inline function (needs Oracle 12c or higher)

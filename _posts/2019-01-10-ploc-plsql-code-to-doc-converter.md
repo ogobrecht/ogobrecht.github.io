@@ -2,7 +2,7 @@
 title: PLOC - Convert PL/SQL Code into Markdown Docs
 subtitle: Another way to document PL/SQL business logic
 tags: [project, oracle, plsql, generator, converter, docs, npm]
-last_modified_at: 2019-01-10
+last_modified_at: 2019-01-11
 ---
 
 Some months ago I had to write a README file with Markdown syntax for a PL/SQL open source project. I changed function and procedure parameters of the package often during the implementation. Therefore, maintaining the documentation was no fun in the beginning. Maybe you know this from your own (payed) projects ;-)

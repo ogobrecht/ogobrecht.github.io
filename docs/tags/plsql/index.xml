@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>plsql on Ottmar’s Notes</title>
+    <link>https://ogobrecht.github.io/tags/plsql/</link>
+    <description>Recent content in plsql on Ottmar’s Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 10 Jan 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ogobrecht.github.io/tags/plsql/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>PLOC - Convert PL/SQL Code into Markdown Docs</title>
+      <link>https://ogobrecht.github.io/posts/2019-01-10-ploc-plsql-code-to-doc-converter/</link>
+      <pubDate>Thu, 10 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ogobrecht.github.io/posts/2019-01-10-ploc-plsql-code-to-doc-converter/</guid>
+      <description>Some months ago I had to write a README file with Markdown syntax for a PL/SQL open source project. I changed function and procedure parameters of the package often during the implementation. Therefore, maintaining the documentation was no fun in the beginning. Maybe you know this from your own (payed) projects ;-)
+Normally in the business world I see minimalistic comments in the code and a dedicated documentation independent of the code.</description>
+    </item>
+    
+    <item>
+      <title>Table API Generator v0.5.0 Available</title>
+      <link>https://ogobrecht.github.io/posts/2018-12-26-table-api-generator-v0.5.0-available/</link>
+      <pubDate>Wed, 26 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://ogobrecht.github.io/posts/2018-12-26-table-api-generator-v0.5.0-available/</guid>
+      <description>Short before Christmas André and I released version 0.5.0 of our PL/SQL table API generator. It took a long time to come to this point. One of the reasons behind was the fact that we had to rework some internals to support feature wishes from the community. Here the most important features of the new version:
+ Support for multicolumn primary keys Support for 12c long identifier names More control over the API features and name (10 new parameters) Insert methods:  Can have the dictionary column defaults Can return the whole row instead of the primary key  You can exclude columns (e.</description>
+    </item>
+    
+    <item>
+      <title>PLEX - PL/SQL Export Utilities</title>
+      <link>https://ogobrecht.github.io/posts/2018-08-26-plex-plsql-export-utilities/</link>
+      <pubDate>Sun, 26 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://ogobrecht.github.io/posts/2018-08-26-plex-plsql-export-utilities/</guid>
+      <description>PLEX is a standalone PL/SQL package with export utilities. It was created to be able to quickstart version control for existing (APEX) apps and depends on APEX 5.1.4 or later for APEX_EXPORT and APEX_ZIP. It currently has two main functions called BackApp and Queries_to_CSV. Queries_to_CSV is used by BackApp as a helper function, but its functionality is also useful as a standalone. This post is all about BackApp, which has the following features:</description>
+    </item>
+    
+    <item>
+      <title>Markdown Reporter</title>
+      <link>https://ogobrecht.github.io/posts/2017-01-23-markdown-reporter/</link>
+      <pubDate>Mon, 23 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://ogobrecht.github.io/posts/2017-01-23-markdown-reporter/</guid>
+      <description>On the APEX connect 2016 in Berlin I talked about my APEX Markdown plugin and fine art printing with the help of Pandoc and LaTeX. When I was preparing my slides and documenting a SQL query in a Markdown code block I asked myself:
+What, if the database is taking this Markdown code block and runs the query inside to convert it into data?
+And what, if I take this Markdown text with the data in the code blocks and post it to a small webservice which converts the data blocks into charts and the whole document into HTML or a LaTeX based PDF?</description>
+    </item>
+    
+    <item>
+      <title>Table API Generator</title>
+      <link>https://ogobrecht.github.io/posts/2016-06-10-table-api-generator/</link>
+      <pubDate>Fri, 10 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://ogobrecht.github.io/posts/2016-06-10-table-api-generator/</guid>
+      <description>Last year I needed for a project a simple table API, which is able to generate a generic change log - something like &amp;ldquo;show me for table xyz which column was changed when and what was the old value and what is the new one&amp;rdquo;. Only changed values should be stored and all tables should log into the same generic logging table. Sounds like we need a generator for this.</description>
+    </item>
+    
+  </channel>
+</rss>

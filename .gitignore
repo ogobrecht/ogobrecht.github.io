@@ -1,5 +1,6 @@
-_site
-.sass-cache
-.jekyll-metadata
 .DS_Store
-TODOS.txt
+/logs
+/node_modules
+/public
+/resources
+deploy

@@ -1,0 +1,21 @@
+{{ define "main" }}
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+<header class="item-header">
+  <h1 class="item-title" itemprop="name headline">{{ .Title }}</h1>
+  {{- if in (slice "posts") .Type }}{{ block "item-meta" . }}{{ partial "item-meta.html" . }}{{ end }}{{ end }}
+</header>
+
+<div class="item-content" itemprop="articleBody">
+{{ .Content }}
+</div>{{ "<!--articleBody-end-->" | safeHTML }}
+{{ if in (slice "posts") .Type }}
+<footer>
+  <p class="item-meta">Last changed on {{ .Lastmod.Format "January 2, 2006" }}, you can comment via <a href="mailto:{{ .Site.Params.author.email }}?subject=Comment%20on%20{{ .URL }}">email</a> or postcard (more <a href="/about#comments">about this...</a>)</p>
+  {{ with .PrevInSection }}<span class="left item-meta">&#x2190; <a href="{{ .RelPermalink }}">{{ .Title }}</a></span>{{ end }}
+  {{ with .NextInSection }}<span class="right item-meta"><a href="{{ .RelPermalink }}">{{ .Title }}</a> &#x2192;</span>{{ end }}
+</footer>
+{{- end }}
+
+</article>
+{{ end }}

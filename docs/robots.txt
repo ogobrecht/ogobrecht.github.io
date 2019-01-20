@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://ogobrecht.github.io//sitemap.xml

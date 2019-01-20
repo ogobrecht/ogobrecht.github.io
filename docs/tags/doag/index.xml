@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>doag on Ottmar’s Notes</title>
+    <link>https://ogobrecht.github.io/tags/doag/</link>
+    <description>Recent content in doag on Ottmar’s Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 17 Nov 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ogobrecht.github.io/tags/doag/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Reporting mal anders, Markdown sei Dank</title>
+      <link>https://ogobrecht.github.io/posts/2016-11-17-reporting-mal-anders-markdown-sei-dank/</link>
+      <pubDate>Thu, 17 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://ogobrecht.github.io/posts/2016-11-17-reporting-mal-anders-markdown-sei-dank/</guid>
+      <description>Die Folien zu meinem Vortrag:
+Open HTML presentation in a new window/tab
+You need a modern browser with activated JavaScript. Navigation tips:
+ Space = Next slide Shift + Space = Previous slide Esc = Overview all slides ? = Overview all keyboard shortcuts All links are opened in a new window/tab   Kurzdarstellung:
+Markdown hat sich in den letzten Jahren als vereinfachte Auszeichnungssprache zur HTML-Erstellung durchgesetzt. Es genügt ein einfacher Texteditor und wenige, allgemein gebräuchliche Konventionen, um z.</description>
+    </item>
+    
+    <item>
+      <title>APEX Fine Art Printing, Markdown Überall</title>
+      <link>https://ogobrecht.github.io/posts/2016-04-26-apex-fine-art-printing-markdown-ueberall/</link>
+      <pubDate>Tue, 26 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://ogobrecht.github.io/posts/2016-04-26-apex-fine-art-printing-markdown-ueberall/</guid>
+      <description>Die Folien zu meinem Vortrag:
+Open HTML presentation in a new window/tab
+You need a modern browser with activated JavaScript. Navigation tips:
+ Space = Next slide Shift + Space = Previous slide Esc = Overview all slides ? = Overview all keyboard shortcuts All links are opened in a new window/tab   </description>
+    </item>
+    
+    <item>
+      <title>D3.js - Data Driven Documents</title>
+      <link>https://ogobrecht.github.io/posts/2015-06-09-d3js-data-driven-documents/</link>
+      <pubDate>Tue, 09 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://ogobrecht.github.io/posts/2015-06-09-d3js-data-driven-documents/</guid>
+      <description>Die Folien zu meinem Vortrag (wurde in einer Vorversion auch auf dem DOAG Regionaltreffen München am 24.03.2015 gezeigt):
+Open HTML presentation in a new window/tab
+You need a modern browser with activated JavaScript. Navigation tips:
+ Space = Next slide Shift + Space = Previous slide Esc = Overview all slides ? = Overview all keyboard shortcuts All links are opened in a new window/tab   </description>
+    </item>
+    
+    <item>
+      <title>D3.js Grundlagen</title>
+      <link>https://ogobrecht.github.io/posts/2015-03-01-d3js-grundlagen/</link>
+      <pubDate>Sun, 01 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://ogobrecht.github.io/posts/2015-03-01-d3js-grundlagen/</guid>
+      <description>Inhaltsverzeichnis  Einleitung Beispiele von der D3 Homepage D3: Was ist das? Das Fundament: SVG Der Unterschied: Selectors versus Selections Die D3 Mengenlehre: Wie man Daten an das DOM bindet Das Geheimnis der Geschwindigkeit Wiederverwendung von Chart Code Exkurs: Closures in JavaScript Die Königsklasse: Physik-Simulationen Netzwerken: Ein Plugin (nicht nur) für APEX Fazit   Einleitung Dieser Artikel erschien in der DOAG/SOUG News 02-2015 und steht auch im Original zur Verfügung.</description>
+    </item>
+    
+  </channel>
+</rss>

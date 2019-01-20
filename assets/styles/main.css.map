@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"file": "main.css",
-	"sourceRoot": "/Users/ottmar/code/_hugo",
+	"sourceRoot": "/Users/ottmar/code/ogobrecht.github.io.sources",
 	"sources": [
 		"assets/sass/main.scss",
 		"assets/sass/sidebar/_1-normalize.scss",

@@ -10,7 +10,7 @@
 <link href="https://ogobrecht.github.io/index.xml" rel="self" type="application/atom+xml" />
 <link href="https://ogobrecht.github.io/" rel="alternate" type="text/html" hreflang="en" />
 <generator uri="https://gohugo.io/" version="0.53">Hugo</generator>
-<updated>2019-01-20T19:57:10+01:00</updated>
+<updated>2019-01-21T16:21:49+01:00</updated>
 
 
 <entry xml:lang="en">
@@ -784,7 +784,7 @@ Ottmar&lt;/p&gt;
 <category term="plugin" label="Plugin" scheme="https://ogobrecht.github.io/tags/" />
 <category term="svg" label="SVG" scheme="https://ogobrecht.github.io/tags/" />
 <published>2017-04-03T00:00:00+01:00</published>
-<updated>2018-12-02T20:00:00+01:00</updated>
+<updated>2019-01-21T16:16:00+01:00</updated>
 <content type="html" xml:base="https://ogobrecht.github.io/posts/2017-04-03-jquery-plugin-svg2img/">
 &lt;p&gt;&lt;em&gt;Convert inline SVGs to standalone image files without loosing styles&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;SVG based charts and visualizations are often used these days. But what if you want to use your browser inline SVGs, generated with some sort of JavaScript and fancy styled with CSS, offline - maybe in a presentation, send by email or printed out large scaled?&lt;/p&gt;
@@ -830,11 +830,12 @@ Download
 &lt;script src=&#34;/assets/d3.js/d3-3.5.6.min.js&#34;&gt;&lt;/script&gt;
 &lt;script src=&#34;/assets/d3.js/d3-force-3.0.0.min.js&#34;&gt;&lt;/script&gt;
 &lt;script src=&#34;https://code.jquery.com/jquery-1.12.4.min.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;/assets/svg2img/svg2img.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/assets/svg2img/svg2img.min.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
 &lt;script&gt;
 window.onload = function() {
-    window.example = netGobrechtsD3Force(&amp;lsquo;example-graph&amp;rsquo;)
-        .width(600)
+    window.example = netGobrechtsD3Force(&#39;example-graph&#39;)
+        .width(800)
         .height(400)
         .useDomParentWidth(true) //for responsive layout
         //.zoomMode(true)
@@ -842,9 +843,9 @@ window.onload = function() {
         .wrapLabels(true)
         .debug(true) //to enable the customization wizard
         .render(); //sample data is provided when called without data
-        //see also &lt;a href=&#34;https://ogobrecht.github.io/d3-force-apex-plugin/tutorial-1-getting-started.html&#34;&gt;https://ogobrecht.github.io/d3-force-apex-plugin/tutorial-1-getting-started.html&lt;/a&gt;
+        //see also https://ogobrecht.github.io/d3-force-apex-plugin/tutorial-1-getting-started.html
 }
-&lt;/script&gt;&lt;/p&gt;
+&lt;/script&gt;
 
 </content>
 </entry>
@@ -1903,8 +1904,8 @@ Ottmar&lt;/p&gt;
 &lt;script&gt;
 window.onload = function() {
     window.example = netGobrechtsD3Force(&#39;example&#39;)
-        .height(400)
         .width(800)
+        .height(400)
         .useDomParentWidth(true) //for responsive layout
         //.zoomMode(true)
         .lassoMode(true)

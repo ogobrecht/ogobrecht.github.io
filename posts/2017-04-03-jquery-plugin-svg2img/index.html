@@ -97,11 +97,12 @@ Download
 <script src="/assets/d3.js/d3-3.5.6.min.js"></script>
 <script src="/assets/d3.js/d3-force-3.0.0.min.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-<script src="/assets/svg2img/svg2img.min.js"></script>
+<script src="/assets/svg2img/svg2img.min.js"></script></p>
+
 <script>
 window.onload = function() {
-    window.example = netGobrechtsD3Force(&lsquo;example-graph&rsquo;)
-        .width(600)
+    window.example = netGobrechtsD3Force('example-graph')
+        .width(800)
         .height(400)
         .useDomParentWidth(true) //for responsive layout
         //.zoomMode(true)
@@ -109,14 +110,14 @@ window.onload = function() {
         .wrapLabels(true)
         .debug(true) //to enable the customization wizard
         .render(); //sample data is provided when called without data
-        //see also <a href="https://ogobrecht.github.io/d3-force-apex-plugin/tutorial-1-getting-started.html">https://ogobrecht.github.io/d3-force-apex-plugin/tutorial-1-getting-started.html</a>
+        //see also https://ogobrecht.github.io/d3-force-apex-plugin/tutorial-1-getting-started.html
 }
-</script></p>
+</script>
 
 </div><!--articleBody-end-->
 
 <footer>
-  <p class="item-meta">Last changed on December 2, 2018, you can comment via <a href="mailto:ottmar.gobrecht@gmail.com?subject=Comment%20on%20%2fposts%2f2017-04-03-jquery-plugin-svg2img%2f">email</a> or postcard (more <a href="/about#comments">about this...</a>)</p>
+  <p class="item-meta">Last changed on January 21, 2019, you can comment via <a href="mailto:ottmar.gobrecht@gmail.com?subject=Comment%20on%20%2fposts%2f2017-04-03-jquery-plugin-svg2img%2f">email</a> or postcard (more <a href="/about#comments">about this...</a>)</p>
   <span class="left item-meta">&#x2190; <a href="/posts/2017-03-21-pitfalls-with-oracle-11g-xe-and-docker-on-mac-os/">Pitfalls with Oracle 11g XE and Docker on Mac OS</a></span>
   <span class="right item-meta"><a href="/posts/2017-06-13-ora11xe-install-file-swap-check-disabler/">Oracle DB 11gXE Install File Swap Check Disabler</a> &#x2192;</span>
 </footer>

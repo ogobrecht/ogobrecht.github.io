@@ -10,8 +10,76 @@
 <link href="https://ogobrecht.github.io/index.xml" rel="self" type="application/atom+xml" />
 <link href="https://ogobrecht.github.io/" rel="alternate" type="text/html" hreflang="en" />
 <generator uri="https://gohugo.io/" version="0.53">Hugo</generator>
-<updated>2019-01-21T16:21:49+01:00</updated>
+<updated>2019-03-11T15:22:59+01:00</updated>
 
+
+<entry xml:lang="de">
+<id>https://ogobrecht.github.io/posts/2019-03-11-doag-regionaltreffen-muenchen/</id>
+<link href="https://ogobrecht.github.io/posts/2019-03-11-doag-regionaltreffen-muenchen/" rel="alternate" type="text/html" title="Schnellstart - Versionskontrolle für existierende (APEX-)Projekte" />
+<title type="html">Schnellstart - Versionskontrolle für existierende (APEX-)Projekte</title>
+<summary type="html">DOAG Regionaltreffen 11. März 2019, München</summary>
+<category term="oracle" label="Oracle" scheme="https://ogobrecht.github.io/tags/" />
+<category term="apex" label="APEX" scheme="https://ogobrecht.github.io/tags/" />
+<category term="version-control" label="Version Control" scheme="https://ogobrecht.github.io/tags/" />
+<category term="slides" label="Slides" scheme="https://ogobrecht.github.io/tags/" />
+<category term="doag" label="DOAG" scheme="https://ogobrecht.github.io/tags/" />
+<published>2019-03-11T00:00:00+01:00</published>
+<updated>2019-03-11T00:00:00+01:00</updated>
+<content type="html" xml:base="https://ogobrecht.github.io/posts/2019-03-11-doag-regionaltreffen-muenchen/">
+&lt;p&gt;&lt;em&gt;DOAG Regionaltreffen 11. März 2019, München&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Die Folien zu meinem Vortrag:&lt;/p&gt;
+
+
+&lt;p&gt;&lt;a href=&#34;/slides/2019-03-11-schnellstart-versionskontrolle-oracle-apex-projekte/&#34; target=&#34;_blank&#34;&gt;Open HTML presentation in a new window/tab&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote class=&#34;item-meta&#34;&gt;
+  &lt;p&gt;You need a modern browser with activated JavaScript. Navigation tips:&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;code&gt;N&lt;/code&gt;, &lt;code&gt;Space&lt;/code&gt; = Next slide&lt;/li&gt;
+    &lt;li&gt;&lt;code&gt;P&lt;/code&gt; = Previous slide&lt;/li&gt;
+    &lt;li&gt;&lt;code&gt;O&lt;/code&gt;, &lt;code&gt;Esc&lt;/code&gt; = Overview all slides&lt;/li&gt;
+    &lt;li&gt;&lt;code&gt;?&lt;/code&gt; = Show all keyboard shortcuts&lt;/li&gt;
+    &lt;li&gt;All links are opened in a new window/tab&lt;/li&gt;
+    
+    
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+
+&lt;p&gt;Für das im Vortrag genannte Package PLEX siehe auch das &lt;a href=&#34;https://github.com/ogobrecht/plex&#34;&gt;Projekt auf GitHub&lt;/a&gt; und diesen &lt;a href=&#34;https://ogobrecht.github.io/posts/2018-08-26-plex-plsql-export-utilities/&#34;&gt;Blog Post&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Weiterführende Links zum Thema:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Antti Kirmanen: &lt;a href=&#34;https://entwickler.de/online/development/git-subversion-svn-versionskontrollsystem-579792227.html&#34;&gt;Git vs. Subversion (SVN): Welches Versionskontrollsystem sollten Sie nutzen?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Wikipedia: &lt;a href=&#34;https://en.wikipedia.org/wiki/Schema_migration&#34;&gt;Schema migration&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Martin Fowler: &lt;a href=&#34;https://www.martinfowler.com/articles/evodb.html&#34;&gt;Evolutionary Database Design&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Samuel Nitsche:
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://cleandatabase.wordpress.com/2017/09/22/there-is-no-clean-database-development-without-version-control/&#34;&gt;There is no clean (database) development without Version Control&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://cleandatabase.wordpress.com/2017/11/28/one-does-not-simply-update-a-database-migration-based-database-development/&#34;&gt;“One does not simply update a database” – migration based database development&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Blain Carter:
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://learncodeshare.net/2018/04/30/tips-to-help-pl-sql-developers-get-started-with-ci-cd/&#34;&gt;Tips to help PL/SQL developers get started with CI/CD&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://learncodeshare.net/2018/07/16/ci-cd-for-database-developers-export-database-objects-into-version-control/&#34;&gt;CI/CD for Database Developers – Export Database Objects into Version Control&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Jeff Smith: &lt;a href=&#34;https://www.thatjeffsmith.com/archive/2019/01/19-x-sqlcl-teaser-liquibase/&#34;&gt;19.X SQLcl Teaser: LIQUIBASE&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Vorgestellte Tools:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://desktop.github.com/&#34;&gt;GitHub Desktop&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://code.visualstudio.com/&#34;&gt;Visual Studio Code&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Die Hintergrundfotos der Folien stammen von unsplash.com - hier der Link zur vollständigen &lt;a href=&#34;https://unsplash.com/collections/4373998/quickstart-version-control-for-oracle-apex-projects&#34;&gt;Foto-Kollektion&lt;/a&gt;.&lt;/p&gt;
+
+</content>
+</entry>
 
 <entry xml:lang="en">
 <id>https://ogobrecht.github.io/posts/2019-01-10-ploc-plsql-code-to-doc-converter/</id>
@@ -212,7 +280,7 @@ window.onload = function() {
 <category term="plsql" label="PL/SQL" scheme="https://ogobrecht.github.io/tags/" />
 <category term="version-control" label="Version Control" scheme="https://ogobrecht.github.io/tags/" />
 <published>2018-08-26T00:00:00+01:00</published>
-<updated>2019-01-11T20:01:00+01:00</updated>
+<updated>2019-03-01T20:01:00+01:00</updated>
 <content type="html" xml:base="https://ogobrecht.github.io/posts/2018-08-26-plex-plsql-export-utilities/">
 &lt;p&gt;&lt;em&gt;Export Oracle APEX app, all schema objects and table data in one go&lt;/em&gt;&lt;/p&gt;
 
@@ -340,6 +408,7 @@ Also, the possibility to export the data of your tables into CSV files does not 
     &lt;span class=&#34;c1&#34;&gt;-- correct file links in install script
 &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;IF&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;l_files&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;scripts/install_frontend_generated_by_apex.sql&amp;#39;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;THEN&lt;/span&gt;
       &lt;span class=&#34;n&#34;&gt;l_files&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;contents&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;replace&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;l_files&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;contents&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;@../app_frontend/&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;@../app_ui/&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;END&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;IF&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
   &lt;span class=&#34;k&#34;&gt;END&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;LOOP&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 
   &lt;span class=&#34;c1&#34;&gt;-- more alignments...
@@ -1079,10 +1148,10 @@ Ottmar&lt;/p&gt;
 &lt;blockquote class=&#34;item-meta&#34;&gt;
   &lt;p&gt;You need a modern browser with activated JavaScript. Navigation tips:&lt;/p&gt;
   &lt;ul&gt;
-    &lt;li&gt;&lt;code&gt;Space&lt;/code&gt; = Next slide&lt;/li&gt;
-    &lt;li&gt;&lt;code&gt;Shift&lt;/code&gt; + &lt;code&gt;Space&lt;/code&gt; = Previous slide&lt;/li&gt;
-    &lt;li&gt;&lt;code&gt;Esc&lt;/code&gt; = Overview all slides&lt;/li&gt;
-    &lt;li&gt;&lt;code&gt;?&lt;/code&gt; = Overview all keyboard shortcuts&lt;/li&gt;
+    &lt;li&gt;&lt;code&gt;N&lt;/code&gt;, &lt;code&gt;Space&lt;/code&gt; = Next slide&lt;/li&gt;
+    &lt;li&gt;&lt;code&gt;P&lt;/code&gt; = Previous slide&lt;/li&gt;
+    &lt;li&gt;&lt;code&gt;O&lt;/code&gt;, &lt;code&gt;Esc&lt;/code&gt; = Overview all slides&lt;/li&gt;
+    &lt;li&gt;&lt;code&gt;?&lt;/code&gt; = Show all keyboard shortcuts&lt;/li&gt;
     &lt;li&gt;All links are opened in a new window/tab&lt;/li&gt;
     
     
@@ -1131,10 +1200,10 @@ Ottmar&lt;/p&gt;
 &lt;blockquote class=&#34;item-meta&#34;&gt;
   &lt;p&gt;You need a modern browser with activated JavaScript. Navigation tips:&lt;/p&gt;
   &lt;ul&gt;
-    &lt;li&gt;&lt;code&gt;Space&lt;/code&gt; = Next slide&lt;/li&gt;
-    &lt;li&gt;&lt;code&gt;Shift&lt;/code&gt; + &lt;code&gt;Space&lt;/code&gt; = Previous slide&lt;/li&gt;
-    &lt;li&gt;&lt;code&gt;Esc&lt;/code&gt; = Overview all slides&lt;/li&gt;
-    &lt;li&gt;&lt;code&gt;?&lt;/code&gt; = Overview all keyboard shortcuts&lt;/li&gt;
+    &lt;li&gt;&lt;code&gt;N&lt;/code&gt;, &lt;code&gt;Space&lt;/code&gt; = Next slide&lt;/li&gt;
+    &lt;li&gt;&lt;code&gt;P&lt;/code&gt; = Previous slide&lt;/li&gt;
+    &lt;li&gt;&lt;code&gt;O&lt;/code&gt;, &lt;code&gt;Esc&lt;/code&gt; = Overview all slides&lt;/li&gt;
+    &lt;li&gt;&lt;code&gt;?&lt;/code&gt; = Show all keyboard shortcuts&lt;/li&gt;
     &lt;li&gt;All links are opened in a new window/tab&lt;/li&gt;
     
     
@@ -1213,10 +1282,10 @@ Ottmar&lt;/p&gt;
 &lt;blockquote class=&#34;item-meta&#34;&gt;
   &lt;p&gt;You need a modern browser with activated JavaScript. Navigation tips:&lt;/p&gt;
   &lt;ul&gt;
-    &lt;li&gt;&lt;code&gt;Space&lt;/code&gt; = Next slide&lt;/li&gt;
-    &lt;li&gt;&lt;code&gt;Shift&lt;/code&gt; + &lt;code&gt;Space&lt;/code&gt; = Previous slide&lt;/li&gt;
-    &lt;li&gt;&lt;code&gt;Esc&lt;/code&gt; = Overview all slides&lt;/li&gt;
-    &lt;li&gt;&lt;code&gt;?&lt;/code&gt; = Overview all keyboard shortcuts&lt;/li&gt;
+    &lt;li&gt;&lt;code&gt;N&lt;/code&gt;, &lt;code&gt;Space&lt;/code&gt; = Next slide&lt;/li&gt;
+    &lt;li&gt;&lt;code&gt;P&lt;/code&gt; = Previous slide&lt;/li&gt;
+    &lt;li&gt;&lt;code&gt;O&lt;/code&gt;, &lt;code&gt;Esc&lt;/code&gt; = Overview all slides&lt;/li&gt;
+    &lt;li&gt;&lt;code&gt;?&lt;/code&gt; = Show all keyboard shortcuts&lt;/li&gt;
     &lt;li&gt;All links are opened in a new window/tab&lt;/li&gt;
     
     
@@ -1308,10 +1377,10 @@ Ottmar&lt;/p&gt;
 &lt;blockquote class=&#34;item-meta&#34;&gt;
   &lt;p&gt;You need a modern browser with activated JavaScript. Navigation tips:&lt;/p&gt;
   &lt;ul&gt;
-    &lt;li&gt;&lt;code&gt;Space&lt;/code&gt; = Next slide&lt;/li&gt;
-    &lt;li&gt;&lt;code&gt;Shift&lt;/code&gt; + &lt;code&gt;Space&lt;/code&gt; = Previous slide&lt;/li&gt;
-    &lt;li&gt;&lt;code&gt;Esc&lt;/code&gt; = Overview all slides&lt;/li&gt;
-    &lt;li&gt;&lt;code&gt;?&lt;/code&gt; = Overview all keyboard shortcuts&lt;/li&gt;
+    &lt;li&gt;&lt;code&gt;N&lt;/code&gt;, &lt;code&gt;Space&lt;/code&gt; = Next slide&lt;/li&gt;
+    &lt;li&gt;&lt;code&gt;P&lt;/code&gt; = Previous slide&lt;/li&gt;
+    &lt;li&gt;&lt;code&gt;O&lt;/code&gt;, &lt;code&gt;Esc&lt;/code&gt; = Overview all slides&lt;/li&gt;
+    &lt;li&gt;&lt;code&gt;?&lt;/code&gt; = Show all keyboard shortcuts&lt;/li&gt;
     &lt;li&gt;All links are opened in a new window/tab&lt;/li&gt;
     
     

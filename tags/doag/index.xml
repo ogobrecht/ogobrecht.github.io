@@ -6,10 +6,22 @@
     <description>Recent content in doag on Ottmar’s Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 17 Nov 2016 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ogobrecht.github.io/tags/doag/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Schnellstart - Versionskontrolle für existierende (APEX-)Projekte</title>
+      <link>https://ogobrecht.github.io/posts/2019-03-11-doag-regionaltreffen-muenchen/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ogobrecht.github.io/posts/2019-03-11-doag-regionaltreffen-muenchen/</guid>
+      <description>Die Folien zu meinem Vortrag:
+Open HTML presentation in a new window/tab
+You need a modern browser with activated JavaScript. Navigation tips:
+ N, Space = Next slide P = Previous slide O, Esc = Overview all slides ? = Show all keyboard shortcuts All links are opened in a new window/tab   Für das im Vortrag genannte Package PLEX siehe auch das Projekt auf GitHub und diesen Blog Post.</description>
+    </item>
     
     <item>
       <title>Reporting mal anders, Markdown sei Dank</title>
@@ -20,7 +32,7 @@
       <description>Die Folien zu meinem Vortrag:
 Open HTML presentation in a new window/tab
 You need a modern browser with activated JavaScript. Navigation tips:
- Space = Next slide Shift + Space = Previous slide Esc = Overview all slides ? = Overview all keyboard shortcuts All links are opened in a new window/tab   Kurzdarstellung:
+ N, Space = Next slide P = Previous slide O, Esc = Overview all slides ? = Show all keyboard shortcuts All links are opened in a new window/tab   Kurzdarstellung:
 Markdown hat sich in den letzten Jahren als vereinfachte Auszeichnungssprache zur HTML-Erstellung durchgesetzt. Es genügt ein einfacher Texteditor und wenige, allgemein gebräuchliche Konventionen, um z.</description>
     </item>
     
@@ -33,7 +45,7 @@ Markdown hat sich in den letzten Jahren als vereinfachte Auszeichnungssprache zu
       <description>Die Folien zu meinem Vortrag:
 Open HTML presentation in a new window/tab
 You need a modern browser with activated JavaScript. Navigation tips:
- Space = Next slide Shift + Space = Previous slide Esc = Overview all slides ? = Overview all keyboard shortcuts All links are opened in a new window/tab   </description>
+ N, Space = Next slide P = Previous slide O, Esc = Overview all slides ? = Show all keyboard shortcuts All links are opened in a new window/tab   </description>
     </item>
     
     <item>
@@ -45,7 +57,7 @@ You need a modern browser with activated JavaScript. Navigation tips:
       <description>Die Folien zu meinem Vortrag (wurde in einer Vorversion auch auf dem DOAG Regionaltreffen München am 24.03.2015 gezeigt):
 Open HTML presentation in a new window/tab
 You need a modern browser with activated JavaScript. Navigation tips:
- Space = Next slide Shift + Space = Previous slide Esc = Overview all slides ? = Overview all keyboard shortcuts All links are opened in a new window/tab   </description>
+ N, Space = Next slide P = Previous slide O, Esc = Overview all slides ? = Show all keyboard shortcuts All links are opened in a new window/tab   </description>
     </item>
     
     <item>

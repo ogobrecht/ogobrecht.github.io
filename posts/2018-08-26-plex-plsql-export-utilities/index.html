@@ -14,24 +14,23 @@
   <link rel="alternate" type="application/atom+xml" title="Ottmar’s Notes" href="https://ogobrecht.github.io//feed.xml">
   <link rel="shortcut icon" href="/assets/icon/favicon.ico">
 	<link rel="icon" sizes="16x16 32x32 64x64" href="/assets/icon/favicon.ico">
-	<link rel="icon" type="image/png" sizes="196x196" href="/assets/icon/favicon-192.png">
-	<link rel="icon" type="image/png" sizes="160x160" href="/assets/icon/favicon-160.png">
-	<link rel="icon" type="image/png" sizes="96x96" href="/assets/icon/favicon-96.png">
-	<link rel="icon" type="image/png" sizes="64x64" href="/assets/icon/favicon-64.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/assets/icon/favicon-32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="/assets/icon/favicon-16.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/assets/icon/favicon-32.png">
+	<link rel="icon" type="image/png" sizes="64x64" href="/assets/icon/favicon-64.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/assets/icon/favicon-96.png">
+	<link rel="icon" type="image/png" sizes="160x160" href="/assets/icon/favicon-160.png">
+	<link rel="icon" type="image/png" sizes="196x196" href="/assets/icon/favicon-192.png">
 	<link rel="apple-touch-icon" href="/assets/icon/favicon-57.png">
-	<link rel="apple-touch-icon" sizes="114x114" href="/assets/icon/favicon-114.png">
-	<link rel="apple-touch-icon" sizes="72x72" href="/assets/icon/favicon-72.png">
-	<link rel="apple-touch-icon" sizes="144x144" href="/assets/icon/favicon-144.png">
 	<link rel="apple-touch-icon" sizes="60x60" href="/assets/icon/favicon-60.png">
-	<link rel="apple-touch-icon" sizes="120x120" href="/assets/icon/favicon-120.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/assets/icon/favicon-72.png">
 	<link rel="apple-touch-icon" sizes="76x76" href="/assets/icon/favicon-76.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/assets/icon/favicon-120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/assets/icon/favicon-144.png">
 	<link rel="apple-touch-icon" sizes="152x152" href="/assets/icon/favicon-152.png">
 	<link rel="apple-touch-icon" sizes="180x180" href="/assets/icon/favicon-180.png">
+	<meta name="msapplication-config" content="/assets/icon/browserconfig.xml">
 	<meta name="msapplication-TileColor" content="#FFFFFF">
 	<meta name="msapplication-TileImage" content="/assets/icon/favicon-144.png">
-	<meta name="msapplication-config" content="/assets/icon/browserconfig.xml">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
 
@@ -180,6 +179,7 @@ Also, the possibility to export the data of your tables into CSV files does not 
     <span class="c1">-- correct file links in install script
 </span><span class="c1"></span>    <span class="k">IF</span> <span class="n">l_files</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;scripts/install_frontend_generated_by_apex.sql&#39;</span> <span class="k">THEN</span>
       <span class="n">l_files</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">contents</span> <span class="p">:</span><span class="o">=</span> <span class="k">replace</span><span class="p">(</span><span class="n">l_files</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">contents</span><span class="p">,</span> <span class="s1">&#39;@../app_frontend/&#39;</span><span class="p">,</span> <span class="s1">&#39;@../app_ui/&#39;</span><span class="p">);</span>
+    <span class="k">END</span> <span class="k">IF</span><span class="p">;</span>
   <span class="k">END</span> <span class="n">LOOP</span><span class="p">;</span>
 
   <span class="c1">-- more alignments...
@@ -221,7 +221,7 @@ Ottmar</p>
 </div><!--articleBody-end-->
 
 <footer>
-  <p class="item-meta">Last changed on January 11, 2019, you can comment via <a href="mailto:ottmar.gobrecht@gmail.com?subject=Comment%20on%20%2fposts%2f2018-08-26-plex-plsql-export-utilities%2f">email</a> or postcard (more <a href="/about#comments">about this...</a>)</p>
+  <p class="item-meta">Last changed on March 1, 2019, you can comment via <a href="mailto:ottmar.gobrecht@gmail.com?subject=Comment%20on%20%2fposts%2f2018-08-26-plex-plsql-export-utilities%2f">email</a> or postcard (more <a href="/about#comments">about this...</a>)</p>
   <span class="left item-meta">&#x2190; <a href="/posts/2018-07-25-apex-export-and-version-control/">APEX_EXPORT and Version Control</a></span>
   <span class="right item-meta"><a href="/posts/2018-12-02-new-major-version-of-d3-force-network-chart-available/">New Major Version of D3 Force Network Chart Available</a> &#x2192;</span>
 </footer>

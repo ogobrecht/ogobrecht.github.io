@@ -10,7 +10,7 @@
 <link href="https://ogobrecht.github.io/index.xml" rel="self" type="application/atom+xml" />
 <link href="https://ogobrecht.github.io/" rel="alternate" type="text/html" hreflang="en" />
 <generator uri="https://gohugo.io/" version="0.53">Hugo</generator>
-<updated>2019-03-11T15:22:59+01:00</updated>
+<updated>2019-03-12T19:40:56+01:00</updated>
 
 
 <entry xml:lang="de">
@@ -24,10 +24,14 @@
 <category term="slides" label="Slides" scheme="https://ogobrecht.github.io/tags/" />
 <category term="doag" label="DOAG" scheme="https://ogobrecht.github.io/tags/" />
 <published>2019-03-11T00:00:00+01:00</published>
-<updated>2019-03-11T00:00:00+01:00</updated>
+<updated>2019-03-12T19:38:00+01:00</updated>
 <content type="html" xml:base="https://ogobrecht.github.io/posts/2019-03-11-doag-regionaltreffen-muenchen/">
 &lt;p&gt;&lt;em&gt;DOAG Regionaltreffen 11. März 2019, München&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Die Folien zu meinem Vortrag:&lt;/p&gt;
+&lt;p&gt;Ich hatte die Ehre an einer gemeinsamen Veranstaltung der DOAG Regionalgruppe München und der Oracle APEX Meetup-Gruppe München einen Vortrag halten zu dürfen zu dem im Titel genannten Thema.&lt;/p&gt;
+
+&lt;p&gt;Danke an Alle, die an dem Abend da waren. Der Raum war voll - wohl wegen Carsten Czarski und den von ihm vorgestellten APEX 19.1 Data Loading Features. Mit so vielen Teilnehmern macht das gleich doppelt Spaß.&lt;/p&gt;
+
+&lt;p&gt;Für die Teilnehmer hier die Folien:&lt;/p&gt;
 
 
 &lt;p&gt;&lt;a href=&#34;/slides/2019-03-11-schnellstart-versionskontrolle-oracle-apex-projekte/&#34; target=&#34;_blank&#34;&gt;Open HTML presentation in a new window/tab&lt;/a&gt;&lt;/p&gt;
@@ -77,6 +81,9 @@
 &lt;/ul&gt;
 
 &lt;p&gt;Die Hintergrundfotos der Folien stammen von unsplash.com - hier der Link zur vollständigen &lt;a href=&#34;https://unsplash.com/collections/4373998/quickstart-version-control-for-oracle-apex-projects&#34;&gt;Foto-Kollektion&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Happy coding and version controlling :-)&lt;br&gt;
+Ottmar&lt;/p&gt;
 
 </content>
 </entry>

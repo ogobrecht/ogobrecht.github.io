@@ -3,8 +3,13 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://ogobrecht.github.io/posts/2019-06-09-new-version-of-d3-force-network-chart-available/</loc>
+    <lastmod>2019-06-09T16:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ogobrecht.github.io/posts/2019-03-11-doag-regionaltreffen-muenchen/</loc>
-    <lastmod>2019-03-12T19:38:00+00:00</lastmod>
+    <lastmod>2019-03-16T13:06:00+00:00</lastmod>
   </url>
   
   <url>
@@ -138,7 +143,7 @@
   
   <url>
     <loc>https://ogobrecht.github.io/</loc>
-    <lastmod>2019-03-12T19:38:00+00:00</lastmod>
+    <lastmod>2019-06-09T16:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -151,7 +156,7 @@
   
   <url>
     <loc>https://ogobrecht.github.io/posts/</loc>
-    <lastmod>2019-03-12T19:38:00+00:00</lastmod>
+    <lastmod>2019-06-09T16:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -165,13 +170,13 @@
   
   <url>
     <loc>https://ogobrecht.github.io/tags/apex/</loc>
-    <lastmod>2019-03-12T19:38:00+00:00</lastmod>
+    <lastmod>2019-06-09T16:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://ogobrecht.github.io/tags/chart/</loc>
-    <lastmod>2018-12-05T20:00:00+00:00</lastmod>
+    <lastmod>2019-06-09T16:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -183,13 +188,13 @@
   
   <url>
     <loc>https://ogobrecht.github.io/tags/d3js/</loc>
-    <lastmod>2018-12-05T20:00:00+00:00</lastmod>
+    <lastmod>2019-06-09T16:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://ogobrecht.github.io/tags/doag/</loc>
-    <lastmod>2019-03-12T19:38:00+00:00</lastmod>
+    <lastmod>2019-03-16T13:06:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -267,7 +272,7 @@
   
   <url>
     <loc>https://ogobrecht.github.io/tags/oracle/</loc>
-    <lastmod>2019-03-12T19:38:00+00:00</lastmod>
+    <lastmod>2019-06-09T16:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -291,7 +296,7 @@
   
   <url>
     <loc>https://ogobrecht.github.io/tags/plugin/</loc>
-    <lastmod>2018-12-05T20:00:00+00:00</lastmod>
+    <lastmod>2019-06-09T16:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -321,7 +326,7 @@
   
   <url>
     <loc>https://ogobrecht.github.io/tags/slides/</loc>
-    <lastmod>2019-03-12T19:38:00+00:00</lastmod>
+    <lastmod>2019-03-16T13:06:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -333,13 +338,13 @@
   
   <url>
     <loc>https://ogobrecht.github.io/tags/svg/</loc>
-    <lastmod>2018-12-05T20:00:00+00:00</lastmod>
+    <lastmod>2019-06-09T16:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://ogobrecht.github.io/tags/version-control/</loc>
-    <lastmod>2019-03-12T19:38:00+00:00</lastmod>
+    <lastmod>2019-03-16T13:06:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

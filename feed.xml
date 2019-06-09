@@ -10,24 +10,55 @@
 <link href="https://ogobrecht.github.io/index.xml" rel="self" type="application/atom+xml" />
 <link href="https://ogobrecht.github.io/" rel="alternate" type="text/html" hreflang="en" />
 <generator uri="https://gohugo.io/" version="0.53">Hugo</generator>
-<updated>2019-03-12T19:40:56+01:00</updated>
+<updated>2019-06-09T20:34:37+01:00</updated>
 
+
+<entry xml:lang="en">
+<id>https://ogobrecht.github.io/posts/2019-06-09-new-version-of-d3-force-network-chart-available/</id>
+<link href="https://ogobrecht.github.io/posts/2019-06-09-new-version-of-d3-force-network-chart-available/" rel="alternate" type="text/html" title="New Version of D3 Force Network Chart Available" />
+<title type="html">New Version of D3 Force Network Chart Available</title>
+<summary type="html">Links can now have a label</summary>
+<category term="oracle" label="Oracle" scheme="https://ogobrecht.github.io/tags/" />
+<category term="apex" label="APEX" scheme="https://ogobrecht.github.io/tags/" />
+<category term="plugin" label="Plugin" scheme="https://ogobrecht.github.io/tags/" />
+<category term="d3js" label="D3.js" scheme="https://ogobrecht.github.io/tags/" />
+<category term="chart" label="Chart" scheme="https://ogobrecht.github.io/tags/" />
+<category term="svg" label="SVG" scheme="https://ogobrecht.github.io/tags/" />
+<published>2019-06-09T00:00:00+01:00</published>
+<updated>2019-06-09T16:00:00+01:00</updated>
+<content type="html" xml:base="https://ogobrecht.github.io/posts/2019-06-09-new-version-of-d3-force-network-chart-available/">
+&lt;p&gt;&lt;em&gt;Links can now have a label&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;link-label.png&#34; alt=&#34;Link label example&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;First of all: Thanks to the community!&lt;/p&gt;
+
+&lt;p&gt;From time to time someone has new ideas or questions about the D3 network chart. Some time ago I thought my D3 implementation is more or less feature complete. But in the last weeks I worked again on the code to bring in new feature wishes from the community.&lt;/p&gt;
+
+&lt;p&gt;The most visible one in the new version 3.1 is the ability to add labels to links - see the links between Allen, Blake and Ward in the screenshot above. The labels are positioned in a way that they are always readable - this is the reason why they appear sometimes above and sometimes below a link line (they are rotated, if needed). The nice thing is that you can also read both labels when you have links in both directions between two nodes. The other benefit of having labels on links is that they extend the area for the link click and hover events. This improves the usabiltiy in cases where the links should show a tooltip when they are hovered or some action should be executed when they are clicked. This is normally not so easy because the links are so narrow.&lt;/p&gt;
+
+&lt;p&gt;There are also new helper methods and one new option - for the full change log see the project on &lt;a href=&#34;https://github.com/ogobrecht/d3-force-apex-plugin#changelog&#34;&gt;GitHub&lt;/a&gt; and for online demos either the &lt;a href=&#34;https://ogobrecht.github.io/d3-force-apex-plugin/tutorial-1-getting-started.html&#34;&gt;standalone version in the docs&lt;/a&gt; or the APEX plug-in version on &lt;a href=&#34;https://apex.oracle.com/pls/apex/f?p=18290:1&#34;&gt;apex.oracle.com&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Happy networking :-)&lt;br&gt;
+Ottmar&lt;/p&gt;
+
+</content>
+</entry>
 
 <entry xml:lang="de">
 <id>https://ogobrecht.github.io/posts/2019-03-11-doag-regionaltreffen-muenchen/</id>
-<link href="https://ogobrecht.github.io/posts/2019-03-11-doag-regionaltreffen-muenchen/" rel="alternate" type="text/html" title="Schnellstart - Versionskontrolle für existierende (APEX-)Projekte" />
-<title type="html">Schnellstart - Versionskontrolle für existierende (APEX-)Projekte</title>
-<summary type="html">DOAG Regionaltreffen 11. März 2019, München</summary>
+<link href="https://ogobrecht.github.io/posts/2019-03-11-doag-regionaltreffen-muenchen/" rel="alternate" type="text/html" title="DOAG Regionaltreffen 11. März 2019, München" />
+<title type="html">DOAG Regionaltreffen 11. März 2019, München</title>
+<summary type="html">Vortrag: Schnellstart - Versionskontrolle für existierende (APEX-)Projekte</summary>
 <category term="oracle" label="Oracle" scheme="https://ogobrecht.github.io/tags/" />
 <category term="apex" label="APEX" scheme="https://ogobrecht.github.io/tags/" />
 <category term="version-control" label="Version Control" scheme="https://ogobrecht.github.io/tags/" />
 <category term="slides" label="Slides" scheme="https://ogobrecht.github.io/tags/" />
 <category term="doag" label="DOAG" scheme="https://ogobrecht.github.io/tags/" />
 <published>2019-03-11T00:00:00+01:00</published>
-<updated>2019-03-12T19:38:00+01:00</updated>
+<updated>2019-03-16T13:06:00+01:00</updated>
 <content type="html" xml:base="https://ogobrecht.github.io/posts/2019-03-11-doag-regionaltreffen-muenchen/">
-&lt;p&gt;&lt;em&gt;DOAG Regionaltreffen 11. März 2019, München&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Ich hatte die Ehre an einer gemeinsamen Veranstaltung der DOAG Regionalgruppe München und der Oracle APEX Meetup-Gruppe München einen Vortrag halten zu dürfen zu dem im Titel genannten Thema.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Vortrag: Schnellstart - Versionskontrolle für existierende (APEX-)Projekte&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Ich hatte die Ehre an einer gemeinsamen Veranstaltung der DOAG Regionalgruppe München und der Oracle APEX Meetup-Gruppe München einen Vortrag halten zu dürfen zu dem im Untertitel genannten Thema.&lt;/p&gt;
 
 &lt;p&gt;Danke an Alle, die an dem Abend da waren. Der Raum war voll - wohl wegen Carsten Czarski und den von ihm vorgestellten APEX 19.1 Data Loading Features. Mit so vielen Teilnehmern macht das gleich doppelt Spaß.&lt;/p&gt;
 

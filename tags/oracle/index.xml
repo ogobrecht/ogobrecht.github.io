@@ -6,18 +6,29 @@
     <description>Recent content in oracle on Ottmar’s Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 09 Jun 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ogobrecht.github.io/tags/oracle/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Schnellstart - Versionskontrolle für existierende (APEX-)Projekte</title>
+      <title>New Version of D3 Force Network Chart Available</title>
+      <link>https://ogobrecht.github.io/posts/2019-06-09-new-version-of-d3-force-network-chart-available/</link>
+      <pubDate>Sun, 09 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ogobrecht.github.io/posts/2019-06-09-new-version-of-d3-force-network-chart-available/</guid>
+      <description>First of all: Thanks to the community!
+From time to time someone has new ideas or questions about the D3 network chart. Some time ago I thought my D3 implementation is more or less feature complete. But in the last weeks I worked again on the code to bring in new feature wishes from the community.
+The most visible one in the new version 3.1 is the ability to add labels to links - see the links between Allen, Blake and Ward in the screenshot above.</description>
+    </item>
+    
+    <item>
+      <title>DOAG Regionaltreffen 11. März 2019, München</title>
       <link>https://ogobrecht.github.io/posts/2019-03-11-doag-regionaltreffen-muenchen/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
       
       <guid>https://ogobrecht.github.io/posts/2019-03-11-doag-regionaltreffen-muenchen/</guid>
-      <description>Ich hatte die Ehre an einer gemeinsamen Veranstaltung der DOAG Regionalgruppe München und der Oracle APEX Meetup-Gruppe München einen Vortrag halten zu dürfen zu dem im Titel genannten Thema.
+      <description>Ich hatte die Ehre an einer gemeinsamen Veranstaltung der DOAG Regionalgruppe München und der Oracle APEX Meetup-Gruppe München einen Vortrag halten zu dürfen zu dem im Untertitel genannten Thema.
 Danke an Alle, die an dem Abend da waren. Der Raum war voll - wohl wegen Carsten Czarski und den von ihm vorgestellten APEX 19.1 Data Loading Features. Mit so vielen Teilnehmern macht das gleich doppelt Spaß.
 Für die Teilnehmer hier die Folien:</description>
     </item>

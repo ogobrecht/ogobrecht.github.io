@@ -6,6 +6,7 @@
     <description>Recent content in Tags on Ottmar’s Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
+    <lastBuildDate>Wed, 26 Jun 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ogobrecht.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -13,9 +14,36 @@
     <item>
       <title>apex</title>
       <link>https://ogobrecht.github.io/tags/apex/</link>
-      <pubDate>Sun, 09 Jun 2019 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 26 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://ogobrecht.github.io/tags/apex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>oracle</title>
+      <link>https://ogobrecht.github.io/tags/oracle/</link>
+      <pubDate>Wed, 26 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ogobrecht.github.io/tags/oracle/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>plsql</title>
+      <link>https://ogobrecht.github.io/tags/plsql/</link>
+      <pubDate>Wed, 26 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ogobrecht.github.io/tags/plsql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>version-control</title>
+      <link>https://ogobrecht.github.io/tags/version-control/</link>
+      <pubDate>Wed, 26 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ogobrecht.github.io/tags/version-control/</guid>
       <description></description>
     </item>
     
@@ -29,20 +57,29 @@
     </item>
     
     <item>
-      <title>converter</title>
-      <link>https://ogobrecht.github.io/tags/converter/</link>
-      <pubDate>Thu, 10 Jan 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://ogobrecht.github.io/tags/converter/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>d3js</title>
       <link>https://ogobrecht.github.io/tags/d3js/</link>
       <pubDate>Sun, 09 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://ogobrecht.github.io/tags/d3js/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>plugin</title>
+      <link>https://ogobrecht.github.io/tags/plugin/</link>
+      <pubDate>Sun, 09 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ogobrecht.github.io/tags/plugin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>svg</title>
+      <link>https://ogobrecht.github.io/tags/svg/</link>
+      <pubDate>Sun, 09 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ogobrecht.github.io/tags/svg/</guid>
       <description></description>
     </item>
     
@@ -56,11 +93,20 @@
     </item>
     
     <item>
-      <title>docker</title>
-      <link>https://ogobrecht.github.io/tags/docker/</link>
-      <pubDate>Tue, 13 Jun 2017 00:00:00 +0000</pubDate>
+      <title>slides</title>
+      <link>https://ogobrecht.github.io/tags/slides/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://ogobrecht.github.io/tags/docker/</guid>
+      <guid>https://ogobrecht.github.io/tags/slides/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>converter</title>
+      <link>https://ogobrecht.github.io/tags/converter/</link>
+      <pubDate>Thu, 10 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ogobrecht.github.io/tags/converter/</guid>
       <description></description>
     </item>
     
@@ -74,15 +120,6 @@
     </item>
     
     <item>
-      <title>dokuwiki</title>
-      <link>https://ogobrecht.github.io/tags/dokuwiki/</link>
-      <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://ogobrecht.github.io/tags/dokuwiki/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>generator</title>
       <link>https://ogobrecht.github.io/tags/generator/</link>
       <pubDate>Thu, 10 Jan 2019 00:00:00 +0000</pubDate>
@@ -92,11 +129,38 @@
     </item>
     
     <item>
-      <title>html</title>
-      <link>https://ogobrecht.github.io/tags/html/</link>
-      <pubDate>Wed, 29 Nov 2017 00:00:00 +0000</pubDate>
+      <title>npm</title>
+      <link>https://ogobrecht.github.io/tags/npm/</link>
+      <pubDate>Thu, 10 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://ogobrecht.github.io/tags/html/</guid>
+      <guid>https://ogobrecht.github.io/tags/npm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>project</title>
+      <link>https://ogobrecht.github.io/tags/project/</link>
+      <pubDate>Thu, 10 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ogobrecht.github.io/tags/project/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>oddgen</title>
+      <link>https://ogobrecht.github.io/tags/oddgen/</link>
+      <pubDate>Wed, 26 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://ogobrecht.github.io/tags/oddgen/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sqlplus</title>
+      <link>https://ogobrecht.github.io/tags/sqlplus/</link>
+      <pubDate>Wed, 25 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://ogobrecht.github.io/tags/sqlplus/</guid>
       <description></description>
     </item>
     
@@ -110,6 +174,33 @@
     </item>
     
     <item>
+      <title>postcard</title>
+      <link>https://ogobrecht.github.io/tags/postcard/</link>
+      <pubDate>Wed, 27 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://ogobrecht.github.io/tags/postcard/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>html</title>
+      <link>https://ogobrecht.github.io/tags/html/</link>
+      <pubDate>Wed, 29 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://ogobrecht.github.io/tags/html/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker</title>
+      <link>https://ogobrecht.github.io/tags/docker/</link>
+      <pubDate>Tue, 13 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://ogobrecht.github.io/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>mac</title>
       <link>https://ogobrecht.github.io/tags/mac/</link>
       <pubDate>Tue, 21 Mar 2017 00:00:00 +0000</pubDate>
@@ -119,11 +210,29 @@
     </item>
     
     <item>
-      <title>markdown</title>
-      <link>https://ogobrecht.github.io/tags/markdown/</link>
-      <pubDate>Thu, 17 Nov 2016 00:00:00 +0000</pubDate>
+      <title>dokuwiki</title>
+      <link>https://ogobrecht.github.io/tags/dokuwiki/</link>
+      <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://ogobrecht.github.io/tags/markdown/</guid>
+      <guid>https://ogobrecht.github.io/tags/dokuwiki/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>php</title>
+      <link>https://ogobrecht.github.io/tags/php/</link>
+      <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://ogobrecht.github.io/tags/php/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>revealjs</title>
+      <link>https://ogobrecht.github.io/tags/revealjs/</link>
+      <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://ogobrecht.github.io/tags/revealjs/</guid>
       <description></description>
     </item>
     
@@ -146,83 +255,11 @@
     </item>
     
     <item>
-      <title>npm</title>
-      <link>https://ogobrecht.github.io/tags/npm/</link>
-      <pubDate>Thu, 10 Jan 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://ogobrecht.github.io/tags/npm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>oddgen</title>
-      <link>https://ogobrecht.github.io/tags/oddgen/</link>
-      <pubDate>Wed, 26 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://ogobrecht.github.io/tags/oddgen/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>oracle</title>
-      <link>https://ogobrecht.github.io/tags/oracle/</link>
-      <pubDate>Sun, 09 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://ogobrecht.github.io/tags/oracle/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>pandoc</title>
       <link>https://ogobrecht.github.io/tags/pandoc/</link>
       <pubDate>Mon, 23 Jan 2017 00:00:00 +0000</pubDate>
       
       <guid>https://ogobrecht.github.io/tags/pandoc/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>php</title>
-      <link>https://ogobrecht.github.io/tags/php/</link>
-      <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://ogobrecht.github.io/tags/php/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>plsql</title>
-      <link>https://ogobrecht.github.io/tags/plsql/</link>
-      <pubDate>Thu, 10 Jan 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://ogobrecht.github.io/tags/plsql/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>plugin</title>
-      <link>https://ogobrecht.github.io/tags/plugin/</link>
-      <pubDate>Sun, 09 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://ogobrecht.github.io/tags/plugin/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>postcard</title>
-      <link>https://ogobrecht.github.io/tags/postcard/</link>
-      <pubDate>Wed, 27 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://ogobrecht.github.io/tags/postcard/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>project</title>
-      <link>https://ogobrecht.github.io/tags/project/</link>
-      <pubDate>Thu, 10 Jan 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://ogobrecht.github.io/tags/project/</guid>
       <description></description>
     </item>
     
@@ -236,47 +273,11 @@
     </item>
     
     <item>
-      <title>revealjs</title>
-      <link>https://ogobrecht.github.io/tags/revealjs/</link>
-      <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
+      <title>markdown</title>
+      <link>https://ogobrecht.github.io/tags/markdown/</link>
+      <pubDate>Thu, 17 Nov 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://ogobrecht.github.io/tags/revealjs/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>slides</title>
-      <link>https://ogobrecht.github.io/tags/slides/</link>
-      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://ogobrecht.github.io/tags/slides/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>sqlplus</title>
-      <link>https://ogobrecht.github.io/tags/sqlplus/</link>
-      <pubDate>Wed, 25 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://ogobrecht.github.io/tags/sqlplus/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>svg</title>
-      <link>https://ogobrecht.github.io/tags/svg/</link>
-      <pubDate>Sun, 09 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://ogobrecht.github.io/tags/svg/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>version-control</title>
-      <link>https://ogobrecht.github.io/tags/version-control/</link>
-      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://ogobrecht.github.io/tags/version-control/</guid>
+      <guid>https://ogobrecht.github.io/tags/markdown/</guid>
       <description></description>
     </item>
     

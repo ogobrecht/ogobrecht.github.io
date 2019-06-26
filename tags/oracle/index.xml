@@ -6,10 +6,20 @@
     <description>Recent content in oracle on Ottmar’s Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 09 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 26 Jun 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ogobrecht.github.io/tags/oracle/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>New Major Version of PL/SQL Export Utilities Available</title>
+      <link>https://ogobrecht.github.io/posts/2019-06-26-new-major-version-of-plex-available/</link>
+      <pubDate>Wed, 26 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ogobrecht.github.io/posts/2019-06-26-new-major-version-of-plex-available/</guid>
+      <description>PLEX is a PL/SQL package with export utilities - see this post what it can do for you. In the past it was dependent on APEX for two reasons: The APEX_EXPORT package to allow exporting an APEX app and the APEX_ZIP package for compressing the resulting file collection to a zip file.
+After the first public release of PLEX, I got a comment like &amp;ldquo;Nice tool, but I don&amp;rsquo;t use APEX&amp;rdquo;.</description>
+    </item>
     
     <item>
       <title>New Version of D3 Force Network Chart Available</title>
@@ -68,7 +78,7 @@ Normally in the business world I see minimalistic comments in the code and a ded
       <pubDate>Sun, 26 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>https://ogobrecht.github.io/posts/2018-08-26-plex-plsql-export-utilities/</guid>
-      <description>PLEX is a standalone PL/SQL package with export utilities. It was created to be able to quickstart version control for existing (APEX) apps and depends on APEX 5.1.4 or later for APEX_EXPORT and APEX_ZIP. It currently has two main functions called BackApp and Queries_to_CSV. Queries_to_CSV is used by BackApp as a helper function, but its functionality is also useful as a standalone. This post is all about BackApp, which has the following features:</description>
+      <description>UPDATE 2019-06-26 regarding PLEX v2.0.0: PLEX can now be installed and used without an APEX installation. However, to export an APEX app you need APEX 5.1.4 or higher installed on your system. Without APEX your PLEX package has no options for an app export because of conditional compilation. You are still able to export your schema DDL and table data. Hope this helps some folks out there &amp;ndash; Ottmar</description>
     </item>
     
     <item>
@@ -141,7 +151,7 @@ And what, if I take this Markdown text with the data in the code blocks and post
       <description>Die Folien zu meinem Vortrag:
 Open HTML presentation in a new window/tab
 You need a modern browser with activated JavaScript. Navigation tips:
- N, Space = Next slide P = Previous slide O, Esc = Overview all slides ? = Show all keyboard shortcuts All links are opened in a new window/tab   Kurzdarstellung:
+N, Space = Next slideP = Previous slideO, Esc = Overview all slides? = Show all keyboard shortcutsAll links are opened in a new window/tabKurzdarstellung:
 Markdown hat sich in den letzten Jahren als vereinfachte Auszeichnungssprache zur HTML-Erstellung durchgesetzt. Es genügt ein einfacher Texteditor und wenige, allgemein gebräuchliche Konventionen, um z.</description>
     </item>
     
@@ -173,7 +183,7 @@ Moritz hat mir dankenswerterweise für tagsüber Arbeitsasyl in seinem Office ge
       <description>Die Folien zu meinem Vortrag:
 Open HTML presentation in a new window/tab
 You need a modern browser with activated JavaScript. Navigation tips:
- N, Space = Next slide P = Previous slide O, Esc = Overview all slides ? = Show all keyboard shortcuts All links are opened in a new window/tab   </description>
+N, Space = Next slideP = Previous slideO, Esc = Overview all slides? = Show all keyboard shortcutsAll links are opened in a new window/tab</description>
     </item>
     
     <item>
@@ -205,7 +215,7 @@ What is the problem on a subdomain? Internet Explorer including version 11 has a
       <description>Die Folien zu meinem Vortrag (wurde in einer Vorversion auch auf dem DOAG Regionaltreffen München am 24.03.2015 gezeigt):
 Open HTML presentation in a new window/tab
 You need a modern browser with activated JavaScript. Navigation tips:
- N, Space = Next slide P = Previous slide O, Esc = Overview all slides ? = Show all keyboard shortcuts All links are opened in a new window/tab   </description>
+N, Space = Next slideP = Previous slideO, Esc = Overview all slides? = Show all keyboard shortcutsAll links are opened in a new window/tab</description>
     </item>
     
     <item>
@@ -214,7 +224,8 @@ You need a modern browser with activated JavaScript. Navigation tips:
       <pubDate>Sun, 01 Mar 2015 00:00:00 +0000</pubDate>
       
       <guid>https://ogobrecht.github.io/posts/2015-03-01-d3js-grundlagen/</guid>
-      <description>Inhaltsverzeichnis  Einleitung Beispiele von der D3 Homepage D3: Was ist das? Das Fundament: SVG Der Unterschied: Selectors versus Selections Die D3 Mengenlehre: Wie man Daten an das DOM bindet Das Geheimnis der Geschwindigkeit Wiederverwendung von Chart Code Exkurs: Closures in JavaScript Die Königsklasse: Physik-Simulationen Netzwerken: Ein Plugin (nicht nur) für APEX Fazit   Einleitung Dieser Artikel erschien in der DOAG/SOUG News 02-2015 und steht auch im Original zur Verfügung.</description>
+      <description>InhaltsverzeichnisEinleitung Dieser Artikel erschien in der DOAG/SOUG News 02-2015 und steht auch im Original zur Verfügung. Im Gegensatz zu der Papierversion der DOAG haben wir natürlich auf einer Webseite alle Möglichkeiten, D3 live zu zeigen - also los, wir starten mit einer Netzwerkvisualisierung live im Browser (JavaScript muß aktiv sein, damit die Beispiele auf dieser Seite funktionieren):
+ Knoten dürfen bewegt werden ;-)  D3 ist eine JavaScript Bibliothek zum Manipulieren von HTML Dokumenten auf der Basis von Daten und setzt dabei auf die Webstandards HTML, SVG und CSS.</description>
     </item>
     
     <item>

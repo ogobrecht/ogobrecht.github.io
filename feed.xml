@@ -9,9 +9,41 @@
 <id>https://ogobrecht.github.io/index.xml</id>
 <link href="https://ogobrecht.github.io/index.xml" rel="self" type="application/atom+xml" />
 <link href="https://ogobrecht.github.io/" rel="alternate" type="text/html" hreflang="en" />
-<generator uri="https://gohugo.io/" version="0.53">Hugo</generator>
-<updated>2019-06-09T20:34:37+01:00</updated>
+<generator uri="https://gohugo.io/" version="0.55.6">Hugo</generator>
+<updated>2019-06-26T22:00:14+01:00</updated>
 
+
+<entry xml:lang="en">
+<id>https://ogobrecht.github.io/posts/2019-06-26-new-major-version-of-plex-available/</id>
+<link href="https://ogobrecht.github.io/posts/2019-06-26-new-major-version-of-plex-available/" rel="alternate" type="text/html" title="New Major Version of PL/SQL Export Utilities Available" />
+<title type="html">New Major Version of PL/SQL Export Utilities Available</title>
+<summary type="html">PLEX is now independent from an APEX installation</summary>
+<category term="oracle" label="Oracle" scheme="https://ogobrecht.github.io/tags/" />
+<category term="apex" label="APEX" scheme="https://ogobrecht.github.io/tags/" />
+<category term="plsql" label="PL/SQL" scheme="https://ogobrecht.github.io/tags/" />
+<category term="version-control" label="Version Control" scheme="https://ogobrecht.github.io/tags/" />
+<published>2019-06-26T00:00:00+01:00</published>
+<updated>2019-06-26T21:49:00+01:00</updated>
+<content type="html" xml:base="https://ogobrecht.github.io/posts/2019-06-26-new-major-version-of-plex-available/">
+&lt;p&gt;&lt;em&gt;PLEX is now independent from an APEX installation&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;PLEX is a PL/SQL package with export utilities - see &lt;a href=&#34;https://ogobrecht.github.io/posts/2018-08-26-plex-plsql-export-utilities/&#34;&gt;this post&lt;/a&gt; what it can do for you. In the past it was dependent on APEX for two reasons: The APEX_EXPORT package to allow exporting an APEX app and the APEX_ZIP package for compressing the resulting file collection to a zip file.&lt;/p&gt;
+
+&lt;p&gt;After the first public release of PLEX, I got a comment like &amp;ldquo;Nice tool, but I don&amp;rsquo;t use APEX&amp;rdquo;. I thought I should make PLEX independent from APEX to allow at least the export of all the schema DDL and also the table data. Some weeks ago Jürgen Schuster contacted me to try out PLEX for an switch from Subversion to Git for one of his customer projects. It turns out that PLEX was not able to export the schema DDL because of errors from DBMS_METADATA regarding many Java classes. And the second issue was that one of their machines had no APEX installed. This was the final trigger for me to rework the implementation of PLEX.&lt;/p&gt;
+
+&lt;p&gt;PLEX is now independent from an APEX installation. Thanks to Anton Scheffer for his &lt;a href=&#34;https://technology.amis.nl/2010/03/13/utl_compress-gzip-and-zlib/&#34;&gt;as_zip package&lt;/a&gt;. PLEX reuses the methods for compressing files and uses conditional compilation to include/exclude functionality depending on APEX. Because PLEX cannot rely on APEX anymore, the return type for the methods &lt;strong&gt;backapp&lt;/strong&gt; and &lt;strong&gt;queries_to_csv&lt;/strong&gt; has changed from &lt;code&gt;apex_t_export_files&lt;/code&gt; to &lt;code&gt;plex.tab_export_files&lt;/code&gt;. This was unavoidable and if you have existing scripts and you want to update to the new PLEX version, you have to change the variables based on that return type. A simple search and replace will normally do the trick. This breaking change in the PLEX API is also the reason for a new major version.&lt;/p&gt;
+
+&lt;p&gt;The other improvement is better error handling and logging. Per default you will find two files in an export collection: plex_runtime_log and plex_error_log. The former is for an overview what happened and how long it took and the latter is for detailed error messages. If you encounter errors and you think that should not happen and is a problem of PLEX, then please open an &lt;a href=&#34;https://github.com/ogobrecht/plex/issues/new&#34;&gt;issue on GitHub&lt;/a&gt;. I was able to export the schema APEX_19_0100 with around 5000 objects on my dev machine&amp;hellip;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ogobrecht/plex&#34;&gt;Project on Github&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ogobrecht/plex/archive/v2.0.0.zip&#34;&gt;Direct download of version 2.0.0&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Happy exporting :-)&lt;br&gt;
+Ottmar&lt;/p&gt;
+
+</content>
+</entry>
 
 <entry xml:lang="en">
 <id>https://ogobrecht.github.io/posts/2019-06-09-new-version-of-d3-force-network-chart-available/</id>
@@ -318,12 +350,16 @@ window.onload = function() {
 <category term="plsql" label="PL/SQL" scheme="https://ogobrecht.github.io/tags/" />
 <category term="version-control" label="Version Control" scheme="https://ogobrecht.github.io/tags/" />
 <published>2018-08-26T00:00:00+01:00</published>
-<updated>2019-03-01T20:01:00+01:00</updated>
+<updated>2019-06-26T21:49:00+01:00</updated>
 <content type="html" xml:base="https://ogobrecht.github.io/posts/2018-08-26-plex-plsql-export-utilities/">
 &lt;p&gt;&lt;em&gt;Export Oracle APEX app, all schema objects and table data in one go&lt;/em&gt;&lt;/p&gt;
 
 
-&lt;p&gt;PLEX is a standalone PL/SQL package with export utilities. It was created to be able to quickstart version control for existing (APEX) apps and depends on APEX 5.1.4 or later for APEX_EXPORT and APEX_ZIP. It currently has two main functions called &lt;strong&gt;BackApp&lt;/strong&gt; and &lt;strong&gt;Queries_to_CSV&lt;/strong&gt;. Queries_to_CSV is used by BackApp as a helper function, but its functionality is also useful as a standalone. This post is all about BackApp, which has the following features:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;UPDATE 2019-06-26 regarding PLEX v2.0.0: PLEX can now be installed and used without an APEX installation. However, to export an APEX app you need APEX 5.1.4 or higher installed on your system. Without APEX your PLEX package has no options for an app export because of conditional compilation. You are still able to export your schema DDL and table data. Hope this helps some folks out there &amp;ndash; Ottmar&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;PLEX is a standalone PL/SQL package with export utilities. It was created to be able to quickstart version control for existing (APEX) apps. It currently has two main functions called &lt;strong&gt;BackApp&lt;/strong&gt; and &lt;strong&gt;Queries_to_CSV&lt;/strong&gt;. Queries_to_CSV is used by BackApp as a helper function, but its functionality is also useful as a standalone. This post is all about BackApp, which has the following features:&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Export the app definition of an APEX app (splitted files and optional single SQL file)&lt;/li&gt;
@@ -331,27 +367,22 @@ window.onload = function() {
 &lt;li&gt;Export table data into CSV files&lt;/li&gt;
 &lt;li&gt;Provide basic script templates for export/import of whole app for DEV, TEST and PROD&lt;/li&gt;
 &lt;li&gt;Everything in a (hopefully) nice directory structure ready to use with version control&lt;/li&gt;
-&lt;li&gt;Return value is a file collection of type apex_t_export_files for further processing
+&lt;li&gt;Return value is a file collection of type plex.tab_export_files (it was apex_t_export_files before PLEX version 2) for further processing
 
 &lt;ul&gt;
 &lt;li&gt;Each file in the collection is represented by a record with two columns&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;name&lt;/code&gt; of type VARCHAR2(255), which is in fact the file path&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;contents&lt;/code&gt; of type CLOB&lt;/li&gt;
 &lt;li&gt;You can optionally zip the file collection with the helper function &lt;code&gt;to_zip&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Also see the &lt;a href=&#34;https://docs.oracle.com/database/apex-18.1/AEAPI/APEX_EXPORT.htm&#34;&gt;APEX_EXPORT&lt;/a&gt; package and my previous post on &lt;a href=&#34;https://ogobrecht.github.io/posts/2018-07-25-apex-export-and-version-control&#34;&gt;how to handle the apex_t_export_files type returned by the APEX_EXPORT package with SQL*Plus&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Also see the my previous post on &lt;a href=&#34;https://ogobrecht.github.io/posts/2018-07-25-apex-export-and-version-control&#34;&gt;how to handle the apex_t_export_files type returned by the APEX_EXPORT package with SQL*Plus&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&#34;getting-started&#34;&gt;Getting Started&lt;/h2&gt;
 
 &lt;ol&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/ogobrecht/plex/releases/latest&#34;&gt;Download the latest code&lt;/a&gt; - depends on APEX 5.1.4 or later because we use APEX_EXPORT and APEX_ZIP&lt;/li&gt;
-&lt;li&gt;Compile these two files in your desired schema - could also be a central tools schema, don&amp;rsquo;t forget &lt;code&gt;grant execute on plex to xxx&lt;/code&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;PLEX.pks&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;PLEX.pkb&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ogobrecht/plex/releases/latest&#34;&gt;Download the latest code&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Run the provided install script &lt;code&gt;plex_install.sql&lt;/code&gt; (provides compiler flags) in your desired schema - could also be a central tools schema, don&amp;rsquo;t forget &lt;code&gt;grant execute on plex to xxx&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Startup your favorite SQL Tool, connect to your app schema and fire up the following query:&lt;/li&gt;
 &lt;/ol&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;k&#34;&gt;select&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;plex&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;to_zip&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;plex&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;backapp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p_app_id&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;yourAppId&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dual&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -382,42 +413,52 @@ window.onload = function() {
 - plex_backapp_log.md&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;If you like, you can fully configure your first export into the zip file. The &lt;code&gt;PLEX.BackApp&lt;/code&gt; method has boolean parameters, so you need to use an inline function in a pure SQL context. You can also use an anonymous PL/SQL block or you create a small SQL wrapper for the method like the inline function of the example. All parameters are optional and listed here with their default values:&lt;/p&gt;
 
-&lt;p&gt;UPDATE 2018-09-24 regarding PLEX v1.1.0: &lt;code&gt;p_object_filter_regex&lt;/code&gt; is replaced by &lt;code&gt;p_object_name_like&lt;/code&gt; and &lt;code&gt;p_object_name_not_like&lt;/code&gt;; &lt;code&gt;p_data_table_filter_regex&lt;/code&gt; is replaced by &lt;code&gt;p_data_table_name_like&lt;/code&gt; and &lt;code&gt;p_data_table_name_not_like&lt;/code&gt;. All new parameters expect a comma separated list of (not) like expressions. Please see examples in parameter comments below:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;c1&#34;&gt;-- Inline function (needs Oracle 12c or higher)
-&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;with&lt;/span&gt;
-  &lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;backapp&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;blob&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;is&lt;/span&gt; 
-  &lt;span class=&#34;k&#34;&gt;begin&lt;/span&gt;
-    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;plex&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;to_zip&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;plex&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;backapp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
-      &lt;span class=&#34;n&#34;&gt;p_app_id&lt;/span&gt;                    &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;-- If null, we simply skip the APEX app export.
+&lt;blockquote&gt;
+&lt;p&gt;UPDATE 2018-09-24 regarding PLEX v1.1.0: &lt;code&gt;p_object_filter_regex&lt;/code&gt; is replaced by &lt;code&gt;p_object_name_like&lt;/code&gt; and &lt;code&gt;p_object_name_not_like&lt;/code&gt;. &lt;code&gt;p_data_table_filter_regex&lt;/code&gt; is replaced by &lt;code&gt;p_data_table_name_like&lt;/code&gt; and &lt;code&gt;p_data_table_name_not_like&lt;/code&gt;. All new parameters expect a comma separated list of (not) like expressions. Please see examples in parameter comments below &amp;ndash; Ottmar&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;c1&#34;&gt;-- Inline function because of boolean parameters (needs Oracle 12c or higher).
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;-- Alternative create a helper function and call that in a SQL context.
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;WITH&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;FUNCTION&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;backapp&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;RETURN&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;BLOB&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;IS&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;BEGIN&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;RETURN&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;plex&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;to_zip&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;plex&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;backapp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
+      &lt;span class=&#34;c1&#34;&gt;-- All parameters are optional and shown with their defaults
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;      &lt;span class=&#34;c1&#34;&gt;-- App related options (only available, when APEX is installed):
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;      &lt;span class=&#34;n&#34;&gt;p_app_id&lt;/span&gt;                    &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;NULL&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;-- If null, we simply skip the APEX app export.   
 &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;      &lt;span class=&#34;n&#34;&gt;p_app_date&lt;/span&gt;                  &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;-- If true, include export date and time in the result.
 &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;      &lt;span class=&#34;n&#34;&gt;p_app_public_reports&lt;/span&gt;        &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;-- If true, include public reports that a user saved.
 &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;      &lt;span class=&#34;n&#34;&gt;p_app_private_reports&lt;/span&gt;       &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;false&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;-- If true, include private reports that a user saved.
 &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;      &lt;span class=&#34;n&#34;&gt;p_app_notifications&lt;/span&gt;         &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;false&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;-- If true, include report notifications.
 &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;      &lt;span class=&#34;n&#34;&gt;p_app_translations&lt;/span&gt;          &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;-- If true, include application translation mappings and all text from the translation repository.
 &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;      &lt;span class=&#34;n&#34;&gt;p_app_pkg_app_mapping&lt;/span&gt;       &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;false&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;-- If true, export installed packaged applications with references to the packaged application definition. If FALSE, export them as normal applications.
-&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;      &lt;span class=&#34;n&#34;&gt;p_app_original_ids&lt;/span&gt;          &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;-- If true, export with the IDs as they were when the application was imported.
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;      &lt;span class=&#34;n&#34;&gt;p_app_original_ids&lt;/span&gt;          &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;false&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;-- If true, export with the IDs as they were when the application was imported.
 &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;      &lt;span class=&#34;n&#34;&gt;p_app_subscriptions&lt;/span&gt;         &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;-- If true, components contain subscription references.
 &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;      &lt;span class=&#34;n&#34;&gt;p_app_comments&lt;/span&gt;              &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;-- If true, include developer comments.
-&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;      &lt;span class=&#34;n&#34;&gt;p_app_supporting_objects&lt;/span&gt;    &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;-- If &amp;#39;Y&amp;#39;, export supporting objects. If &amp;#39;I&amp;#39;, automatically install on import. If &amp;#39;N&amp;#39;, do not export supporting objects. If null, the application&amp;#39;s include in export deployment value is used.
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;      &lt;span class=&#34;n&#34;&gt;p_app_supporting_objects&lt;/span&gt;    &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;NULL&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;-- If &amp;#39;Y&amp;#39;, export supporting objects. If &amp;#39;I&amp;#39;, automatically install on import. If &amp;#39;N&amp;#39;, do not export supporting objects. If null, the application&amp;#39;s include in export deployment value is used.
 &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;      &lt;span class=&#34;n&#34;&gt;p_app_include_single_file&lt;/span&gt;   &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;false&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;-- If true, the single sql install file is also included beside the splitted files.
 &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;      &lt;span class=&#34;n&#34;&gt;p_app_build_status_run_only&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;false&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;-- If true, the build status of the app will be overwritten to RUN_ONLY.
-&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;      &lt;span class=&#34;c1&#34;&gt;-----
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;      &lt;span class=&#34;c1&#34;&gt;-- Object related options:
 &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;      &lt;span class=&#34;n&#34;&gt;p_include_object_ddl&lt;/span&gt;        &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;false&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;-- If true, include DDL of current user/schema and all its objects.
-&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;      &lt;span class=&#34;n&#34;&gt;p_object_name_like&lt;/span&gt;          &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;-- A comma separated list of like expressions to filter the objects - example: `EMP%,DEPT%` will be translated to: `where ... and (object_name like &amp;#39;EMP%&amp;#39; or object_name like &amp;#39;DEPT%&amp;#39;)`.
-&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;      &lt;span class=&#34;n&#34;&gt;p_object_name_not_like&lt;/span&gt;      &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;-- A comma separated list of not like expressions to filter the objects - example: `EMP%,DEPT%` will be translated to: `where ... and (object_name not like &amp;#39;EMP%&amp;#39; and object_name not like &amp;#39;DEPT%&amp;#39;)`.
-&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;      &lt;span class=&#34;c1&#34;&gt;-----
-&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;      &lt;span class=&#34;n&#34;&gt;p_include_data&lt;/span&gt;              &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;false&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;-- If true, include CSV data of each table.
-&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;      &lt;span class=&#34;n&#34;&gt;p_data_as_of_minutes_ago&lt;/span&gt;    &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;     &lt;span class=&#34;c1&#34;&gt;-- Read consistent data with the resulting timestamp(SCN).
-&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;      &lt;span class=&#34;n&#34;&gt;p_data_max_rows&lt;/span&gt;             &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1000&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;-- Maximum number of rows per table.
-&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;      &lt;span class=&#34;n&#34;&gt;p_data_table_name_like&lt;/span&gt;      &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;-- A comma separated list of like expressions to filter the tables - example: `EMP%,DEPT%` will be translated to: `where ... and (table_name like &amp;#39;EMP%&amp;#39; or table_name like &amp;#39;DEPT%&amp;#39;)`.
-&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;      &lt;span class=&#34;n&#34;&gt;p_data_table_name_not_like&lt;/span&gt;  &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;-- A comma separated list of not like expressions to filter the tables - example: `EMP%,DEPT%` will be translated to: `where ... and (table_name not like &amp;#39;EMP%&amp;#39; and table_name not like &amp;#39;DEPT%&amp;#39;)`.
-&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;      &lt;span class=&#34;c1&#34;&gt;-----
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;      &lt;span class=&#34;n&#34;&gt;p_object_type_like&lt;/span&gt;          &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;NULL&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;-- A comma separated list of like expressions to filter the objects - example: &amp;#39;%BODY,JAVA%&amp;#39; will be translated to: ... from user_objects where ... and (object_type like &amp;#39;%BODY&amp;#39; escape &amp;#39;\&amp;#39; or object_type like &amp;#39;JAVA%&amp;#39; escape &amp;#39;\&amp;#39;).
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;      &lt;span class=&#34;n&#34;&gt;p_object_type_not_like&lt;/span&gt;      &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;NULL&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;-- A comma separated list of not like expressions to filter the objects - example: &amp;#39;%BODY,JAVA%&amp;#39; will be translated to: ... from user_objects where ... and (object_type not like &amp;#39;%BODY&amp;#39; escape &amp;#39;\&amp;#39; and object_type not like &amp;#39;JAVA%&amp;#39; escape &amp;#39;\&amp;#39;).
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;      &lt;span class=&#34;n&#34;&gt;p_object_name_like&lt;/span&gt;          &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;NULL&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;-- A comma separated list of like expressions to filter the objects - example: &amp;#39;EMP%,DEPT%&amp;#39; will be translated to: ... from user_objects where ... and (object_name like &amp;#39;EMP%&amp;#39; escape &amp;#39;\&amp;#39; or object_name like &amp;#39;DEPT%&amp;#39; escape &amp;#39;\&amp;#39;).
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;      &lt;span class=&#34;n&#34;&gt;p_object_name_not_like&lt;/span&gt;      &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;NULL&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;-- A comma separated list of not like expressions to filter the objects - example: &amp;#39;EMP%,DEPT%&amp;#39; will be translated to: ... from user_objects where ... and (object_name not like &amp;#39;EMP%&amp;#39; escape &amp;#39;\&amp;#39; and object_name not like &amp;#39;DEPT%&amp;#39; escape &amp;#39;\&amp;#39;).
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;      &lt;span class=&#34;c1&#34;&gt;-- Data related options:
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;      &lt;span class=&#34;n&#34;&gt;p_include_data&lt;/span&gt;              &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;false&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;-- If true, include DDL of current user/schema and all its objects.
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;      &lt;span class=&#34;n&#34;&gt;p_data_as_of_minutes_ago&lt;/span&gt;    &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;     &lt;span class=&#34;c1&#34;&gt;-- A comma separated list of like expressions to filter the objects - example: &amp;#39;%BODY,JAVA%&amp;#39; will be translated to: ... from user_objects where ... and (object_type like &amp;#39;%BODY&amp;#39; escape &amp;#39;\&amp;#39; or object_type like &amp;#39;JAVA%&amp;#39; escape &amp;#39;\&amp;#39;).
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;      &lt;span class=&#34;n&#34;&gt;p_data_max_rows&lt;/span&gt;             &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1000&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;-- A comma separated list of not like expressions to filter the objects - example: &amp;#39;%BODY,JAVA%&amp;#39; will be translated to: ... from user_objects where ... and (object_type not like &amp;#39;%BODY&amp;#39; escape &amp;#39;\&amp;#39; and object_type not like &amp;#39;JAVA%&amp;#39; escape &amp;#39;\&amp;#39;).
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;      &lt;span class=&#34;n&#34;&gt;p_data_table_name_like&lt;/span&gt;      &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;NULL&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;-- A comma separated list of like expressions to filter the objects - example: &amp;#39;EMP%,DEPT%&amp;#39; will be translated to: ... from user_objects where ... and (object_name like &amp;#39;EMP%&amp;#39; escape &amp;#39;\&amp;#39; or object_name like &amp;#39;DEPT%&amp;#39; escape &amp;#39;\&amp;#39;).
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;      &lt;span class=&#34;n&#34;&gt;p_data_table_name_not_like&lt;/span&gt;  &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;NULL&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;-- A comma separated list of not like expressions to filter the objects - example: &amp;#39;EMP%,DEPT%&amp;#39; will be translated to: ... from user_objects where ... and (object_name not like &amp;#39;EMP%&amp;#39; escape &amp;#39;\&amp;#39; and object_name not like &amp;#39;DEPT%&amp;#39; escape &amp;#39;\&amp;#39;).
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;      &lt;span class=&#34;c1&#34;&gt;-- Miscellaneous options:
 &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;      &lt;span class=&#34;n&#34;&gt;p_include_templates&lt;/span&gt;         &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;-- If true, include templates for README.md, export and install scripts.
-&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;      &lt;span class=&#34;n&#34;&gt;p_include_runtime_log&lt;/span&gt;       &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;true&lt;/span&gt;   &lt;span class=&#34;c1&#34;&gt;-- If true, generate file plex_backapp_log.md with runtime statistics.
-&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;p&#34;&gt;));&lt;/span&gt;
-  &lt;span class=&#34;k&#34;&gt;end&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;backapp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;span class=&#34;k&#34;&gt;select&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;backapp&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dual&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;ATTENTION: Exporting all database objects can take some time. I have seen huge runtime differences from 6 seconds for a small app up to several hundred seconds for big apps and/or slow databases. This is normally not the problem of PLEX. If you are interested in runtime statistics of PLEX, you can inspect the delivered &lt;code&gt;plex_backapp_log.md&lt;/code&gt; in the directory root.&lt;br&gt;
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;      &lt;span class=&#34;n&#34;&gt;p_include_runtime_log&lt;/span&gt;       &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;-- If true, generate file plex_runtime_log.md with detailed runtime infos.
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;      &lt;span class=&#34;n&#34;&gt;p_include_error_log&lt;/span&gt;         &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;-- If true, generate file plex_error_log.md with detailed error messages.
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;      &lt;span class=&#34;n&#34;&gt;p_base_path_backend&lt;/span&gt;         &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;app_backend&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;-- The base path in the project root for the database DDL files.
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;      &lt;span class=&#34;n&#34;&gt;p_base_path_frontend&lt;/span&gt;        &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;app_frontend&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;-- The base path in the project root for the APEX UI install files.
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;      &lt;span class=&#34;n&#34;&gt;p_base_path_data&lt;/span&gt;            &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;app_data&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;));&lt;/span&gt;   &lt;span class=&#34;c1&#34;&gt;-- The base path in the project root for the data files.
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;  &lt;span class=&#34;k&#34;&gt;END&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;backapp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;SELECT&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;backapp&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;FROM&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dual&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;ATTENTION: Exporting all database objects can take some time. I have seen huge runtime differences from 6 seconds for a small app up to several hundred seconds for big apps and/or slow databases. This is normally not the problem of PLEX. If you are interested in runtime statistics of PLEX, you can inspect the delivered &lt;code&gt;plex_runtime_log.md&lt;/code&gt; in the root directory.&lt;br&gt;
 Also, the possibility to export the data of your tables into CSV files does not mean that you should do this without thinking about it. The main reason for me to implement this feature was to track changes on catalog tables by regularly calling this export feature with a sensitive table filter and max rows parameter as catalog data is often relevant in business logic.&lt;/p&gt;
 
 &lt;p&gt;If you have organized your app into multiple schemas as described in &lt;a href=&#34;https://www.salvis.com/blog/2018/07/18/the-pink-database-paradigm-pinkdb/&#34;&gt;The Pink Database Paradigm&lt;/a&gt;, you may need to export database objects from more then one schema. This is no problem for PLEX.BackApp as all parameters are optional - you can simply logon to your second or third schema and extract only the DDL for these schemas by omitting the &lt;code&gt;p_app_id&lt;/code&gt; parameter and setting &lt;code&gt;p_include_object_ddl&lt;/code&gt; to &lt;code&gt;true&lt;/code&gt;. Then unload the DDL files into a different directory - for example &lt;code&gt;app_backend_schemaName&lt;/code&gt;.&lt;/p&gt;
@@ -434,8 +475,8 @@ Also, the possibility to export the data of your tables into CSV files does not 
 
 &lt;p&gt;If the directory structure provided by PLEX does not match your needs - no problem - you can align it. Simply loop over the returned file collection and do your necessary work - here comes an example:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;k&#34;&gt;DECLARE&lt;/span&gt;
-  &lt;span class=&#34;n&#34;&gt;l_files&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;apex_t_export_files&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;span class=&#34;k&#34;&gt;BEGIN&lt;/span&gt;
+  &lt;span class=&#34;n&#34;&gt;l_files&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;plex&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tab_export_files&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;-- before PLEX v2 it was apex_t_export_files
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;BEGIN&lt;/span&gt;
   &lt;span class=&#34;n&#34;&gt;l_files&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;plex&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;backapp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p_app_id&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;100&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
   &lt;span class=&#34;k&#34;&gt;FOR&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;IN&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;..&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;l_files&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;count&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;LOOP&lt;/span&gt;
     &lt;span class=&#34;c1&#34;&gt;-- relocate APEX app files from app_frontend to app_ui
@@ -1002,17 +1043,17 @@ window.onload = function() {
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# check and disallow install, if swap space is less than Min( 2047, 2 * RAM)`&lt;/span&gt;
 &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$swapspace&lt;/span&gt; -lt &lt;span class=&#34;nv&#34;&gt;$requiredswapspace&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
 &lt;span class=&#34;k&#34;&gt;then&lt;/span&gt;
-	&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$requiredswapspace&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;2047&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-	&lt;span class=&#34;k&#34;&gt;then&lt;/span&gt;
-		&lt;span class=&#34;nv&#34;&gt;requiredswapspace&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;2048&lt;/span&gt;
-	&lt;span class=&#34;k&#34;&gt;fi&lt;/span&gt;
-	&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$requiredswapspace&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;2047&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;then&lt;/span&gt;
+        &lt;span class=&#34;nv&#34;&gt;requiredswapspace&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;2048&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;fi&lt;/span&gt;
+    &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt;
         &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;This system does not meet the minimum requirements for swap space.  Based on
 &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;the amount of physical memory available on the system, Oracle Database 11g
 &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;Express Edition requires &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$requiredswapspace&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt; MB of swap space. This system has &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$swapspace&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt; MB
 &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;of swap space.  Configure more swap space on the system and retry the
 &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;installation.&amp;#34;&lt;/span&gt;
-	&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt;
+    &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt;
         &lt;span class=&#34;nb&#34;&gt;exit&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;
 &lt;span class=&#34;k&#34;&gt;fi&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Find this line (starting on line 328 as of this writing) and delete the line and everything behind until the file end:&lt;/p&gt;
@@ -1446,22 +1487,7 @@ Ottmar&lt;/p&gt;
 
 
 &lt;h2&gt;Inhaltsverzeichnis&lt;/h2&gt;
-&lt;nav id=&#34;TableOfContents&#34;&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#einleitung&#34;&gt;Einleitung&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#beispiele-von-der-d3-homepage&#34;&gt;Beispiele von der D3 Homepage&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#d3-was-ist-das&#34;&gt;D3: Was ist das?&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#das-fundament-svg&#34;&gt;Das Fundament: SVG&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#der-unterschied-selectors-versus-selections&#34;&gt;Der Unterschied: Selectors versus Selections&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#die-d3-mengenlehre-wie-man-daten-an-das-dom-bindet&#34;&gt;Die D3 Mengenlehre: Wie man Daten an das DOM bindet&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#das-geheimnis-der-geschwindigkeit&#34;&gt;Das Geheimnis der Geschwindigkeit&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#wiederverwendung-von-chart-code&#34;&gt;Wiederverwendung von Chart Code&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#exkurs-closures-in-javascript&#34;&gt;Exkurs: Closures in JavaScript&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#die-königsklasse-physik-simulationen&#34;&gt;Die Königsklasse: Physik-Simulationen&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#netzwerken-ein-plugin-nicht-nur-für-apex&#34;&gt;Netzwerken: Ein Plugin (nicht nur) für APEX&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#fazit&#34;&gt;Fazit&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/nav&gt;
+
 
 &lt;h2 id=&#34;einleitung&#34;&gt;Einleitung&lt;/h2&gt;
 

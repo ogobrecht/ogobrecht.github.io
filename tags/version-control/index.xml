@@ -6,10 +6,19 @@
     <description>Recent content in version-control on Ottmar’s Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 26 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 20 Jul 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ogobrecht.github.io/tags/version-control/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Schnellstart - Versionskontrolle für existierende Oracle-Projekte</title>
+      <link>https://ogobrecht.github.io/posts/2019-07-20-schnellstart-versionskontrolle-fuer-oracle-projekte/</link>
+      <pubDate>Sat, 20 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ogobrecht.github.io/posts/2019-07-20-schnellstart-versionskontrolle-fuer-oracle-projekte/</guid>
+      <description>Viele Oracle-Projekte setzen bis heute keine Versionskontrolle ein. Die Gründe dafür sind vielfältig. Meist geht man wohl davon aus, dass die Datenbank ein sicherer Ort für den Quellcode ist. Mit einem funktionierenden Backup ist das auch richtig, man verliert aber auf jeden Fall die komplette Historie der Änderungen. Oft fehlt in laufenden Projekten auch einfach die Zeit, sich zusätzlich noch mit der Einführung einer Quellcodeversionierung zu beschäftigen, weil auf den ersten Blick kein direkter Nutzen zu sehen ist.</description>
+    </item>
     
     <item>
       <title>New Major Version of PL/SQL Export Utilities Available</title>

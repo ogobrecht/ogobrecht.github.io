@@ -10,8 +10,315 @@
 <link href="https://ogobrecht.github.io/index.xml" rel="self" type="application/atom+xml" />
 <link href="https://ogobrecht.github.io/" rel="alternate" type="text/html" hreflang="en" />
 <generator uri="https://gohugo.io/" version="0.55.6">Hugo</generator>
-<updated>2019-06-26T22:00:14+01:00</updated>
+<updated>2019-07-21T20:42:21+01:00</updated>
 
+
+<entry xml:lang="de">
+<id>https://ogobrecht.github.io/posts/2019-07-20-schnellstart-versionskontrolle-fuer-oracle-projekte/</id>
+<link href="https://ogobrecht.github.io/posts/2019-07-20-schnellstart-versionskontrolle-fuer-oracle-projekte/" rel="alternate" type="text/html" title="Schnellstart - Versionskontrolle für existierende Oracle-Projekte" />
+<title type="html">Schnellstart - Versionskontrolle für existierende Oracle-Projekte</title>
+<summary type="html">DOAG Red Stack Magazin 03-2019</summary>
+<category term="oracle" label="Oracle" scheme="https://ogobrecht.github.io/tags/" />
+<category term="apex" label="APEX" scheme="https://ogobrecht.github.io/tags/" />
+<category term="version-control" label="Version Control" scheme="https://ogobrecht.github.io/tags/" />
+<category term="doag" label="DOAG" scheme="https://ogobrecht.github.io/tags/" />
+<published>2019-07-20T00:00:00+01:00</published>
+<updated>2019-07-20T00:00:00+01:00</updated>
+<content type="html" xml:base="https://ogobrecht.github.io/posts/2019-07-20-schnellstart-versionskontrolle-fuer-oracle-projekte/">
+&lt;p&gt;&lt;em&gt;DOAG Red Stack Magazin 03-2019&lt;/em&gt;&lt;/p&gt;
+
+
+&lt;p&gt;&lt;em&gt;Viele Oracle-Projekte setzen bis heute keine Versionskontrolle ein. Die Gründe dafür sind vielfältig. Meist geht man wohl davon aus, dass die Datenbank ein sicherer Ort für den Quellcode ist. Mit einem funktionierenden Backup ist das auch richtig, man verliert aber auf jeden Fall die komplette Historie der Änderungen. Oft fehlt in laufenden Projekten auch einfach die Zeit, sich zusätzlich noch mit der Einführung einer Quellcodeversionierung zu beschäftigen, weil auf den ersten Blick kein direkter Nutzen zu sehen ist. Wer wagt unter Zeitdruck da den zweiten Blick? Dieser Artikel will die Hürde für die Einführung einer Versionsverwaltung ein wenig tiefer legen.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2&gt;Inhaltsverzeichnis&lt;/h2&gt;
+
+
+
+&lt;h2 id=&#34;hinweis-doag&#34;&gt;Hinweis DOAG&lt;/h2&gt;
+
+&lt;p&gt;Dieser Artikel erschien im DOAG Red Stack Magazin 03-2019 und steht auch im &lt;a href=&#34;https://www.doag.org/formes/pubfiles/11388332/03_2019-Red_Stack_Magazin-Ottmar_Gobrecht-Schnellstart_Versionskontrolle_fur_existierende_Oracle_(APEX)Projekte.pdf&#34;&gt;Original&lt;/a&gt; zur Verfügung. Im Gegensatz zum Original kann es hier auf meinem Blog zu Aktualisierungen kommen, falls sich relevante Dinge ändern. Zum Beispiel ist seit der Version zwei des erwähnten Projektes PLEX (PL/SQL Export Utilities) eine APEX-Installation keine Voraussetzung mehr. Damit können auch reine Oracle-Datenbank-Projekte PLEX nutzen - mehr dazu in &lt;a href=&#34;/posts/2019-06-26-new-major-version-of-plex-available/&#34;&gt;diesem Blog-Eintrag&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;einleitung&#34;&gt;Einleitung&lt;/h2&gt;
+
+&lt;p&gt;Der erste Schritt ist der wichtigste, das wissen alle, die sich schon einmal nach langem Zögern endlich auf den Weg gemacht haben - worum auch immer es ging. Das gleiche gilt für die Quellcodeversionierung. Wenn man erst einmal auf dem Weg ist fragt man sich, wie man so lange ohne auskommen konnte. Eine versionierte Quellcodebasis vergrößert die Komfortzone bei der Entwicklung und die investierte Zeit zahlt sich mehrfach wieder aus. Doch wie geht man möglichst einfach und schnell den ersten Schritt? Wie gestaltet man die Struktur eines Repositories?&lt;/p&gt;
+
+&lt;h2 id=&#34;workflowänderung-dateibasiertes-arbeiten&#34;&gt;Workflowänderung: Dateibasiertes Arbeiten&lt;/h2&gt;
+
+&lt;p&gt;Eine der wichtigsten Fragen lautet: Kann ich weiterarbeiten wie bisher? Die Antwort hängt ganz davon ab, wie man bisher gearbeitet hat. Grundsätzlich bedeutet das Arbeiten mit einer Quellcodeversionierung auch einen Wechsel weg vom Entwickeln in der Datenbank. Das direkte Ändern und Kompilieren von Code in der Datenbank oder das Ändern von Tabellen mit dem Tool seiner Wahl muss sich hin zu einem dateibasierten Arbeiten entwickeln. Das bedeutet, mit einer Datei im lokalem Quellcoderepository mit dem Tool der Wahl zu arbeiten. Die Veränderungen werden dann aus der Datei heraus kompiliert. Für Schema-Änderungen müssen Skripte den notwendigen DDL Code enthalten. Je nach bisher verwendeten Tools ist das beim Bearbeiten von Logik eher nur ein subtiler, beim Verändern von Datenbankobjekten wie Tabellen dann doch schon ein großer Unterschied. Wurde bisher ein Schema-Diff-Tool verwendet, um Änderungen der Entwicklungsumgebung in die Produktion zu transportieren, dann sieht das vielleicht auf den ersten Blick sogar wie ein Rückschritt aus.&lt;/p&gt;
+
+&lt;p&gt;Der Punkt ist hier, dass man nur dann eine verwertbare Quellcodehistorie bekommt, wenn man konsequent auf das dateibasierte Arbeiten setzt. Es kann auch einen Zwischenschritt hin zu diesem Ansatz geben. Man arbeitet weiter wie bisher und exportiert regelmäßig alle Objekte des Schemas in die Quellcodeverwaltung. Auf diesem Weg erhält man wenigstens eine gewisse geordnete Transparenz der Änderungen. Werden dann im Laufe des Projektes die Vorteile dieses Vorgehens ersichtlich, fehlt einem meist noch die Info, wer denn die jeweiligen Änderungen ausgeführt hat. Außerdem werden durch die gewonnene Transparenz schnell Wünsche geweckt wie &amp;ldquo;Wenn ich den alten Code im Repository habe, dann darf ich ja mal etwas probieren, ich kann ja notfalls zurück&amp;rdquo;. Schon ist die erste Hürde genommen und die Offenheit, vielleicht doch einmal richtig damit loszulegen, da.&lt;/p&gt;
+
+&lt;p&gt;Dass so etwas noch viel besser funktionieren kann, darauf kommen die meisten Entwickler dann selbst. Zum Beispiel das Anlegen einen Branchs (Entwicklungszweig) im lokalen Repository. Damit kann man etwas auszuprobieren ohne Gefahr zu laufen, aufgrund eines unerwartet zu lösenden Bugs die gemachten Änderungen wieder verwerfen zu müssen. Man wechselt bequem in den (parallelen) Hauptzweig, arbeitet am Bugfix, aktualisiert seinen Branch danach auf den geänderten Hauptzweig und kann dann einfach weiter ausprobieren. Das alles ohne die Gefahr Dinge zu verlieren oder andere Kollegen zu beeinflussen. Habe ich jetzt irgendjemanden abgehängt? Kein Problem, einfach loslegen - hier hilft nur Praxis.&lt;/p&gt;
+
+&lt;h2 id=&#34;toolvergleich-ddl-export&#34;&gt;Toolvergleich: DDL-Export&lt;/h2&gt;
+
+&lt;p&gt;Wie bewerkstelligt man den ersten Schritt? Wie exportiert man die Schema-Objekte seiner Anwendung in eine wohlsortierte Verzeichnisstruktur? Die meisten der verwendeten grafischen Entwicklungstools bringen dafür eine Export-Funktion mit. Diese ist je nach Tool mehr oder weniger gut dafür geeignet, ein Quellcoderepository aufzubauen. Deshalb schauen wir uns an, wie die am häufigsten verwendeten Tools SQL-Developer, PL/SQL Developer und Toad das können. Ein Wort vorweg: Die Intention des Schema-Exports dieser Tools ist eigentlich, die Objekte in ein anderes Schema, vielleicht sogar in eine andere Datenbank zu bringen und nicht, ein Quellcoderepository zu erstellen. Folgende Fragen bewegen uns, wenn es darum geht ein solches aufzubauen:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Ist eine Skript-Datei pro Objekt möglich?&lt;/li&gt;
+&lt;li&gt;Sind Unterverzeichnisse pro Objekttyp möglich?&lt;/li&gt;
+&lt;li&gt;Sind eigene Dateien für Fremdschlüssel möglich? (Nützlich für einfachere Masterskripte)&lt;/li&gt;
+&lt;li&gt;Können &amp;ldquo;Object already exist&amp;rdquo;-Fehler verhindert werden? (Oder anders gefragt: sind die Skripte wiederanlauffähig?)&lt;/li&gt;
+&lt;li&gt;Können Daten exportiert werden? (Möglichst im CSV-Format zur Verfolgung von Stammdatenänderungen)&lt;/li&gt;
+&lt;li&gt;Ist eine APEX App exportierbar? (Womöglich auch zerlegt in die Einzelteile wie Pages, Shared Components usw.)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Abbildung 1 zeigt das Ergebnis bezogen auf die Fragestellung.&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Kriterium&lt;/th&gt;
+&lt;th&gt;SQL Dev.&lt;/th&gt;
+&lt;th&gt;PL/SQL Dev.&lt;/th&gt;
+&lt;th&gt;Toad&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Datei pro Objekt&lt;/td&gt;
+&lt;td&gt;Ja&lt;/td&gt;
+&lt;td&gt;Ja&lt;/td&gt;
+&lt;td&gt;Ja&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Unterverz. pro Typ&lt;/td&gt;
+&lt;td&gt;Ja&lt;/td&gt;
+&lt;td&gt;Nein&lt;/td&gt;
+&lt;td&gt;Ja&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;FK Constr. extra&lt;/td&gt;
+&lt;td&gt;Ja&lt;/td&gt;
+&lt;td&gt;Nein&lt;/td&gt;
+&lt;td&gt;Ja&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Verhi. &amp;ldquo;object exist&amp;rdquo;&lt;/td&gt;
+&lt;td&gt;Nein&lt;/td&gt;
+&lt;td&gt;Nein&lt;/td&gt;
+&lt;td&gt;Nein&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Export Daten&lt;/td&gt;
+&lt;td&gt;Ja&lt;/td&gt;
+&lt;td&gt;Nein&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;&lt;em&gt;Jein&lt;/em&gt;&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Export APEX App&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;&lt;em&gt;Jein&lt;/em&gt;&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Nein&lt;/td&gt;
+&lt;td&gt;Nein&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;em&gt;Abbildung 1: Toolvergleich DDL-Export&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Anmerkungen zum SQL Developer:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Ist am übersichtlichsten&lt;/li&gt;
+&lt;li&gt;Viele Formate für Datenexport (auch CSV)&lt;/li&gt;
+&lt;li&gt;Umfangreich konfigurierbar&lt;/li&gt;
+&lt;li&gt;Export APEX App nur mit Commandline-Version SQLcl&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Anmerkungen zum PL/SQL Developer:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Wenig konfigurierbar&lt;/li&gt;
+&lt;li&gt;Enttäuscht für den Aufbau eines Quellcode-Repository&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Anmerkungen zu Toad:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Zwei Exportmöglichkeiten (mindestens)
+
+&lt;ul&gt;
+&lt;li&gt;Entweder Unterverzeichnisse pro Objekttyp&amp;hellip;&lt;/li&gt;
+&lt;li&gt;&amp;hellip; oder Daten&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Daten nur als Insert Statements&lt;/li&gt;
+&lt;li&gt;Umfangreich konfigurierbar, relativ unübersichtlich&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Keines der Tools liefert uns ein fertiges, gut strukturiertes Quellcoderepository. Man muss mehr oder weniger viel nacharbeiten. Das heißt nicht, dass es nicht gehen würde, zumal das Einsortieren der Objekte in eine vernünftige Struktur eine einmalige Arbeit sein sollte. Lediglich bei dem Export der APEX-Anwendung wünscht man sich eine automatische Lösung, weil dieser Export in Zukunft häufiger gemacht werden muss. Das liegt in der Natur von APEX als deklarativem &amp;ldquo;Low Code Framework&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;Wir entwickeln die APEX-Anwendung im Browser und die Meta-Daten der Anwendung liegen im APEX-Repository der Datenbank. Ein Export der Anwendung kann auch mit dem Browser gemacht werden, dabei erhält man aber nur eine einzige große SQL-Datei mit der gesamten Applikation. Wünschenswert für ein Quellcode-Repository wäre ein Export der Einzelteile wie z.B. Pages, Shared Components, Plugins usw. Damit lässt sich dann für die Anwendung verfolgen, wie sie sich entwickelt hat und auch eine Suche im Repository nach z.B. einem bestimmten Package-Aufruf macht bei einer zerlegten APEX-Anwendung wesentlich mehr Sinn. In der Vergangenheit konnte man dafür den APEX Export-Splitter verwenden, im Grunde eine Java-Klasse, die im Lieferumfang jeder APEX-Version bis heute enthalten ist. Der Nachteil ist, dass man die so erstellte Verzeichnisstruktur nehmen muss, wie sie vom Splitter erstellt wurde, oder man verändert sie im Nachgang mit lokalen Skripten auf dem PC. Schöner wäre allerdings, die Verzeichnisstruktur schon während des Exports anpassen zu können, um alle Master-Skripte in einem zentralen Ordner des Repositories speichern zu können.&lt;/p&gt;
+
+&lt;p&gt;Seit APEX Version 5.1.4 gibt es zu diesem Zweck das APEX_EXPORT Package. Mit diesem kann man entweder das große Gesamtskript oder eben die zerlegte Variante exportieren. Das Rückgabeformat ist in beiden Fällen eine Collection - jede Zeile der Collection beinhaltet eine Pfadangabe für die jeweilige Exportdatei und ein CLOB-Feld mit dem Inhalt. Man könnte also in einem Export-Skript diese Collection bearbeiten und die Pfadangaben an die eigenen Bedürfnisse anpassen. Genau das macht das vom Autor des Artikels als Open Source veröffentliche Tool-Package PLEX - der Name steht für &lt;span style=&#34;color:red;&#34;&gt;PL&lt;/span&gt;/SQL &lt;span style=&#34;color:red;&#34;&gt;Ex&lt;/span&gt;port Utilities. Des Weiteren kann PLEX jede der genannten Fragestellungen zum DDL-Export mit ja beantworten - kein Wunder, es ist dafür entwickelt worden.&lt;/p&gt;
+
+&lt;h2 id=&#34;schnellstart-package-plex&#34;&gt;Schnellstart: Package PLEX&lt;/h2&gt;
+
+&lt;p&gt;PLEX hat zum Ziel, die erste Version des Repositories mit einer einfachen Query als BLOB selektieren zu können. Nach Speichern des BLOBs in das lokale Verzeichnissystem auf dem PC mit der Endung .zip kann man es entpacken und findet in der generierten Verzeichnisstruktur dann auch Skript-Beispiele für zukünftige halb- oder vollautomatische Exporte und Deployments per Shell-Befehl bzw. SQL*Plus. Ein möglicher Erstexport könnte so aussehen wie in Listing 1 dargestellt.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;k&#34;&gt;WITH&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;FUNCTION&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;backapp&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;RETURN&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;BLOB&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;IS&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;BEGIN&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;RETURN&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;plex&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;to_zip&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;plex&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;backapp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
+      &lt;span class=&#34;n&#34;&gt;p_app_id&lt;/span&gt;               &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;100&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+        &lt;span class=&#34;cm&#34;&gt;/* If null, we simply skip the APEX app export. 
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;        Parameter only available if APEX installed. */&lt;/span&gt;
+      &lt;span class=&#34;n&#34;&gt;p_include_object_ddl&lt;/span&gt;   &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+        &lt;span class=&#34;cm&#34;&gt;/* If true, include DDL of current user/schema and 
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;        all its objects. */&lt;/span&gt;
+      &lt;span class=&#34;n&#34;&gt;p_include_templates&lt;/span&gt;    &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+        &lt;span class=&#34;cm&#34;&gt;/* If true, include templates for README.md, export 
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;        and install scripts. */&lt;/span&gt;
+      &lt;span class=&#34;n&#34;&gt;p_include_runtime_log&lt;/span&gt;  &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+        &lt;span class=&#34;cm&#34;&gt;/* If true, generate file plex_backapp_log.md with 
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;        runtime statistics. */&lt;/span&gt;
+      &lt;span class=&#34;n&#34;&gt;p_include_data&lt;/span&gt;         &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+        &lt;span class=&#34;cm&#34;&gt;/* If true, include CSV data of each table. */&lt;/span&gt;
+      &lt;span class=&#34;n&#34;&gt;p_data_max_rows&lt;/span&gt;        &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1000&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+        &lt;span class=&#34;cm&#34;&gt;/* Maximum number of rows per table. */&lt;/span&gt;
+      &lt;span class=&#34;n&#34;&gt;p_data_table_name_like&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;DEMO_PRODUCT_INFO,DEMO_STATES&amp;#39;&lt;/span&gt; 
+        &lt;span class=&#34;cm&#34;&gt;/* A comma separated list of like expressions to filter 
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;        the tables. Example: &amp;#39;EMP%,DEPT%&amp;#39; will be translated to 
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;        &amp;#34;where ... and (table_name like &amp;#39;EMP%&amp;#39; escape &amp;#39;\&amp;#39; or
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;        table_name like &amp;#39;DEPT%&amp;#39; escape &amp;#39;\&amp;#39;)&amp;#34;. */&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;));&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;END&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;backapp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;SELECT&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;backapp&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;FROM&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dual&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;em&gt;Listing 1: Möglicher Erstexport&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Da PLEX boolesche Parameter besitzt, benutzen wir eine Inline-Funktion in der With-Klausel. Wer eine Datenbankversion kleiner als 12c verwendet erstellt sich eine Hilfsfunktion analog dem Beispiel. PLEX hat noch einige Parameter mehr um z.B. den APEX App Export zu konfigurieren. Weitere Details sind auf der offiziellen Projektseite unter &lt;a href=&#34;https://github.com/ogobrecht/plex&#34;&gt;github.com/ogobrecht/plex&lt;/a&gt; zu finden. Je nach Größe des Schemas und der APEX App kann dieser erste Aufruf zwischen wenigen Sekunden und mehreren Minuten dauern. Das liegt daran, dass im Hintergund für jedes Objekt das Package DBMS_METADATA bemüht wird, um das DDL des Objektes zu generieren. Wer an Laufzeitinfos interessiert ist, findet im Hauptverzeichnis des Exportes eine Logdatei mit Infos, was PLEX so alles gemacht hat und wie lange die jeweiligen Schritte gedauert haben. PLEX selbst existiert jetzt in einer ersten Version - Verbesserungsvorschläge oder Fehlermeldungen sind willkommen und können über die Projektseite als Issue gemeldet werden.&lt;/p&gt;
+
+&lt;p&gt;Ab hier hängt es stark von den Bedürfnissen des jeweiligen Projektes ab, ob und wie häufig man einen DDL-Export ausführt. Der Normalweg sollte ein regelmäßiges Exportieren der APEX Anwendung sein. Alles andere sollte ab jetzt lokal bearbeitet werden und es infolge dessen kein Bedürfniss für einen Export geben. Wie schon eingangs erwähnt, mag es aber auch Situationen geben, in denen man regelmäßig alle Schema-Objekte exportiert, um die Anwendung zu dokumentieren. Dies sollte aber nur als Zwischenschritt hin zu einer dateibasierten Arbeitsweise verstanden werden.&lt;/p&gt;
+
+&lt;p&gt;Ein Sonderfall stellt generierter Code dar: Also zum Beispiel das Nutzen von Quick-SQL in APEX oder das Generieren von Tabellen-APIs. Hier kann man überlegen, den generierten Code mit entsprechend konfigurierten Objekt-Filtern zu exportieren. Bei APIs sollte man überlegen, ob man nicht lieber den Generator versioniert anstelle des generierten Codes - das hängt aber ganz davon ab, ob der generierte Code noch manuell verändert wird oder nicht. Jeder manuell erstellte Code sollte versioniert werden.&lt;/p&gt;
+
+&lt;h2 id=&#34;geschwindigkeit-immer-skripte&#34;&gt;Geschwindigkeit: Immer Skripte&lt;/h2&gt;
+
+&lt;p&gt;Wie man schon an den von PLEX mitgelieferten Skript-Beispielen erkennen kann, sollte es das Ziel sein, jedwedes Deployment per Skript auszuführen. Dazu gehört dann auch wieder die Überlegung, das Objekt-DDL nur beim allerersten Mal zu exportieren - denn was passiert z.B. beim Export von Tabellen-DDL? Hat man eine weitere Spalte per Alter Table Anweisung in das Tabellenskript geschrieben und dafür gesorgt, dass es wiederanlauffähig ist (siehe Listing 2), dann überschreibt ein weiterer DDL-Export die Alter Anweisung und unser Tabellenskript enthält einfach die neue Spalte gelistet in der Create Table Anweisung. Diese wird aber aufgrund der Wiederanlauffähigkeit niemals mehr ausgeführt, da unsere Tabelle ja schon existiert.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;k&#34;&gt;BEGIN&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;FOR&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;IN&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;SELECT&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;DEMO_STATES&amp;#39;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;AS&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;object_name&lt;/span&gt;
+      &lt;span class=&#34;k&#34;&gt;FROM&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dual&lt;/span&gt; 
+     &lt;span class=&#34;n&#34;&gt;MINUS&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;SELECT&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;object_name&lt;/span&gt; 
+      &lt;span class=&#34;k&#34;&gt;FROM&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;user_objects&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;LOOP&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;EXECUTE&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;IMMEDIATE&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;q&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;[
+&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;----------------------------------------
+&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;CREATE TABLE &amp;#34;DEMO_STATES&amp;#34; (
+&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;  &amp;#34;ST&amp;#34;         VARCHAR2(30), 
+&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;  &amp;#34;STATE_NAME&amp;#34; VARCHAR2(30)
+&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;) 
+&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;----------------------------------------
+&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;    ]&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;END&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;LOOP&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;END&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;BEGIN&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;FOR&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;IN&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;SELECT&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;STATE_DESCRIPTION&amp;#39;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;AS&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;column_name&lt;/span&gt; 
+      &lt;span class=&#34;k&#34;&gt;FROM&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dual&lt;/span&gt; 
+     &lt;span class=&#34;n&#34;&gt;MINUS&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;SELECT&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;column_name&lt;/span&gt; 
+      &lt;span class=&#34;k&#34;&gt;FROM&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;user_tab_columns&lt;/span&gt;
+     &lt;span class=&#34;k&#34;&gt;WHERE&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;table_name&lt;/span&gt;  &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;DEMO_STATES&amp;#39;&lt;/span&gt;
+       &lt;span class=&#34;k&#34;&gt;AND&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;column_name&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;STATE_DESCRIPTION&amp;#39;&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;LOOP&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;EXECUTE&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;IMMEDIATE&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;q&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;[
+&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;----------------------------------------
+&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;ALTER TABLE demo_states ADD (
+&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;  state_description VARCHAR2(255)
+&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;)
+&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;----------------------------------------
+&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;    ]&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;END&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;LOOP&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;END&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;em&gt;Listing 2: Wiederanlauffähiges Skript&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Somit haben wir jetzt eine Quellcodedatei, die für das Deployment nicht mehr geeignet ist. Schade eigentlich, denn bis eben hätten wir mit unserem Master-Skript einfach immer alle Objekt-Skripte aufrufen können und nur die Änderungen (wie z.B. unsere neue Spalte) wären wirklich ausgeführt worden - ein einfaches Deployment und eine übersichtliche Historie im Repository. Dem gegenüber steht das automatische Erstellen von Diff-Skripten, die mitunter nicht wiederanlauffähig sind und auch bei etwas komplizierteren Schema-Änderungen die Gefahr eines Datenverlustes beinhalten. Man kommt auch bei sehr teuren Tools dieser Klasse nicht umhin, die generierten Skripte auf Richtigkeit zu überprüfen und manuelle Anpassungen für etwaige Datenmigrationen auszuführen. Die Entscheidung, welchen Weg man geht, nimmt einem niemand ab. Jetzt sind wir mittendrin in der Diskussion wie man ein Deployment in das Zielsystem durchführt. Da kann dann auch PLEX nicht weiterhelfen - außer, dass das Package per se versucht, alle notwenigen Objekt-DDLs wiederanlauffähig zu extrahieren. Hier sind wir im weiten Feld der individuellen Bedürfnisse eines Projektes angekommen. Die von PLEX gelieferten Skriptbeispiele müssen auf jeden Fall an die Bedürfnisse des jeweiligen Projektes angepasst werden. Der Autor z.B. unterscheidet fast immer zwischen Skripten für das Backend und das Frontend - sowohl für den Export als auch das Deployment.&lt;/p&gt;
+
+&lt;h2 id=&#34;überlegung-verzeichnisstruktur-im-repository&#34;&gt;Überlegung: Verzeichnisstruktur im Repository&lt;/h2&gt;
+
+&lt;p&gt;Wie soll man sein Repository strukturieren? Hier ein Vorschlag, der sich im Laufe der Zeit für mich persönlich als vorteilhaft herausgestellt hat. Jedes Projekt mag da andere Vorstellungen haben. Ich verwende hier eine einfache Auflistung - die ersten Wörter jedes Listenpunktes stellen den Verzeichnisnamen dar und etwaige Erklärungen finden sich in Klammern dahinter:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;app_backend (unser Schema DDL)
+
+&lt;ul&gt;
+&lt;li&gt;constraints (ein Ordner pro Objekttyp)&lt;/li&gt;
+&lt;li&gt;package_bodies&lt;/li&gt;
+&lt;li&gt;packages&lt;/li&gt;
+&lt;li&gt;ref_constraints&lt;/li&gt;
+&lt;li&gt;sequences&lt;/li&gt;
+&lt;li&gt;tables&lt;/li&gt;
+&lt;li&gt;&amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;app_data (Verfolgung von Masterdaten, optional)&lt;/li&gt;
+&lt;li&gt;app_frontend (unsere APEX app)
+
+&lt;ul&gt;
+&lt;li&gt;pages&lt;/li&gt;
+&lt;li&gt;shared_components&lt;/li&gt;
+&lt;li&gt;&amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;docs (die Dokumentation)&lt;/li&gt;
+&lt;li&gt;reports&lt;/li&gt;
+&lt;li&gt;scripts (alle Masterskripte vereint)
+
+&lt;ul&gt;
+&lt;li&gt;logs (Export- und Installations-Logs)
+
+&lt;ul&gt;
+&lt;li&gt;export_app_100_from_MYSCHEMA_at_DEV_20190315_132542&lt;/li&gt;
+&lt;li&gt;install_app_100_into_MYSCHEMA_at_TEST_20190318_083756&lt;/li&gt;
+&lt;li&gt;&amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;misc (häufig genutzte Skripte wie z.B. Schema rekompilieren)&lt;/li&gt;
+&lt;li&gt;1_export_app_from_DEV.bat (Shellskript mit Parametern für das eigenliche SQL Exportskript)&lt;/li&gt;
+&lt;li&gt;2_install_app_into_TEST.bat (Shellskript mit Parametern für das eigenliche SQL Deploymentskript)&lt;/li&gt;
+&lt;li&gt;3_install_app_into_PROD.bat&lt;/li&gt;
+&lt;li&gt;export_app_custom_code.sql (Export Master Script mit individuellen Anpassungen)&lt;/li&gt;
+&lt;li&gt;install_app_custom_code.sql (Deployment Master Script mit individuellen Anpassungen je Release)&lt;/li&gt;
+&lt;li&gt;install_backend_generated_by_plex.sql (wird aufgerufen vom Masterskript)&lt;/li&gt;
+&lt;li&gt;install_frontend_generated_by_apex.sql (wird aufgerufen vom Masterskript)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;tests (Unit und Frontend-Tests)&lt;/li&gt;
+&lt;li&gt;README.md (generelle Informationen zum Projekt und Links in die Dokumentation)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Das Repository sollte logisch aufgebaut sein und keine extrem tiefen Verzeichnisstrukturen beinhalten, um den Umgang damit zu erleichtern. Alle Master-Skripte sind vereint in einem Skript-Ordner, auch das von APEX generierte Installationsskript für das Frontend. Alle Master-Skripte sollten während der Verwendung die jeweiligen Rückmeldungen in entsprechende Log-Dateien im Unterordner logs ablegen - damit sind Exporte von Quellcode und Deployments in Zielsysteme nachvollziehbar.&lt;/p&gt;
+
+&lt;h2 id=&#34;ausblick-ci-cd-schema-migration&#34;&gt;Ausblick: CI/CD &amp;amp; Schema-Migration&lt;/h2&gt;
+
+&lt;p&gt;Die skizzierte Diskussion um das Deployment lässt es schon erahnen: Einfach ein Quellcoderepository aufsetzen und man ist fertig ist nicht die Lösung. Das war nur erste Schritt zum Aufwärmen. Denn hat man erst einmal alles wohl strukturiert und per Skript lauffähig gemacht, dann kann man das Deployment auch im zweiten Schritt automatisieren. Der Inhalt dieser Diskussion sprengt aber bei weitem den Rahmen dieses Artikels, welcher ja den ersten Schritt im Fokus hat. Daher legt der Autor jedem nahe, nach diesem ersten Schritt nicht stehen zu bleiben und weitere Schritte ins Auge zu fassen. Einen sehr guten Grundlagenartikel hat z.B. Martin Fowler zum Thema verfasst - er betrachtet jede Änderung an der Datenbank als eine Migration. Zum weiteren Studium seien daher folgende Einstiegspunkte genannt:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Antti Kirmanen: &lt;a href=&#34;https://entwickler.de/online/development/git-subversion-svn-versionskontrollsystem-579792227.html&#34;&gt;Git vs. Subversion (SVN): Welches Versionskontrollsystem sollten Sie nutzen?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Martin Fowler: &lt;a href=&#34;https://www.martinfowler.com/articles/evodb.html&#34;&gt;Evolutionary Database Design&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Samuel Nitsche:
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://cleandatabase.wordpress.com/2017/09/22/there-is-no-clean-database-development-without-version-control/&#34;&gt;There is no clean (database) development without Version Control&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://cleandatabase.wordpress.com/2017/11/28/one-does-not-simply-update-a-database-migration-based-database-development/&#34;&gt;“One does not simply update a database” – migration based database development&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Blain Carter:
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://learncodeshare.net/2018/04/30/tips-to-help-pl-sql-developers-get-started-with-ci-cd/&#34;&gt;Tips to help PL/SQL developers get started with CI/CD&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://learncodeshare.net/2018/07/16/ci-cd-for-database-developers-export-database-objects-into-version-control/&#34;&gt;CI/CD for Database Developers – Export Database Objects into Version Control&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Jeff Smith: &lt;a href=&#34;https://www.thatjeffsmith.com/archive/2019/01/19-x-sqlcl-teaser-liquibase/&#34;&gt;19.X SQLcl Teaser: LIQUIBASE&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+</entry>
 
 <entry xml:lang="en">
 <id>https://ogobrecht.github.io/posts/2019-06-26-new-major-version-of-plex-available/</id>
@@ -36,7 +343,7 @@
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/ogobrecht/plex&#34;&gt;Project on Github&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/ogobrecht/plex/archive/v2.0.0.zip&#34;&gt;Direct download of version 2.0.0&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ogobrecht/plex/releases/latest&#34;&gt;Download latest version&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Happy exporting :-)&lt;br&gt;
@@ -1489,9 +1796,10 @@ Ottmar&lt;/p&gt;
 &lt;h2&gt;Inhaltsverzeichnis&lt;/h2&gt;
 
 
+
 &lt;h2 id=&#34;einleitung&#34;&gt;Einleitung&lt;/h2&gt;
 
-&lt;p&gt;Dieser Artikel erschien in der DOAG/SOUG News 02-2015 und steht auch im &lt;a href=&#34;https://mydoag.doag.org/formes/pubfiles/6900184/docs/Publikationen/DOAGNews/2015/02-2015/2015-02-News-Ottmar-Gobrecht-D3-Data-Driven-Documents.pdf&#34;&gt;Original&lt;/a&gt; zur Verfügung. Im Gegensatz zu der Papierversion der DOAG haben wir natürlich auf einer Webseite alle Möglichkeiten, D3 live zu zeigen - also los, wir starten mit einer Netzwerkvisualisierung live im Browser (JavaScript muß aktiv sein, damit die Beispiele auf dieser Seite funktionieren):&lt;/p&gt;
+&lt;p&gt;Dieser Artikel erschien im Magazin DOAG/SOUG News 02-2015 und steht auch im &lt;a href=&#34;https://mydoag.doag.org/formes/pubfiles/6900184/docs/Publikationen/DOAGNews/2015/02-2015/2015-02-News-Ottmar-Gobrecht-D3-Data-Driven-Documents.pdf&#34;&gt;Original&lt;/a&gt; zur Verfügung. Im Gegensatz zu der Papierversion der DOAG haben wir natürlich auf einer Webseite alle Möglichkeiten, D3 live zu zeigen - also los, wir starten mit einer Netzwerkvisualisierung live im Browser (JavaScript muß aktiv sein, damit die Beispiele auf dieser Seite funktionieren):&lt;/p&gt;
 
 &lt;figure&gt;
   &lt;div id=&#34;v0&#34;&gt;&lt;/div&gt;&lt;!--the graph container--&gt;

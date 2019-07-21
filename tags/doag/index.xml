@@ -6,10 +6,19 @@
     <description>Recent content in doag on Ottmar’s Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 20 Jul 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ogobrecht.github.io/tags/doag/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Schnellstart - Versionskontrolle für existierende Oracle-Projekte</title>
+      <link>https://ogobrecht.github.io/posts/2019-07-20-schnellstart-versionskontrolle-fuer-oracle-projekte/</link>
+      <pubDate>Sat, 20 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ogobrecht.github.io/posts/2019-07-20-schnellstart-versionskontrolle-fuer-oracle-projekte/</guid>
+      <description>Viele Oracle-Projekte setzen bis heute keine Versionskontrolle ein. Die Gründe dafür sind vielfältig. Meist geht man wohl davon aus, dass die Datenbank ein sicherer Ort für den Quellcode ist. Mit einem funktionierenden Backup ist das auch richtig, man verliert aber auf jeden Fall die komplette Historie der Änderungen. Oft fehlt in laufenden Projekten auch einfach die Zeit, sich zusätzlich noch mit der Einführung einer Quellcodeversionierung zu beschäftigen, weil auf den ersten Blick kein direkter Nutzen zu sehen ist.</description>
+    </item>
     
     <item>
       <title>DOAG Regionaltreffen 11. März 2019, München</title>
@@ -65,7 +74,7 @@ You need a modern browser with activated JavaScript. Navigation tips:
       <pubDate>Sun, 01 Mar 2015 00:00:00 +0000</pubDate>
       
       <guid>https://ogobrecht.github.io/posts/2015-03-01-d3js-grundlagen/</guid>
-      <description>InhaltsverzeichnisEinleitung Dieser Artikel erschien in der DOAG/SOUG News 02-2015 und steht auch im Original zur Verfügung. Im Gegensatz zu der Papierversion der DOAG haben wir natürlich auf einer Webseite alle Möglichkeiten, D3 live zu zeigen - also los, wir starten mit einer Netzwerkvisualisierung live im Browser (JavaScript muß aktiv sein, damit die Beispiele auf dieser Seite funktionieren):
+      <description>InhaltsverzeichnisEinleitung Dieser Artikel erschien im Magazin DOAG/SOUG News 02-2015 und steht auch im Original zur Verfügung. Im Gegensatz zu der Papierversion der DOAG haben wir natürlich auf einer Webseite alle Möglichkeiten, D3 live zu zeigen - also los, wir starten mit einer Netzwerkvisualisierung live im Browser (JavaScript muß aktiv sein, damit die Beispiele auf dieser Seite funktionieren):
  Knoten dürfen bewegt werden ;-)  D3 ist eine JavaScript Bibliothek zum Manipulieren von HTML Dokumenten auf der Basis von Daten und setzt dabei auf die Webstandards HTML, SVG und CSS.</description>
     </item>
     

@@ -4,7 +4,47 @@
   
   <url>
     <loc>https://ogobrecht.github.io/</loc>
-    <lastmod>2019-06-26T21:49:00+00:00</lastmod>
+    <lastmod>2019-07-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ogobrecht.github.io/posts/</loc>
+    <lastmod>2019-07-20T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ogobrecht.github.io/posts/2019-07-20-schnellstart-versionskontrolle-fuer-oracle-projekte/</loc>
+    <lastmod>2019-07-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ogobrecht.github.io/tags/</loc>
+    <lastmod>2019-07-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ogobrecht.github.io/tags/apex/</loc>
+    <lastmod>2019-07-20T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ogobrecht.github.io/tags/doag/</loc>
+    <lastmod>2019-07-20T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ogobrecht.github.io/tags/oracle/</loc>
+    <lastmod>2019-07-20T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ogobrecht.github.io/tags/version-control/</loc>
+    <lastmod>2019-07-20T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -13,36 +53,7 @@
   </url>
   
   <url>
-    <loc>https://ogobrecht.github.io/posts/</loc>
-    <lastmod>2019-06-26T21:49:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://ogobrecht.github.io/tags/</loc>
-    <lastmod>2019-06-26T21:49:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ogobrecht.github.io/tags/apex/</loc>
-    <lastmod>2019-06-26T21:49:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://ogobrecht.github.io/tags/oracle/</loc>
-    <lastmod>2019-06-26T21:49:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://ogobrecht.github.io/tags/plsql/</loc>
-    <lastmod>2019-06-26T21:49:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://ogobrecht.github.io/tags/version-control/</loc>
     <lastmod>2019-06-26T21:49:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -79,12 +90,6 @@
   <url>
     <loc>https://ogobrecht.github.io/posts/2019-03-11-doag-regionaltreffen-muenchen/</loc>
     <lastmod>2019-03-16T13:06:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ogobrecht.github.io/tags/doag/</loc>
-    <lastmod>2019-03-16T13:06:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>

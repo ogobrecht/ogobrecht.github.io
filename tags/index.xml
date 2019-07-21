@@ -6,7 +6,7 @@
     <description>Recent content in Tags on Ottmar’s Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 26 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 20 Jul 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ogobrecht.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,18 +14,36 @@
     <item>
       <title>apex</title>
       <link>https://ogobrecht.github.io/tags/apex/</link>
-      <pubDate>Wed, 26 Jun 2019 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 20 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>https://ogobrecht.github.io/tags/apex/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>doag</title>
+      <link>https://ogobrecht.github.io/tags/doag/</link>
+      <pubDate>Sat, 20 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ogobrecht.github.io/tags/doag/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>oracle</title>
       <link>https://ogobrecht.github.io/tags/oracle/</link>
-      <pubDate>Wed, 26 Jun 2019 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 20 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>https://ogobrecht.github.io/tags/oracle/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>version-control</title>
+      <link>https://ogobrecht.github.io/tags/version-control/</link>
+      <pubDate>Sat, 20 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ogobrecht.github.io/tags/version-control/</guid>
       <description></description>
     </item>
     
@@ -35,15 +53,6 @@
       <pubDate>Wed, 26 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://ogobrecht.github.io/tags/plsql/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>version-control</title>
-      <link>https://ogobrecht.github.io/tags/version-control/</link>
-      <pubDate>Wed, 26 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://ogobrecht.github.io/tags/version-control/</guid>
       <description></description>
     </item>
     
@@ -80,15 +89,6 @@
       <pubDate>Sun, 09 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://ogobrecht.github.io/tags/svg/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>doag</title>
-      <link>https://ogobrecht.github.io/tags/doag/</link>
-      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://ogobrecht.github.io/tags/doag/</guid>
       <description></description>
     </item>
     

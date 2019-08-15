@@ -8,7 +8,7 @@
   <title>Pitfalls with Oracle 11g XE and Docker on Mac OS</title>
   <meta name="description" content="The swap space problem and how to fix it">
   <meta name="author" content="Ottmar Gobrecht">
-  <meta name="generator" content="Hugo 0.55.6" />
+  <meta name="generator" content="Hugo 0.56.0" />
   <link rel="stylesheet" href="https://ogobrecht.github.io/assets/styles/main.css">
   <link rel="canonical" href="https://ogobrecht.github.io/posts/2017-03-21-pitfalls-with-oracle-11g-xe-and-docker-on-mac-os/">
   <link rel="alternate" type="application/atom+xml" title="Ottmar’s Notes" href="https://ogobrecht.github.io//feed.xml">
@@ -85,17 +85,17 @@
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># check and disallow install, if swap space is less than Min( 2047, 2 * RAM)`</span>
 <span class="k">if</span> <span class="o">[</span> <span class="nv">$swapspace</span> -lt <span class="nv">$requiredswapspace</span> <span class="o">]</span>
 <span class="k">then</span>
-    <span class="k">if</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="nv">$requiredswapspace</span><span class="s2">&#34;</span> <span class="o">=</span> <span class="s2">&#34;2047&#34;</span> <span class="o">]</span><span class="p">;</span>
-    <span class="k">then</span>
-        <span class="nv">requiredswapspace</span><span class="o">=</span><span class="m">2048</span>
-    <span class="k">fi</span>
-    <span class="nb">echo</span>
+	<span class="k">if</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="nv">$requiredswapspace</span><span class="s2">&#34;</span> <span class="o">=</span> <span class="s2">&#34;2047&#34;</span> <span class="o">]</span><span class="p">;</span>
+	<span class="k">then</span>
+		<span class="nv">requiredswapspace</span><span class="o">=</span><span class="m">2048</span>
+	<span class="k">fi</span>
+	<span class="nb">echo</span>
         <span class="nb">echo</span> <span class="s2">&#34;This system does not meet the minimum requirements for swap space.  Based on
 </span><span class="s2">the amount of physical memory available on the system, Oracle Database 11g
 </span><span class="s2">Express Edition requires </span><span class="nv">$requiredswapspace</span><span class="s2"> MB of swap space. This system has </span><span class="nv">$swapspace</span><span class="s2"> MB
 </span><span class="s2">of swap space.  Configure more swap space on the system and retry the
 </span><span class="s2">installation.&#34;</span>
-    <span class="nb">echo</span>
+	<span class="nb">echo</span>
         <span class="nb">exit</span> <span class="m">1</span>
 <span class="k">fi</span></code></pre></div>
 <p>Find this line (starting on line 328 as of this writing) and delete the line and everything behind until the file end:</p>

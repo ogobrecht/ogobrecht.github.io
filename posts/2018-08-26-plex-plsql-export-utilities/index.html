@@ -8,7 +8,7 @@
   <title>PLEX - PL/SQL Export Utilities</title>
   <meta name="description" content="Export Oracle APEX app, all schema objects and table data in one go">
   <meta name="author" content="Ottmar Gobrecht">
-  <meta name="generator" content="Hugo 0.55.6" />
+  <meta name="generator" content="Hugo 0.56.0" />
   <link rel="stylesheet" href="https://ogobrecht.github.io/assets/styles/main.css">
   <link rel="canonical" href="https://ogobrecht.github.io/posts/2018-08-26-plex-plsql-export-utilities/">
   <link rel="alternate" type="application/atom+xml" title="Ottmar’s Notes" href="https://ogobrecht.github.io//feed.xml">
@@ -84,9 +84,11 @@
 <ol>
 <li><a href="https://github.com/ogobrecht/plex/releases/latest">Download the latest code</a></li>
 <li>Run the provided install script <code>plex_install.sql</code> (provides compiler flags) in your desired schema - could also be a central tools schema, don&rsquo;t forget <code>grant execute on plex to xxx</code></li>
-<li>Startup your favorite SQL Tool, connect to your app schema and fire up the following query:</li>
+
+<li><p>Startup your favorite SQL Tool, connect to your app schema and fire up the following query:</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span> <span class="n">plex</span><span class="p">.</span><span class="n">to_zip</span><span class="p">(</span><span class="n">plex</span><span class="p">.</span><span class="n">backapp</span><span class="p">(</span><span class="n">p_app_id</span> <span class="o">=&gt;</span> <span class="n">yourAppId</span><span class="p">))</span> <span class="k">from</span> <span class="n">dual</span><span class="p">;</span></code></pre></div></li>
 </ol>
-<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span> <span class="n">plex</span><span class="p">.</span><span class="n">to_zip</span><span class="p">(</span><span class="n">plex</span><span class="p">.</span><span class="n">backapp</span><span class="p">(</span><span class="n">p_app_id</span> <span class="o">=&gt;</span> <span class="n">yourAppId</span><span class="p">))</span> <span class="k">from</span> <span class="n">dual</span><span class="p">;</span></code></pre></div>
+
 <p>Save the resulting BLOB file under a name with the extension <code>.zip</code> and extract it to a local directory of your choice. You will find this directory structure and files:</p>
 <div class="highlight"><pre class="chroma"><code class="language-txt" data-lang="txt">- app_backend (only, when p_include_object_ddl is set to true, see next example)
   - package_bodies

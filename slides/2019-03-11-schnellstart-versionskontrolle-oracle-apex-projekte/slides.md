@@ -449,6 +449,8 @@ Denis Savenko
 
 ---
 
+<!-- .slide: data-background-image="./assets/nick-de-partee-97063-unsplash.jpg" -->
+
 # The End
 
 ## Fragen?

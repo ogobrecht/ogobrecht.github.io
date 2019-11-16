@@ -1,4 +1,4 @@
-<!-- .slide: data-background-image="./assets/braden-collum-87874-unsplash.jpg" -->
+<!-- .slide: data-background-image="/assets/images/braden-collum-87874-unsplash.jpg" -->
 
 # Schnellstart
 ## Versionskontrolle für (APEX-)Projekte
@@ -64,7 +64,7 @@ Anmerkungen:
 
 ---
 
-<!-- .slide: data-background-image="./assets/michael-d-beckwith-575798-unsplash.jpg" -->
+<!-- .slide: data-background-image="/assets/images/michael-d-beckwith-575798-unsplash.jpg" -->
 
 > “There is no clean (database) development without Version Control”
 >
@@ -72,7 +72,7 @@ Anmerkungen:
 
 -----
 
-<!-- .slide: data-background-image="./assets/clark-young-135435-unsplash.jpg" -->
+<!-- .slide: data-background-image="/assets/images/clark-young-135435-unsplash.jpg" -->
 
 # Tools
 
@@ -167,13 +167,13 @@ Anmerkungen:
 
 ---
 
-<!-- .slide: data-background-image="./assets/camylla-battani-784361-unsplash.jpg" -->
+<!-- .slide: data-background-image="/assets/images/camylla-battani-784361-unsplash.jpg" -->
 
 ## Fragen?
 
 -----
 
-<!-- .slide: data-background-image="./assets/tim-easley-326493-unsplash.jpg" -->
+<!-- .slide: data-background-image="/assets/images/tim-easley-326493-unsplash.jpg" -->
 
 # PLEX
 
@@ -269,13 +269,13 @@ END;
 
 ---
 
-<!-- .slide: data-background-image="./assets/kevin-grieve-660962-unsplash.jpg" -->
+<!-- .slide: data-background-image="/assets/images/kevin-grieve-660962-unsplash.jpg" -->
 
 ## Fragen?
 
 -----
 
-<!-- .slide: data-background-image="./assets/andrea-cappiello-770323-unsplash.jpg" -->
+<!-- .slide: data-background-image="/assets/images/andrea-cappiello-770323-unsplash.jpg" -->
 
 # DDL
 ## <span style="color:red;">D</span>urch <span style="color:red;">d</span>ie <span style="color:red;">L</span>andschaft ;-)
@@ -314,13 +314,13 @@ Unser Ansatz ist nur eine mögliche<br>Ausprägung der Idee
 
 ---
 
-<!-- .slide: data-background-image="./assets/kawtar-cherkaoui-125346-unsplash.jpg" -->
+<!-- .slide: data-background-image="/assets/images/kawtar-cherkaoui-125346-unsplash.jpg" -->
 
 ## Fragen?
 
 -----
 
-<!-- .slide: data-background-image="./assets/james-thomas-125093-unsplash.jpg" -->
+<!-- .slide: data-background-image="/assets/images/james-thomas-125093-unsplash.jpg" -->
 
 # Geschwindigkeit
 
@@ -339,13 +339,13 @@ App Export/Import
 
 ---
 
-<!-- .slide: data-background-image="./assets/wayne-bishop-5737-unsplash.jpg" -->
+<!-- .slide: data-background-image="/assets/images/wayne-bishop-5737-unsplash.jpg" -->
 
 ## Fragen?
 
 -----
 
-<!-- .slide: data-background-image="./assets/ricky-kharawala-308072-unsplash.jpg" -->
+<!-- .slide: data-background-image="/assets/images/ricky-kharawala-308072-unsplash.jpg" -->
 
 # Mehr Tools
 
@@ -378,13 +378,13 @@ App Export/Import
 
 ---
 
-<!-- .slide: data-background-image="./assets/alexander-andrews-511680-unsplash.jpg" -->
+<!-- .slide: data-background-image="/assets/images/alexander-andrews-511680-unsplash.jpg" -->
 
 ## Fragen?
 
 -----
 
-<!-- .slide: data-background-image="./assets/matt-lamers-683008-unsplash.jpg" -->
+<!-- .slide: data-background-image="/assets/images/matt-lamers-683008-unsplash.jpg" -->
 
 # Fazit
 
@@ -449,7 +449,7 @@ Denis Savenko
 
 ---
 
-<!-- .slide: data-background-image="./assets/nick-de-partee-97063-unsplash.jpg" -->
+<!-- .slide: data-background-image="/assets/images/nick-de-partee-97063-unsplash.jpg" -->
 
 # The End
 

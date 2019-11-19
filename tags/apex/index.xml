@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>apex on Ottmar’s Notes</title>
@@ -6,10 +6,23 @@
     <description>Recent content in apex on Ottmar’s Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 20 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 19 Nov 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ogobrecht.github.io/tags/apex/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>DOAG Konferenz 2019</title>
+      <link>https://ogobrecht.github.io/posts/2019-11-19-doag-konferenz/</link>
+      <pubDate>Tue, 19 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ogobrecht.github.io/posts/2019-11-19-doag-konferenz/</guid>
+      <description>Hier geht es zu meinem Vortrag im Konferenzprogramm
+Open HTML presentation in a new window/tab
+You need a modern browser with activated JavaScript. Navigation tips:
+N, Space = Next slideP = Previous slideO, Esc = Overview all slides? = Show all keyboard shortcutsAll links are opened in a new window/tabHappy coding and version controlling :-)
+Ottmar</description>
+    </item>
     
     <item>
       <title>Schnellstart - Versionskontrolle für existierende Oracle-Projekte</title>

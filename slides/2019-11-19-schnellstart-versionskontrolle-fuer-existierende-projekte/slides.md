@@ -57,7 +57,7 @@ DOAG Konferenz Nürnberg<br>
 
 ## Unser Ziel
 
-Export „all in one“ für Versionskontrolle
+„All in one“ Export für Versionskontrolle
 
 - Backend (Schema DDL)<!-- .element: class="fragment"-->
 - Daten (Katalogdaten)<!-- .element: class="fragment"-->
@@ -88,12 +88,12 @@ Export „all in one“ für Versionskontrolle
 
 **Tools: SQL Dev, PL/SQL Dev, Toad, PLEX**<!-- .element: class="fragment"--><b style="color:red;">?!?</b><!-- .element: class="fragment"-->
 
-- Eine Skript-Datei pro Objekt?<!-- .element: class="fragment"-->
-- Unterverzeichnisse pro Objekttyp?<!-- .element: class="fragment"-->
-- Eigene Dateien FK Constraints?<!-- .element: class="fragment"-->
-- "Object already exist" verhinderbar?<!-- .element: class="fragment"-->
-- Daten exportierbar?<!-- .element: class="fragment"-->
-- APEX App exportierbar?<!-- .element: class="fragment"-->
+- Eine Skript-Datei pro Objekt<!-- .element: class="fragment"-->
+- Unterverzeichnisse pro Objekttyp<!-- .element: class="fragment"-->
+- Eigene Dateien FK Constraints<!-- .element: class="fragment"-->
+- "Object already exist" verhinderbar<!-- .element: class="fragment"-->
+- Daten exportierbar<!-- .element: class="fragment"-->
+- APEX App exportierbar<!-- .element: class="fragment"-->
 
 ---
 
@@ -172,6 +172,7 @@ WITH
     RETURN plex.to_zip(plex.backapp(
       p_app_id               => 100,
       p_include_object_ddl   => true,
+      p_object_name_not_like => 'PLEX',
       p_include_templates    => true,
       p_include_runtime_log  => true,
       p_include_data         => true,
@@ -540,7 +541,7 @@ Die ersten Schritte
 
 ---
 
-## Kulturelle Kompetenzen - Beispiel ;-)
+## Kulturelle Kompetenzen - Beispiel
 
 <small>Kapitel 11: Führungskräfte und Manager, Transformationale Führung</small>
 

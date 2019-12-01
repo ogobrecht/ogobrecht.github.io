@@ -1,4 +1,4 @@
-Diese PDF-Vorabversion meiner Folien verzichtet auf Hintergrundbilder zugunsten schnellerer Downloads. Die endgültige HTML-Version wird ab 19. November 2019 online unter folgendem Link verfügbar sein: [ogobrecht.github.io/posts/2019-11-19-doag-konferenz](https://ogobrecht.github.io/posts/2019-11-19-doag-konferenz/)
+Diese PDF-Version meiner Folien verzichtet auf Hintergrundbilder, weil sonst die Dateigröße das Limit der DOAG von 10 MB überschreitet. Die vollständige HTML-Version steht dauerhaft online unter folgendem Link zur Verfügung: [ogobrecht.github.io/posts/2019-11-19-doag-konferenz](https://ogobrecht.github.io/posts/2019-11-19-doag-konferenz/)
 
 -----
 

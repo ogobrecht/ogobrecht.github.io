@@ -57,7 +57,7 @@ Because all my plugin developments are free time projects it took a while. Now t
       <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>https://ogobrecht.github.io/posts/2017-03-05-dokuwiki-plugin-revealjs/</guid>
-      <description>DokuWiki is very good for creating documentation in a team. It is PHP based, needs less resources and is running without a database only on files on nearly every webserver. If your infrastructure is crashed for whatever reason and you have at least access to the files (on the webserver or in a backup) you can read your documentation with a simple text editor, because DokuWiki&amp;rsquo;s syntax is designed to be readable as possible without any rendering to HTML.</description>
+      <description>DokuWiki is very good for creating documentation in a team. It is PHP based, needs less resources and is running without a database only on files on nearly every webserver. If your infrastructure is crashed for whatever reason and you have at least access to the files (on the webserver or in a backup) you can read your documentation with a simple text editor, because DokuWiki&#39;s syntax is designed to be readable as possible without any rendering to HTML.</description>
     </item>
     
     <item>

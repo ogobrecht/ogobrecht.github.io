@@ -6,7 +6,7 @@
     <description>Recent content in Tags on Ottmar’s Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 19 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 01 Jan 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ogobrecht.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,9 +14,45 @@
     <item>
       <title>apex</title>
       <link>https://ogobrecht.github.io/tags/apex/</link>
-      <pubDate>Tue, 19 Nov 2019 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
       
       <guid>https://ogobrecht.github.io/tags/apex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>oracle</title>
+      <link>https://ogobrecht.github.io/tags/oracle/</link>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ogobrecht.github.io/tags/oracle/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>plsql</title>
+      <link>https://ogobrecht.github.io/tags/plsql/</link>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ogobrecht.github.io/tags/plsql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>script</title>
+      <link>https://ogobrecht.github.io/tags/script/</link>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ogobrecht.github.io/tags/script/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>version-control</title>
+      <link>https://ogobrecht.github.io/tags/version-control/</link>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ogobrecht.github.io/tags/version-control/</guid>
       <description></description>
     </item>
     
@@ -30,38 +66,11 @@
     </item>
     
     <item>
-      <title>oracle</title>
-      <link>https://ogobrecht.github.io/tags/oracle/</link>
-      <pubDate>Tue, 19 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://ogobrecht.github.io/tags/oracle/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>slides</title>
       <link>https://ogobrecht.github.io/tags/slides/</link>
       <pubDate>Tue, 19 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>https://ogobrecht.github.io/tags/slides/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>version-control</title>
-      <link>https://ogobrecht.github.io/tags/version-control/</link>
-      <pubDate>Tue, 19 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://ogobrecht.github.io/tags/version-control/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>plsql</title>
-      <link>https://ogobrecht.github.io/tags/plsql/</link>
-      <pubDate>Wed, 26 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://ogobrecht.github.io/tags/plsql/</guid>
       <description></description>
     </item>
     

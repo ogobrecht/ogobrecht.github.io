@@ -8,29 +8,29 @@
   <title>Markdown Reporter</title>
   <meta name="description" content="Write your reports with Markdown, get HTML or LaTeX PDFs">
   <meta name="author" content="Ottmar Gobrecht">
-  <meta name="generator" content="Hugo 0.59.1" />
+  <meta name="generator" content="Hugo 0.62.1" />
   <link rel="stylesheet" href="https://ogobrecht.github.io/assets/styles/main.css">
   <link rel="canonical" href="https://ogobrecht.github.io/posts/2017-01-23-markdown-reporter/">
   <link rel="alternate" type="application/atom+xml" title="Ottmar’s Notes" href="https://ogobrecht.github.io//feed.xml">
   <link rel="shortcut icon" href="/assets/icon/favicon.ico">
-	<link rel="icon" sizes="16x16 32x32 64x64" href="/assets/icon/favicon.ico">
-	<link rel="icon" type="image/png" sizes="16x16" href="/assets/icon/favicon-16.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/assets/icon/favicon-32.png">
-	<link rel="icon" type="image/png" sizes="64x64" href="/assets/icon/favicon-64.png">
-	<link rel="icon" type="image/png" sizes="96x96" href="/assets/icon/favicon-96.png">
-	<link rel="icon" type="image/png" sizes="160x160" href="/assets/icon/favicon-160.png">
-	<link rel="icon" type="image/png" sizes="196x196" href="/assets/icon/favicon-192.png">
-	<link rel="apple-touch-icon" href="/assets/icon/favicon-57.png">
-	<link rel="apple-touch-icon" sizes="60x60" href="/assets/icon/favicon-60.png">
-	<link rel="apple-touch-icon" sizes="72x72" href="/assets/icon/favicon-72.png">
-	<link rel="apple-touch-icon" sizes="76x76" href="/assets/icon/favicon-76.png">
-	<link rel="apple-touch-icon" sizes="120x120" href="/assets/icon/favicon-120.png">
-	<link rel="apple-touch-icon" sizes="144x144" href="/assets/icon/favicon-144.png">
-	<link rel="apple-touch-icon" sizes="152x152" href="/assets/icon/favicon-152.png">
-	<link rel="apple-touch-icon" sizes="180x180" href="/assets/icon/favicon-180.png">
-	<meta name="msapplication-config" content="/assets/icon/browserconfig.xml">
-	<meta name="msapplication-TileColor" content="#FFFFFF">
-	<meta name="msapplication-TileImage" content="/assets/icon/favicon-144.png">
+  <link rel="icon" sizes="16x16 32x32 64x64" href="/assets/icon/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icon/favicon-16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icon/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="/assets/icon/favicon-64.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/icon/favicon-96.png">
+  <link rel="icon" type="image/png" sizes="160x160" href="/assets/icon/favicon-160.png">
+  <link rel="icon" type="image/png" sizes="196x196" href="/assets/icon/favicon-192.png">
+  <link rel="apple-touch-icon" href="/assets/icon/favicon-57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/icon/favicon-60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/icon/favicon-72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/icon/favicon-76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/icon/favicon-120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/icon/favicon-144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icon/favicon-152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icon/favicon-180.png">
+  <meta name="msapplication-config" content="/assets/icon/browserconfig.xml">
+  <meta name="msapplication-TileColor" content="#FFFFFF">
+  <meta name="msapplication-TileImage" content="/assets/icon/favicon-144.png">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
 
@@ -57,30 +57,20 @@
 
 <div class="item-content" itemprop="articleBody">
 <p>On the APEX connect 2016 in Berlin I talked about my APEX Markdown plugin and fine art printing with the help of Pandoc and LaTeX. When I was preparing my slides and documenting a SQL query in a Markdown code block I asked myself:</p>
-
 <p>What, if the database is taking this Markdown code block and runs the query inside to convert it into data?</p>
-
 <p>And what, if I take this Markdown text with the data in the code blocks and post it to a small webservice which converts the data blocks into charts and the whole document into HTML or a LaTeX based PDF?</p>
-
 <p>The idea to Markdown Reporter was born.</p>
-
 <p>I talked about this project on the DOAG conference in Nuremberg last November. Here are the <a href="/posts/2016-11-17-reporting-mal-anders-markdown-sei-dank">slides</a> (in german, sorry).</p>
-
 <p>If you want to know how it looks like - here is a <a href="/slides/2016-11-17-reporting-mal-anders-markdown-sei-dank/assets/demo-report.pdf">PDF demo report</a></p>
-
 <p>The implementation has three main components:</p>
-
 <ul>
 <li>An Oracle PL/SQL Package for preprocessing your data and communicating with the printserver</li>
 <li>A Node.js based printserver, which is in fact a web based remote shell for the format converter <a href="http://pandoc.org/">Pandoc</a></li>
 <li>A Pandoc filter written in Python, which intercepts the converting process and generates the charts based on the preprocessed CSV data with the help of Pythons <a href="http://matplotlib.org/">matplotlib</a></li>
 </ul>
-
 <p>The HTML and PDF output is complete vector based and all used tools are open source.</p>
-
 <p>You can find the sources and more informations on <a href="https://github.com/ogobrecht/markdown-reporter">GitHub</a>.</p>
-
-<p>Happy reporting :-)<br />
+<p>Happy reporting :-)<br>
 Ottmar</p>
 
 </div><!--articleBody-end-->

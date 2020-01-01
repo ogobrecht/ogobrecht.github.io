@@ -8,29 +8,29 @@
   <title>New Major Version of PL/SQL Export Utilities Available</title>
   <meta name="description" content="PLEX is now independent from an APEX installation">
   <meta name="author" content="Ottmar Gobrecht">
-  <meta name="generator" content="Hugo 0.59.1" />
+  <meta name="generator" content="Hugo 0.62.1" />
   <link rel="stylesheet" href="https://ogobrecht.github.io/assets/styles/main.css">
   <link rel="canonical" href="https://ogobrecht.github.io/posts/2019-06-26-new-major-version-of-plex-available/">
   <link rel="alternate" type="application/atom+xml" title="Ottmar’s Notes" href="https://ogobrecht.github.io//feed.xml">
   <link rel="shortcut icon" href="/assets/icon/favicon.ico">
-	<link rel="icon" sizes="16x16 32x32 64x64" href="/assets/icon/favicon.ico">
-	<link rel="icon" type="image/png" sizes="16x16" href="/assets/icon/favicon-16.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/assets/icon/favicon-32.png">
-	<link rel="icon" type="image/png" sizes="64x64" href="/assets/icon/favicon-64.png">
-	<link rel="icon" type="image/png" sizes="96x96" href="/assets/icon/favicon-96.png">
-	<link rel="icon" type="image/png" sizes="160x160" href="/assets/icon/favicon-160.png">
-	<link rel="icon" type="image/png" sizes="196x196" href="/assets/icon/favicon-192.png">
-	<link rel="apple-touch-icon" href="/assets/icon/favicon-57.png">
-	<link rel="apple-touch-icon" sizes="60x60" href="/assets/icon/favicon-60.png">
-	<link rel="apple-touch-icon" sizes="72x72" href="/assets/icon/favicon-72.png">
-	<link rel="apple-touch-icon" sizes="76x76" href="/assets/icon/favicon-76.png">
-	<link rel="apple-touch-icon" sizes="120x120" href="/assets/icon/favicon-120.png">
-	<link rel="apple-touch-icon" sizes="144x144" href="/assets/icon/favicon-144.png">
-	<link rel="apple-touch-icon" sizes="152x152" href="/assets/icon/favicon-152.png">
-	<link rel="apple-touch-icon" sizes="180x180" href="/assets/icon/favicon-180.png">
-	<meta name="msapplication-config" content="/assets/icon/browserconfig.xml">
-	<meta name="msapplication-TileColor" content="#FFFFFF">
-	<meta name="msapplication-TileImage" content="/assets/icon/favicon-144.png">
+  <link rel="icon" sizes="16x16 32x32 64x64" href="/assets/icon/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icon/favicon-16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icon/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="/assets/icon/favicon-64.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/icon/favicon-96.png">
+  <link rel="icon" type="image/png" sizes="160x160" href="/assets/icon/favicon-160.png">
+  <link rel="icon" type="image/png" sizes="196x196" href="/assets/icon/favicon-192.png">
+  <link rel="apple-touch-icon" href="/assets/icon/favicon-57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/icon/favicon-60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/icon/favicon-72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/icon/favicon-76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/icon/favicon-120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/icon/favicon-144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icon/favicon-152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icon/favicon-180.png">
+  <meta name="msapplication-config" content="/assets/icon/browserconfig.xml">
+  <meta name="msapplication-TileColor" content="#FFFFFF">
+  <meta name="msapplication-TileImage" content="/assets/icon/favicon-144.png">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
 
@@ -54,18 +54,13 @@
 
 <div class="item-content" itemprop="articleBody">
 <p>PLEX is a PL/SQL package with export utilities - see <a href="https://ogobrecht.github.io/posts/2018-08-26-plex-plsql-export-utilities/">this post</a> what it can do for you. In the past it was dependent on APEX for two reasons: The APEX_EXPORT package to allow exporting an APEX app and the APEX_ZIP package for compressing the resulting file collection to a zip file.</p>
-
-<p>After the first public release of PLEX, I got a comment like &ldquo;Nice tool, but I don&rsquo;t use APEX&rdquo;. I thought I should make PLEX independent from APEX to allow at least the export of all the schema DDL and also the table data. Some weeks ago Jürgen Schuster contacted me to try out PLEX for an switch from Subversion to Git for one of his customer projects. It turns out that PLEX was not able to export the schema DDL because of errors from DBMS_METADATA regarding many Java classes. And the second issue was that one of their machines had no APEX installed. This was the final trigger for me to rework the implementation of PLEX.</p>
-
+<p>After the first public release of PLEX, I got a comment like &ldquo;Nice tool, but I don't use APEX&rdquo;. I thought I should make PLEX independent from APEX to allow at least the export of all the schema DDL and also the table data. Some weeks ago Jürgen Schuster contacted me to try out PLEX for an switch from Subversion to Git for one of his customer projects. It turns out that PLEX was not able to export the schema DDL because of errors from DBMS_METADATA regarding many Java classes. And the second issue was that one of their machines had no APEX installed. This was the final trigger for me to rework the implementation of PLEX.</p>
 <p>PLEX is now independent from an APEX installation. Thanks to Anton Scheffer for his <a href="https://technology.amis.nl/2010/03/13/utl_compress-gzip-and-zlib/">as_zip package</a>. PLEX reuses the methods for compressing files and uses conditional compilation to include/exclude functionality depending on APEX. Because PLEX cannot rely on APEX anymore, the return type for the methods <strong>backapp</strong> and <strong>queries_to_csv</strong> has changed from <code>apex_t_export_files</code> to <code>plex.tab_export_files</code>. This was unavoidable and if you have existing scripts and you want to update to the new PLEX version, you have to change the variables based on that return type. A simple search and replace will normally do the trick. This breaking change in the PLEX API is also the reason for a new major version.</p>
-
 <p>The other improvement is better error handling and logging. Per default you will find two files in an export collection: plex_runtime_log and plex_error_log. The former is for an overview what happened and how long it took and the latter is for detailed error messages. If you encounter errors and you think that should not happen and is a problem of PLEX, then please open an <a href="https://github.com/ogobrecht/plex/issues/new">issue on GitHub</a>. I was able to export the schema APEX_19_0100 with around 5000 objects on my dev machine&hellip;</p>
-
 <ul>
 <li><a href="https://github.com/ogobrecht/plex">Project on Github</a></li>
 <li><a href="https://github.com/ogobrecht/plex/releases/latest">Download latest version</a></li>
 </ul>
-
 <p>Happy exporting :-)<br>
 Ottmar</p>
 

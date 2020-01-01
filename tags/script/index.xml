@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>script on Ottmar’s Notes</title>
+    <link>https://ogobrecht.github.io/tags/script/</link>
+    <description>Recent content in script on Ottmar’s Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 01 Jan 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ogobrecht.github.io/tags/script/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Download BLOBs with SQL*Plus</title>
+      <link>https://ogobrecht.github.io/posts/2020-01-01-download_blobs_with_sqlplus/</link>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ogobrecht.github.io/posts/2020-01-01-download_blobs_with_sqlplus/</guid>
+      <description>Have you ever tried to spool/download BLOBS with SQL*Plus? Some months ago I tried to find a way to download a collection of CLOBs or even better a zipped version of the collection as BLOB. I learned that BLOBs are not a valid datatype in SQL*Plus when it comes to the spool command. I found a way by putting the CLOBs into a global temporary table, creating an intermediate SQL script with tons of select and spool commands and finally spooling the CLOBs one by one by calling the intermediate SQL script.</description>
+    </item>
+    
+  </channel>
+</rss>

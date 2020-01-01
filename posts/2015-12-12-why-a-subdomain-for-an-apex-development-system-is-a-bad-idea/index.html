@@ -8,29 +8,29 @@
   <title>Why a subdomain for an APEX development system is a bad idea</title>
   <meta name="description" content="The Internet Explorer cookie desaster">
   <meta name="author" content="Ottmar Gobrecht">
-  <meta name="generator" content="Hugo 0.59.1" />
+  <meta name="generator" content="Hugo 0.62.1" />
   <link rel="stylesheet" href="https://ogobrecht.github.io/assets/styles/main.css">
   <link rel="canonical" href="https://ogobrecht.github.io/posts/2015-12-12-why-a-subdomain-for-an-apex-development-system-is-a-bad-idea/">
   <link rel="alternate" type="application/atom+xml" title="Ottmar’s Notes" href="https://ogobrecht.github.io//feed.xml">
   <link rel="shortcut icon" href="/assets/icon/favicon.ico">
-	<link rel="icon" sizes="16x16 32x32 64x64" href="/assets/icon/favicon.ico">
-	<link rel="icon" type="image/png" sizes="16x16" href="/assets/icon/favicon-16.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/assets/icon/favicon-32.png">
-	<link rel="icon" type="image/png" sizes="64x64" href="/assets/icon/favicon-64.png">
-	<link rel="icon" type="image/png" sizes="96x96" href="/assets/icon/favicon-96.png">
-	<link rel="icon" type="image/png" sizes="160x160" href="/assets/icon/favicon-160.png">
-	<link rel="icon" type="image/png" sizes="196x196" href="/assets/icon/favicon-192.png">
-	<link rel="apple-touch-icon" href="/assets/icon/favicon-57.png">
-	<link rel="apple-touch-icon" sizes="60x60" href="/assets/icon/favicon-60.png">
-	<link rel="apple-touch-icon" sizes="72x72" href="/assets/icon/favicon-72.png">
-	<link rel="apple-touch-icon" sizes="76x76" href="/assets/icon/favicon-76.png">
-	<link rel="apple-touch-icon" sizes="120x120" href="/assets/icon/favicon-120.png">
-	<link rel="apple-touch-icon" sizes="144x144" href="/assets/icon/favicon-144.png">
-	<link rel="apple-touch-icon" sizes="152x152" href="/assets/icon/favicon-152.png">
-	<link rel="apple-touch-icon" sizes="180x180" href="/assets/icon/favicon-180.png">
-	<meta name="msapplication-config" content="/assets/icon/browserconfig.xml">
-	<meta name="msapplication-TileColor" content="#FFFFFF">
-	<meta name="msapplication-TileImage" content="/assets/icon/favicon-144.png">
+  <link rel="icon" sizes="16x16 32x32 64x64" href="/assets/icon/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icon/favicon-16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icon/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="/assets/icon/favicon-64.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/icon/favicon-96.png">
+  <link rel="icon" type="image/png" sizes="160x160" href="/assets/icon/favicon-160.png">
+  <link rel="icon" type="image/png" sizes="196x196" href="/assets/icon/favicon-192.png">
+  <link rel="apple-touch-icon" href="/assets/icon/favicon-57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/icon/favicon-60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/icon/favicon-72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/icon/favicon-76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/icon/favicon-120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/icon/favicon-144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icon/favicon-152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icon/favicon-180.png">
+  <meta name="msapplication-config" content="/assets/icon/browserconfig.xml">
+  <meta name="msapplication-TileColor" content="#FFFFFF">
+  <meta name="msapplication-TileImage" content="/assets/icon/favicon-144.png">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
 
@@ -51,19 +51,14 @@
 </header>
 
 <div class="item-content" itemprop="articleBody">
-
-
 <p><em>Do you find dev.apex.mycompany.tld a nice, rememberable address? Unfortunately this will not work - at least when you use Internet Explorer (which is the standard browser in most companies) and you use the same cookie name in some or all applications to share the session across multiple applications.</em></p>
-
 <h2 id="what-is-the-problem-on-a-subdomain">What is the problem on a subdomain?</h2>
-
 <p>Internet Explorer including version 11 has a really bad cookie implementation. If you login to your productive APEX instance under apex.mycompany.tld and then to your development instance under dev.apex.mycompany.tld, IE sends the session cookie from your productive instance to your development instance. You will not be able to login - the server is generating a new session each time because of the invalid session cookie.</p>
-
 <p>It comes to a nightmare if you configured your systems for automatic login with the windows login credentials as described in <a href="http://de.slideshare.net/nielsdb/mt-ag-howtosingle-signonfuerapexanwendungen-mitkerberos">this document</a> from Niels de Bruijn. The automatic login leads to hundreds new sessions in a few seconds - depending on the speed of your development system.</p>
-
 <p>Not to mention that Chrome and Firefox are working well&hellip;</p>
-
-<p>More details about IE&rsquo;s cookie desaster can be found on <a href="http://blogs.msdn.com/b/ieinternals/archive/2009/08/20/wininet-ie-cookie-internals-faq.aspx">blogs.msdn.com</a> - the relevant question for this blog entry is number three.</p>
+<p>More details about IE's cookie desaster can be found on <a href="http://blogs.msdn.com/b/ieinternals/archive/2009/08/20/wininet-ie-cookie-internals-faq.aspx">blogs.msdn.com</a> - the relevant question for this blog entry is number three.</p>
+<p>Happy APEXing :-)<br>
+Ottmar</p>
 
 </div><!--articleBody-end-->
 

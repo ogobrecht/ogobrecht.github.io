@@ -8,29 +8,29 @@
   <title>HydeBar</title>
   <meta name="description" content="A Jekyll Sidebar Template">
   <meta name="author" content="Ottmar Gobrecht">
-  <meta name="generator" content="Hugo 0.59.1" />
+  <meta name="generator" content="Hugo 0.62.1" />
   <link rel="stylesheet" href="https://ogobrecht.github.io/assets/styles/main.css">
   <link rel="canonical" href="https://ogobrecht.github.io/posts/2017-11-29-hydebar/">
   <link rel="alternate" type="application/atom+xml" title="Ottmar’s Notes" href="https://ogobrecht.github.io//feed.xml">
   <link rel="shortcut icon" href="/assets/icon/favicon.ico">
-	<link rel="icon" sizes="16x16 32x32 64x64" href="/assets/icon/favicon.ico">
-	<link rel="icon" type="image/png" sizes="16x16" href="/assets/icon/favicon-16.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/assets/icon/favicon-32.png">
-	<link rel="icon" type="image/png" sizes="64x64" href="/assets/icon/favicon-64.png">
-	<link rel="icon" type="image/png" sizes="96x96" href="/assets/icon/favicon-96.png">
-	<link rel="icon" type="image/png" sizes="160x160" href="/assets/icon/favicon-160.png">
-	<link rel="icon" type="image/png" sizes="196x196" href="/assets/icon/favicon-192.png">
-	<link rel="apple-touch-icon" href="/assets/icon/favicon-57.png">
-	<link rel="apple-touch-icon" sizes="60x60" href="/assets/icon/favicon-60.png">
-	<link rel="apple-touch-icon" sizes="72x72" href="/assets/icon/favicon-72.png">
-	<link rel="apple-touch-icon" sizes="76x76" href="/assets/icon/favicon-76.png">
-	<link rel="apple-touch-icon" sizes="120x120" href="/assets/icon/favicon-120.png">
-	<link rel="apple-touch-icon" sizes="144x144" href="/assets/icon/favicon-144.png">
-	<link rel="apple-touch-icon" sizes="152x152" href="/assets/icon/favicon-152.png">
-	<link rel="apple-touch-icon" sizes="180x180" href="/assets/icon/favicon-180.png">
-	<meta name="msapplication-config" content="/assets/icon/browserconfig.xml">
-	<meta name="msapplication-TileColor" content="#FFFFFF">
-	<meta name="msapplication-TileImage" content="/assets/icon/favicon-144.png">
+  <link rel="icon" sizes="16x16 32x32 64x64" href="/assets/icon/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icon/favicon-16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icon/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="/assets/icon/favicon-64.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/icon/favicon-96.png">
+  <link rel="icon" type="image/png" sizes="160x160" href="/assets/icon/favicon-160.png">
+  <link rel="icon" type="image/png" sizes="196x196" href="/assets/icon/favicon-192.png">
+  <link rel="apple-touch-icon" href="/assets/icon/favicon-57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/icon/favicon-60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/icon/favicon-72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/icon/favicon-76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/icon/favicon-120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/icon/favicon-144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icon/favicon-152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icon/favicon-180.png">
+  <meta name="msapplication-config" content="/assets/icon/browserconfig.xml">
+  <meta name="msapplication-TileColor" content="#FFFFFF">
+  <meta name="msapplication-TileImage" content="/assets/icon/favicon-144.png">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
 
@@ -53,24 +53,16 @@
 
 <div class="item-content" itemprop="articleBody">
 <p>Earlier this year I wrote at the end of <a href="/posts/2017-03-05-dokuwiki-plugin-revealjs">this post</a>:</p>
-
 <blockquote>
 <p>P.S.: In the meantime I switched complete to Markdown and <a href="https://jekyllrb.com">Jekyll</a>, a static site generator - but this is another story for another post &hellip;</p>
 </blockquote>
-
 <p>As always - it took a bit longer then expected. In the meantime I was fiddling around with Jekyll and modifying the default theme Minima to my needs. Then I stumbled over the <a href="https://github.com/nijikokun/minami">JSDoc theme Minami</a> and the <a href="https://shopify.github.io/liquid/">Liquid docs site</a> - both with nice sidebars. I wanted to have such a nice sidebar for my dev blog and began to look deeper how it was implemented. To my surprise the sidebar from the JSDoc theme Minami was complete CSS driven - cool.</p>
-
 <p>It took me a while to full understand how it was working. With this knowledge and the design inspirations I was able to improve the Jekyll default theme to a sidebar template. As a bonus I integrated the HTML based slideshow library Reveal.js - you can write now your blog posts and slides with markdown.</p>
-
-<p>The nice thing about blogging with markdown is, that you don&rsquo;t need to switch your tools - you use the usual ones from the daily programming job. It goes even better when you use GitHub: You commit your changes and GitHub takes care about generating your blog content from your sources. And the result is a fast and secure static site.</p>
-
+<p>The nice thing about blogging with markdown is, that you don't need to switch your tools - you use the usual ones from the daily programming job. It goes even better when you use GitHub: You commit your changes and GitHub takes care about generating your blog content from your sources. And the result is a fast and secure static site.</p>
 <p>I had a accepted talk at the <a href="https://2017.doag.org/en/home/">DOAG Conference + Exhibition 2017</a> in the stream &ldquo;Strategy &amp; Business Practices&rdquo; about blogging for developers with Jekyll. Unfortunately short before I had an accident and broke my right upper arm :-(</p>
-
 <p>My colleague Markus Dötsch was taking over the presentation and I concentrated on delivering the free time project &ldquo;Jekyll sidebar template&rdquo;. This was the working title before I renamed it to &ldquo;HydeBar&rdquo; - a play with &ldquo;Dr. Jekyll and Mr. Hyde&rdquo; and the fact, that it is a sidebar template.</p>
-
 <p>Yesterday I released version 1.0.0. You can start blogging for free in five minutes with this <a href="https://ogobrecht.github.io/hydebar/features#quickstart-online-in-5-minutes">quick start guide</a>. The <a href="https://ogobrecht.github.io/hydebar">online demo</a> is serving as template, documentation and showcase. The mentioned slides from the <a href="https://2017.doag.org/en/home/">DOAG Conference</a> are included in this demo (in German, sorry&hellip;).</p>
-
-<p>Happy blogging :-)<br />
+<p>Happy blogging :-)<br>
 Ottmar</p>
 
 </div><!--articleBody-end-->

@@ -6,10 +6,19 @@
     <description>Recent content in apex on Ottmar’s Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 19 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 01 Jan 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ogobrecht.github.io/tags/apex/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Download BLOBs with SQL*Plus</title>
+      <link>https://ogobrecht.github.io/posts/2020-01-01-download_blobs_with_sqlplus/</link>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ogobrecht.github.io/posts/2020-01-01-download_blobs_with_sqlplus/</guid>
+      <description>Have you ever tried to spool/download BLOBS with SQL*Plus? Some months ago I tried to find a way to download a collection of CLOBs or even better a zipped version of the collection as BLOB. I learned that BLOBs are not a valid datatype in SQL*Plus when it comes to the spool command. I found a way by putting the CLOBs into a global temporary table, creating an intermediate SQL script with tons of select and spool commands and finally spooling the CLOBs one by one by calling the intermediate SQL script.</description>
+    </item>
     
     <item>
       <title>DOAG Konferenz 2019</title>
@@ -37,7 +46,7 @@ Wer noch im Nachgang Fragen zum Thema hat, kann mich gern direkt kontaktieren (f
       
       <guid>https://ogobrecht.github.io/posts/2019-06-26-new-major-version-of-plex-available/</guid>
       <description>PLEX is a PL/SQL package with export utilities - see this post what it can do for you. In the past it was dependent on APEX for two reasons: The APEX_EXPORT package to allow exporting an APEX app and the APEX_ZIP package for compressing the resulting file collection to a zip file.
-After the first public release of PLEX, I got a comment like &amp;ldquo;Nice tool, but I don&amp;rsquo;t use APEX&amp;rdquo;.</description>
+After the first public release of PLEX, I got a comment like &amp;ldquo;Nice tool, but I don&#39;t use APEX&amp;rdquo;.</description>
     </item>
     
     <item>
@@ -193,8 +202,7 @@ You need a modern browser with activated JavaScript. Navigation tips:
       <pubDate>Sun, 01 Mar 2015 00:00:00 +0000</pubDate>
       
       <guid>https://ogobrecht.github.io/posts/2015-03-01-d3js-grundlagen/</guid>
-      <description>InhaltsverzeichnisEinleitung Dieser Artikel erschien im Magazin DOAG/SOUG News 02-2015 und steht auch im Original zur Verfügung. Im Gegensatz zu der Papierversion der DOAG haben wir natürlich auf einer Webseite alle Möglichkeiten, D3 live zu zeigen - also los, wir starten mit einer Netzwerkvisualisierung live im Browser (JavaScript muß aktiv sein, damit die Beispiele auf dieser Seite funktionieren):
- Knoten dürfen bewegt werden ;-)  D3 ist eine JavaScript Bibliothek zum Manipulieren von HTML Dokumenten auf der Basis von Daten und setzt dabei auf die Webstandards HTML, SVG und CSS.</description>
+      <description>Inhaltsverzeichnis Einleitung Beispiele von der D3 Homepage D3: Was ist das? Das Fundament: SVG Der Unterschied: Selectors versus Selections Die D3 Mengenlehre: Wie man Daten an das DOM bindet Das Geheimnis der Geschwindigkeit Wiederverwendung von Chart Code Exkurs: Closures in JavaScript Die Königsklasse: Physik-Simulationen Netzwerken: Ein Plugin (nicht nur) für APEX Fazit  Einleitung Dieser Artikel erschien im Magazin DOAG/SOUG News 02-2015 und steht auch im Original zur Verfügung.</description>
     </item>
     
     <item>

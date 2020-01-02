@@ -13,10 +13,10 @@
     
     <item>
       <title>Download BLOBs with SQL*Plus</title>
-      <link>https://ogobrecht.github.io/posts/2020-01-01-download_blobs_with_sqlplus/</link>
+      <link>https://ogobrecht.github.io/posts/2020-01-01-download-blobs-with-sqlplus/</link>
       <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://ogobrecht.github.io/posts/2020-01-01-download_blobs_with_sqlplus/</guid>
+      <guid>https://ogobrecht.github.io/posts/2020-01-01-download-blobs-with-sqlplus/</guid>
       <description>Have you ever tried to spool/download BLOBS with SQL*Plus? Some months ago I tried to find a way to download a collection of CLOBs or even better a zipped version of the collection as BLOB. I learned that BLOBs are not a valid datatype in SQL*Plus when it comes to the spool command. I found a way by putting the CLOBs into a global temporary table, creating an intermediate SQL script with tons of select and spool commands and finally spooling the CLOBs one by one by calling the intermediate SQL script.</description>
     </item>
     

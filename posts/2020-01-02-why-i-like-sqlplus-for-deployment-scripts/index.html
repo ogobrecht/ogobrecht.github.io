@@ -54,7 +54,7 @@
 <p>The following simplified example deployment masterscript is given:</p>
 <div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">set</span> <span class="n">define</span> <span class="k">off</span> <span class="n">verify</span> <span class="k">off</span> <span class="n">feedback</span> <span class="k">off</span>
 <span class="k">whenever</span> <span class="k">sqlerror</span> <span class="n">exit</span> <span class="k">sql</span><span class="p">.</span><span class="k">sqlcode</span> <span class="k">rollback</span>
-<span class="n">spool</span> <span class="n">test</span><span class="p">.</span><span class="n">log</span>
+<span class="n">spool</span> <span class="n">deployment</span><span class="p">.</span><span class="n">log</span>
 
 <span class="n">prompt</span>
 <span class="n">prompt</span> <span class="n">Example</span> <span class="n">Deployment</span> <span class="n">Master</span> <span class="n">Script</span>
@@ -75,7 +75,7 @@
 <span class="n">prompt</span>
 
 <span class="n">spool</span> <span class="k">off</span>
-</code></pre></div><p>When we call this in SQL*Plus (version 19.5.0.0.0), we get the following output (in the console and also in deployment.log) with an indication of what went wrong with our deployment:</p>
+</code></pre></div><p>When we call this in SQL*Plus (version 19.5), we get the following output (in the console and also in deployment.log) with an indication of what went wrong with our deployment:</p>
 <pre><code>Example Deployment Master Script
 ========================================
 Step 1: Dummy for demonstration
@@ -86,7 +86,7 @@ ERROR at line 1:
 ORA-20000: Error test for SQL*Plus &lt;&gt; SQLcl comparison 
 ORA-06512: at line 2 
 </code></pre><p>Ok, this error message is stupid, but usually I get some useful information here to fix my problem in the deployment script - especially when the problematic script is a bit longer&hellip;</p>
-<p>When we call this in SQLcl (version 19.4) we get the following output (in the console and also the deployment.log):</p>
+<p>When we call this in SQLcl (latest version 19.4 on Windows) we get the following output (in the console and also the deployment.log):</p>
 <pre><code>Example Deployment Master Script
 ========================================
 Step 1: Dummy for demonstration
@@ -96,11 +96,39 @@ Step 2: Error test in anonymous block
 <p>Happy scripting :-)<br>
 Ottmar</p>
 <p>P.S.: There is a small <a href="https://twitter.com/ogobrecht/status/1212646721127366656">Twitter discussion</a> around this&hellip;</p>
+<h2 id="update-january-3-2020">UPDATE January 3, 2020</h2>
+<p><a href="https://twitter.com/thatjeffsmith/status/1213102639497515009">Jeff Smith has confirmed that this bug was fixed in SQLcl version 19.4</a>. I was using 19.4 - but on Windows. It turns out that the bug is still there - only on Windows, not Mac, not Linux&hellip;</p>
+<p>So, if you are facing this problem on Windows then you have to wait for a future release or set as a workaround the feedback on:</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">set</span> <span class="n">define</span> <span class="k">off</span> <span class="n">verify</span> <span class="k">off</span> <span class="n">feedback</span> <span class="k">on</span>
+<span class="o">&lt;</span><span class="n">snip</span><span class="o">&gt;</span>
+</code></pre></div><p>Here the output on my Windows 10 laptop:</p>
+<pre><code>Demo Deployment Master Script
+========================================
+Step 1: Dummy for demonstration
+Step 2: Begin error test in anonymous block
+Rollback
+
+Error starting at line : 10 File @ C:\temp\deployment.sql
+In Command -
+begin
+  raise_application_error(-20000, 'error test for SQL*Plus &lt;&gt; SQLcl comparison');
+end;
+Error report -
+ORA-20000: error test for SQL*Plus &lt;&gt; SQLcl comparison
+ORA-06512: at line 2
+20000. 00000 -  &quot;%s&quot;
+*Cause:    The stored procedure 'raise_application_error'
+           was called which causes this error to be generated.
+*Action:   Correct the problem as described in the error message or contact
+           the application administrator or DBA for more information.
+</code></pre><p>If you are on Mac OS or Linux than you have to update to the latest SQLcl version 19.4 or use also the described workaround.</p>
+<p>Again: happy scripting :-)<br>
+Ottmar</p>
 
 </div><!--articleBody-end-->
 
 <footer>
-  <p class="item-meta">Last changed on January 2, 2020, you can comment via <a href="mailto:ottmar.gobrecht@gmail.com?subject=Comment%20on%20%2fposts%2f2020-01-02-why-i-like-sqlplus-for-deployment-scripts%2f">email</a> or postcard (more <a href="/about#comments">about this...</a>)</p>
+  <p class="item-meta">Last changed on January 3, 2020, you can comment via <a href="mailto:ottmar.gobrecht@gmail.com?subject=Comment%20on%20%2fposts%2f2020-01-02-why-i-like-sqlplus-for-deployment-scripts%2f">email</a> or postcard (more <a href="/about#comments">about this...</a>)</p>
   <span class="left item-meta">&#x2190; <a href="/posts/2020-01-01-download-blobs-with-sqlplus/">Download BLOBs with SQL*Plus</a></span>
   
 </footer>

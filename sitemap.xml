@@ -23,6 +23,11 @@
   </url>
   
   <url>
+    <loc>https://ogobrecht.github.io/tags/sqlplus/</loc>
+    <lastmod>2020-01-03T19:40:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ogobrecht.github.io/tags/</loc>
     <lastmod>2020-01-03T19:40:00+00:00</lastmod>
   </url>
@@ -159,11 +164,6 @@
   
   <url>
     <loc>https://ogobrecht.github.io/posts/2018-07-25-apex-export-and-version-control/</loc>
-    <lastmod>2018-07-25T20:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ogobrecht.github.io/tags/sqlplus/</loc>
     <lastmod>2018-07-25T20:00:00+00:00</lastmod>
   </url>
   

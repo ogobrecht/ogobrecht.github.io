@@ -6,10 +6,19 @@
     <description>Recent content in script on Ottmar’s Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 25 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 29 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ogobrecht.github.io/tags/script/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How to use mkstore and orapki with Oracle Instant Client</title>
+      <link>https://ogobrecht.github.io/posts/2020-07-29-how-to-use-mkstore-and-orapki-with-oracle-instant-client/</link>
+      <pubDate>Wed, 29 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ogobrecht.github.io/posts/2020-07-29-how-to-use-mkstore-and-orapki-with-oracle-instant-client/</guid>
+      <description>Since some years I use only the Oracle Instant Client. I had too often trouble with the full client installation on my corporate PCs under Windows, especially in the old Windows 32/64 bit times. The instant client can be used by only download and extract one basic zip file and adding an entry to your path environment variable. If you want to use SQL*Plus and other tools you need to download two additional files - no drama, also without admin rights.</description>
+    </item>
     
     <item>
       <title>Sample Data Sets for Oracle</title>

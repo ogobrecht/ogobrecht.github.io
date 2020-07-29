@@ -6,7 +6,7 @@
     <description>Recent content in Tags on Ottmar’s Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 25 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 29 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ogobrecht.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,9 +14,27 @@
     <item>
       <title>oracle</title>
       <link>https://ogobrecht.github.io/tags/oracle/</link>
-      <pubDate>Mon, 25 May 2020 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 29 Jul 2020 00:00:00 +0000</pubDate>
       
       <guid>https://ogobrecht.github.io/tags/oracle/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>script</title>
+      <link>https://ogobrecht.github.io/tags/script/</link>
+      <pubDate>Wed, 29 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ogobrecht.github.io/tags/script/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>wallet</title>
+      <link>https://ogobrecht.github.io/tags/wallet/</link>
+      <pubDate>Wed, 29 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ogobrecht.github.io/tags/wallet/</guid>
       <description></description>
     </item>
     
@@ -26,15 +44,6 @@
       <pubDate>Mon, 25 May 2020 00:00:00 +0000</pubDate>
       
       <guid>https://ogobrecht.github.io/tags/project/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>script</title>
-      <link>https://ogobrecht.github.io/tags/script/</link>
-      <pubDate>Mon, 25 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://ogobrecht.github.io/tags/script/</guid>
       <description></description>
     </item>
     

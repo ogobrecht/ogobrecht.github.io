@@ -10,8 +10,79 @@
 <link href="https://ogobrecht.github.io/index.xml" rel="self" type="application/atom+xml" />
 <link href="https://ogobrecht.github.io/" rel="alternate" type="text/html" hreflang="en" />
 <generator uri="https://gohugo.io/" version="0.62.1">Hugo</generator>
-<updated>2020-07-20T14:05:08+01:00</updated>
+<updated>2020-07-29T20:28:27+01:00</updated>
 
+
+<entry xml:lang="en">
+<id>https://ogobrecht.github.io/posts/2020-07-29-how-to-use-mkstore-and-orapki-with-oracle-instant-client/</id>
+<link href="https://ogobrecht.github.io/posts/2020-07-29-how-to-use-mkstore-and-orapki-with-oracle-instant-client/" rel="alternate" type="text/html" title="How to use mkstore and orapki with Oracle Instant Client" />
+<title type="html">How to use mkstore and orapki with Oracle Instant Client</title>
+<summary type="html">Create and manage wallets without full client installation</summary>
+<category term="oracle" label="Oracle" scheme="https://ogobrecht.github.io/tags/" />
+<category term="wallet" label="Wallet" scheme="https://ogobrecht.github.io/tags/" />
+<category term="script" label="Script" scheme="https://ogobrecht.github.io/tags/" />
+<published>2020-07-29T00:00:00+01:00</published>
+<updated>2020-07-29T20:15:00+01:00</updated>
+<content type="html" xml:base="https://ogobrecht.github.io/posts/2020-07-29-how-to-use-mkstore-and-orapki-with-oracle-instant-client/">
+&lt;p&gt;&lt;em&gt;Create and manage wallets without full client installation&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Since some years I use only the &lt;a href=&#34;https://www.oracle.com/database/technologies/instant-client.html&#34;&gt;Oracle Instant Client&lt;/a&gt;. I had too often trouble with the full client installation on my corporate PCs under Windows, especially in the old Windows 32/64 bit times. The instant client can be used by only download and extract one basic zip file and adding an entry to your path environment variable. If you want to use SQL*Plus and other tools you need to download two additional files - no drama, also without admin rights.&lt;/p&gt;
+&lt;p&gt;When I started to store the user details in wallet files I was wondering why Oracle do not deliver the mkstore and orapki tools with the instant client. I searched for a workaround and found some posts about it - including installing the full client or other software to get the tools. But I do not want to install additional software only for two small command line tools. I found the final hint in an &lt;a href=&#34;https://andriydmytrenko.wordpress.com/2013/07/01/using-the-secure-external-password-store-with-instant-client/&#34;&gt;old post from Andriy Dmytrenko&lt;/a&gt;. Seems that the two utilities are only shell scripts which are calling some Java libraries. The question was from which location I should take the needed libraries. Since I also have &lt;a href=&#34;https://www.oracle.com/database/technologies/appdev/sqlcl.html&#34;&gt;SQLcl&lt;/a&gt; on my PC I found the libs there. Below my final shell scripts for Windows - put them somewhere and have the path pointing to the directory where they are stored. If you need them for Linux you will find a way to do it by yourself:&lt;/p&gt;
+&lt;p&gt;mkstore.bat:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;@echo off
+rem inspiration: https://andriydmytrenko.wordpress.com/2013/07/01/using-the-secure-external-password-store-with-instant-client/
+
+setlocal
+
+rem get the command line arguments
+set args=
+:loop
+  if !%1==! goto :done
+  set args=%args% %1
+  shift
+  goto :loop
+:done
+
+rem set classpath for mkstore - align this to your local SQLcl installation
+set sqlcl=c:\path\to\sqlcl\lib
+set classpath=%sqlcl%\oraclepki.jar
+set classpath=%classpath%;%sqlcl%\osdt_core.jar
+set classpath=%classpath%;%sqlcl%\osdt_cert.jar
+
+rem simulate mkstore command
+java -classpath %classpath% oracle.security.pki.OracleSecretStoreTextUI %args%
+
+endlocal
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;orapki.bat:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;@echo off
+rem inspiration: https://andriydmytrenko.wordpress.com/2013/07/01/using-the-secure-external-password-store-with-instant-client/
+
+setlocal
+
+rem get the command line arguments
+set args=
+:loop
+  if !%1==! goto :done
+  set args=%args% %1
+  shift
+  goto :loop
+:done
+
+rem set classpath for orapki - align this to your local SQLcl installation
+set sqlcl=c:\path\to\sqlcl\lib
+set classpath=%sqlcl%\oraclepki.jar
+set classpath=%classpath%;%sqlcl%\osdt_core.jar
+set classpath=%classpath%;%sqlcl%\osdt_cert.jar
+
+rem simulate orapki command
+java -classpath %classpath% oracle.security.pki.textui.OraclePKITextUI %args%
+
+endlocal
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;If you need a starter on using mkstore and orapki then Tim Hall from Oracle Base has covered you with an &lt;a href=&#34;https://oracle-base.com/articles/10g/secure-external-password-store-10gr2&#34;&gt;artice about the secure external password store&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Happy password storing&lt;br&gt;
+Ottmar&lt;/p&gt;
+
+</content>
+</entry>
 
 <entry xml:lang="en">
 <id>https://ogobrecht.github.io/posts/2020-05-25-sample-data-sets-for-oracle/</id>
@@ -1411,100 +1482,6 @@ window.onload = function() {
         //see also https://ogobrecht.github.io/d3-force-apex-plugin/tutorial-1-getting-started.html
 }
 &lt;/script&gt;
-
-</content>
-</entry>
-
-<entry xml:lang="en">
-<id>https://ogobrecht.github.io/posts/2017-03-21-pitfalls-with-oracle-11g-xe-and-docker-on-mac-os/</id>
-<link href="https://ogobrecht.github.io/posts/2017-03-21-pitfalls-with-oracle-11g-xe-and-docker-on-mac-os/" rel="alternate" type="text/html" title="Pitfalls with Oracle 11g XE and Docker on Mac OS" />
-<title type="html">Pitfalls with Oracle 11g XE and Docker on Mac OS</title>
-<summary type="html">The swap space problem and how to fix it</summary>
-<category term="docker" label="Docker" scheme="https://ogobrecht.github.io/tags/" />
-<category term="oracle" label="Oracle" scheme="https://ogobrecht.github.io/tags/" />
-<category term="mac" label="Mac" scheme="https://ogobrecht.github.io/tags/" />
-<published>2017-03-21T00:00:00+01:00</published>
-<updated>2017-08-12T20:12:00+01:00</updated>
-<content type="html" xml:base="https://ogobrecht.github.io/posts/2017-03-21-pitfalls-with-oracle-11g-xe-and-docker-on-mac-os/">
-&lt;p&gt;&lt;em&gt;The swap space problem and how to fix it&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Recently I tried to install Oracle XE into a docker container on Mac OS Sierra using the &lt;a href=&#34;https://github.com/oracle/docker-images/blob/master/OracleDatabase/dockerfiles/11.2.0.2/Dockerfile.xe&#34;&gt;official docker file&lt;/a&gt; from Oracle. I had no luck, because the installation failed with this error message:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;This system does not meet the minimum requirements for swap space. Based on the amount of physical memory available on the system, Oracle Database 11g Express Edition requires 2048 MB of swap space. This system has 0 MB of swap space. Configure more swap space on the system and retry the installation.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;The problem is, that you can&#39;t do anything for this on a Mac - the system manages the swap files by itself and if you need for an example 64 GB you will get it. My new standard MacBook has 8 GB RAM and there is currently no reason for a swap file.&lt;/p&gt;
-&lt;p&gt;So, what can we do? After a short search I found &lt;a href=&#34;https://www.elastichosts.com/blog/oracle-database-installation-on-a-container-running-centos/&#34;&gt;this blog post&lt;/a&gt;, which describes how to alter the pre-installation script of the RPM installation file with the help of the &lt;code&gt;repmrebuild&lt;/code&gt; command. Unfortunately this command is not available on Mac OS. I found only rpmbuild as part of the rpm installation with &lt;a href=&#34;https://brew.sh&#34;&gt;Homebrew&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Luckily I found another way to modify a rpm package under Mac OS: There is a Ruby based tool to build packages for multiple platforms called &lt;a href=&#34;https://github.com/jordansissel/fpm&#34;&gt;fpm&lt;/a&gt;. So, lets start:&lt;/p&gt;
-&lt;p&gt;If you don&#39;t have &lt;a href=&#34;https://brew.sh&#34;&gt;Homebrew&lt;/a&gt; on your Mac, install this first:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;/usr/bin/ruby -e &lt;span class=&#34;se&#34;&gt;\&lt;/span&gt;
-&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Install rpm:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;brew install rpm
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Install tar:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;brew install gnu-tar
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Install fpm:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;gem install --no-ri --no-rdoc fpm
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Unzip the downloaded Linux XE installation archive and go into the directory Disk1:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;unzip oracle-xe-11.2.0-1.0.x86_64.rpm.zip &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\&lt;/span&gt;
-&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; Disk1
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Write rpm scripts to text file:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;rpm &lt;span class=&#34;se&#34;&gt;\&lt;/span&gt;
-  --scripts &lt;span class=&#34;se&#34;&gt;\&lt;/span&gt;
-  -qp oracle-xe-11.2.0-1.0.x86_64.rpm &lt;span class=&#34;se&#34;&gt;\&lt;/span&gt;
-  &amp;gt; scripts.txt
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Find this loop (from line 197 until line 212 as of this writing) and comment out or delete it:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# check and disallow install, if swap space is less than Min( 2047, 2 * RAM)`&lt;/span&gt;
-&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$swapspace&lt;/span&gt; -lt &lt;span class=&#34;nv&#34;&gt;$requiredswapspace&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
-&lt;span class=&#34;k&#34;&gt;then&lt;/span&gt;
-	&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$requiredswapspace&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;2047&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-	&lt;span class=&#34;k&#34;&gt;then&lt;/span&gt;
-		&lt;span class=&#34;nv&#34;&gt;requiredswapspace&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;2048
-	&lt;span class=&#34;k&#34;&gt;fi&lt;/span&gt;
-	&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt;
-        &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;This system does not meet the minimum requirements for swap space.  Based on
-&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;the amount of physical memory available on the system, Oracle Database 11g
-&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;Express Edition requires &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$requiredswapspace&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt; MB of swap space. This system has &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$swapspace&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt; MB
-&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;of swap space.  Configure more swap space on the system and retry the
-&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;installation.&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
-	&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt;
-        &lt;span class=&#34;nb&#34;&gt;exit&lt;/span&gt; 1
-&lt;span class=&#34;k&#34;&gt;fi&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Find this line (starting on line 328 as of this writing) and delete the line and everything behind until the file end:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;postinstall scriptlet &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;using /bin/sh&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;:
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Delete the very first line containing this code:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;preinstall scriptlet &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;using /bin/sh&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;:
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Save the file and bring it back into the rpm with this command (will take some time):&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;fpm &lt;span class=&#34;se&#34;&gt;\&lt;/span&gt;
-  -s rpm &lt;span class=&#34;se&#34;&gt;\&lt;/span&gt;
-  -t rpm &lt;span class=&#34;se&#34;&gt;\&lt;/span&gt;
-  -f --before-install scripts.txt &lt;span class=&#34;se&#34;&gt;\&lt;/span&gt;
-  ./oracle-xe-11.2.0-1.0.x86_64.rpm
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Go out of Disk1 and update the zip archive, because the Oracle provided build script needs it compressed (will take some time):&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; .. &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\&lt;/span&gt;
-zip -r oracle-xe-11.2.0-1.0.x86_64.rpm.zip Disk1
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;When you now do the Docker build you will face another error message:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;package oracle-xe-11.2.0-1.0.x86_64 is intended for a different operating system&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;To fix this is fairly easy. Open the Dockerfile.xe, go to line 61 (as of this writing) and change this code:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;rpm -i Disk1/*.rpm &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt;    &lt;span class=&#34;se&#34;&gt;\&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;to this one:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;rpm -i --ignoreos Disk1/*.rpm &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;When you now start the docker build you should be successful (will take some time):&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo ./buildDockerImage.sh -v 11.2.0.2 -x -i
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The last step is to run the container - on the first startup the database is created (will take some time, align the name to your needs):&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;docker run &lt;span class=&#34;se&#34;&gt;\&lt;/span&gt;
-  --name orclapex51 &lt;span class=&#34;se&#34;&gt;\&lt;/span&gt;
-  --shm-size&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;1g &lt;span class=&#34;se&#34;&gt;\&lt;/span&gt;
-  -p 1521:1521 &lt;span class=&#34;se&#34;&gt;\&lt;/span&gt;
-  -p 8080:8080 &lt;span class=&#34;se&#34;&gt;\&lt;/span&gt;
-  oracle/database:11.2.0.2-xe
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If you plan to use APEX without any dedicated webserver (maybe because you are the only user and it is only a small dev instance) you should pimp the EPG a little bit:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;k&#34;&gt;alter&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;system&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;set&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;shared_servers&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;scope&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;both&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;span class=&#34;k&#34;&gt;alter&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;system&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;set&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;max_shared_servers&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;20&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;scope&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;both&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;span class=&#34;k&#34;&gt;alter&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;system&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;set&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dispatchers&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;(PROTOCOL=TCP) (SERVICE=xeXDB) (DISPATCHERS=2)&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;scope&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;both&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;I use currently a Node.js based proxy server running directly on my Mac OS, because I need a webserver there anyway. The nice thing is, that the EPG don&#39;t need to serve the images and I also don&#39;t need to install the images into the EPG, when I upgrade to a newer APEX version. This saves me time and the EPG runs faster because of less number of requests. I will cover this topic in the next post.&lt;/p&gt;
-&lt;p&gt;Happy installing :-)&lt;br&gt;
-Ottmar&lt;/p&gt;
 
 </content>
 </entry>

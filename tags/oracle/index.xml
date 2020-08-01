@@ -17,7 +17,7 @@
       <pubDate>Wed, 29 Jul 2020 00:00:00 +0000</pubDate>
       
       <guid>https://ogobrecht.github.io/posts/2020-07-29-how-to-use-mkstore-and-orapki-with-oracle-instant-client/</guid>
-      <description>Since some years I use only the Oracle Instant Client. I had too often trouble with the full client installation on my corporate PCs under Windows, especially in the old Windows 32/64 bit times. The instant client can be used by only download and extract one basic zip file and adding an entry to your path environment variable. If you want to use SQL*Plus and other tools you need to download two additional files - no drama, also without admin rights.</description>
+      <description>For some years I use only the Oracle Instant Client. I had too often trouble with the full client installation on my corporate PCs under Windows, especially in the old Windows 32/64 bit times. The instant client can be used by download and extract one basic zip file and adding an entry to your path environment variable. If you want to use SQL*Plus and other tools you need to download two additional files - no drama, also without admin rights.</description>
     </item>
     
     <item>
@@ -26,7 +26,7 @@
       <pubDate>Mon, 25 May 2020 00:00:00 +0000</pubDate>
       
       <guid>https://ogobrecht.github.io/posts/2020-05-25-sample-data-sets-for-oracle/</guid>
-      <description>Sometimes you need only some small tables and some rows of data to play around with, to test things out. I think the most of you immediately would say EMP, DEPT&amp;hellip;
+      <description>Sometimes you need only some small tables and some rows of data to play around with, to test things out. I think most of you immediately would say EMP, DEPT&amp;hellip;
 Sure, but a bit more data would be nice. Ok, OE and HR schema&amp;hellip;
 Sure, but I have no SYS rights on the database in my current project to install the schemas, can I have it in my current dev schema?</description>
     </item>
@@ -37,7 +37,7 @@ Sure, but I have no SYS rights on the database in my current project to install 
       <pubDate>Thu, 02 Jan 2020 00:00:00 +0000</pubDate>
       
       <guid>https://ogobrecht.github.io/posts/2020-01-02-why-i-like-sqlplus-for-deployment-scripts/</guid>
-      <description>The following simplified example deployment masterscript is given:
+      <description>The following simplified example deployment master script is given:
 set define off verify off feedback offwhenever sqlerror exit sql.sqlcode rollbackspool deployment.logpromptprompt Example Deployment Master Scriptprompt ========================================prompt Step 1: Dummy for demonstration-- normally we call here some other scripts like-- @other-script.sqlprompt Step 2: Error test in anonymous blockbeginraise_application_error(-20000, &amp;#39;Error test for SQL*Plus &amp;lt;&amp;gt; SQLcl comparison&amp;#39;);end;/prompt ========================================prompt Deployment Done :-)promptspool offWhen we call this in SQL*Plus (version 19.</description>
     </item>
     
@@ -47,7 +47,7 @@ set define off verify off feedback offwhenever sqlerror exit sql.sqlcode rollba
       <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
       
       <guid>https://ogobrecht.github.io/posts/2020-01-01-download-blobs-with-sqlplus/</guid>
-      <description>Have you ever tried to spool/download BLOBS with SQL*Plus? Some months ago I tried to find a way to download a collection of CLOBs or even better a zipped version of the collection as BLOB. I learned that BLOBs are not a valid datatype in SQL*Plus when it comes to the spool command. I found a way by putting the CLOBs into a global temporary table, creating an intermediate SQL script with tons of select and spool commands and finally spooling the CLOBs one by one by calling the intermediate SQL script.</description>
+      <description>Have you ever tried to spool/download BLOBS with SQL*Plus? Some months ago I tried to find a way to download a collection of CLOBs or even better a zipped version of the collection as BLOB. I learned that BLOBs are not a valid datatype in SQL*Plus when it comes to the spool command. I found a way by putting the CLOBs into a global temporary table, creating an intermediate SQL script with tons of select and spool commands, and finally spooling the CLOBs one by one by calling the intermediate SQL script.</description>
     </item>
     
     <item>

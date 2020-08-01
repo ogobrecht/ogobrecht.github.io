@@ -52,7 +52,7 @@
 </header>
 
 <div class="item-content" itemprop="articleBody">
-<p>The following simplified example deployment masterscript is given:</p>
+<p>The following simplified example deployment master script is given:</p>
 <div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">set</span> <span class="n">define</span> <span class="k">off</span> <span class="n">verify</span> <span class="k">off</span> <span class="n">feedback</span> <span class="k">off</span>
 <span class="k">whenever</span> <span class="k">sqlerror</span> <span class="n">exit</span> <span class="k">sql</span><span class="p">.</span><span class="k">sqlcode</span> <span class="k">rollback</span>
 <span class="n">spool</span> <span class="n">deployment</span><span class="p">.</span><span class="n">log</span>
@@ -86,14 +86,14 @@ begin
 ERROR at line 1:
 ORA-20000: Error test for SQL*Plus &lt;&gt; SQLcl comparison 
 ORA-06512: at line 2 
-</code></pre><p>Ok, this error message is stupid, but usually I get some useful information here to fix my problem in the deployment script - especially when the problematic script is a bit longer&hellip;</p>
+</code></pre><p>Ok, this error message is stupid, but usually, I get some useful information here to fix my problem in the deployment script - especially when the problematic script is a bit longer&hellip;</p>
 <p>When we call this in SQLcl (latest version 19.4 on Windows) we get the following output (in the console and also the deployment.log):</p>
 <pre><code>Example Deployment Master Script
 ========================================
 Step 1: Dummy for demonstration
 Step 2: Error test in anonymous block
 </code></pre><p>Mhhh&hellip; What was going on here? Why was my script terminating in step 2?</p>
-<p>That's one reason why I like SQL*Plus a bit more than SQLcl for deployment scripts. The fast start time of SQL*Plus is another reason. Nevertheless SQLcl is a cool command line tool.</p>
+<p>That's one reason why I like SQL*Plus a bit more than SQLcl for deployment scripts. The fast start time of SQL*Plus is another reason. Nevertheless, SQLcl is a cool command-line tool.</p>
 <p>Happy scripting :-)<br>
 Ottmar</p>
 <p>P.S.: There is a small <a href="https://twitter.com/ogobrecht/status/1212646721127366656">Twitter discussion</a> around this&hellip;</p>
@@ -122,9 +122,9 @@ ORA-06512: at line 2
            was called which causes this error to be generated.
 *Action:   Correct the problem as described in the error message or contact
            the application administrator or DBA for more information.
-</code></pre><p>If you are on Mac OS or Linux than you have to update to the latest SQLcl version 19.4 or use also the described workaround.</p>
+</code></pre><p>If you are on Mac OS or Linux then you have to update to the latest SQLcl version 19.4 or use also the described workaround.</p>
 <h2 id="update-july-20-2020">UPDATE July 20, 2020</h2>
-<p>The Bug still exists in SQLcl 20.2 and SQL Developer 20.2 under Windows - we have to wait a bit longer&hellip;</p>
+<p>The bug still exists in SQLcl 20.2 and SQL Developer 20.2 under Windows - we have to wait a bit longer&hellip;</p>
 <p>Again: happy scripting :-)<br>
 Ottmar</p>
 

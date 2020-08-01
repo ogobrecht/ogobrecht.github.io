@@ -17,7 +17,7 @@
       <pubDate>Wed, 29 Jul 2020 00:00:00 +0000</pubDate>
       
       <guid>https://ogobrecht.github.io/posts/2020-07-29-how-to-use-mkstore-and-orapki-with-oracle-instant-client/</guid>
-      <description>Since some years I use only the Oracle Instant Client. I had too often trouble with the full client installation on my corporate PCs under Windows, especially in the old Windows 32/64 bit times. The instant client can be used by only download and extract one basic zip file and adding an entry to your path environment variable. If you want to use SQL*Plus and other tools you need to download two additional files - no drama, also without admin rights.</description>
+      <description>For some years I use only the Oracle Instant Client. I had too often trouble with the full client installation on my corporate PCs under Windows, especially in the old Windows 32/64 bit times. The instant client can be used by download and extract one basic zip file and adding an entry to your path environment variable. If you want to use SQL*Plus and other tools you need to download two additional files - no drama, also without admin rights.</description>
     </item>
     
   </channel>

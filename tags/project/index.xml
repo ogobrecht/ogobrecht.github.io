@@ -17,7 +17,7 @@
       <pubDate>Mon, 25 May 2020 00:00:00 +0000</pubDate>
       
       <guid>https://ogobrecht.github.io/posts/2020-05-25-sample-data-sets-for-oracle/</guid>
-      <description>Sometimes you need only some small tables and some rows of data to play around with, to test things out. I think the most of you immediately would say EMP, DEPT&amp;hellip;
+      <description>Sometimes you need only some small tables and some rows of data to play around with, to test things out. I think most of you immediately would say EMP, DEPT&amp;hellip;
 Sure, but a bit more data would be nice. Ok, OE and HR schema&amp;hellip;
 Sure, but I have no SYS rights on the database in my current project to install the schemas, can I have it in my current dev schema?</description>
     </item>

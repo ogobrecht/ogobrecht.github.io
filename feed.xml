@@ -10,21 +10,21 @@
 <link href="https://ogobrecht.github.io/index.xml" rel="self" type="application/atom+xml" />
 <link href="https://ogobrecht.github.io/" rel="alternate" type="text/html" hreflang="en" />
 <generator uri="https://gohugo.io/" version="0.62.1">Hugo</generator>
-<updated>2020-08-03T11:24:42+01:00</updated>
+<updated>2020-08-03T11:32:54+01:00</updated>
 
 
 <entry xml:lang="en">
 <id>https://ogobrecht.github.io/posts/2020-08-03-how-to-migrate-oracle-cloud-wallet-into-existing-auto-login-local-wallet/</id>
 <link href="https://ogobrecht.github.io/posts/2020-08-03-how-to-migrate-oracle-cloud-wallet-into-existing-auto-login-local-wallet/" rel="alternate" type="text/html" title="How to migrate Oracle Cloud wallet into existing auto_login_local wallet" />
 <title type="html">How to migrate Oracle Cloud wallet into existing auto_login_local wallet</title>
-<summary type="html">One secure wallet for all your connections, no need to provide passwords in SQL*Plus, SQLcl and SQl Developer</summary>
+<summary type="html">One secure wallet for all your connections, no need to provide passwords in SQL*Plus, SQLcl and SQL Developer</summary>
 <category term="oracle" label="Oracle" scheme="https://ogobrecht.github.io/tags/" />
 <category term="wallet" label="Wallet" scheme="https://ogobrecht.github.io/tags/" />
 <category term="script" label="Script" scheme="https://ogobrecht.github.io/tags/" />
 <published>2020-08-03T00:00:00+01:00</published>
 <updated>2020-08-03T11:20:00+01:00</updated>
 <content type="html" xml:base="https://ogobrecht.github.io/posts/2020-08-03-how-to-migrate-oracle-cloud-wallet-into-existing-auto-login-local-wallet/">
-&lt;p&gt;&lt;em&gt;One secure wallet for all your connections, no need to provide passwords in SQL*Plus, SQLcl and SQl Developer&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;One secure wallet for all your connections, no need to provide passwords in SQL*Plus, SQLcl and SQL Developer&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;I started to store user credentials in wallet files for higher security in SQL scripts. If you do so you should also secure the access to your wallet files on the operating system level. This is especially true for auto-login wallets from the Oracle Cloud. To increase the security a bit further you can restrict the auto-login to the local user who created the wallet. To achieve this you need to create an own wallet with &lt;code&gt;orapki&lt;/code&gt; instead of &lt;code&gt;mkstore&lt;/code&gt;:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cmd&#34; data-lang=&#34;cmd&#34;&gt;orapki wallet create -wallet &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;path/to/my/wallet&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt; -pwd myPassword -auto_login_local
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You can then add new alias/user/password entries with mkstore (you need to add each alias to your tnsnames.ora):&lt;/p&gt;

@@ -10,8 +10,73 @@
 <link href="https://ogobrecht.github.io/index.xml" rel="self" type="application/atom+xml" />
 <link href="https://ogobrecht.github.io/" rel="alternate" type="text/html" hreflang="en" />
 <generator uri="https://gohugo.io/" version="0.62.1">Hugo</generator>
-<updated>2020-08-01T14:21:44+01:00</updated>
+<updated>2020-08-03T11:24:42+01:00</updated>
 
+
+<entry xml:lang="en">
+<id>https://ogobrecht.github.io/posts/2020-08-03-how-to-migrate-oracle-cloud-wallet-into-existing-auto-login-local-wallet/</id>
+<link href="https://ogobrecht.github.io/posts/2020-08-03-how-to-migrate-oracle-cloud-wallet-into-existing-auto-login-local-wallet/" rel="alternate" type="text/html" title="How to migrate Oracle Cloud wallet into existing auto_login_local wallet" />
+<title type="html">How to migrate Oracle Cloud wallet into existing auto_login_local wallet</title>
+<summary type="html">One secure wallet for all your connections, no need to provide passwords in SQL*Plus, SQLcl and SQl Developer</summary>
+<category term="oracle" label="Oracle" scheme="https://ogobrecht.github.io/tags/" />
+<category term="wallet" label="Wallet" scheme="https://ogobrecht.github.io/tags/" />
+<category term="script" label="Script" scheme="https://ogobrecht.github.io/tags/" />
+<published>2020-08-03T00:00:00+01:00</published>
+<updated>2020-08-03T11:20:00+01:00</updated>
+<content type="html" xml:base="https://ogobrecht.github.io/posts/2020-08-03-how-to-migrate-oracle-cloud-wallet-into-existing-auto-login-local-wallet/">
+&lt;p&gt;&lt;em&gt;One secure wallet for all your connections, no need to provide passwords in SQL*Plus, SQLcl and SQl Developer&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;I started to store user credentials in wallet files for higher security in SQL scripts. If you do so you should also secure the access to your wallet files on the operating system level. This is especially true for auto-login wallets from the Oracle Cloud. To increase the security a bit further you can restrict the auto-login to the local user who created the wallet. To achieve this you need to create an own wallet with &lt;code&gt;orapki&lt;/code&gt; instead of &lt;code&gt;mkstore&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cmd&#34; data-lang=&#34;cmd&#34;&gt;orapki wallet create -wallet &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;path/to/my/wallet&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt; -pwd myPassword -auto_login_local
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You can then add new alias/user/password entries with mkstore (you need to add each alias to your tnsnames.ora):&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cmd&#34; data-lang=&#34;cmd&#34;&gt;mkstore -wrl &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;path/to/my/wallet&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt; -createCredential myAlias myUser myPassword
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If you use only the instant client and cannot find mkstore and orapki, then have a look at my &lt;a href=&#34;/posts/2020-07-29-how-to-use-mkstore-and-orapki-with-oracle-instant-client/&#34;&gt;previous post&lt;/a&gt; on how to simulate these tools.&lt;/p&gt;
+&lt;h2 id=&#34;the-migration&#34;&gt;The Migration&lt;/h2&gt;
+&lt;p&gt;I assume you have set an environment variable called TNS_ADMIN pointing to your TNS directory. In this directory, you have your wallet files and also your existing tnsnames.ora and sqlnet.ora to successfully connect to your local Oracle instances.&lt;/p&gt;
+&lt;p&gt;Now you need to extract the downloaded cloud wallet - for security reasons it makes sense to create a temporary subdirectory in your TNS directory and extract the cloud wallet there. You need to migrate the entries from &lt;code&gt;tnsnames.ora&lt;/code&gt; and &lt;code&gt;sqlnet.ora&lt;/code&gt; into your own TNS files and align the path to your wallet directory. Additionally, you should also copy over the file &lt;code&gt;ojdbc.properties&lt;/code&gt; if you do not have it already and you plan to use SQLcl or SQL Developer with your wallet.&lt;/p&gt;
+&lt;p&gt;My resulting sqlnet.ora:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;WALLET_LOCATION = (SOURCE = (METHOD = file) (METHOD_DATA = (DIRECTORY = &amp;quot;C:\\path\\to\\my\\wallet&amp;quot;)))
+SSL_SERVER_DN_MATCH = yes
+sqlnet.wallet_override = true
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;My resulting tnsnames.ora:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;myCloudDbName_high, myAlias = (description = (...
+myCloudDbName_medium        = (description = (...
+myCloudDbName_low           = (description = (...
+myCloudDbName_tp            = (description = (...
+myCloudDbName_tpurgent      = (description = (...
+
+myLocalDbName, myOtherAlias = (description = (...
+...
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;That was the easy part, but how you migrate the needed private key and all certificates?&lt;/p&gt;
+&lt;p&gt;It took me some time to figure this out because most people seem to use the cloud wallet as it is. This is understandable since SQL Developer can direct use the zipped version of the wallet. But my target is not to manage the passwords in multiple places - the databases, multiple wallets, SQL Developer and possibly other tools. I want to manage the passwords only in the databases and in one wallet and use this wallet with all the tools - in my case SQL*Plus, SQLcl and SQL Developer.&lt;/p&gt;
+&lt;p&gt;First I tried to export the private key and all certificates from the cloud wallet and then import it into my wallet. I was not successful with this mostly because of the private key and unknown alias names - maybe I was too tired from all the try and error things on how to achieve this. I came finally up with the idea to use the cloud wallet Java KeyStore files and convert them into my wallet with the orapki method &lt;code&gt;jks_to_pkcs12&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Migrate private key and certificate from cloud wallet:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cmd&#34; data-lang=&#34;cmd&#34;&gt;orapki wallet jks_to_pkcs12 -wallet &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;path/to/my/wallet&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt; -pwd myPassword -keystore &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;path/to/cloud/wallet/keystore.jks&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt; -jkspwd myCloudWalletPassword
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Migrate trusted certificates from cloud wallet:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cmd&#34; data-lang=&#34;cmd&#34;&gt;orapki wallet jks_to_pkcs12 -wallet &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;path/to/my/wallet&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt; -pwd myPassword -keystore &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;path/to/cloud/wallet/truststore.jks&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt; -jkspwd myCloudWalletPassword
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Finally, list the wallet content to see the migrated entries:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cmd&#34; data-lang=&#34;cmd&#34;&gt;orapki wallet display -wallet . -pwd myPassword
+  or
+orapki wallet display -wallet . -pwd myPassword -complete
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The final file list in my TNS directory (without the Java KeyStore files from the cloud wallet):&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cwallet.sso
+cwallet.sso.lck
+ewallet.p12
+ewallet.p12.lck
+ojdbc.properties
+sqlnet.ora
+tnsnames.ora
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;I am now able to connect to my cloud database with the desired tools without providing user/password details (tested version):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;SQL*Plus (19.6): &lt;code&gt;sqlplus /@myAlias&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;SQLcl (20.2): &lt;code&gt;sql /@myAlias&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;SQL Developer (20.2): authentication type &amp;ldquo;OS&amp;rdquo;, connection type &amp;ldquo;Custom JDBC&amp;rdquo; with URL &lt;code&gt;jdbc:oracle:thin:/@myAlias&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Hope this helps someone else.&lt;/p&gt;
+&lt;p&gt;Happy developing and scripting&lt;br&gt;
+Ottmar&lt;/p&gt;
+
+</content>
+</entry>
 
 <entry xml:lang="en">
 <id>https://ogobrecht.github.io/posts/2020-07-29-how-to-use-mkstore-and-orapki-with-oracle-instant-client/</id>
@@ -256,7 +321,7 @@ Ottmar&lt;/p&gt;
 &lt;span class=&#34;n&#34;&gt;spool&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;app_100.zip.base64&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
 &lt;span class=&#34;n&#34;&gt;print&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;contents&lt;/span&gt;
 &lt;span class=&#34;n&#34;&gt;spool&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;off&lt;/span&gt; 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Congratulations - You are the owner of a base64 encoded CLOB on your client disk. And now? Before you are able to unzip the file you need to decode it - depending on your operating system you can do this with your OS tools:&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Congratulations - You are the owner of a base64 encoded CLOB on your client disk. And now? Before you can unzip the file you need to decode it - depending on your operating system you can do this with your OS tools:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Windows: &lt;code&gt;certutil -decode app_100.zip.base64 app_100.zip&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Mac: &lt;code&gt;base64 -D -i app_100.zip.base64 -o app_100.zip&lt;/code&gt;&lt;/li&gt;
@@ -1420,68 +1485,6 @@ Ottmar&lt;/p&gt;
 &lt;p&gt;I came up with the idea to do simply all the steps in a Docker container under the same Linux (oraclelinux:7-slim) which is later on needed with the &lt;a href=&#34;https://github.com/oracle/docker-images/blob/master/OracleDatabase/dockerfiles/11.2.0.2/Dockerfile.xe&#34;&gt;official Oracle Docker file&lt;/a&gt; for an XE instance. With this solution you are able to prepare the install file more or less automatically under every operating system, which can run Docker - also under Windows. For more Details see the &lt;a href=&#34;https://github.com/ogobrecht/docker-ora11xe-swap-check-disabler&#34;&gt;project on GitHub&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Happy installing :-)&lt;br&gt;
 Ottmar&lt;/p&gt;
-
-</content>
-</entry>
-
-<entry xml:lang="en">
-<id>https://ogobrecht.github.io/posts/2017-04-03-jquery-plugin-svg2img/</id>
-<link href="https://ogobrecht.github.io/posts/2017-04-03-jquery-plugin-svg2img/" rel="alternate" type="text/html" title="jQuery Plugin svg2img" />
-<title type="html">jQuery Plugin svg2img</title>
-<summary type="html">Convert inline SVGs to standalone image files without loosing styles</summary>
-<category term="project" label="Open Source Project" scheme="https://ogobrecht.github.io/tags/" />
-<category term="jquery" label="jQuery" scheme="https://ogobrecht.github.io/tags/" />
-<category term="plugin" label="Plugin" scheme="https://ogobrecht.github.io/tags/" />
-<category term="svg" label="SVG" scheme="https://ogobrecht.github.io/tags/" />
-<published>2017-04-03T00:00:00+01:00</published>
-<updated>2019-01-21T16:16:00+01:00</updated>
-<content type="html" xml:base="https://ogobrecht.github.io/posts/2017-04-03-jquery-plugin-svg2img/">
-&lt;p&gt;&lt;em&gt;Convert inline SVGs to standalone image files without loosing styles&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;SVG based charts and visualizations are often used these days. But what if you want to use your browser inline SVGs, generated with some sort of JavaScript and fancy styled with CSS, offline - maybe in a presentation, send by email or printed out large scaled?&lt;/p&gt;
-&lt;p&gt;You can create a screenshot, of course. But does this look nice when it comes to scaling? You can try to copy the HTML code of the SVG and wrap it into a correct SVG container, but then you will loose in the most cases the stylings, as normally not all CSS definitions are directly attached to the SVG elements. You can also use a browser extension like &lt;a href=&#34;https://chrome.google.com/webstore/detail/export-svg-with-style/dkjdcaddoplepioppogpckelchefhddi&#34;&gt;this one for Google Chrome&lt;/a&gt;, but then you depend on the browser and the extension.&lt;/p&gt;
-&lt;p&gt;There is now a declarative way with the help of a jQuery plugin, which is 100% client based:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;nx&#34;&gt;jQuery&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;#example-graph&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;svg2img&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;There is one default option - you can redeclare it:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;nx&#34;&gt;jQuery&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;fn&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;svg2img&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;defaults&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-    &lt;span class=&#34;nx&#34;&gt;debug&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;false&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// write debug information to console
-&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You can also set the debug option at runtime - try it out in your browser console directly here on the page:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;nx&#34;&gt;$&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;#example-graph&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;svg2img&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;debug&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Alternative you can use the link under the network chart.&lt;/p&gt;
-&lt;p&gt;The plugin checks if your selector is a SVG element. If this is not the case, it searches under each selector element for all SVGs and exports it. The name(s) of the file(s) are automatically derived from the element ID (or parent element ID) or set to &lt;code&gt;export&lt;/code&gt;. The current date and time is appended to the file name. For our example graph on this page the name will be something like &lt;code&gt;example-graph-20170403-154653.svg&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;You can download all SVGs from one page by setting the selector to the document, body or svg - as you like it. There is no need for a &lt;code&gt;each()&lt;/code&gt; call, &lt;code&gt;svg2img&lt;/code&gt; works on the whole selection and is chainable:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;nx&#34;&gt;$&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;svg&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;svg2img&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;css&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;border&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;1px solid red&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If you want to use anchors to provide export links then it is recommended to prevent the default action like so:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;href&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;onclick&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;event.preventDefault(); $(&amp;#39;#example-graph&amp;#39;).svg2img();&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;SVG&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Otherwise Firefox and IE failing to save. One last thing: Safari has currently (as of this writing) problems with the underlaying &lt;code&gt;savAs()&lt;/code&gt; implementation and tries to open the images in a new tab with or without success. See also this &lt;a href=&#34;https://github.com/eligrey/FileSaver.js/issues/267&#34;&gt;issue on GitHub&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;UPDATE 2017-04-14: After update to macOS Sierra 10.12.4 Safari 10.1 works also - but is as slow as before - collecting CSS styles runs on my MacBook 2800ms in Safari, 20ms in Google Chrome :-(&lt;br&gt;
-I stopped to support other image formats then SVG since the canvas export behind the scenes was not really working in too many browsers and the core feature was and is to convert inline SVGs to standalone SVG images.&lt;/p&gt;
-&lt;p&gt;The project is hosted on &lt;a href=&#34;https://github.com/ogobrecht/jquery-plugin-svg2img&#34;&gt;GitHub&lt;/a&gt; and MIT licensed.&lt;/p&gt;
-&lt;p&gt;Happy SVG exporting :-)&lt;br&gt;
-Ottmar&lt;/p&gt;
-&lt;div id=&#34;example-graph&#34;&gt;&lt;/div&gt;&lt;!--the graph container--&gt;
-Download
-&lt;a href=&#34;&#34; onclick=&#34;event.preventDefault(); $(&#39;#example-graph&#39;).svg2img();&#34;&gt;SVG image&lt;/a&gt;
-&lt;link  href=&#34;/assets/d3.js/d3-force-3.0.0.css&#34; rel=&#34;stylesheet&#34; type=&#34;text/css&#34;&gt;
-&lt;script src=&#34;/assets/d3.js/ResizeObserver-1.5.0.min.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;/assets/d3.js/d3-3.5.6.min.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;/assets/d3.js/d3-force-3.0.0.min.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;https://code.jquery.com/jquery-1.12.4.min.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;/assets/svg2img/svg2img.min.js&#34;&gt;&lt;/script&gt;
-&lt;script&gt;
-window.onload = function() {
-    window.example = netGobrechtsD3Force(&#39;example-graph&#39;)
-        .width(800)
-        .height(400)
-        .useDomParentWidth(true) //for responsive layout
-        //.zoomMode(true)
-        .lassoMode(true)
-        .wrapLabels(true)
-        .debug(true) //to enable the customization wizard
-        .render(); //sample data is provided when called without data
-        //see also https://ogobrecht.github.io/d3-force-apex-plugin/tutorial-1-getting-started.html
-}
-&lt;/script&gt;
 
 </content>
 </entry>

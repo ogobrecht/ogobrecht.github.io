@@ -76,7 +76,7 @@
 <span class="n">spool</span> <span class="s2">&#34;</span><span class="s2">app_100.zip.base64</span><span class="s2">&#34;</span>
 <span class="n">print</span> <span class="n">contents</span>
 <span class="n">spool</span> <span class="k">off</span> 
-</code></pre></div><p>Congratulations - You are the owner of a base64 encoded CLOB on your client disk. And now? Before you are able to unzip the file you need to decode it - depending on your operating system you can do this with your OS tools:</p>
+</code></pre></div><p>Congratulations - You are the owner of a base64 encoded CLOB on your client disk. And now? Before you can unzip the file you need to decode it - depending on your operating system you can do this with your OS tools:</p>
 <ul>
 <li>Windows: <code>certutil -decode app_100.zip.base64 app_100.zip</code></li>
 <li>Mac: <code>base64 -D -i app_100.zip.base64 -o app_100.zip</code></li>

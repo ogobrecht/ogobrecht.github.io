@@ -6,10 +6,19 @@
     <description>Recent content in wallet on Ottmar’s Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 29 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 03 Aug 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ogobrecht.github.io/tags/wallet/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How to migrate Oracle Cloud wallet into existing auto_login_local wallet</title>
+      <link>https://ogobrecht.github.io/posts/2020-08-03-how-to-migrate-oracle-cloud-wallet-into-existing-auto-login-local-wallet/</link>
+      <pubDate>Mon, 03 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ogobrecht.github.io/posts/2020-08-03-how-to-migrate-oracle-cloud-wallet-into-existing-auto-login-local-wallet/</guid>
+      <description>I started to store user credentials in wallet files for higher security in SQL scripts. If you do so you should also secure the access to your wallet files on the operating system level. This is especially true for auto-login wallets from the Oracle Cloud. To increase the security a bit further you can restrict the auto-login to the local user who created the wallet. To achieve this you need to create an own wallet with orapki instead of mkstore:</description>
+    </item>
     
     <item>
       <title>How to use mkstore and orapki with Oracle Instant Client</title>

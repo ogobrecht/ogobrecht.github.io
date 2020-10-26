@@ -60,7 +60,7 @@
 <p>If you have no idea what I am talking about: PLEX is a PL/SQL package that is able to export an Oracle APEX app, ORDS modules, all schema objects and table data into a nice directory structure in one go ready to use for version control. Check out the <a href="https://github.com/ogobrecht/plex">project on GitHub</a> and this <a href="/posts/2018-08-26-plex-plsql-export-utilities">blog post on how to get started</a>.</p>
 <p>But there is a better way: Simply convert the BLOB into a base64 encoded CLOB. I have no idea why this was not my first solution for the PLEX export templates. In the new version 2.1.0 of PLEX the templates are using this approach. Here is a simplified example.</p>
 <p>File export.sql:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">set</span> <span class="n">verify</span> <span class="k">off</span> <span class="n">feedback</span> <span class="k">off</span> <span class="n">heading</span> <span class="k">off</span> <span class="n">termout</span> <span class="k">off</span>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">set</span> <span class="n">verify</span> <span class="k">off</span> <span class="n">feedback</span> <span class="k">off</span> <span class="n">heading</span> <span class="k">off</span>
 <span class="k">set</span> <span class="n">trimout</span> <span class="k">on</span> <span class="n">trimspool</span> <span class="k">on</span> <span class="n">pagesize</span> <span class="mi">0</span> <span class="n">linesize</span> <span class="mi">5000</span> <span class="n">long</span> <span class="mi">100000000</span> <span class="n">longchunksize</span> <span class="mi">32767</span>
 <span class="k">whenever</span> <span class="k">sqlerror</span> <span class="n">exit</span> <span class="k">sql</span><span class="p">.</span><span class="k">sqlcode</span> <span class="k">rollback</span>
 <span class="k">variable</span> <span class="n">contents</span> <span class="k">clob</span>
@@ -73,9 +73,11 @@
     <span class="n">p_include_templates</span>    <span class="o">=</span><span class="o">&gt;</span> <span class="k">true</span><span class="p">)</span><span class="p">)</span><span class="p">)</span><span class="p">;</span>
 <span class="k">END</span><span class="p">;</span>
 <span class="o">/</span>
+<span class="k">set</span> <span class="n">termout</span> <span class="k">off</span>
 <span class="n">spool</span> <span class="s2">&#34;</span><span class="s2">app_100.zip.base64</span><span class="s2">&#34;</span>
 <span class="n">print</span> <span class="n">contents</span>
-<span class="n">spool</span> <span class="k">off</span> 
+<span class="n">spool</span> <span class="k">off</span>
+<span class="k">set</span> <span class="n">termout</span> <span class="k">on</span>
 </code></pre></div><p>Congratulations - You are the owner of a base64 encoded CLOB on your client disk. And now? Before you can unzip the file you need to decode it - depending on your operating system you can do this with your OS tools:</p>
 <ul>
 <li>Windows: <code>certutil -decode app_100.zip.base64 app_100.zip</code></li>
@@ -113,7 +115,7 @@ Ottmar</p>
 </div><!--articleBody-end-->
 
 <footer>
-  <p class="item-meta">Last changed on January 1, 2020, you can comment via <a href="mailto:ottmar.gobrecht@gmail.com?subject=Comment%20on%20%2fposts%2f2020-01-01-download-blobs-with-sqlplus%2f">email</a> or postcard (more <a href="/about#comments">about this...</a>)</p>
+  <p class="item-meta">Last changed on October 26, 2020, you can comment via <a href="mailto:ottmar.gobrecht@gmail.com?subject=Comment%20on%20%2fposts%2f2020-01-01-download-blobs-with-sqlplus%2f">email</a> or postcard (more <a href="/about#comments">about this...</a>)</p>
   <span class="left item-meta">&#x2190; <a href="/posts/2019-11-19-doag-konferenz/">DOAG Konferenz 2019</a></span>
   <span class="right item-meta"><a href="/posts/2020-01-02-why-i-like-sqlplus-for-deployment-scripts/">Why I Like SQL*Plus for Deployment Scripts</a> &#x2192;</span>
 </footer>

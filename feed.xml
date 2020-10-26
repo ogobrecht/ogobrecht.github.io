@@ -10,7 +10,7 @@
 <link href="https://ogobrecht.github.io/index.xml" rel="self" type="application/atom+xml" />
 <link href="https://ogobrecht.github.io/" rel="alternate" type="text/html" hreflang="en" />
 <generator uri="https://gohugo.io/" version="0.62.1">Hugo</generator>
-<updated>2020-08-03T11:32:54+01:00</updated>
+<updated>2020-10-26T16:44:54+01:00</updated>
 
 
 <entry xml:lang="en">
@@ -297,7 +297,7 @@ Ottmar&lt;/p&gt;
 <category term="sqlplus" label="SQL*Plus" scheme="https://ogobrecht.github.io/tags/" />
 <category term="version-control" label="Version Control" scheme="https://ogobrecht.github.io/tags/" />
 <published>2020-01-01T00:00:00+01:00</published>
-<updated>2020-01-01T20:16:00+01:00</updated>
+<updated>2020-10-26T16:43:00+01:00</updated>
 <content type="html" xml:base="https://ogobrecht.github.io/posts/2020-01-01-download-blobs-with-sqlplus/">
 &lt;p&gt;&lt;em&gt;New version of PL/SQL Export Utilities available&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Have you ever tried to spool/download BLOBS with SQL*Plus? Some months ago I tried to find a way to download a collection of CLOBs or even better a zipped version of the collection as BLOB. I learned that BLOBs are not a valid datatype in SQL*Plus when it comes to the spool command. I found a way by putting the CLOBs into a global temporary table, creating an intermediate SQL script with tons of select and spool commands, and finally spooling the CLOBs one by one by calling the intermediate SQL script. It was working, but far from elegant. Also, when I was in the home office with a less powerful connection, it was slowing down the whole export process significantly.&lt;/p&gt;
@@ -305,7 +305,7 @@ Ottmar&lt;/p&gt;
 &lt;p&gt;If you have no idea what I am talking about: PLEX is a PL/SQL package that is able to export an Oracle APEX app, ORDS modules, all schema objects and table data into a nice directory structure in one go ready to use for version control. Check out the &lt;a href=&#34;https://github.com/ogobrecht/plex&#34;&gt;project on GitHub&lt;/a&gt; and this &lt;a href=&#34;/posts/2018-08-26-plex-plsql-export-utilities&#34;&gt;blog post on how to get started&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;But there is a better way: Simply convert the BLOB into a base64 encoded CLOB. I have no idea why this was not my first solution for the PLEX export templates. In the new version 2.1.0 of PLEX the templates are using this approach. Here is a simplified example.&lt;/p&gt;
 &lt;p&gt;File export.sql:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;k&#34;&gt;set&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;verify&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;off&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;feedback&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;off&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;heading&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;off&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;termout&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;off&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;k&#34;&gt;set&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;verify&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;off&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;feedback&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;off&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;heading&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;off&lt;/span&gt;
 &lt;span class=&#34;k&#34;&gt;set&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;trimout&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;on&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;trimspool&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;on&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;pagesize&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;linesize&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;5000&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;long&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;100000000&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;longchunksize&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;32767&lt;/span&gt;
 &lt;span class=&#34;k&#34;&gt;whenever&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;sqlerror&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;exit&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;sql&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;sqlcode&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;rollback&lt;/span&gt;
 &lt;span class=&#34;k&#34;&gt;variable&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;contents&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;clob&lt;/span&gt;
@@ -318,9 +318,11 @@ Ottmar&lt;/p&gt;
     &lt;span class=&#34;n&#34;&gt;p_include_templates&lt;/span&gt;    &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;span class=&#34;k&#34;&gt;END&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;set&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;termout&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;off&lt;/span&gt;
 &lt;span class=&#34;n&#34;&gt;spool&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;app_100.zip.base64&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
 &lt;span class=&#34;n&#34;&gt;print&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;contents&lt;/span&gt;
-&lt;span class=&#34;n&#34;&gt;spool&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;off&lt;/span&gt; 
+&lt;span class=&#34;n&#34;&gt;spool&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;off&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;set&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;termout&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;on&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Congratulations - You are the owner of a base64 encoded CLOB on your client disk. And now? Before you can unzip the file you need to decode it - depending on your operating system you can do this with your OS tools:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Windows: &lt;code&gt;certutil -decode app_100.zip.base64 app_100.zip&lt;/code&gt;&lt;/li&gt;

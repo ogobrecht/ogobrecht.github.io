@@ -10,7 +10,7 @@
 <link href="https://ogobrecht.github.io/index.xml" rel="self" type="application/atom+xml" />
 <link href="https://ogobrecht.github.io/" rel="alternate" type="text/html" hreflang="en" />
 <generator uri="https://gohugo.io/" version="0.62.1">Hugo</generator>
-<updated>2020-10-26T16:44:54+01:00</updated>
+<updated>2020-11-28T15:51:52+01:00</updated>
 
 
 <entry xml:lang="en">
@@ -22,7 +22,7 @@
 <category term="wallet" label="Wallet" scheme="https://ogobrecht.github.io/tags/" />
 <category term="script" label="Script" scheme="https://ogobrecht.github.io/tags/" />
 <published>2020-08-03T00:00:00+01:00</published>
-<updated>2020-08-03T11:20:00+01:00</updated>
+<updated>2020-11-28T15:42:00+01:00</updated>
 <content type="html" xml:base="https://ogobrecht.github.io/posts/2020-08-03-how-to-migrate-oracle-cloud-wallet-into-existing-auto-login-local-wallet/">
 &lt;p&gt;&lt;em&gt;One secure wallet for all your connections, no need to provide passwords in SQL*Plus, SQLcl and SQL Developer&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;I started to store user credentials in wallet files for higher security in SQL scripts. If you do so you should also secure the access to your wallet files on the operating system level. This is especially true for auto-login wallets from the Oracle Cloud. To increase the security a bit further you can restrict the auto-login to the local user who created the wallet. To achieve this you need to create an own wallet with &lt;code&gt;orapki&lt;/code&gt; instead of &lt;code&gt;mkstore&lt;/code&gt;:&lt;/p&gt;
@@ -71,7 +71,9 @@ tnsnames.ora
 &lt;li&gt;SQLcl (20.2): &lt;code&gt;sql /@myAlias&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;SQL Developer (20.2): authentication type &amp;ldquo;OS&amp;rdquo;, connection type &amp;ldquo;Custom JDBC&amp;rdquo; with URL &lt;code&gt;jdbc:oracle:thin:/@myAlias&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Hope this helps someone else.&lt;/p&gt;
+&lt;p&gt;If you forgot which aliases you have configured in your wallet:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cmd&#34; data-lang=&#34;cmd&#34;&gt;mkstore -wrl &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;path/to/my/wallet&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt; -listCredential
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Hope this helps someone else.&lt;/p&gt;
 &lt;p&gt;Happy developing and scripting&lt;br&gt;
 Ottmar&lt;/p&gt;
 

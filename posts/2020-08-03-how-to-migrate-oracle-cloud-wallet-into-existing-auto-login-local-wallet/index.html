@@ -98,14 +98,16 @@ tnsnames.ora
 <li>SQLcl (20.2): <code>sql /@myAlias</code></li>
 <li>SQL Developer (20.2): authentication type &ldquo;OS&rdquo;, connection type &ldquo;Custom JDBC&rdquo; with URL <code>jdbc:oracle:thin:/@myAlias</code></li>
 </ul>
-<p>Hope this helps someone else.</p>
+<p>If you forgot which aliases you have configured in your wallet:</p>
+<div class="highlight"><pre class="chroma"><code class="language-cmd" data-lang="cmd">mkstore -wrl <span class="s2">&#34;</span><span class="s2">path/to/my/wallet</span><span class="s2">&#34;</span> -listCredential
+</code></pre></div><p>Hope this helps someone else.</p>
 <p>Happy developing and scripting<br>
 Ottmar</p>
 
 </div><!--articleBody-end-->
 
 <footer>
-  <p class="item-meta">Last changed on August 3, 2020, you can comment via <a href="mailto:ottmar.gobrecht@gmail.com?subject=Comment%20on%20%2fposts%2f2020-08-03-how-to-migrate-oracle-cloud-wallet-into-existing-auto-login-local-wallet%2f">email</a> or postcard (more <a href="/about#comments">about this...</a>)</p>
+  <p class="item-meta">Last changed on November 28, 2020, you can comment via <a href="mailto:ottmar.gobrecht@gmail.com?subject=Comment%20on%20%2fposts%2f2020-08-03-how-to-migrate-oracle-cloud-wallet-into-existing-auto-login-local-wallet%2f">email</a> or postcard (more <a href="/about#comments">about this...</a>)</p>
   <span class="left item-meta">&#x2190; <a href="/posts/2020-07-29-how-to-use-mkstore-and-orapki-with-oracle-instant-client/">How to use mkstore and orapki with Oracle Instant Client</a></span>
   
 </footer>

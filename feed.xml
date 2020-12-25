@@ -10,8 +10,26 @@
 <link href="https://ogobrecht.github.io/index.xml" rel="self" type="application/atom+xml" />
 <link href="https://ogobrecht.github.io/" rel="alternate" type="text/html" hreflang="en" />
 <generator uri="https://gohugo.io/" version="0.62.1">Hugo</generator>
-<updated>2020-12-14T15:09:35+01:00</updated>
+<updated>2020-12-25T17:14:00+01:00</updated>
 
+
+<entry xml:lang="en">
+<id>https://ogobrecht.github.io/posts/2020-12-25-new-domain/</id>
+<link href="https://ogobrecht.github.io/posts/2020-12-25-new-domain/" rel="alternate" type="text/html" title="New Domain" />
+<title type="html">New Domain</title>
+<summary type="html">This site is redirected to ogobrecht.com</summary>
+<category term="move" label="move" scheme="https://ogobrecht.github.io/tags/" />
+<published>2020-12-25T00:00:00+01:00</published>
+<updated>2020-12-25T00:00:00+01:00</updated>
+<content type="html" xml:base="https://ogobrecht.github.io/posts/2020-12-25-new-domain/">
+&lt;p&gt;&lt;em&gt;This site is redirected to ogobrecht.com&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;I moved my blog from ogobrecht.github.io to &lt;a href=&#34;https://ogobrecht.com&#34;&gt;ogobrecht.com&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If you followed my RSS feed under the old address and want to follow also in the future then please configure your RSS reader with my new address.&lt;/p&gt;
+&lt;p&gt;Best regards&lt;br&gt;
+Ottmar&lt;/p&gt;
+
+</content>
+</entry>
 
 <entry xml:lang="en">
 <id>https://ogobrecht.github.io/posts/2020-08-03-how-to-migrate-oracle-cloud-wallet-into-existing-auto-login-local-wallet/</id>
@@ -1467,27 +1485,6 @@ Ottmar&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;input&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;type&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;text&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;StackOverflow1370021&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;style&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;display:none;&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;It is worth to mention that I run the newest Chrome browser and this &amp;ldquo;feature&amp;rdquo; is still available&amp;hellip;&lt;/p&gt;
 &lt;p&gt;Happy coding :-)&lt;br&gt;
-Ottmar&lt;/p&gt;
-
-</content>
-</entry>
-
-<entry xml:lang="en">
-<id>https://ogobrecht.github.io/posts/2017-06-13-ora11xe-install-file-swap-check-disabler/</id>
-<link href="https://ogobrecht.github.io/posts/2017-06-13-ora11xe-install-file-swap-check-disabler/" rel="alternate" type="text/html" title="Oracle DB 11gXE Install File Swap Check Disabler" />
-<title type="html">Oracle DB 11gXE Install File Swap Check Disabler</title>
-<summary type="html">A Docker file to prepare the 11gXE install file for use in a container environment</summary>
-<category term="project" label="Open Source Project" scheme="https://ogobrecht.github.io/tags/" />
-<category term="oracle" label="Oracle" scheme="https://ogobrecht.github.io/tags/" />
-<category term="docker" label="Docker" scheme="https://ogobrecht.github.io/tags/" />
-<published>2017-06-13T00:00:00+01:00</published>
-<updated>2017-08-12T20:11:00+01:00</updated>
-<content type="html" xml:base="https://ogobrecht.github.io/posts/2017-06-13-ora11xe-install-file-swap-check-disabler/">
-&lt;p&gt;&lt;em&gt;A Docker file to prepare the 11gXE install file for use in a container environment&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Many people have problems to install Oracle 11XE in a Docker environment because the install file checks the available swap space in the container. In a container environment this fails often - see &lt;a href=&#34;https://github.com/oracle/docker-images/issues/294#issuecomment-301465754&#34;&gt;here&lt;/a&gt; or &lt;a href=&#34;https://www.elastichosts.com/blog/oracle-database-installation-on-a-container-running-centos/&#34;&gt;here&lt;/a&gt;, because the swap space is optimized for the entire stack and not controlled from within the operating system of the container.&lt;/p&gt;
-&lt;p&gt;We have to disable the swap space check in the installation file. I wrote another &lt;a href=&#34;/posts/2017-03-21-pitfalls-with-oracle-11g-xe-and-docker-on-mac-os&#34;&gt;blog post about this&lt;/a&gt;. The problem is here, that you need a Linux based system to do the necessary steps. Under Windows you have no chance and you have to do it by yourself because for license reasons everyone has to download his/her own copy of the install file from &lt;a href=&#34;http://www.oracle.com/technetwork/database/database-technologies/express-edition/downloads/index.html&#34;&gt;Oracle OTN&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;I came up with the idea to do simply all the steps in a Docker container under the same Linux (oraclelinux:7-slim) which is later on needed with the &lt;a href=&#34;https://github.com/oracle/docker-images/blob/master/OracleDatabase/dockerfiles/11.2.0.2/Dockerfile.xe&#34;&gt;official Oracle Docker file&lt;/a&gt; for an XE instance. With this solution you are able to prepare the install file more or less automatically under every operating system, which can run Docker - also under Windows. For more Details see the &lt;a href=&#34;https://github.com/ogobrecht/docker-ora11xe-swap-check-disabler&#34;&gt;project on GitHub&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Happy installing :-)&lt;br&gt;
 Ottmar&lt;/p&gt;
 
 </content>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>move on Ottmar’s Notes</title>
+    <link>https://ogobrecht.github.io/tags/move/</link>
+    <description>Recent content in move on Ottmar’s Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 25 Dec 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ogobrecht.github.io/tags/move/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>New Domain</title>
+      <link>https://ogobrecht.github.io/posts/2020-12-25-new-domain/</link>
+      <pubDate>Fri, 25 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ogobrecht.github.io/posts/2020-12-25-new-domain/</guid>
+      <description>I moved my blog from ogobrecht.github.io to ogobrecht.com.
+If you followed my RSS feed under the old address and want to follow also in the future then please configure your RSS reader with my new address.
+Best regards
+Ottmar</description>
+    </item>
+    
+  </channel>
+</rss>
